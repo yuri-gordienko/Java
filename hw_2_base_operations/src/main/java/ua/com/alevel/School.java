@@ -6,7 +6,7 @@ public class School {
 
     public void lesson(int ln) {
 
-        DecimalFormat dF = new DecimalFormat("#.###"); // форматирую числовое значение времени, добавляю "0" в минутах
+        DecimalFormat dF = new DecimalFormat("#.###");  // форматирую числовое значение времени, добавляю "0" в минутах
 
         int h = 60;             // 1 hour = 60 min
         int l = 45;             // lesson time 45 min
