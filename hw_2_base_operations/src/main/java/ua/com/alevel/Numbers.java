@@ -1,6 +1,7 @@
 package ua.com.alevel;
 
 public class Numbers {
+
     public int getNumbers(String count) {
         char[] charsNum = count.toCharArray();            // создаю из строки массив чаров
         int sum = 0;
