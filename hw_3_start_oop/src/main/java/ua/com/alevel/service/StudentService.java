@@ -49,7 +49,7 @@ public class StudentService {
     public void update(Student student) {
         for(int i = 0; i < students.length; i++) {                    // перебираем массив
             try {                                                     // определяю блок кода, в котором может произойти исключение
-                if (students[i].getId().equals(student.getId())) {    // усли в массиве индекс с присвоенным id соответствует введенному в поиске id
+                if (students[i].getId().equals(student.getId())) {    // если в массиве индекс с присвоенным id соответствует введенному в поиске id
                     students[i] = student;                            // то выводим студента
                 }
             }
