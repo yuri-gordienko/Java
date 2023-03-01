@@ -10,5 +10,4 @@ public class Main_Tasks {
         System.out.println("Hallow, please make your choice to set task:");
         menu.start();
     }
-
 }

@@ -23,5 +23,4 @@ public class School {
         System.out.println("End of lesson # " + ln + " is: " + new DecimalFormat("00.###").format(elh) + ":" +
                                                                new DecimalFormat("00.###").format(elm));
     }
-
 }

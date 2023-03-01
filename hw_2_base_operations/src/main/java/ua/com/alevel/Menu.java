@@ -54,5 +54,4 @@ public class Menu {
         School el = new School();
         el.lesson(Integer.parseInt(bf.readLine()));
     }
-
 }
