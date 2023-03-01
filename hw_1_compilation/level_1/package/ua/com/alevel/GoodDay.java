@@ -4,5 +4,4 @@ class GoodDay {
         Words print = new Words();
         print.printMessage("Good morning");
     }
-
 }

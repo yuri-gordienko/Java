@@ -6,5 +6,4 @@ class GoodDay {
         ua.com.alevel.test.Words print = new ua.com.alevel.test.Words();
         print.printMessage("Good morning");
     }
-
 }
