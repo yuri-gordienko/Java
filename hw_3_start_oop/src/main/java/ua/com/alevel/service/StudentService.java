@@ -8,12 +8,11 @@ public class StudentService {
 
     private Student[] students = new Student[2];
 
-
     public void create(Student student) {
         student.setId(generateId());
         addIndex();                                     // вызываю метод по увеличению массива при заполнении
+        int age = student.getAge();
         for(int i = 0; i < students.length; i++) {
-            int age = student.getAge();
             if (age < 18 && age > 50) {
                 students[i] = null;                     // не создает студента, если не подходит возраст под требования школы
             }
@@ -28,7 +27,7 @@ public class StudentService {
     int arrayGrowth;
     private void addIndex() {                           // метод по увеличению массива при заполнении
         if (arrayGrowth == students.length) {
-            Student[] addSt = new Student[(students.length + students.length) + 1];
+            Student[] addSt = new Student[(students.length + students.length)];
             for (int i = 0; i < students.length; i++) {
                 addSt[i] = students[i];
             }
@@ -59,7 +58,7 @@ public class StudentService {
         }
     }
 
-    public void delete(String id) {
+    public Student delete(String id) {
         for(int i = 0; i < students.length; i++) {
             try {
                 if (students[i].getId().equals(id)) {
@@ -70,7 +69,7 @@ public class StudentService {
                 i++;
             }
         }
-        arrayGrowth--;
+        return null;
     }
 
     public Student findById(String id) {
