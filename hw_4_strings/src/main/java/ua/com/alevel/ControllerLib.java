@@ -8,8 +8,6 @@ import java.io.InputStreamReader;
 
 public class ControllerLib {
 
-    private ServiceLib serviceLib = new ServiceLib();
-
     public void start() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("*************************************************************************************************************************************");
