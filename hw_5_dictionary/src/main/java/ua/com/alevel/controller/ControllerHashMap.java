@@ -117,7 +117,7 @@ public class ControllerHashMap {
 
     public void removeDataToCount(BufferedReader reader) throws IOException {
         states.putAll(countries);
-        System.out.println("Data base of Table 'State' was Updated");
+        System.out.println("Data base of table 'State' was Updated");
         System.out.println("Table 'State' is " + states);
     }
 
@@ -125,4 +125,5 @@ public class ControllerHashMap {
         System.out.println("Table 'State' is empty? " + states.isEmpty());
         System.out.println("Table 'Countries' is empty? " + countries.isEmpty());
     }
+
 }
