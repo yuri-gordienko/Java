@@ -20,13 +20,13 @@ public class ControllerHashMap {
         states.put("840", "USA");
         states.put("076", "Brazil");
         states.put("702", "Singapore");
-        states.put("036", "Australia");
+        states.put("000", "Wakanda");
 
         System.out.println("________________________________________________________________________                                            ");
         System.out.println("We greet you!                                                           |           Справочная инфо. для меню (K, V)");
         System.out.println("< INTERNATIONAL ORGANISATION for STANDARDIZATION >                      |            804-Ukraine       276-Germany  ");
         System.out.println("                                                                        |            840-USA           076-Brazil   ");
-        System.out.println("Data base information:                                                  |            702-Singapore     036-Australia");
+        System.out.println("Data base information:                                                  |            702-Singapore     000-Wakanda  ");
         String select;
         menu();
         while ((select = bf.readLine()) != null) {
@@ -39,13 +39,14 @@ public class ControllerHashMap {
         System.out.println("Size of Data base, please Enter:                                       1");
         System.out.println("Check ISO in table, please Enter:                                      2");
         System.out.println("Check Country in table, please Enter:                                  3");
-        System.out.println("Find Country bi ISO, please Enter:                                     4");
+        System.out.println("Find Country by ISO, please Enter:                                     4");
         System.out.println("Delete Country by ISO, please Enter:                                   5");
         System.out.println("Remove all Data from table 'State' to table 'Countries', please Enter: 6");
-        System.out.println("Update Data base of table 'State', please Enter:                       7");
+        System.out.println("Update and SEE Data base of table 'State', please Enter:               7");
         System.out.println("Delete all Countries from table 'State', please Enter:                 8");
         System.out.println("Remove all Data from table 'Countries' to table 'State', please Enter: 9");
-        System.out.println("Check of table's Data state, please Enter:                            10");
+        System.out.println("Create new Data in table 'State', please Enter:                       10");
+        System.out.println("Check of tables Data base, please Enter:                              11");
         System.out.println("If you want to EXIT, please Enter:                                     0");
         System.out.println("------------------------------------------------------------------------");
     }
@@ -61,7 +62,8 @@ public class ControllerHashMap {
             case "7" -> updateS(reader);
             case "8" -> deleteS(reader);
             case "9" -> removeDataToCount(reader);
-            case "10" -> checkDataTAbles(reader);
+            case "10" -> addToS(reader);
+            case "11" -> checkDataTAbles(reader);
             case "0" -> System.exit(0);
         }
         menu();
@@ -121,9 +123,18 @@ public class ControllerHashMap {
         System.out.println("Table 'State' is " + states);
     }
 
-    public void checkDataTAbles(BufferedReader reader) throws IOException {
-        System.out.println("Table 'State' is empty? " + states.isEmpty());
-        System.out.println("Table 'Countries' is empty? " + countries.isEmpty());
+    public void addToS(BufferedReader reader) throws IOException {
+        System.out.println("Please enter the ISO of the Country which you want to add: ");
+        String c = reader.readLine();
+        System.out.println("Please enter the Country of the Country which you want to add: ");
+        String c2 = reader.readLine();
+        states.put(c, c2);
+        System.out.println("New Data successfully added");
+        System.out.println(states);
     }
 
+    public void checkDataTAbles(BufferedReader reader) throws IOException {
+        System.out.println("Table 'State' is empty? - " + states.isEmpty());
+        System.out.println("Table 'Countries' is empty? - " + countries.isEmpty());
+    }
 }
