@@ -36,18 +36,18 @@ public class ControllerHashMap {
 
     public void menu() {
         System.out.println("------------------------------------------------------------------------");
-        System.out.println("Size of Data base, please Enter:                                       1");
-        System.out.println("Check ISO in table, please Enter:                                      2");
-        System.out.println("Check Country in table, please Enter:                                  3");
-        System.out.println("Find Country by ISO, please Enter:                                     4");
-        System.out.println("Delete Country by ISO, please Enter:                                   5");
-        System.out.println("Remove all Data from table 'State' to table 'Countries', please Enter: 6");
-        System.out.println("Update and SEE Data base of table 'State', please Enter:               7");
-        System.out.println("Delete all Countries from table 'State', please Enter:                 8");
-        System.out.println("Remove all Data from table 'Countries' to table 'State', please Enter: 9");
-        System.out.println("Create new Data in table 'State', please Enter:                       10");
-        System.out.println("Check of tables Data base, please Enter:                              11");
-        System.out.println("If you want to EXIT, please Enter:                                     0");
+        System.out.println("Size of Data base, please Enter:                                        1");
+        System.out.println("Check ISO in table, please Enter:                                       2");
+        System.out.println("Check Country in table, please Enter:                                   3");
+        System.out.println("Find Country by ISO, please Enter:                                      4");
+        System.out.println("Delete Country by ISO, please Enter:                                    5");
+        System.out.println("Remove all Data from table 'State' to table 'Countries', please Enter:  6");
+        System.out.println("Update and SEE Data base of table 'State', please Enter:                7");
+        System.out.println("Delete all Countries from table 'State', please Enter:                  8");
+        System.out.println("Remove all Data from table 'Countries' to table 'State', please Enter:  9");
+        System.out.println("Create new Data in table 'State', please Enter:                        10");
+        System.out.println("Check of tables Data base, please Enter:                               11");
+        System.out.println("If you want to EXIT, please Enter:                                      0");
         System.out.println("------------------------------------------------------------------------");
     }
 
