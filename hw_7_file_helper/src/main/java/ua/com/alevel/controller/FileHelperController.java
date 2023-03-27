@@ -80,7 +80,7 @@ public class FileHelperController {
         File newDirectory = new File(reader.readLine());
         file.renameTo(new File(newDirectory, file.getName()));
         System.out.println("File was moved to directory: " + newDirectory);
-        }
+    }
 
     public void findFile(BufferedReader reader) throws IOException {
         System.out.println("Enter path of Directory");
