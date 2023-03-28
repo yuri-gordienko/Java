@@ -21,16 +21,17 @@ public class FileHelperController {
     }
 
     private void menu() {
-        System.out.println("");
-        System.out.println("Operations:");
-        System.out.println("1 >> Add Directory in directory...");
-        System.out.println("2 >> Add File in directory...");
-        System.out.println("3 >> List files in directory...");
-        System.out.println("4 >> Delete File or Directory in directory...");
-        System.out.println("5 >> Move file between directories...");
-        System.out.println("6 >> Find File in directory...");
-        System.out.println("7 >> Find Text in directory...");
-        System.out.println("0 >> Exit");
+        System.out.println("     ___________________________________________________________");
+        System.out.println("    |  Operations:                                              |");
+        System.out.println("    1 >> Add Directory in directory...                          |");
+        System.out.println("    2 >> Add File in directory...                               |");
+        System.out.println("    3 >> List files in directory...                             |");
+        System.out.println("    4 >> Delete File or Directory in directory...               |");
+        System.out.println("    5 >> Move file between directories...                       |");
+        System.out.println("    6 >> Find File in directory...                              |");
+        System.out.println("    7 >> Find Text in directory...                              |");
+        System.out.println("    0 >> Exit...________________________________________________|");
+//        System.out.println("    ");
     }
 
     public void cases(BufferedReader reader, String select) throws IOException {
@@ -60,7 +61,7 @@ public class FileHelperController {
     }
 
     public void list(BufferedReader reader) throws IOException {
-        System.out.println("Enter name of Directory");
+        System.out.println("Enter name of Directory:");
         File file = new File(reader.readLine());
        fileHelperService.listFile(String.valueOf(file));
     }
@@ -72,28 +73,28 @@ public class FileHelperController {
     }
 
     public void move(BufferedReader reader) throws IOException {
-        System.out.println("Enter path of directory the file to move from");
+        System.out.println("Enter path of directory the file to move from:");
         File directory = new File(reader.readLine());
-        System.out.println("Enter file name");
+        System.out.println("Enter file name:");
         File file = new File(directory, reader.readLine());
-        System.out.println("Enter path of directory the file to move to");
+        System.out.println("Enter path of directory the file to move to:");
         File newDirectory = new File(reader.readLine());
         file.renameTo(new File(newDirectory, file.getName()));
         System.out.println("File was moved to directory: " + newDirectory);
     }
 
     public void findFile(BufferedReader reader) throws IOException {
-        System.out.println("Enter path of Directory");
+        System.out.println("Enter path of Directory:");
         String dir = reader.readLine();
-        System.out.println("Enter File name");
+        System.out.println("Enter File name:");
         String file = reader.readLine();
         fileHelperService.findFileOrFolder(new File(dir), file);
     }
 
     private void findText(BufferedReader reader) throws IOException {
-            System.out.println("Enter path of Directory");
+            System.out.println("Enter path of Directory:");
             File dir = new File(reader.readLine());
-            System.out.println("Enter the text which you want to find");
+            System.out.println("Enter the text which you want to find:");
             String text = reader.readLine().toLowerCase();
             fileHelperService.findTextInFiles(dir, text);
     }
