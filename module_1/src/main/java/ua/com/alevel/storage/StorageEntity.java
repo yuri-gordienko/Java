@@ -141,7 +141,7 @@ public class StorageEntity {
         }
     }
 
-    public Owner deleteOwner(String id) {
+    public void deleteOwner(String id) {
         for(int i = 0; i < owners.length; i++) {
             try {
                 if (owners[i].getId().equals(id)) {
@@ -152,11 +152,9 @@ public class StorageEntity {
                 i++;
             }
         }
-        return null;
     }
 
     public Owner[] seeAllOwners() {
-
         return this.owners;
     }
 
@@ -245,8 +243,6 @@ public class StorageEntity {
     }
 
     public IdOwnerAndCar[] seeAllCarsWithOwners() {
-
         return this.idOwnerAndCar;
     }
-
 }
