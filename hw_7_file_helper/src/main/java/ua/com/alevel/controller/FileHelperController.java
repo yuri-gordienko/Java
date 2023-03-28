@@ -31,7 +31,6 @@ public class FileHelperController {
         System.out.println("    6 >> Find File in directory...                              |");
         System.out.println("    7 >> Find Text in directory...                              |");
         System.out.println("    0 >> Exit...________________________________________________|");
-//        System.out.println("    ");
     }
 
     public void cases(BufferedReader reader, String select) throws IOException {
