@@ -68,18 +68,6 @@ public class StudentDaoCsv implements StudentDao {
         return students;
     }
 
-    @Override
-    public void deleteDir() {
-        File file = new File(STUDENTS_DATA_BASE_STUDENTS.toURI());
-        file.delete();
-        file = new File(STUDENTS_DATA_BASE.toURI());
-        file.delete();
-        System.out.println("Directory was deleted from:");
-        file.getAbsolutePath();
-        String path = file.getAbsolutePath();
-        System.out.println(path);
-    }
-
     private void initStudents() {
         try (CSVReader csvReader = new CSVReader(new FileReader(STUDENTS_DATA_BASE_STUDENTS))) {
             List<String[]> list = csvReader.readAll();

@@ -10,5 +10,4 @@ public interface StudentDao {
     void delete(String id);
     StudentCsv findById(String id);
     List<StudentCsv> findAll();
-    void deleteDir();
 }

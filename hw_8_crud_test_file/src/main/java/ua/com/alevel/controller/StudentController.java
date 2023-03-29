@@ -125,6 +125,13 @@ public class StudentController {
     }
 
     private void deleteDir() {
-        studentDao.deleteDir();
+        File file = new File(STUDENTS_DATA_BASE_STUDENTS.toURI());
+        file.delete();
+        file = new File(STUDENTS_DATA_BASE.toURI());
+        file.delete();
+        System.out.println("Directory was deleted from:");
+        file.getAbsolutePath();
+        String path = file.getAbsolutePath();
+        System.out.println(path);
     }
 }
