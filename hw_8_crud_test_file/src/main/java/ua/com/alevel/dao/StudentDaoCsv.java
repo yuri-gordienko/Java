@@ -90,7 +90,7 @@ public class StudentDaoCsv implements StudentDao {
                     student.setId(element[0]);
                     student.setFirstName(element[1]);
                     student.setLastName(element[2]);
-                    student.setAge(element[3]);
+                    student.setAge(Integer.parseInt(element[3]));
                     students.add(student);
                 }
             }
@@ -108,7 +108,7 @@ public class StudentDaoCsv implements StudentDao {
                             student.getId(),
                             student.getFirstName(),
                             student.getLastName(),
-                            student.getAge()
+                            String.valueOf(student.getAge())
                     };
                     list.add(st);
                 }

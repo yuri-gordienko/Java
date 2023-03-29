@@ -7,7 +7,7 @@ public class StudentCsv implements Serializable {
     private String id;
     private String firstName;
     private String lastName;
-    private String age;
+    private int age;
 
     public String getId() {
 
@@ -39,14 +39,16 @@ public class StudentCsv implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getAge() {
+    public int getAge() {
 
         return age;
     }
 
-    public void setAge(String age) {
-
+    public int setAge(int age) {
+        if (age > 18 && age < 50) {
             this.age = age;
+        }
+        return 0;
     }
 
     public String toString() {

@@ -75,13 +75,13 @@ public class StudentController {
         System.out.println("Please enter the last name:");
         String lastName = reader.readLine();
         System.out.println("Please enter the age:");
-        String age = reader.readLine();
+        String stringAge = reader.readLine();
+        int age = Integer.parseInt(stringAge);
         StudentCsv st = new StudentCsv();
         st.setFirstName(firstName);
         st.setLastName(lastName);
         st.setAge(age);
         studentDao.create(st);
-        System.out.println("Student was added!");
     }
 
     private void update(BufferedReader reader) throws IOException {
@@ -92,7 +92,8 @@ public class StudentController {
         System.out.println("Please enter the last name:");
         String lastName = reader.readLine();
         System.out.println("Please enter the age:");
-        String age = reader.readLine();
+        String stringAge = reader.readLine();
+        int age = Integer.parseInt(stringAge);
         StudentCsv st = studentDao.findById(id);
         st.setFirstName(firstName);
         st.setLastName(lastName);
