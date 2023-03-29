@@ -6,31 +6,27 @@ public class Car extends BaseEntity {
     public String carModel;
     public String vinCode;
 
-
     public String getCarBrand() {
-
         return carBrand;
     }
-    public void setCarBrand(String carBrand) {
 
+    public void setCarBrand(String carBrand) {
         this.carBrand = carBrand;
     }
 
     public String getCarModel() {
-
         return carModel;
     }
-    public void setCarModel(String carModel) {
 
+    public void setCarModel(String carModel) {
         this.carModel = carModel;
     }
 
     public String getVinCode() {
-
         return vinCode;
     }
-    public void setVinCode(String vinCode) {
 
+    public void setVinCode(String vinCode) {
         this.vinCode = vinCode;
     }
 
