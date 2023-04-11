@@ -7,15 +7,15 @@ import java.util.UUID;
 
 public final class DbUtil {
 
-private static DbUtil instanse;
+private static DbUtil instance;
 
     private DbUtil() {}
 
-    public static DbUtil getInstanse() {
-        if (instanse == null) {
-            instanse = new DbUtil();
+    public static DbUtil getInstance() {
+        if (instance == null) {
+            instance = new DbUtil();
         }
-        return instanse;
+        return instance;
     }
 
     public String generateId(List<StudentCsv> students) {
