@@ -23,7 +23,7 @@ public class StudentDaoCsv implements StudentDao {
     @Override
     public void create(StudentCsv student) {
         initStudents();
-        student.setId(DbUtil.getInstanse().generateId(students));
+        student.setId(DbUtil.getInstance().generateId(students));
         students.add(student);
         wrightStudentsToCSV();
     }
