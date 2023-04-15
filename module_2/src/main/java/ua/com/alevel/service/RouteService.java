@@ -30,7 +30,7 @@ public class RouteService {
         int dest = destination;
         ShortestPath.shortestPath(adjacencyMatrix,start,dest);
         ShortestPath.find2ndShortest(adjacencyMatrix,start,dest);
-        ShortestPath.outputFile(DIRECTORY);
+        ShortestPath.outputFile(FILE_OUTPUT);
     }
 
     static class ShortestPath {
@@ -45,13 +45,18 @@ public class RouteService {
             file.createNewFile();
 
             List<Integer> list = new ArrayList<Integer>(allDists);
-            FileWriter writer = new FileWriter(DIRECTORY);
-            String a = String.valueOf(list.get(0));
-            String b = String.valueOf(list.get(1));
+            try(FileWriter writer = new FileWriter(FILE_OUTPUT, false))
+            {
+                String a = String.valueOf(list.get(0));
+                String b = String.valueOf(list.get(1));
                     writer.write("The Cheapest route is: " + "$ " + a + '\n' +
                             "   also, if you want, you can choose alternative route"
                             + '\n' + "The 2nd position route is: " + "$ " + b);
                     writer.flush();
+            }
+            catch(IOException ex){
+                System.out.println(ex.getMessage());
+            }
         }
 
         static void shortestPath(int[][] matrix, int start, int dest) {
@@ -117,9 +122,13 @@ public class RouteService {
     }
 
     public void deleteOutputFile() {
-        File file = new File(DIRECTORY.toString());
+        File file = new File(FILE_OUTPUT);
         file.delete();
         System.out.println(color.RED +"Information was deleted from your device:" + color.WHITE);
+        file.getAbsolutePath();
+        System.out.println(file.getAbsolutePath());
+        file = new File(FILE_INPUT);
+        file.delete();
         file.getAbsolutePath();
         System.out.println(file.getAbsolutePath());
     }

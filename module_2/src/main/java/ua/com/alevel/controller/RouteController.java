@@ -56,6 +56,7 @@ public class RouteController {
         String dest = reader.readLine();
         this.departurePoint = Integer.parseInt(dep);
         this.destination = Integer.parseInt(dest);
+        System.out.println(color.GREEN + "The route was built, you can go to next step:" + color.WHITE);
     }
 
     private void calculate(BufferedReader reader) throws IOException {
