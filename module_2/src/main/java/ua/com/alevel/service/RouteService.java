@@ -39,7 +39,7 @@ public class RouteService {
             File file = new File(fileName);
             file.getAbsolutePath();
             System.out.println(color.CYAN + "Calculation of your trip have been sent to your e-mail, " +
-                    "check your box, please >>");
+                    "check your box, please >> ");
             System.out.println(color.WHITE + ">>  " + file.getAbsolutePath());
             System.out.println(" ");
             file.createNewFile();

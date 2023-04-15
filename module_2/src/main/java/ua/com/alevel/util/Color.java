@@ -3,6 +3,7 @@ package ua.com.alevel.util;
 public class Color {
 
     public static class Colors {
+
         public static final String RED = "\u001b[31m";
         public static final String YELLOW = "\u001b[33m";
         public static final String PURPLE = "\u001b[35m";
