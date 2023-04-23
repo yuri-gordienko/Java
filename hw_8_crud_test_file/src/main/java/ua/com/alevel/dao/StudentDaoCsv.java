@@ -14,11 +14,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDaoCsv implements StudentDao {
+    // Имплементация классом интерфейса — это гарантия реализации функционала. Если класс имплементирует некоторый
+    // интерфейс, то он обещает, что в нем есть объявленные в интерфейсе методы, они принимают объявленные параметры и
+    // возвращает объявленное значение
 
     public static final File STUDENTS_DATA_BASE = new File("STUDIENTS_Data_Base");
     public static final File STUDENTS_DATA_BASE_STUDENTS = new File("STUDIENTS_Data_Base/students.csv");
 
-    private List<StudentCsv> students = new ArrayList<>();
+
+    // приняли на вход студента, сгенерировали id, теперь нужно его записать в файл
+    // но для того, чтоб записать нужно иметь коллекцию
+    private List<StudentCsv> students = new ArrayList<>();      // инициализируем студентов
 
     @Override
     public void create(StudentCsv student) {
@@ -68,18 +74,19 @@ public class StudentDaoCsv implements StudentDao {
         return students;
     }
 
-    private void initStudents() {
-        try (CSVReader csvReader = new CSVReader(new FileReader(STUDENTS_DATA_BASE_STUDENTS))) {
-            List<String[]> list = csvReader.readAll();
-            students = new ArrayList<>();
-            if (CollectionUtils.isNotEmpty(list)) {
-                for (String[] element : list) {
+    private void initStudents() {           // чтоб считать данные с файла используем метод от библиотеки opencsv
+        // используем try чтоб файл закрылся после чтения (файл нужно закрывать)
+        try (CSVReader csvReader = new CSVReader(new FileReader(STUDENTS_DATA_BASE_STUDENTS))) {// ридер работает как декоратор, читаем данные с файла .csv
+            List<String[]> list = csvReader.readAll();      // достаем лист массива строк (readAll возвращает лист массива строк)
+            students = new ArrayList<>();   // на базе листа инициализируем студентов, при каждом чтении говорим что наши студенты это новый список
+            if (CollectionUtils.isNotEmpty(list)) {     // если считали данные и файл не пуустой
+                for (String[] element : list) {     // бежим по листу (массив элементов строк)
                     StudentCsv student = new StudentCsv();
-                    student.setId(element[0]);
+                    student.setId(element[0]);      // кладем в ячейку значение
                     student.setFirstName(element[1]);
                     student.setLastName(element[2]);
                     student.setAge(Integer.parseInt(element[3]));
-                    students.add(student);
+                    students.add(student);      // создаем коллекцию студентов у нас на компе локально
                 }
             }
         } catch (IOException e) {
@@ -87,20 +94,20 @@ public class StudentDaoCsv implements StudentDao {
         }
     }
 
-    private void wrightStudentsToCSV() {
-        try (CSVWriter csvWriter = new CSVWriter(new FileWriter(STUDENTS_DATA_BASE_STUDENTS))) {
-            List<String[]> list = new ArrayList<>();
-            if (CollectionUtils.isNotEmpty(students)) {
+    private void wrightStudentsToCSV() {            // сохранить данные
+        try (CSVWriter csvWriter = new CSVWriter(new FileWriter(STUDENTS_DATA_BASE_STUDENTS))) {    // записываем данные в файл
+            List<String[]> list = new ArrayList<>(); // считали лист массива строк, теперь создаем лист массива строк
+            if (CollectionUtils.isNotEmpty(students)) { // если коллекция не пустая
                 for (StudentCsv student : students) {
-                    String [] st = new String[] {
+                    String [] st = new String[] {       // создаем на каждом этапе массив строки
                             student.getId(),
                             student.getFirstName(),
                             student.getLastName(),
                             String.valueOf(student.getAge())
                     };
-                    list.add(st);
+                    list.add(st);       // в наш лист добавляем переменную
                 }
-                csvWriter.writeAll(list);
+                csvWriter.writeAll(list);       // после того как сгенерировали, записываем лист массива строк
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
