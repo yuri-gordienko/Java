@@ -45,37 +45,37 @@ public class DotTest {
 //        System.out.println("sum = " + sum);
 
 
-        List<User> users = getUsers();
+        List<User> users = getUsers();  // получаем список пользователей (тривиальный способ)
         for (User user : users) {
             System.out.println("user = " + user);
         }
-        List<UserDTO> userDTOList = new ArrayList<>();
+        List<UserDTO> userDTOList = new ArrayList<>();  // на базе этого массива создаем Лист ДТО
         for (User user : users) {
-//            UserDTO userDTO = new UserDTO();
+//            UserDTO userDTO = new UserDTO();  // тривиальный способ
 //            userDTO.setEmail(user.getEmail());
 //            userDTO.setFirstName(user.getFirstName());
 //            userDTO.setLastName(user.getLastName());
 //            userDTOList.add(userDTO);
-            userDTOList.add(new UserDTO(user));
+            userDTOList.add(new UserDTO(user));     // новый способ
         }
         System.out.println();
 
-        userDTOList = users
+        userDTOList = users                     // способ на основании Стрима
                 .stream()
-//                .map(user -> new UserDTO(user))
-                .map(UserDTO::new)
+//                .map(user -> new UserDTO(user))   // используем лямбду
+                .map(UserDTO::new)  // используем оператор ::
                 .toList();
 
-        for (UserDTO userDTO : userDTOList) {
+        for (UserDTO userDTO : userDTOList) {           // выводим сформированный Лист ДТО
             System.out.println("userDTO = " + userDTO);
         }
     }
 
-    private int sum(int a, int b) {
+    private int sum(int a, int b) {     // существующий метод в классе, на основании которого использовали лямбду
         return a + b;
     }
 
-    private List<User> getUsers() {
+    private List<User> getUsers() {                 // создали пользователей вручную
         List<User> users = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             User user = new User();
@@ -89,7 +89,7 @@ public class DotTest {
         return users;
     }
 
-    private class InnerClass {
+    private class InnerClass {                              // внутренний клас, на основании которого использовали лямбду
         private int sum(int a, int b) {
             return a + b;
         }
