@@ -24,7 +24,7 @@ public class StudentDaoCsv implements StudentDao {
 
     // приняли на вход студента, сгенерировали id, теперь нужно его записать в файл
     // но для того, чтоб записать нужно иметь коллекцию
-    private List<StudentCsv> students = new ArrayList<>();      // инициализируем студентов
+    private List<StudentCsv> students = new ArrayList<>();       // инициализируем студентов
 
     @Override
     public void create(StudentCsv student) {
