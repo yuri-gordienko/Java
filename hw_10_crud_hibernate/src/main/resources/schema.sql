@@ -9,12 +9,12 @@ create table pupils
     email varchar(255) not null
 );
 
---insert into pupils values (default, 'Андрей', '', 5, 'andrey@ukr.net');
---insert into pupils values (default, 'Боря', 'Борисов', 9, 'bor@ukr.net');
---insert into pupils values (default, 'Серёжа', 'Андреев', 3, 'ser@ukr.net');
---insert into pupils values (default, 'Николай', 'Николаев', 11, 'nik@ukr.net');
---insert into pupils values (default, 'Александр', 'Александров', 11, 'alex@ukr.net');
---insert into pupils values (default, 'Димочка', '', 3, 'dim@ukr.net');
+--insert into pupils values (default, 'Андрей', 'Андреев', 5, 'andrey@ukr.net');
+--insert into pupils values (default, 'Борис', 'Борисов', 3, 'bor@ukr.net');
+--insert into pupils values (default, 'Сергей', 'Серый', 3, 'ser@ukr.net');
+--insert into pupils values (default, 'Николай', 'Николаев', 2, 'nik@ukr.net');
+--insert into pupils values (default, 'Александр', 'Александров', 4, 'alex@ukr.net');
+--insert into pupils values (default, 'Дмитрий', 'Ананасов', 2, 'dim@ukr.net');
 
 
 create table electives
@@ -23,11 +23,12 @@ create table electives
     name varchar(255) not null
 );
 
---insert into electives values (default, 'Математика');
---insert into electives values (default, 'Інформатика');
---insert into electives values (default, 'Фізкультура');
---insert into electives values (default, 'Образотворче мистецтво');
---insert into electives values (default, 'Поезія');
+--insert into electives values (default, 'Golang');
+--insert into electives values (default, '.NET/C#');
+--insert into electives values (default, 'Основи програмування');
+--insert into electives values (default, 'Java');
+--insert into electives values (default, 'Python');
+--insert into electives values (default, 'Front-end');
 
 
 create table relation_el_pup
@@ -46,10 +47,10 @@ create table relation_el_pup
 --insert into relation_el_pup value (5, 2);
 --insert into relation_el_pup value (3, 6);
 --insert into relation_el_pup value (3, 3);
---insert into relation_el_pup value (3, 1);
+--insert into relation_el_pup value (6, 1);
 --insert into relation_el_pup value (4, 1);
 --insert into relation_el_pup value (5, 3);
---insert into relation_el_pup value (5, 5);
+--insert into relation_el_pup value (5, 6);
 --insert into relation_el_pup value (3, 2);
 
 
