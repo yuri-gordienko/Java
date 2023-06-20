@@ -1,0 +1,198 @@
+<!--*ngIf="product" если продукт, то рисуем-->
+<!--шаблоны берем на бутстрапе-->
+<!--"table table-striped" рисуем в виде таблицы-->
+<!--<div class="d-flex flex-wrap"> необходим чтоб картинки не вылезали за пределы-->
+<!--Final configuration итоговый блок вариаций продукта, который мы сформировали фильтрами-->
+<!--<button class="btn btn-light" (click)="setOs(os)">{{ os }}</button> делает поле кнопкой -->
+<!--table table-striped" style="width: 400px отступ выбранных значенийв фильтрах от филдов-->
+<!--[disabled]="!(isValidProductResult$ кнопка не активна, пока не выбраны все варианты продукта для финальногообъекта-->
+
+
+<ng-container *ngIf="product">
+  <table class="table table-striped">
+    <tr>
+      <th>
+        Product brand
+      </th>
+      <td>
+        {{ product.productBrand }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Product name
+      </th>
+      <td>
+        {{ product.name }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Product view
+      </th>
+      <td>
+        <div class="d-flex">
+          <!--        <div class="d-flex flex-wrap">-->
+          <div class="p-1" *ngFor="let image of product.images">
+            <img src="{{ image }}" class="card-img-top" alt="...">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Product description
+      </th>
+      <td>
+        {{ product.description }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        OS variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let os of product.osList">
+            <button class="btn btn-light" (click)="setOs(os)">{{ os }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        CPU variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let cpu of product.cpuList">
+            <button class="btn btn-light" (click)="setCpu(cpu)">{{ cpu }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        RAM variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let ram of product.ramList">
+            <button class="btn btn-light" (click)="setRam(ram)">{{ ram }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        SSD variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let ssd of product.ssdList">
+            <button class="btn btn-light" (click)="setSsd(ssd)">{{ ssd }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Color variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let color of product.colorList">
+            <button class="btn btn-light" (click)="setColor(color)">{{ color }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Display resolution variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let displayResolution of product.displayResolutionList">
+            <button class="btn btn-light" (click)="setDisplayResolution(displayResolution)">{{ displayResolution }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Display type variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let displayType of product.displayTypeList">
+            <button class="btn btn-light" (click)="setDisplayType(displayType)">{{ displayType }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Display size variants
+      </th>
+      <td>
+        <div class="d-flex flex-wrap">
+          <div class="p-1" *ngFor="let displaySize of product.displaySizeList">
+            <button class="btn btn-light" (click)="setDisplaySize(displaySize)">{{ displaySize }}</button>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <div class="d-flex flex-column mt-4">
+    <div class="p-1">
+      <h3>
+        Final configuration
+      </h3>
+    </div>
+    <div class="p-1" *ngIf="productResult$ | async as productResult">
+      <table class="table table-striped" style="width: 400px">
+        <tr>
+          <th>OS</th>
+          <td>{{ productResult.os }}</td>
+        </tr>
+        <tr>
+          <th>CPU</th>
+          <td>{{ productResult.cpu }}</td>
+        </tr>
+        <tr>
+          <th>RAM</th>
+          <td>{{ productResult.ram }}</td>
+        </tr>
+        <tr>
+          <th>SSD</th>
+          <td>{{ productResult.ssd }}</td>
+        </tr>
+        <tr>
+          <th>Color</th>
+          <td>{{ productResult.color }}</td>
+        </tr>
+        <tr>
+          <th>Display resolution</th>
+          <td>{{ productResult.displayResolution }}</td>
+        </tr>
+        <tr>
+          <th>Display type</th>
+          <td>{{ productResult.displayType }}</td>
+        </tr>
+        <tr>
+          <th>Display size</th>
+          <td>{{ productResult.displaySize }}</td>
+        </tr>
+        <tr>
+          <th>Result price</th>
+          <td>{{ productResult.price }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="d-flex flex-column mt-4">
+    <button type="button" class="btn btn-primary" [disabled]="!(isValidProductResult$ | async)">Buy</button>
+  </div>
+</ng-container>

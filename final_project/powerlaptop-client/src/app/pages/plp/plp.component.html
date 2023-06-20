@@ -1,0 +1,29 @@
+<!--помещаем в общую картинку наш объект, с заголовками, текстом, картинкой-->
+<!--класс "card" это рамка (выделенное поле) в которой лежит объект (название, картинка, описание)-->
+<!--h5, h4 - размер заголовка-->
+<!--flex-wrap размещение блоков на странице-->
+<!--card product-info настройка лежит в plp.component.scss-->
+<!--card-img-top" alt=" габариты картинки-->
+<!--чтоб кликнуть на "card product-info" и произошел раутинг идем в pdp.component.ts и добавляем функцию redirectToPdp-->
+<!--и говорим куда перенаправлять при клике (click)="redirectToPdp(product.id)-->
+
+<ng-container *ngIf="plpList$ | async as plpList">
+  <div class="d-flex flex-wrap justify-content-center">
+    <div class="p-0" *ngFor="let product of plpList">
+      <div class="card product-info" style="width: 18rem;" (click)="redirectToPdp(product.id)">
+        <div class="product-image">
+          <img src="{{ product.image }}" class="card-img-top" alt="...">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ product.productBrand }}</h5>
+          <p class="card-text">{{ product.name }}</p>
+          <p class="card-text">{{ product.price }}</p>
+          <a href="#" class="btn btn-primary">Buy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+
+

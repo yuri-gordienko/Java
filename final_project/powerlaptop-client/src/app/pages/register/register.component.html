@@ -1,0 +1,23 @@
+<!--создали форму для страницы регистрации-->
+<!--justify-content-center чтоб форма была по центру -->
+<!--[formGroup]="form" чтоб форма заполнения отслеживалась в html вешаем фоорм группу-->
+<!--isSubmit | async подписываемся на состояние объекта, если форма пустая или не корректрая, кнопка будет disabled -->
+<!--(click)="register()" вешаем на кнопкуее функция, что делать функции указываем  метод register(): void-->
+
+
+<div class="d-flex justify-content-center">
+  <div class="p-0">
+    <form [formGroup]="form">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="username">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password">
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="!(isSubmit | async)" (click)="register()">Submit</button>
+    </form>
+  </div>
+</div>

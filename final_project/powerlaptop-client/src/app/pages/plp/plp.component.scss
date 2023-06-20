@@ -1,0 +1,36 @@
+// Настройка отступов в Объекте Продукт. По названию блоков в файле app.component.html ложим сюда значения
+
+// отступы между блоками
+.product-info {
+  margin: 0.5em;
+  height: 490px;
+}
+
+// когда наводим на блок, курсор меняет форму
+.product-info:hover {
+  cursor: pointer;
+}
+
+.product-image {
+  height: 286px;
+  width: 286px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  a {
+    margin-top: auto;
+  }
+}
+
+footer {
+  padding-top: 3rem!important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+
+  .py-5 {
+    padding-top: 3rem!important;
+    padding-bottom: 0!important;
+  }
+}

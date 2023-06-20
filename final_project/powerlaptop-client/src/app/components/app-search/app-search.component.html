@@ -1,0 +1,15 @@
+<!--Создаем отдельный компонент для поисковой строки эластика-->
+
+<form class="d-flex" role="search" [formGroup]="queryForm">
+  <div class="d-flex dropdown">
+    <input class="form-control me-2 mr-1 dropdown-toggle" type="search" placeholder="Search" aria-label="Search" data-bs-toggle="dropdown" formControlName="query">
+    <ul class="dropdown-menu">
+      <ng-container *ngFor="let product of (products$ | async)">
+        <li>
+          <a class="dropdown-item" href="#">{{ product.productInfo }}</a>
+        </li>
+      </ng-container>
+    </ul>
+    <button class="btn btn-outline-success" type="submit">{{ (products$ | async)?.length }}</button>
+  </div>
+</form>
