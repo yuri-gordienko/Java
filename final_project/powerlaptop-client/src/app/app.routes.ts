@@ -7,11 +7,13 @@
       path: '',  // кореневой Роут (localhost: 4200) - начальная страница редиректит на 'plp
       redirectTo: 'plp', // попадаем сюда (компонент)
       pathMatch: 'full'  // не строим относительные рауты, строим полный раут
+      // подхватывает все компоненты что после full, full смотрит от корня (корень это окончание доменого имени)
     },
     {
       path: 'plp', // 1й раут, после слеша перебрасывает сюда
       pathMatch: 'prefix', // когда будем прописывать роуты, путь будет начинаться от корня внутри каталога,
                            //т.е. перед ним уже будет стоять prefix  plp/
+                           // после prefix уже переход идет по конкретным id конкретной страницы
        // children: [
           //   {
           //     path: '',
@@ -34,8 +36,9 @@
         loadChildren:() => import('./pages/pdp/pdp.routes').then(m => m.PDP_ROUTES)
       },
       {
-        path: 'register',
+        path: 'register', // когда попадаем на этот компонент, то отрабатывает /register.router
         pathMatch: 'prefix',
+        // чтоб при запуске системы, попадали на страничку регистрации
         loadChildren:() => import('./pages/register/register.router').then(m => m.REGISTER_ROUTES)
       }
     ];
