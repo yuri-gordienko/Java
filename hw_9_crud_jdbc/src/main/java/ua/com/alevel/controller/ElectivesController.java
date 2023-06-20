@@ -250,11 +250,11 @@ public class ElectivesController {
 ////        electivesDao.findPupilsByElectives();
 //    }
     private void pupilsInElectives(BufferedReader reader) throws IOException {
-        Collection<ElectivesDto> electives = electivesDao.findPupilsByElectives();
-        for (ElectivesDto elective : electives) {
-            if (elective != null) {
-                System.out.println("- " + elective);
-            }
-        }
+//        Collection<ElectivesDto> electives = electivesDao.findPupilsByElectives();
+//        for (ElectivesDto elective : electives) {
+//            if (elective != null) {
+//                System.out.println("- " + elective);
+//            }
+//        }
     }
 }
