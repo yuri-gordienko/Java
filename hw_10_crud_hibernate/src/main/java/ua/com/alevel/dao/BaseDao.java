@@ -13,3 +13,7 @@ public interface BaseDao<E extends BaseEntity> {
     Optional<E> findById(Long id);
     Collection<E> findAll();
 }
+
+//    DataTableResponse<E> findAll(DataTableRequest request); // передаем в качестве параметра
+//    DataTableResponse<E> findAll(DataTableRequest request); - реализовать факультеты
+

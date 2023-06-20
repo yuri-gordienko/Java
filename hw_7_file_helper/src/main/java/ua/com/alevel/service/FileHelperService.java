@@ -65,5 +65,8 @@ public class FileHelperService {
                 }
             }
         }
+        file.getAbsolutePath();
+        String path = file.getAbsolutePath();
+        System.out.println(path);
     }
 }

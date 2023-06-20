@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Перекази</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            Виконати переказ:
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Відправник</th>
+                    <th scope="col">Рахунок</th>
+                    <th scope="col">№ Рахунку</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${sender.fullName}"/>
+                    <td th:text="${sender_account.accountName}"/>
+                    <td th:text="${sender_account.accountNumber}"/>
+                </tr>
+                </tbody>
+            </table>
+            <form action="#" th:action="@{'/operations'}" th:method="POST">
+                <input th:name="fromAccNumber" th:value="${sender_account.accountNumber}" type="hidden"/>
+                <div class="form-group">
+                    <label for="toAccNumber">1. Номер рахунку отримувача: </label>
+                    <input class="form-control" id="toAccNumber" placeholder="введіть № рахунку отримувача" th:name="toAccNumber"
+                           type="text"/>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="amount">2. Сума: </label>
+                    <input class="form-control" id="amount" placeholder="введіть суму" th:name="amount" type="text"/>
+                </div>
+                <br>
+                <button class="btn btn-warning" type="submit">Відправити</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

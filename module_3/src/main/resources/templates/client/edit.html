@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Оновити КЛІЄНТА</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            Оновити КЛІЄНТА:
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{'/clients/' + ${client.id}}" th:method="PATCH" th:object="${client}">
+                <div class="form-group">
+                    <label for="fullName">1. Повне ім'я: </label>
+                    <input class="form-control" id="fullName" placeholder="введіть повне ім'я" th:field="*{fullName}"
+                           type="text"/>
+                    <div style="color:red" th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}">Ім'я не коректне, перевірте будь ласка введені дані.
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="email">2. E-mail: </label>
+                    <input class="form-control" id="email" placeholder="e-mail" th:field="*{email}" type="text"/>
+                    <div style="color:red" th:errors="*{email}" th:if="${#fields.hasErrors('email')}">e-mail не коректний, перевірте будь ласка введені дані.</div>
+                </div>
+                <br/>
+                <button class="btn btn-dark" type="submit">Оновити</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

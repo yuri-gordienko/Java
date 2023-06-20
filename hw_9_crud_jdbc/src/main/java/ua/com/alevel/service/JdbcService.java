@@ -15,7 +15,7 @@ private static final JdbcService instance = new JdbcService();
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String url = "jdbc:mysql://localhost:3306/java_5";
     private final String username = "root";
-    private final String password = "Test123!";
+    private final String password = "java";
 
     private JdbcService() {
         try {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout/layout}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Дані по клієнту</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card mt-3">
+        <div class="card-header">
+            <hd th:text="${client.getFullName()}">Дані: </hd>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">e-mail клієнта: </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td th:text="${client.getEmail()}"/>
+                    <td>
+                        <a class="btn btn-dark" th:href="@{'/clients/'+ ${client.id} + '/edit'}"
+                           type="button">Оновити </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Рахунок</th>
+                    <th scope="col">№ рахунку</th>
+                    <th scope="col">Баланс</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="account : ${client.accounts}">
+                    <td th:text="${account.getAccountName()}"/>
+                    <td th:text="${account.getAccountNumber()}"/>
+                    <td th:text="${account.getBalance()}"/>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{'/accounts/' + ${account.id}}" type="button">Перекази</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <td>
+                <a aria-disabled="true" class="btn btn-outline-dark btn-back" th:href="@{'/clients'}" type="button"><<  Повернутися</a>
+            </td>
+            <td>
+                <a aria-disabled="true" class="btn btn-danger" th:href="@{'/accounts/' + ${id} + '/new'}" type="button">Створити новий РАХУНОК</a>
+            </td>
+            <td>
+        </div>
+    </div>
+</div>
+</body>
+</html>

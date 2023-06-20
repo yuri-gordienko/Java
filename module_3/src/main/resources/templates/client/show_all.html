@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layout/layout}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>yugoBank Home</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card mt-3">
+        <div class="card-header">
+            КЛІЄНТИ банку:
+        </div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Клієнт: </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="client : ${clients}">
+                    <td th:text="${client.fullName}"/>
+                    <td>
+                        <a class="btn btn-dark" th:href="@{'/clients/'+ ${client.id}}" type="button">Подробиці</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <a aria-disabled="true" class="btn btn-danger" th:href="@{'/clients/new'}" type="button">Створити нового КЛІЄНТА</a>
+        </div>
+        <br/>
+        <nav class="navbar navbar-dark bg-dark">
+            <div class="container">
+                <br/>
+                <h5 class="navbar-brand" th:href="@{'/clients'}">© 2023 Copyright: yugo.com</h5>
+            </div>
+        </nav>
+    </div>
+</div>
+</body>
+</html>

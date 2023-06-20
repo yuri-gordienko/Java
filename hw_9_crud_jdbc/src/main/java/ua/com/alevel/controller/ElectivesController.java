@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
 
+
 public class ElectivesController {
 
     private final PupilsDao pupilsDao = new PupilsDaoImpl();
@@ -48,7 +49,8 @@ public class ElectivesController {
         System.out.println("    | Додати учня до факультативу                         >>     6          |");
         System.out.println("    | Видалити учня з факультативу                        >>     7          |");
         System.out.println("    | Знайти учня за ім'ям/призвищу у факультативі        >>     8          |");
-        System.out.println("    |" + color.WHITE + " Отримати рейтинг відвідуваності факультативів       >>     9" + color.YELLOW + "          |");
+        System.out.println("    | Всі учні за факультативами                          >>     9          |");
+        System.out.println("    |" + color.WHITE + " Отримати рейтинг відвідуваності факультативів       >>    10" + color.YELLOW + "          |");
         System.out.println("    .........................................................................");
         System.out.println("    | " + color.RED + "Завершити                                           >>     0" + color.YELLOW + "          |");
         System.out.println(color.YELLOW + "    -------------------------------------------------------------------------");
@@ -68,12 +70,13 @@ public class ElectivesController {
             case "44" -> findPupilById(reader);
             case "55" -> seeAllPupils();
 
-            case "6" -> attachPupilToElectives(reader);
-            case "7" -> deletePupilFromElective(reader);
-            case "8" -> existsPupilInElective(reader);
-            case "9"   -> getRatingAttendance(reader);
+            case "6"  -> attachPupilToElectives(reader);
+            case "7"  -> deletePupilFromElective(reader);
+            case "8"  -> existsPupilInElective(reader);
+            case "9"  -> pupilsInElectives(reader);
+            case "10" -> getRatingAttendance(reader);
 
-            case "0" -> System.exit(0);
+            case "0"  -> System.exit(0);
         }
         menu();
     }
@@ -230,6 +233,27 @@ public class ElectivesController {
             for (ElectivesDto electivesDto : electiveStatistics) {
                 System.out.println(color.RED + ratingNumber + ". " + color.YELLOW + electivesDto.toString());
                 ratingNumber++;
+            }
+        }
+    }
+
+//    public void pupilsInElectives(BufferedReader reader) throws IOException {
+//        Collection<ElectivesDto> pupilsInElectives = electivesDao.findPupilsByElectives();
+//        if (pupilsInElectives.isEmpty()) {
+//            System.out.println("Статистики ще немає");
+//        } else {
+//            System.out.println(color.CYAN + "Факультативіви та учні:" + color.YELLOW);
+//            for (ElectivesDto electivesDto : pupilsInElectives) {
+//                System.out.println(electivesDto.toString());
+//            }
+//        }
+////        electivesDao.findPupilsByElectives();
+//    }
+    private void pupilsInElectives(BufferedReader reader) throws IOException {
+        Collection<ElectivesDto> electives = electivesDao.findPupilsByElectives();
+        for (ElectivesDto elective : electives) {
+            if (elective != null) {
+                System.out.println("- " + elective);
             }
         }
     }

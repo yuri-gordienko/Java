@@ -25,9 +25,9 @@ public class FileHelperController {
         System.out.println("    |  Operations:                                              |");
         System.out.println("    1 >> Add Directory in directory...                          |");
         System.out.println("    2 >> Add File in directory...                               |");
-        System.out.println("    3 >> List files in directory...                             |");
+        System.out.println("    3 >> List Files in directory...                             |");
         System.out.println("    4 >> Delete File or Directory in directory...               |");
-        System.out.println("    5 >> Move file between directories...                       |");
+        System.out.println("    5 >> Move File between directories...                       |");
         System.out.println("    6 >> Find File in directory...                              |");
         System.out.println("    7 >> Find Text in directory...                              |");
         System.out.println("    0 >> Exit...________________________________________________|");
@@ -62,7 +62,7 @@ public class FileHelperController {
     public void list(BufferedReader reader) throws IOException {
         System.out.println("Enter name of Directory:");
         File file = new File(reader.readLine());
-       fileHelperService.listFile(String.valueOf(file));
+        fileHelperService.listFile(String.valueOf(file));
     }
 
     public void delete(BufferedReader reader) throws IOException {
@@ -91,10 +91,10 @@ public class FileHelperController {
     }
 
     private void findText(BufferedReader reader) throws IOException {
-            System.out.println("Enter path of Directory:");
-            File dir = new File(reader.readLine());
-            System.out.println("Enter the text which you want to find:");
-            String text = reader.readLine().toLowerCase();
-            fileHelperService.findTextInFiles(dir, text);
+        System.out.println("Enter path of Directory:");
+        File dir = new File(reader.readLine());
+        System.out.println("Enter the text which you want to find:");
+        String text = reader.readLine().toLowerCase();
+        fileHelperService.findTextInFiles(dir, text);
     }
 }

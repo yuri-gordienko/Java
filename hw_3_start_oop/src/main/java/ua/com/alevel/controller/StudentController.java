@@ -6,6 +6,7 @@ import ua.com.alevel.service.StudentService;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 
 public class StudentController {
@@ -34,7 +35,7 @@ public class StudentController {
     }
 
     private void variant(BufferedReader reader, String select) throws IOException {
-        switch (select) {
+        switch(select) {
             case "1" -> create(reader);
             case "2" -> update(reader);
             case "3" -> delete(reader);
@@ -98,6 +99,7 @@ public class StudentController {
 
     private void findAll() {
         Student[] students = studentService.findAll();
+//        ArrayList<Student> students = studentService.findAll();         // автоматически расширяемый массив
         for (Student st : students) {
             System.out.println("- " + st);
         }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Iсторія транзакцій</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            Завантажити історію транзакцій (csv):
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{'/accounts/download'}" th:method="POST" th:object="${account} ">
+                <input th:name="accountId" th:value="${account.id}" type="hidden"/>
+                <div class="form-group">
+                    <label for="fromDate">1. Початок періоду: </label>
+                    <input class="form-control" id="fromDate" placeholder="введіть дату у форматі dd/MM/yyyy" th:name="fromDate" type="text"/>
+                </div>
+                <div class="form-group">
+                    <label for="toDate">2. Кінець періоду: </label>
+                    <input class="form-control" id="toDate" placeholder="введіть дату у форматі dd/MM/yyyy" th:name="toDate" type="text"/>
+                </div>
+                <button class="btn btn-dark" type="submit">Завантажити</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

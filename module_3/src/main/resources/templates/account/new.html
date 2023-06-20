@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en"
+      layout:decorate="~{layout/layout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Створити новий РАХУНОК</title>
+</head>
+
+<body>
+<div layout:fragment="content">
+    <div class="card">
+        <div class="card-header">
+            Створити новий РАХУНОК:
+        </div>
+        <div class="card-body">
+            <form action="#" th:action="@{'/accounts'}" th:method="POST" th:object="${account} ">
+                <div class="form-group">
+                    <label for="accountName">1. Рахунок: </label>
+                    <input class="form-control" id="accountName" placeholder="введіть назву рахунку" th:field="*{accountName}"
+                           type="text">
+                    <div style="color:red" th:errors="*{accountName}" th:if="${#fields.hasErrors('accountName')}">
+                        Номер рахунку не коректний, будь ласка перевірте введені дані.
+                    </div>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="balance">2. Баланс: </label>
+                    <input class="form-control" id="balance" placeholder="введіть суму" th:field="*{balance}" type="text"/>
+                    <div style="color:red" th:errors="*{balance}" th:if="${#fields.hasErrors('balance')}">Введені наді не коректні, будь ласка перевірте дані.
+                    </div>
+                </div>
+                <br/>
+                <button class="btn btn-dark" type="submit">Додати</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

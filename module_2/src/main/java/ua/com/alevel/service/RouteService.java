@@ -12,8 +12,8 @@ import java.util.*;
 
 public class RouteService {
 
-    private static Set<Integer> path = new LinkedHashSet<>();
-    private static Set<Integer> allDists = new TreeSet<>();
+    private static Set<Integer> path = new LinkedHashSet<>();   //nodes in the shortest path
+    private static Set<Integer> allDists = new TreeSet<>();     //list of shortest distance, sorted
     static Color.Colors color = new Color.Colors();
 
     public void matrix() throws IOException {
@@ -59,6 +59,8 @@ public class RouteService {
             }
         }
 
+        //use Dijkstra’s Shortest Path Algorithm, Time O(n^2)  n is number of nodes
+        //auxillary Space O(n)
         static void shortestPath(int[][] matrix, int start, int dest) {
             int n = matrix[0].length;
             int[] shortest = new int[n];
@@ -94,6 +96,8 @@ public class RouteService {
             addPath(dest, parents);
         }
 
+        //utility func to add nodes in the path recursively
+        //Time O(n), Space O(n)
         static void addPath(int i, int[] parents) {
             if (i == NO_PARENT)
                 return;
@@ -101,22 +105,24 @@ public class RouteService {
             path.add(i);
         }
 
+        //get 2nd shortest by removing each edge in shortest and compare
+        //Time O(n^3), Space O(n)
         static void find2ndShortest(int[][] adjacencyMatrix, int src, int dest) {
-            int preV = -1, preS = -1, preD = -1;
+            int preV = -1, preS = -1, preD = -1;        //store previous vertex's data
             List<Integer> list = new ArrayList<Integer>(path);
-            for (int i = 0; i < list.size() - 1; i++) {
+            for (int i = 0; i < list.size() - 1; i++) { //get source and destination for each path in shortest path
                 int s = list.get(i);
                 int d = list.get(i + 1);
-                if (preV != -1) {
+                if (preV != -1) {                       //resume the previous path
                     adjacencyMatrix[preS][preD] = preV;
                     adjacencyMatrix[preD][preS] = preV;
                 }
-                preV = adjacencyMatrix[s][d];
+                preV = adjacencyMatrix[s][d];           //record the previous data for recovery
                 preS = s;
                 preD = d;
-                adjacencyMatrix[s][d] = 0;
-                adjacencyMatrix[d][s] = 0;
-                shortestPath(adjacencyMatrix, src, dest);
+                adjacencyMatrix[s][d] = 0;              //remove this path
+                adjacencyMatrix[d][s] = 0;              //remove this path
+                shortestPath(adjacencyMatrix, src, dest); //re-calculate
             }
         }
     }
@@ -124,7 +130,7 @@ public class RouteService {
     public void deleteOutputFile() {
         File file = new File(FILE_OUTPUT);
         file.delete();
-        System.out.println(color.RED +"Information was deleted from your device:" + color.WHITE);
+        System.out.println(color.RED +"Information have been deleted from your device:" + color.WHITE);
         file.getAbsolutePath();
         System.out.println(file.getAbsolutePath());
         file = new File(FILE_INPUT);

@@ -80,7 +80,7 @@ select * from pupils
 select * from pupils
 commit; -- транзакцию закончили. Чревато потерянным обновлением
 
-tart transaction; -- начали транзакцию
+start transaction; -- начали транзакцию
 lock tables pupils  -- лочим, чтоб не было потерянного обновления (можно на read or wright или одновременно)
 select * from pupils    -- цепочка запросов
 select * from pupils
@@ -88,7 +88,7 @@ select * from pupils
 unlock tables pupils
 commit; -- транзакцию закончили
 
-tart transaction; -- начали транзакцию
+start transaction; -- начали транзакцию
 lock tables pupils  -- лочим, чтоб не было потерянного обновления (можно на read or wright или одновременно)
 select * from pupils    -- цепочка запросов
 select * from pupils
