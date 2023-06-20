@@ -1,4 +1,4 @@
-  import {Routes} from "@angular/router";
+  import {Routes} from "@angular/router"; // импортируем сюда все виды Роутов, которые могут быть
   import {PlpComponent} from "./pages/plp/plp.component";
 
   // это базовый файл (парент класс) для подключения всех ROUTES в проекте
@@ -9,18 +9,21 @@
       pathMatch: 'full'  // не строим относительные рауты, строим полный раут
       // подхватывает все компоненты что после full, full смотрит от корня (корень это окончание доменого имени)
     },
+
+    // тут прописываем корневые страницы, корневые url
     {
       path: 'plp', // 1й раут, после слеша перебрасывает сюда
       pathMatch: 'prefix', // когда будем прописывать роуты, путь будет начинаться от корня внутри каталога,
                            //т.е. перед ним уже будет стоять prefix  plp/
                            // после prefix уже переход идет по конкретным id конкретной страницы
+                           //pathMatch: 'prefix' это относительный путь, отслеживает все то, что после plp
        // children: [
           //   {
           //     path: '',
           //     component: PlpComponent
           //   },
           //   {
-          //     path: '/bla',
+          //     path: '/bla',  // добавляем новые компоненты внутри компонента plp
           //     component: PlpComponentBla
           //   },
           //   {
@@ -29,6 +32,7 @@
           //   }
           // ]
       loadChildren:() => import('./pages/plp/plp.routes').then(m => m.PLP_ROUTES) // PLP_ROUTES отвечает за path: 'plp'
+                                                                    // PLP_ROUTES это саб домены
     },
     {
         path: 'pdp',
