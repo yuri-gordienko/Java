@@ -23,10 +23,12 @@ public class ProductService {
     }
 
     public Product findByCode(String code) {    // тащим продукт по коду
+
         return productRepository.findByCode(code);
     }
 
     public Long count() {   // тащим по кол-ву
+
         return productRepository.count();
     }
 }
