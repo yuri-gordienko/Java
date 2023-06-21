@@ -24,7 +24,7 @@ public abstract class Operation extends BaseEntity {
     private Category category;
 
     @Column(name = "amount")
-    private BigDecimal amount;
+    private BigDecimal amount; // BigDecimal как Лонг в Джаве
 
     @ManyToOne
     private Account senderAccount;

@@ -12,13 +12,13 @@ public class Electives extends BaseEntity {
     private String name;
 
     @ManyToMany
-    @JoinTable(
-            name = "relation_table",
-            joinColumns = @JoinColumn(name = "el_id"),
-            inverseJoinColumns = @JoinColumn(name = "pup_id")
+    @JoinTable( // описываем алгоритм генерации 3й таблицы, данная таблица главная, к ней и присоединяем второстепенную
+            name = "relation_table",    // имя 3й таблицы
+            joinColumns = @JoinColumn(name = "el_id"), // это главная колонка, к ней присоединяем второстепенную
+            inverseJoinColumns = @JoinColumn(name = "pup_id")   // второстепенная колонка, ее и присоединяем
     )
 
-    private Set<Pupils> pupil = new HashSet<>();
+    private Set<Pupils> pupil = new HashSet<>(); // HashSet значит что при старте объект будет дефолтный
 
     public String getName() {
 

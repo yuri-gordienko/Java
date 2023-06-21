@@ -18,16 +18,21 @@ import java.util.*;
 import static ua.com.alevel.persistence.enums.AccountStatement.Enum.HISTORY_FILE;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional(readOnly = true) //транзакция, метод ходит в БД, чтоб метод не оборачивать транзакцией как в HN,
+// если над классом, то применимо ко всем методам. Применимы к CRUD операциям, т.е. взаимодействие с БД
 @AllArgsConstructor
 public class AccountServiceImpl implements AccountService {
 
+    // наследуемся от Repository и получаем уже все CRUD методы обернутые в транзакции (sessionManager)
+    // теперь тут просто даем команды что делать в каждом методе
     private final AccountRepository accountRepository;
     private final CreditOperationRepository creditOperationRepository;
     private final DebitOperationRepository debitOperationRepository;
 
-    @Override
+    // переопределение метода на AccountService, а методы в AccountService это контракты, которые выполняет его имплементация
+    @Override //значит, что имеет ту же сигнатуру как у парента; подкласс реализует метод парента
     public Account findById(Long id) {
+        // accountRepository говорим какую из CRUD операций выполнить и через репу повзаимодействовать с БД
         Optional<Account> foundAccount = accountRepository.findById(id);
         return foundAccount.orElse(null);
     }
@@ -48,7 +53,7 @@ public class AccountServiceImpl implements AccountService {
         return foundAccount.orElse(null);
     }
 
-    @Transactional
+    @Transactional //транзакция, метод ходит в БД, чтоб метод не оборачивать транзакцией как в HN
     @Override
     public void create(Account account) {
         int min = 100_000;

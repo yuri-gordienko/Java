@@ -93,9 +93,9 @@ public class ElectivesDaoImpl implements ElectivesDao {
 
     @Override
     public void attachPupilsToElectives(Electives electives, Pupils pupils) {
-        Set<Pupils> pupil = electives.getPupil();
-        pupil.add(pupils);
-        update(electives);
+        Set<Pupils> pupil = electives.getPupil();   // получаем коллекцию учеников у факультатива
+        pupil.add(pupils);  // в этот список учеников добавляем ученика
+        update(electives);  // обновляем факультатив, включает в себя 2 sql запроса: update electives and insert pupils
     }
 
     @Override

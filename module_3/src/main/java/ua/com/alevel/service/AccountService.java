@@ -5,7 +5,7 @@ import ua.com.alevel.persistence.entity.Account;
 import java.util.Collection;
 import java.util.Date;
 
-public interface AccountService {
+public interface AccountService {   // тут уже работаем с конкретными объектами
 
     void exportToCsv(Account account, Date fromDate, Date toDate);
 
