@@ -20,12 +20,13 @@ import ua.com.alevel.facade.crud.ProductCrudFacade;
 
 @RestController // тип класса, помечают классы, которые принимают http запросы
 @RequestMapping("/api/admin/products")    // говорим по какому url + ресурсы можно придти к конкретному контроллеру
-public class ProductCrudController { // отвечает за автомат позставление локального IP и порта
+public class ProductCrudController { // отвечает за автомат подставление локального IP и порта
     // каждый конкретный контроллер отвечаем конкретно за свой конкретный ресурс
 
-    private final ProductCrudFacade productCrudFacade;
+    private final ProductCrudFacade productCrudFacade;  // с ним и работает контроллер
 
-    public ProductCrudController(ProductCrudFacade productCrudFacade) {
+    public ProductCrudController(ProductCrudFacade productCrudFacade) { // конструктор
+
         this.productCrudFacade = productCrudFacade;
     }
 
