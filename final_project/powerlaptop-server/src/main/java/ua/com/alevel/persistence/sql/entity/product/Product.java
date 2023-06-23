@@ -31,12 +31,12 @@ public class Product extends BaseEntity {
     @Column(name = "product_brand", nullable = false, updatable = false) // не пустой, не изменяемый
     private ProductBrandType productBrand;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT") // описание может быть большим, храним как текст
     private String description;
 
-    // т.к. много ноутов с различными вариациями, а картинки для них одни и теже (но их тоже много на 1 ноуто,)
     // связь делаем мени ту мени
-    // еслиб мени ту ван, то дублировались бы картинки для каждлго варианта продукта
+    // т.к. много ноутов с различными вариациями, а картинки для них одни и теже (но их тоже много на 1 ноут)
+    // еслиб мени ту ван, то дублировались бы картинки для каждого варианта продукта
     @ManyToMany
     @JoinTable(
             name = "product_image",

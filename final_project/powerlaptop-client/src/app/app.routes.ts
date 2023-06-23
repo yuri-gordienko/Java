@@ -44,5 +44,15 @@
         pathMatch: 'prefix',
         // чтоб при запуске системы, попадали на страничку регистрации
         loadChildren:() => import('./pages/register/register.router').then(m => m.REGISTER_ROUTES)
-      }
+      },
+        {
+          path: 'login',
+          pathMatch: 'prefix',
+          loadChildren:() => import('./pages/login/login.router').then(m => m.LOGIN_ROUTES)
+        },
+        {
+          path: 'cart',
+          pathMatch: 'prefix',
+          loadChildren:() => import('./pages/cart/cart.router').then(m => m.CART_ROUTES)
+        }
     ];

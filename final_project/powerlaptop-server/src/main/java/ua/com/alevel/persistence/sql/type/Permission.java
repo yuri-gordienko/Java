@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public enum Permission {
+public enum Permission { // права управления CRUD опперациями на сайте
 
     ADMIN_READ("admin:read"),
     ADMIN_UPDATE("admin:update"),
@@ -13,9 +13,8 @@ public enum Permission {
     MANAGER_READ("management:read"),
     MANAGER_UPDATE("management:update"),
     MANAGER_CREATE("management:create"),
-    MANAGER_DELETE("management:delete")
-
-    ;
+    MANAGER_DELETE("management:delete"),
+    PERSONAL_READ("personal:read");
 
     @Getter
     private final String permission;

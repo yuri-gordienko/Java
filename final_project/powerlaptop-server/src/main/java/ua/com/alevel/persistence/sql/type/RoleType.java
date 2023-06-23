@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 import static ua.com.alevel.persistence.sql.type.Permission.*;
 
     @RequiredArgsConstructor
-    public enum RoleType {
+    public enum RoleType {  // ауторитис для ролей
         PERSONAL(Collections.emptySet()),
         ADMIN(
                 Set.of(
