@@ -20,7 +20,7 @@ import static ua.com.alevel.persistence.enums.AccountStatement.Enum.HISTORY_FILE
 @Service
 @Transactional(readOnly = true) //транзакция, метод ходит в БД, чтоб метод не оборачивать транзакцией как в HN,
 // если над классом, то применимо ко всем методам. Применимы к CRUD операциям, т.е. взаимодействие с БД
-@AllArgsConstructor
+@AllArgsConstructor  // для того чтоб не писать конструктор для внутренних Бинов (подклассов) AccountRepository и т.д.
 public class AccountServiceImpl implements AccountService {
 
     // наследуемся от Repository и получаем уже все CRUD методы обернутые в транзакции (sessionManager)
