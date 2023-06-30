@@ -9,11 +9,13 @@ import org.springframework.web.filter.HiddenHttpMethodFilter;
 public class BankingServerApp {
 
     public static void main(String[] args) {
+
         SpringApplication.run(BankingServerApp.class, args);
     }
 
     @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
+
         return new HiddenHttpMethodFilter();
     }
 }

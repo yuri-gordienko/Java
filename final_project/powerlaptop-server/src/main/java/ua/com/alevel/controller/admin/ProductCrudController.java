@@ -43,11 +43,11 @@ public class ProductCrudController { // отвечает за автомат п�
         // а если не создасться будет эксепшн
     }
 
-    @PutMapping("/{id}")    // добавляет к основному ресурс следующий, согласно запроса
+    @PutMapping("/{id}")    // добавляет к основному ресурс следующий, согласно запроса. Пут запрос
     public ResponseEntity<DataContainer<Boolean>> update(@RequestBody ProductDto dto, @PathVariable Long id) {
         // с помощью @PathVariable перехватываем id которая в http запросе летит с фронта
         productCrudFacade.update(id, dto);
-        return ResponseEntity.ok(new DataContainer<>(true));
+        return ResponseEntity.ok(new DataContainer<>(true));    // возвращаем статус ок.
     }
 
     @DeleteMapping("/{id}")

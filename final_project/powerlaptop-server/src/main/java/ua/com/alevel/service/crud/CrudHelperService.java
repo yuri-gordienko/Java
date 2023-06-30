@@ -6,6 +6,8 @@ import ua.com.alevel.persistence.sql.entity.BaseEntity;
 import ua.com.alevel.persistence.sql.repository.BaseEntityRepository;
 
 public interface CrudHelperService<E extends BaseEntity, R extends BaseEntityRepository<E>> {
+    // необходим для того, чтоб не было дублирования кода (без него много копипаста)
+    // который принимает энтини и репозитторий
 
     void create(E entity, R repository);
     void update(E entity, R repository);
