@@ -3,7 +3,9 @@ package ua.com.alevel.util;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.web.context.request.WebRequest;
+
 import ua.com.alevel.data.datatable.DataTableRequest;
 
 import java.util.Map;
@@ -20,7 +22,7 @@ public final class WebRequestUtil {
     private final static String DEFAULT_SORT_PARAM = "sort";
     private final static String DEFAULT_ORDER_PARAM = "order";
 
-    private WebRequestUtil() { }
+    private WebRequestUtil() { }    // утилита для стандартных запросов в Контроллерах
 
     public static DataTableRequest generateDataTableRequest(WebRequest webRequest) {
         int page = DEFAULT_PAGE;
@@ -28,8 +30,12 @@ public final class WebRequestUtil {
         String sort = DEFAULT_SORT;
         String order = DEFAULT_ORDER;
         // проверяет по ключу Стринг и велью Массив стрингов т.к. в запросе если выставляются фильтры то это уже массив
-        Map<String, String[]> parameterMap = webRequest.getParameterMap();
-        if (MapUtils.isNotEmpty(parameterMap)) {    // если не пустая мапа (а реквест это мапа)
+        Map<String, String[]> parameterMap = webRequest.getParameterMap(); // загоняем параметры в Мапу
+        // Массив строк необходим для того, что параметры могут идти через запятую (перечень) id, name, something
+        // чтоб строку потом не разбивать (проверять) .split (Сплитом), в Спринке сделали webRequest как
+        // Map<String, String[]> коорый возвращает массив строк getParameterMap()
+        if (MapUtils.isNotEmpty(parameterMap)) {    // если не пустая мапа (а реквест это мапа, как в Постмене писали параметры через амперсанты)
+            // метод проверки isNotEmpty от апечевской библиотеки MapUtils
             String[] pageParams = parameterMap.get(DEFAULT_PAGE_PARAM); // проверка наличия по ключу пейдж
             if (ArrayUtils.isNotEmpty(pageParams)) { // если массив не пустой, то
                 String pageParam = pageParams[0];   // берем первый

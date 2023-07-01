@@ -64,10 +64,10 @@ public class ProductCrudController { // отвечает за автомат п�
     @GetMapping
     public ResponseEntity<DataContainer<DataTableResponse<ProductDto>>> findAll(
             @RequestParam int page, // принимаем такие http квери параметры, распознаем с помощью  @RequestParam
-            @RequestParam int size,
-            @RequestParam String sort,
-            @RequestParam String order) {
-        DataTableRequest request = new DataTableRequest();
+            @RequestParam int size, // много дублирования кода, если много будет контроллеров
+            @RequestParam String sort, // можно все это заменить с помощью утилитки  private WebRequestUtil() { }
+            @RequestParam String order) {   // которая внутни себя создает эти параметры, а мы вызываем метод
+        DataTableRequest request = new DataTableRequest();  // это показано в ВариантКонтроллере и ИмеджКонтроллере
         request.setPage(page);
         request.setSize(size);
         request.setSort(sort);
