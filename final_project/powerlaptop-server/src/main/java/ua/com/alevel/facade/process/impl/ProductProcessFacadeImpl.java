@@ -41,6 +41,5 @@ public class ProductProcessFacadeImpl implements ProductProcessFacade {
 
     @Override
     public void detach(Long id, ProductProcessDto dto) {
-
     }
 }

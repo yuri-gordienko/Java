@@ -10,9 +10,10 @@ public enum ProductBrandType {
     HP("HP"),
     THINK_PAD("ThinkPad");
 
-    private final String brandType; // пишем вместо new
+    private final String brandType; // brandType будет вытягивать Енамчики
 
     ProductBrandType(String brandType) {    // инициализируем
+
         this.brandType = brandType;
     }
 }

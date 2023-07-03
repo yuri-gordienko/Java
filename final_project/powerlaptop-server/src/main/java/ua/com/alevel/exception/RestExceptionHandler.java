@@ -15,7 +15,7 @@ public class RestExceptionHandler { // спец класс для отлова �
     public ResponseEntity<DataContainer<String>> handleEntityNotFoundException(EntityNotFoundException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new DataContainer<>(exception.getMessage()));
     // DataContainer создавали, чтоб все ответы были универсальными для фронта
-        // принимаем наш эксепшн handleEntityNotFoundException(EntityNotFoundException exception)
+        // handleEntityNotFoundException принимает наш эксепшн(EntityNotFoundException exception)
     // возвращаем статус(неправильный запрос 400), в бади сообщение выводим, можно показывать
     }
 

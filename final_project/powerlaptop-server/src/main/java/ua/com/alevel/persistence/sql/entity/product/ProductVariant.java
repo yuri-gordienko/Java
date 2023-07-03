@@ -23,7 +23,7 @@ import java.math.BigDecimal;
 @Table(name = "product_variants")
 public class ProductVariant extends BaseEntity {
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)    // указываем, что храним как Енамчик
     @Column(nullable = false)
     private OsType os;
 
