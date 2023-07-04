@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {PlpComponent} from "./pages/plp/plp.component";
+// import {PlpComponent} from "./pages/plp/plp.component";
 import {RouterOutlet} from "@angular/router";
 
 @Component({
