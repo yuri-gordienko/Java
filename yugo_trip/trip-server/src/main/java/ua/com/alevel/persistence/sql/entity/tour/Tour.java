@@ -25,6 +25,9 @@ public class Tour extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String description;
 
+    @Column(nullable = false, unique = true)
+    private String price;
+
 //    @Column(columnDefinition = "TEXT")
 //    private String summary;
 

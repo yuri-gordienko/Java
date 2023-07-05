@@ -14,13 +14,12 @@ public class TourDto extends BaseDto {
 
     private String country;
     private String description;
-//    private String summary;
-
+    private String price;
 
     public TourDto(Tour tour) {
         setId(tour.getId());
         this.country = tour.getCountry();
         this.description = tour.getDescription();
-//        this.summary = tour.getSummary();
+        this.price = tour.getPrice();
     }
 }

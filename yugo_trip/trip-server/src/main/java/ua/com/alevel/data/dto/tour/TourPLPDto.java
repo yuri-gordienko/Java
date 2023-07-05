@@ -3,7 +3,9 @@ package ua.com.alevel.data.dto.tour;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.apache.commons.collections4.CollectionUtils;
+
 import ua.com.alevel.persistence.sql.entity.tour.Tour;
 import ua.com.alevel.persistence.sql.entity.tour.TourImage;
 
@@ -16,14 +18,15 @@ public class TourPLPDto {
 
     private Long id;
     private String country;
-//    private String summary;
+    private String description;
+    private String price;
     private String image;
-    private String price = "100.00";
 
     public TourPLPDto(Tour tour) {
         this.id = tour.getId();
         this.country = tour.getCountry();
-//        this.summary = tour.getSummary();
+        this.description = tour.getDescription();
+        this.price = tour.getPrice();
 
         Set<TourImage> tourImages = tour.getTourImages();
         if (CollectionUtils.isNotEmpty(tourImages)) {

@@ -15,17 +15,19 @@ import ua.com.alevel.persistence.sql.entity.tour.TourVariant;
 public class TourVariantDto extends BaseDto {
 
     private String rout;
-//    private String duration;
-//    private String nutrition;
-//    private String priceFirst;
-//    private String priceSecond;
+    private String durationFirst;
+    private String durationSecond;
+    private String nutrition;
+    private String priceFirst;
+    private String priceSecond;
 
     public TourVariantDto(TourVariant tourVariant) {
         setId(tourVariant.getId());
         this.rout = tourVariant.getRout();
-//        this.duration = tourVariant.getDuration();
-//        this.nutrition = tourVariant.getNutrition();
-//        this.priceFirst = tourVariant.getPriceFist();
-//        this.priceSecond = tourVariant.getPriceSecond();
+        this.durationFirst = tourVariant.getDurationFist();
+        this.durationSecond = tourVariant.getDurationSecond();
+        this.nutrition = tourVariant.getNutrition();
+        this.priceFirst = tourVariant.getPriceFist();
+        this.priceSecond = tourVariant.getPriceSecond();
     }
 }

@@ -3,12 +3,14 @@ package ua.com.alevel.data.dto.tour;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.apache.commons.collections4.CollectionUtils;
+
 import ua.com.alevel.persistence.sql.entity.tour.Tour;
 import ua.com.alevel.persistence.sql.entity.tour.TourImage;
 import ua.com.alevel.persistence.sql.entity.tour.TourVariant;
 
-//import java.util.Collection;
+import java.util.Collection;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -19,24 +21,26 @@ public class TourPDPDto {
 
     private Long id;
     private String country;
-    private String description;
-
-    private Set<String> images;
 
     private String rout;
-//    private String duration;
-//    private String nutrition;
-    private String priceFirst = "100.00";
-    private String priceSecond = "170.00";
+    private String durationFirst;
+    private String durationSecond;
+    private String nutrition;
+    private String priceFirst;
+    private String priceSecond;
+
+    private Set<String> images;
 
     public TourPDPDto(Tour tour, TourVariant tourVariant) {
         this.id = tour.getId();
         this.country = tour.getCountry();
-        this.description = tour.getDescription();
 
         this.rout = tourVariant.getRout();
-//        this.duration = tourVariants.getDuration();
-//        this.nutrition = tourVariants.getNutrition();
+        this.durationFirst = tourVariant.getDurationFist();
+        this.durationSecond = tourVariant.getDurationSecond();
+        this.nutrition = tourVariant.getNutrition();
+        this.priceFirst = tourVariant.getPriceFist();
+        this.priceSecond = tourVariant.getPriceSecond();
 
         Set<TourImage> tourImages = tour.getTourImages();
         if (CollectionUtils.isNotEmpty(tourImages)) {
