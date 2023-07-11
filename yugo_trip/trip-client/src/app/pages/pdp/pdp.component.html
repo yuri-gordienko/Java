@@ -1,0 +1,70 @@
+<ng-container *ngIf="tour">
+  <table class="table table-striped">
+    <tr>
+      <th>
+        Країна
+      </th>
+      <td>
+        {{ tour.country }}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="d-flex">
+          <!--        <div class="d-flex flex-wrap">-->
+          <div class="p-1" *ngFor="let image of tour.images">
+            <img src="{{ image }}" class="card-img-top" alt="..." width="180" height="100">
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Тривалість
+      </th>
+      <td>
+        {{ tour.durationFirstList }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Тривалість
+      </th>
+      <td>
+        {{ tour.durationSecondList }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Харчування
+      </th>
+      <td>
+        {{ tour.nutritionList }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Вартість
+      </th>
+      <td>
+        {{ tour.priceFirstList }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Вартість
+      </th>
+      <td>
+        {{ tour.priceSecondList }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        Маршрут
+      </th>
+      <td>
+        {{ tour.routList }}
+      </td>
+    </tr>
+    </table>
+</ng-container>

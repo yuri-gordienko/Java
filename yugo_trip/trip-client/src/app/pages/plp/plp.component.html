@@ -1,0 +1,16 @@
+<ng-container *ngIf="plpList$ | async as plpList">
+  <div class="d-flex flex-wrap justify-content-center">
+  <div class="p-0"  *ngFor="let tour of plpList">
+    <div class="card tour-info" style="width: 25rem;" (click)="redirectToPdp(tour.id)">
+      <img src="{{ tour.image }}" class="card-img-top" alt="..." width="180" height="220">
+      <div class="card-body">
+        <h4 class="card-title">{{tour.country}}</h4>
+        <p class="card-text">{{tour.description}}</p>
+        <h5 class="card-text">{{tour.price}}
+<!--          {{"   > > > >"}} <a href="#" class="btn btn-primary">Подробиці</a> -->
+        </h5>
+      </div>
+    </div>
+  </div>
+  </div>
+</ng-container>
