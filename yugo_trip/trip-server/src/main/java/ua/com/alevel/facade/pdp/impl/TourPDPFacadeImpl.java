@@ -22,10 +22,7 @@ public class TourPDPFacadeImpl implements TourPDPFacade {
     @Override
     public TourPDPDto findById(Long id) {
         Tour tour = tourCrudService.findById(id);
-//        Collection<TourVariant> tourVariants = tourVariantCrudService.findByTour(tour);
-//        TourVariant tourVariants = (TourVariant) tourVariantCrudService.findByTour(tour);
-
-        TourVariant tourVariants = tourVariantCrudService.findByTour(tour);
+        Collection<TourVariant> tourVariants = tourVariantCrudService.findByTour(tour);
         return new TourPDPDto(tour, tourVariants);
     }
 

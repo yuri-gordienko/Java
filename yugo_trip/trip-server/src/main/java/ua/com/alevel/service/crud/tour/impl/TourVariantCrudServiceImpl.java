@@ -50,14 +50,7 @@ public class TourVariantCrudServiceImpl implements TourVariantCrudService {
     }
 
     @Override
-    public TourVariant findByTour(Tour tour) {
-        return tourVariantRepository
-                .findByTour(tour)
-                .orElseThrow(() -> new RuntimeException("Tour variant not found by tour id: " + tour.getId()));
+    public Collection<TourVariant> findByTour(Tour tour) {
+        return tourVariantRepository.findByTour(tour);
     }
-
-//    @Override
-//    public Collection<TourVariant> findByTour(Tour tour) {
-//        return tourVariantRepository.findByTour(tour);
-//    }
 }
