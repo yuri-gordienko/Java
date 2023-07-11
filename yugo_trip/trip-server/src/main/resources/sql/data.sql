@@ -1,10 +1,10 @@
 --countries, descriptions
-insert into tours values (1, 'Switzerland', 'Very different...', 'від 15 200 грн.');
-insert into tours values (2, 'Italy', 'Very old inerestin history', 'від 12 540 грн.');
-insert into tours values (3, 'Spain', 'Hot country and girls', 'від 12 950 грн.');
-insert into tours values (4, 'France', 'Big different country', 'від 17 860 грн.');
-insert into tours values (5, 'Scotland', 'Puzzle country', 'від 19 760 грн.');
-insert into tours values (6, 'Norway', 'Long country', 'від 21 660 грн.');
+insert into tours values (1, 'Switzerland', 'Від розкоші до бурхливих річок, скелястих зелених гір та водоспадів', 'від 15 200 грн.');
+insert into tours values (2, 'Italy', 'Багата історія, багаті маршрути для активного відпочинку', 'від 12 540 грн.');
+insert into tours values (3, 'Spain', 'Гарячі краєвиди, гарячі пляжі, гарячі танці, гарячі емоції', 'від 12 950 грн.');
+insert into tours values (4, 'France', 'Оргомна країна з величезною різноманітною природою та місцевістю', 'від 17 860 грн.');
+insert into tours values (5, 'Scotland', 'Край світу із зеленими ландшафтами та безтрашними кельтами', 'від 19 760 грн.');
+insert into tours values (6, 'Norway', 'Неповторне північне сяйво, снігові гори, глибокі озера', 'від 21 660 грн.');
 
 
 --tour_variants
