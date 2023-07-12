@@ -22,6 +22,9 @@ public class TourVariant extends BaseEntity {
     @Column(columnDefinition = "TEXT")
     private String rout;
 
+//    @Column(columnDefinition = "TEXT")
+//    private String rout;
+
     @Column(nullable = false)
     private String durationFist;
 

@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
 import { PdpService } from "../../services/pdp.service";
 import { TourPdpModel } from "../../models/tour-pdp.model";
-import { AsyncPipe, JsonPipe, NgForOf, NgIf } from "@angular/common";
+// import { AsyncPipe, JsonPipe, NgForOf, NgIf, CommonModule } from "@angular/common";
+import { CommonModule } from "@angular/common";
+
 
 
 @Component({
@@ -10,7 +12,9 @@ import { AsyncPipe, JsonPipe, NgForOf, NgIf } from "@angular/common";
   standalone: true,
   templateUrl: './pdp.component.html',
   styleUrls: ['./pdp.component.scss'],
-  imports: [NgIf, NgForOf]
+//   imports: [NgIf, NgForOf, CommonModule]
+    imports: [CommonModule]
+
 })
 export class PdpComponent implements OnInit {
 

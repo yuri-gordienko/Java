@@ -9,12 +9,12 @@ insert into tours values (6, 'Norway', 'Неповторне північне с
 
 --tour_variants
 --rout
-insert into tour_variants values (1, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '15 200 грн.', '27 360 грн.', 'moutains, rivers', 1);
-insert into tour_variants values (2, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '12 540 грн.', '21 320 грн.', 'beaches, foods',2);
-insert into tour_variants values (3, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '12 950 грн.', '22 100 грн.', 'dunes at see and rocks',3);
-insert into tour_variants values (4, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '17 860 грн.', '30 300 грн.', 'castles', 4);
-insert into tour_variants values (5, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '19 760 грн.', '33 600 грн.', 'Edge at see', 5);
-insert into tour_variants values (6, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '21 660 грн.', '36 800 грн.', 'North country', 5);
+insert into tour_variants values (1, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '15 200 грн.', '27 360 грн.', 'Згідно з старовинною легендою, коли Господь розподіляв багатства земних надр, на країну в самому серці Європи, Швейцарію їх не вистачило. Щоб виправити цю несправедливість, Бог подарував їй високі гори, сяючі льодовики, бурхливі водоспади, мальовничі долини, найкрасивіші річки та найчистіші блакитні озера. Надзвичайно прекрасні види Швейцарії приваблюють тисячі туристів, це ніби особливий чарівний світ, що змушує повірити в те, що рай існує.', 1);
+insert into tour_variants values (2, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '12 540 грн.', '21 320 грн.', 'Казкова Італія, пам`ятки якої мовчазно свідчать про багату історію, викликає величезний інтерес у мандрівників. Ми представляємо найзнаменитіші та найдавніші її міста - Рим, Мілан, Флоренція, Венеція. Їхня велична краса нікого не залишає байдужим. Але щоб відчути неповторний італійський колорит, потрібно зійти з вторинних туристичних стежок та дослідити маленькі затишні містечка. Тут дбайливо зберігають справжню культуру та традиції країни.',2);
+insert into tour_variants values (3, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '12 950 грн.', '22 100 грн.', 'Природа Іспанії дуже контрастна через рельєфні особливості. Різноманітність природних пейзажів, якими вирізняється Іспанія, вражає. Гори, ліси та долини, вулкани, дюни та пустелі, озера, а також водно-болотні угіддя, море, скелясті береги, водоспади та ущелини.',3);
+insert into tour_variants values (4, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '17 860 грн.', '30 300 грн.', 'Франція – одна з найчарівніших і найпрекрасніших країн Європи. І окрім культурної спадщини, країна багата на рідкісні мальовничі пейзажі.  Природні умови Франції досить різноманітні. Тут можна знайти буквально все – прибережні рівнини, обширні долини річок, оточені живописними горбами, невисокі гірські ланцюги, високі гірські масиви Альп, а також старовинні замки.', 4);
+insert into tour_variants values (5, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '19 760 грн.', '33 600 грн.', 'Шотландська природа вже давно вражає кожного туриста, що приїжджає сюди. Ця невелика країна має багату історію та дуже гарну природу. Шотландські пейзажі дуже різноманітні: гірські річки з водоспадами, чисті озера, болота, суворі гори та перевали, горбисті долини, хвойні ліси, мальовниче узбережжя, альпійські луки, фіорди, численні острови.', 5);
+insert into tour_variants values (6, 'Тривалість 7 діб', 'Тривалість 14 діб', 'Групове харчування у місті розташування', '21 660 грн.', '36 800 грн.', 'Норвегія – неймовірна країна, яка може похвалитися незайманою природою: від розлогих фіордів та льодовиків до наймальовничіших берегів та зелених пасовищ. Природа Норвегії – це світ, повністю сформований суворим північним кліматом, північними морями та горами. Держава розташована за Полярним колом. З травня до липня в Норвегії – полярний день, з осені до ранньої весни панує полярна ніч, яку розцвічує полярне сяйво.', 6);
 
 --tour_images
 --Switzerland
@@ -31,10 +31,10 @@ insert into tour_images values (8, 'https://roadtripeuroguide.com/wp-content/upl
 insert into tour_images values (9, 'https://cdn.britannica.com/82/195482-050-2373E635/Amalfi-Italy.jpg', true);
 insert into tour_images values (10, 'https://images.movehub.com/wp-content/uploads/2019/12/17-TTK-italy-A.jpg', false);
 insert into tour_images values (11, 'https://d3dqioy2sca31t.cloudfront.net/Projects/cms/production/000/033/273/slideshow/fe4b9c40eeb71b3290d068a92061770a/slide-italy-main-cinque-terre-manarola.jpg', false);
-insert into tour_images values (12, 'https://www.tripsavvy.com/thmb/_al1RbqVrheYkXAdg7W6LQT9B4Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gardena-pass--a-high-mountain-pass-in-the-dolomites-of-the-south-tyrol-in-italy-1168875336-19b2f964c6794e93ae24d9555ec36467.jpg', true);
+insert into tour_images values (12, 'https://www.tripsavvy.com/thmb/_al1RbqVrheYkXAdg7W6LQT9B4Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/gardena-pass--a-high-mountain-pass-in-the-dolomites-of-the-south-tyrol-in-italy-1168875336-19b2f964c6794e93ae24d9555ec36467.jpg', false);
 insert into tour_images values (13, 'https://www.flydubai.com/en/media/Italy-710x473_tcm8-112753.jpg', false);
 insert into tour_images values (14, 'https://a.storyblok.com/f/53624/1600x720/94957de25d/vfr_venice_italy_canal.jpg', false);
-insert into tour_images values (15, 'https://cdn.britannica.com/00/188300-050-972ACBFB/Dolomites-Italian-Alps.jpg', false);
+insert into tour_images values (15, 'https://planetofhotels.com/guide/sites/default/files/styles/node__blog_post__bp_banner/public/2021-10/Manarola.jpg', false);
 insert into tour_images values (16, 'https://i.natgeofe.com/n/e808d332-f4f2-4e34-a597-755bed0e86d8/unesco-site-dolomites-alps-mountains-missurina-lake-italy_2x1.jpg', false);
 
 --Spain
@@ -42,7 +42,7 @@ insert into tour_images values (17, 'https://dynamic-media-cdn.tripadvisor.com/m
 insert into tour_images values (18, 'https://www.telegraph.co.uk/content/dam/eip/spain-2023/underrated-destinations/spain-hidden-places-6-segovia-getty.jpg', false);
 insert into tour_images values (19, 'https://cdn.images.express.co.uk/img/dynamic/25/590x/Spain-top-pic-1479134.jpg?r=1630045112250', false);
 insert into tour_images values (20, 'https://www.usnews.com/object/image/0000015b-67f3-d5af-a37f-7ff772aa0000/bcspain-profile-editorial.spain_profile?update-time=1502913441728&size=superhero-medium', false);
-insert into tour_images values (21, 'https://content.tui.co.uk/adamtui/2016_11/8_17/ea64b7b4-17ef-4814-93c9-a6b80122ac2e/LIB_SHU_16_F1005WebOriginalCompressed.jpg?i10c=img.resize(width:488);img.crop(width:488%2Cheight:274)', false);
+insert into tour_images values (21, 'https://joinuplviv.com/wp-content/uploads/2016/04/dyuny-dyu-pylat.jpg', false);
 insert into tour_images values (22, 'https://media.product.which.co.uk/prod/images/ar_2to1_1500x750/7c5e4ab783e8-costa-blanca-beach.jpg', false);
 insert into tour_images values (23, 'https://www.migratingmiss.com/wp-content/uploads/2017/03/Alpujarras-Mountain-Villages-Spain-34.jpg', false);
 insert into tour_images values (24, 'https://www.fodors.com/wp-content/uploads/2019/11/BestHiddenVillagesSpain__HERO_panoramica-cudillero-atardecer.jpg', false);
@@ -134,6 +134,12 @@ insert into tour_image values (6, 48);
 
 
 --update
-update tours set country = 'Ireland' where id = 5;
+--update tours set country = 'Швейцарiя' where id = 1;
+--update tours set country = 'Iталiя' where id = 2;
+--update tours set country = 'Iспанiя' where id = 3;
+--update tours set country = 'Францiя' where id = 4;
+--update tours set country = 'Шотландiя' where id = 5;
+--update tours set country = 'Норвегiя' where id = 6;
+
 
 
