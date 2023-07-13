@@ -22,9 +22,6 @@ public class TourImage extends BaseEntity {
     @Column(name = "main_image", nullable = false)
     private Boolean mainImage;
 
-//    @ManyToOne
-//    private Tour tour;
-
     @ManyToMany(mappedBy = "tourImages")
     private Set<Tour> tours = new HashSet<>();
 

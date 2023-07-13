@@ -8,4 +8,5 @@ export interface TourPdpModel {
   priceFirstList: string[];
   priceSecondList: string[];
   images: string[];
+  videos: string[];
 }

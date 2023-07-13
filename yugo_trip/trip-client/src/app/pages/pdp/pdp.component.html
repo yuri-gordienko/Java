@@ -9,15 +9,16 @@
       <td>
         <div class="d-flex">
           <div class="p-1" *ngFor="let image of tour.images">
-          <!--                  <div class="d-flex flex-wrap">-->
+<!--                            <div class="d-flex flex-wrap">-->
             <img src="{{ image }}" class="card-img-top" alt="..." width="180" height="100">
+<!--            <img src="{{ image }}" class="card-img-top" alt="..." width="600" height="500">                  -->
           </div>
         </div>
       </td>
     </tr>
 
   <table class="table table-striped" style="width: 500px">
-    <tr>
+        <tr>
       <th>
         Тривалість
       </th>
@@ -27,10 +28,10 @@
     </tr>
     <tr>
       <th>
-        Тривалість
+        Вартість за 7 дiб
       </th>
       <td>
-        {{ tour.durationSecondList }}
+        {{ tour.priceFirstList }}
       </td>
     </tr>
     <tr>
@@ -43,31 +44,36 @@
     </tr>
     <tr>
       <th>
-        Вартість
+        Тривалість
       </th>
       <td>
-        {{ tour.priceFirstList }}
+        {{ tour.durationSecondList }}
       </td>
     </tr>
     <tr>
       <th>
-        Вартість
+        Вартість за 14 дiб
       </th>
       <td>
         {{ tour.priceSecondList }}
       </td>
     </tr>
+    <tr>
+      <th>
+        Харчування
+      </th>
+      <td>
+        {{ tour.nutritionList }}
+      </td>
+    </tr>
   </table >
+
   <h5> {{ tour.routList }} </h5>
 
   <div class="d-flex flex-column mt-3">
-    <button type="button" class="btn" style="background-color: yellow;">Замовити</button>
+        <button type="button" class="btn" style="background-color: #46fa6d;">Замовити</button>
+<!--        <button type="button" class="btn" style="background-color: #f7f740;">Замовити</button>-->
   </div>
-
-
-<!--  <div class="ratio ratio-16x9 mt-5">-->
-<!--    <iframe src="https://www.youtube.com/embed/vlDzYIIOYmM" title="YouTube video" ></iframe>-->
-<!--  </div>-->
 
 
 <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->

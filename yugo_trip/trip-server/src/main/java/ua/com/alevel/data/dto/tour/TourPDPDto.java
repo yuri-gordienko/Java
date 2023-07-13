@@ -9,6 +9,7 @@ import org.apache.commons.collections4.CollectionUtils;
 import ua.com.alevel.persistence.sql.entity.tour.Tour;
 import ua.com.alevel.persistence.sql.entity.tour.TourImage;
 import ua.com.alevel.persistence.sql.entity.tour.TourVariant;
+import ua.com.alevel.persistence.sql.entity.tour.TourVideo;
 
 import java.util.Collection;
 import java.util.List;
@@ -31,6 +32,7 @@ public class TourPDPDto {
     private List<String> priceSecondList;
 
     private Set<String> images;
+    private Set<String> videos;
 
     public TourPDPDto(Tour tour, Collection<TourVariant> tourVariants) {
         this.id = tour.getId();
@@ -39,6 +41,10 @@ public class TourPDPDto {
         Set<TourImage> tourImages = tour.getTourImages();
         if (CollectionUtils.isNotEmpty(tourImages)) {
             this.images = tourImages.stream().map(TourImage::getImageUrl).collect(Collectors.toSet());
+        }
+        Set<TourVideo> tourVideos = tour.getTourVideos();
+        if (CollectionUtils.isNotEmpty(tourVideos)) {
+            this.videos = tourVideos.stream().map(TourVideo::getVideoUrl).collect(Collectors.toSet());
         }
         if (CollectionUtils.isNotEmpty(tourVariants)) {
             this.routList = tourVariants.stream().map(TourVariant::getRout).distinct().toList();

@@ -7,8 +7,6 @@ import lombok.Setter;
 import ua.com.alevel.data.dto.BaseDto;
 import ua.com.alevel.persistence.sql.entity.tour.TourVariant;
 
-//import java.math.BigDecimal;
-
 @Getter
 @Setter
 @NoArgsConstructor
