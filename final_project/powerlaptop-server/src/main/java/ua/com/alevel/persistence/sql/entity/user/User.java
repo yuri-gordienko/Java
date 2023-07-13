@@ -17,6 +17,8 @@ import java.util.Set;
 @Setter
 @Entity // эта онатация говорит о том что есть такая таблица
 @Table(name = "users")  // здесь будут лежать все Пользователи - юзеры и админы, iscriminatorValue распределяет их по ролям
+// удобно для того, чтоб не делать отдельный sql запрос (дай всех юзеров где Роллтайп Персонал), а сразу можно вытягивать по
+// отдельности админов, персоналов или всех юзеров
 @EntityListeners({  // чтоб заработал Listener,
         FullNameGenerationListener.class    // FullNameGenerationListener можно создать сколько угодно
 })

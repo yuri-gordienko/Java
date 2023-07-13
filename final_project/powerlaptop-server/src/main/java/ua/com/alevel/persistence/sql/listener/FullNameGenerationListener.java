@@ -4,7 +4,7 @@ import jakarta.persistence.PostLoad;
 import org.apache.commons.lang3.StringUtils;
 import ua.com.alevel.persistence.sql.entity.user.User;
 
-public class FullNameGenerationListener { // перехватчик (интерсептор), отработает перед тем как из БД вернется объект юзера
+public class FullNameGenerationListener { // Listener перехватчик (интерсептор), отработает перед тем как из БД вернется объект юзера
 // делает Постлоад - Прописывает фулнейм, т.к. этот филд @Transient
 
     @PostLoad   // когда будем грузить юзера из базы будет отработывать FullNameGenerationListener

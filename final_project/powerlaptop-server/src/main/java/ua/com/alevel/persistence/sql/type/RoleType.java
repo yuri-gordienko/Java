@@ -9,12 +9,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static ua.com.alevel.persistence.sql.type.Permission.*;
+
+
 
 //public enum RoleType { // Авторизация, т.е. грантед аусорити (права доступа)
 //    ROLE_ADMIN, // создаем ручками мы
 //    ROLE_PERSONAL   // регистрируется сам через сайт
-
-import static ua.com.alevel.persistence.sql.type.Permission.*;
 
     @RequiredArgsConstructor
     public enum RoleType {  // ауторитис для ролей
