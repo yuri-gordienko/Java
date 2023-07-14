@@ -44,6 +44,14 @@
     </tr>
     <tr>
       <th>
+        ..................................
+      </th>
+      <td>
+        .........................................................................................
+      </td>
+    </tr>
+    <tr>
+      <th>
         Тривалість
       </th>
       <td>
@@ -66,17 +74,88 @@
         {{ tour.nutritionList }}
       </td>
     </tr>
+    <tr>
+      <th>
+        ..................................
+      </th>
+      <td>
+        .........................................................................................
+      </td>
+    </tr>
   </table >
 
   <h5> {{ tour.routList }} </h5>
 
+  <tr>
+    <td>
+        <div class="p-1" *ngFor="let video of tour.videos">
+                                      <div class="d-flex flex-wrap">
+          <iframe src="https://www.youtube.com/embed/OY0M8FYeYas" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="p-1" *ngFor="let video of tour.videos">
+        <div class="d-flex flex-wrap">
+          <iframe src="https://www.youtube.com/embed/JKSFr-jDzL4" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="p-1" *ngFor="let video of tour.videos">
+        <div class="d-flex flex-wrap">
+          <iframe src="https://www.youtube.com/embed/dHETNfXZw-E" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div class="p-1" *ngFor="let video of tour.videos">
+        <div class="d-flex flex-wrap">
+          <iframe src="https://www.youtube.com/embed/02OWilYWkTk" title="YouTube video" allowfullscreen></iframe>
+        </div>
+      </div>
+    </td>
+  </tr>
+
   <div class="d-flex flex-column mt-3">
-        <button type="button" class="btn" style="background-color: #46fa6d;">Замовити</button>
-<!--        <button type="button" class="btn" style="background-color: #f7f740;">Замовити</button>-->
+    <button type="button" class="btn" style="background-color: #46fa6d;">Замовити</button>
+    <!--        <button type="button" class="btn" style="background-color: #f7f740;">Замовити</button>-->
   </div>
 
+<!--  <tr>-->
+<!--    <td>-->
+<!--      <div class="p-1" *ngFor="let video of tour.videos">-->
+<!--        <div class="d-flex flex-wrap">-->
+<!--          <iframe src="{{ video }}" title="YouTube video" allowfullscreen></iframe>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  <tr>-->
+<!--    <td>-->
+<!--      <div class="p-1" *ngFor="let video of tour.videos">-->
+<!--        <div class="d-flex flex-wrap">-->
+<!--          <img src="{{ video }}" class="card-img-top" alt="..." width="180" height="100">-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--  <tr>-->
 
-<!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
+
+
+
+
+
+
+
+  <!--  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">-->
 <!--    <ol class="carousel-indicators">-->
 <!--      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>-->
 <!--      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>-->

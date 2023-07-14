@@ -1,4 +1,4 @@
-package ua.com.alevel.controller;
+package ua.com.alevel.controller.open;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +9,7 @@ import ua.com.alevel.facade.pdp.TourPDPFacade;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("tours/{id}/pdp")
+@RequestMapping("/tours/{id}/pdp")
 public class TourPDPController {
 
     private final TourPDPFacade tourPDPFacade;

@@ -134,12 +134,12 @@ insert into tour_image values (6, 48);
 
 
 --tour_videos
-insert into tour_videos values (1, 'https://www.youtube.com/embed/vlDzYIIOYmM');
-insert into tour_videos values (2, 'https://www.youtube.com/embed/vlDzYIIOYmM');
-insert into tour_videos values (3, 'https://www.youtube.com/embed/vlDzYIIOYmM');
-insert into tour_videos values (4, 'https://www.youtube.com/embed/vlDzYIIOYmM');
-insert into tour_videos values (5, 'https://www.youtube.com/embed/vlDzYIIOYmM');
-insert into tour_videos values (6, 'https://www.youtube.com/embed/vlDzYIIOYmM');
+insert into tour_videos values (1, 'https://youtu.be/OY0M8FYeYas');
+insert into tour_videos values (2, 'https://youtu.be/JKSFr-jDzL4');
+insert into tour_videos values (3, 'https://youtu.be/aOWWOM_BCeU');
+insert into tour_videos values (4, 'https://youtu.be/dHETNfXZw-E');
+insert into tour_videos values (5, 'https://youtu.be/F6qYKrTPiVU');
+insert into tour_videos values (6, 'https://youtu.be/02OWilYWkTk');
 
 --tour_video
 insert into tour_video values (1, 1);

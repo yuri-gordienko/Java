@@ -1,4 +1,4 @@
-package ua.com.alevel.controller;
+package ua.com.alevel.controller.admin;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
