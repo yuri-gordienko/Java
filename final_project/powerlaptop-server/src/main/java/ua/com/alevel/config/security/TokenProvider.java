@@ -23,8 +23,9 @@ import java.util.stream.Collectors;
 @Component
 public class TokenProvider {    // класс генерации ауинтиф токина
 
-    @Value("${powerlaptop.security.secret}")    // @Value берет значения из application.properties
-    private String secret;
+    @Value("${powerlaptop.security.secret}")    // @Value берет значения из application.properties, чтоб не писать длинный пароль
+    private String secret;                  // а эти кракозыбры, которые в пропертях - рандомные, на основании их и генерируется пароль
+                                            // т.е. из тех символов будет состоять новый пароль
 
     @Value("${powerlaptop.security.jti}")   // @Value отрабатыввает после того как отработает дефолт конструктор
     private String jti;

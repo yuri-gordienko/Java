@@ -23,13 +23,14 @@ public class UserDetailsServiceImpl implements UserDetailsService { // буде�
     }
 
     @Override
-    // создаем юзер детеилса в бзер детеилс сервис
+    // создаем юзер детеилса в юзер детеилс сервис
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         // берем только по логину loadUserByUsername, т.к. Юзер детейлз сервис пароля не знает
         Optional<User> user = getUserByUsername(username); // достаем Опшинал юзера
         if (user.isEmpty()) {
             throw new UsernameNotFoundException("Invalid username or password."); // если пустой бросаем экзепшн
         }
+        // метод проверки корректности введенных данных в поле
         detailsChecker.check(user.get());   // если чек не прошол, то будет экзепшн
         return user.get();  // если прошол, то возвращаем юзера
     }

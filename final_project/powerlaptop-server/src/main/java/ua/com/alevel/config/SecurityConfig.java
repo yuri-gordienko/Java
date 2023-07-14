@@ -28,8 +28,8 @@ public class SecurityConfig {
 
     private static final String API = "/api";   // все запросы должны начинаться на /api
     private static final String[] WHITE_LIST_API = new String[] {
-            API + "/account/authenticate",  // это логин
-            API + "/account/register",  // это регистрация
+            API + "/account/authenticate",  // это логин, сюда перебрасывают контроллеры
+            API + "/account/register",  // это регистрация, сюда перебрасывают контроллеры
             API + "/home",
             API + "/products/**"    // все, которые идут после продактс (plp, pdp, ....)
     };
@@ -62,8 +62,9 @@ public class SecurityConfig {
     @Bean // (3)
     // объясняем АМ каким юзердетеилс сервис пользоваться
     public AuthenticationProvider authenticationProvider() {
-        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setUserDetailsService(userDetailsService);    // указываем нашим пользоваться
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider(); // Провайдер верифицирует юзердетеился
+        // Провайдер проверяет соответствие пароль юзердетейлсервиса с паролем, который прилетает с http запроса через Бикриптпасвордэнкодер
+        daoAuthenticationProvider.setUserDetailsService(userDetailsService);    // указываем, что нужно нашим пользоваться
         daoAuthenticationProvider.setPasswordEncoder(passwordEncoder()); // каким пасвордэнкодером пользоваться
         return daoAuthenticationProvider;
     }
@@ -90,7 +91,8 @@ public class SecurityConfig {
                 // Set permissions on endpoints
                 .authorizeHttpRequests()
                 .requestMatchers(WHITE_LIST_API).permitAll()    // открытый доступ на адреса WHITE_LIST_API
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // запрос OPTIONS (может вернуть запрос сразу или через время) тоже открыт
+                // запрос OPTIONS (может вернуть запрос сразу или через время, в зависимости от загруженности сервака) тоже открыт
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                 .requestMatchers(       // дополнительные ресурсы, которые сможем открыть
                         "/configuration/ui",
                         "/swagger-resources/**",
