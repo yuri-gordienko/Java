@@ -20,6 +20,11 @@ public class RestExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new DataContainer<>(exception.getMessage()));
     }
 
+    @ExceptionHandler(value = FieldEmptyException.class)
+    public ResponseEntity<DataContainer<String>> handleFieldEmptyException(FieldEmptyException exception) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new DataContainer<>(exception.getMessage()));
+    }
+
     @ExceptionHandler(value = RuntimeException.class)
     public ResponseEntity<DataContainer<String>> handleRuntimeException(RuntimeException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new DataContainer<>(exception.getMessage()));

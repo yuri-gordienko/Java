@@ -16,7 +16,7 @@ import ua.com.alevel.util.WebRequestUtil;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/tour-variants")
+@RequestMapping("/api/private/admin/tour-variants")
 public class TourVariantController {
 
     private final TourVariantCrudFacade tourVariantCrudFacade;

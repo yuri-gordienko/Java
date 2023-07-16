@@ -14,7 +14,9 @@ import java.util.Collection;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/tours/plp")
+@RequestMapping("/api/open/tours/plp")
+//@RequestMapping("/tours/plp")
+
 public class TourPLPController {
 
     private final TourPLPFacade tourPLPFacade;

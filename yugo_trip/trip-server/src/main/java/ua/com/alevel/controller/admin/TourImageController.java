@@ -15,7 +15,7 @@ import ua.com.alevel.util.WebRequestUtil;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/tour-images")
+@RequestMapping("/api/private/admin/tour-images")
 public class TourImageController {
 
     private final TourImageCrudFacade tourImageCrudFacade;

@@ -26,4 +26,5 @@ export const APP_ROUTES: Routes = [
 //        pathMatch: 'prefix',
 //        loadChildren:() => import('./pages/login/login.router').then(m => m.LOGIN_ROUTES)
      }
+
 ];

@@ -9,7 +9,9 @@ import ua.com.alevel.facade.pdp.TourPDPFacade;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/tours/{id}/pdp")
+@RequestMapping("/api/open/tours/{id}/pdp")
+//@RequestMapping("/tours/{id}/pdp")
+
 public class TourPDPController {
 
     private final TourPDPFacade tourPDPFacade;

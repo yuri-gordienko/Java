@@ -10,7 +10,7 @@ import ua.com.alevel.facade.process.TourProcessFacade;
 
 @RestController
 @AllArgsConstructor
-@RequestMapping("/tours/{id}/process")
+@RequestMapping("/api/private/admin/tours/{id}/process")
 public class TourProcessController {
 
     private final TourProcessFacade tourProcessFacade;
