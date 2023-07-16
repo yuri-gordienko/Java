@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
-import {AppSearchComponent} from "../../components/app-search/app-search.component";
-import {AuthService} from "../../services/auth.service";
 import {Observable} from "rxjs";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {SessionService} from "../../services/session.service";
 import {Router} from "@angular/router";
+import {RegisterService} from "../../services/register.service";
 
 @Component({
   selector: 'app-header',
   standalone: true,
   templateUrl: './header.component.html',
   imports: [
-    AppSearchComponent,
+    // AppSearchComponent,
     AsyncPipe,
     NgIf
   ],
@@ -22,7 +21,7 @@ export class HeaderComponent {
   isLoggedIn$: Observable<boolean> = this._authService.isLoggedIn();
 
   constructor(
-    private _authService: AuthService,
+    private _authService: RegisterService,
     private _sessionService: SessionService,
     private _router: Router) {
   }
