@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import {AsyncPipe} from "@angular/common";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {map, Observable} from "rxjs";
-import {AuthService} from "../../services/auth.service";
 import {SessionService} from "../../services/session.service";
 import {Router} from "@angular/router";
+import {RegisterService} from "../../services/register.service";
 
 @Component({
   selector: 'app-login',
@@ -30,7 +30,7 @@ export class LoginComponent {
 
   constructor(
     private _fb: FormBuilder,
-    private _registerService: AuthService,
+    private _registerService: RegisterService,
     private _sessionService: SessionService,
     private _router: Router) {
   }

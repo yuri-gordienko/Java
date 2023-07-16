@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     private _fb: FormBuilder,
-    private _registerService: AuthService,
+    private _registerService: RegisterService,
     private _sessionService: SessionService, private _router: Router) {
   }
 
