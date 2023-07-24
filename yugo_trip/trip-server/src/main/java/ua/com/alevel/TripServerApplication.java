@@ -35,7 +35,7 @@ public class TripServerApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void run() {
 
-        String personalName = "personal101@mail.com";
+        String personalName = "personal@mail.com";
 //        if (!personalRepository.existsByUsername(personalName)) {
         var personal = RegisterRequest.builder()
                 .username(personalName)
