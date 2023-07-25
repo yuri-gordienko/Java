@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import {AsyncPipe} from "@angular/common";
+import {Router} from "@angular/router";
 import {FormBuilder, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {map, Observable} from "rxjs";
+
 import {SessionService} from "../../services/session.service";
-import {Router} from "@angular/router";
 import {RegisterService} from "../../services/register.service";
 
 @Component({
