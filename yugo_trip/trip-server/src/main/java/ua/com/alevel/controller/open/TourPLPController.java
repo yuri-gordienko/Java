@@ -1,6 +1,7 @@
 package ua.com.alevel.controller.open;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,6 @@ import java.util.Collection;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/open/tours/plp")
-//@RequestMapping("/tours/plp")
 
 public class TourPLPController {
 

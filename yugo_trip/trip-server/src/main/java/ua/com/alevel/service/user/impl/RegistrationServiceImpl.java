@@ -3,6 +3,7 @@ package ua.com.alevel.service.user.impl;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import ua.com.alevel.exception.UserExistException;
 import ua.com.alevel.persistence.sql.entity.user.Personal;
 import ua.com.alevel.persistence.sql.repository.user.PersonalRepository;

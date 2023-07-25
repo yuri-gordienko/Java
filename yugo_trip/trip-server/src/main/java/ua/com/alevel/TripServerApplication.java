@@ -7,6 +7,7 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
 import org.springframework.scheduling.annotation.EnableScheduling;
+
 import ua.com.alevel.config.security.AuthenticationService;
 import ua.com.alevel.config.security.RegisterRequest;
 import ua.com.alevel.persistence.sql.repository.user.AdminRepository;
@@ -36,16 +37,14 @@ public class TripServerApplication {
     public void run() {
 
         String personalName1 = "user1@mail.com";
-//        if (!personalRepository.existsByUsername(personalName)) {
         var personal1 = RegisterRequest.builder()
                 .username(personalName1)
                 .password("11111")
                 .roleType(RoleType.PERSONAL)
                 .build();
         System.out.println("Personal token: " + service.register(personal1));
-//        }
+
         String personalName2 = "user2@mail.com";
-//        if (!personalRepository.existsByUsername(personalName)) {
         var personal2 = RegisterRequest.builder()
                 .username(personalName2)
                 .password("22222")

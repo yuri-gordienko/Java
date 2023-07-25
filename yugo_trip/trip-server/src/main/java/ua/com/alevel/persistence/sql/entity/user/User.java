@@ -1,13 +1,15 @@
 package ua.com.alevel.persistence.sql.entity.user;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import ua.com.alevel.persistence.sql.entity.BaseEntity;
 import ua.com.alevel.persistence.sql.entity.token.Token;
 import ua.com.alevel.persistence.sql.listener.FullNameGenerationListener;
@@ -15,7 +17,6 @@ import ua.com.alevel.persistence.sql.type.RoleType;
 
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 @Builder
 @Getter

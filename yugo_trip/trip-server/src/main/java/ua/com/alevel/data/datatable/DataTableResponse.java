@@ -2,7 +2,9 @@ package ua.com.alevel.data.datatable;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import org.springframework.data.domain.Page;
+
 import ua.com.alevel.data.dto.BaseDto;
 import ua.com.alevel.persistence.sql.entity.BaseEntity;
 

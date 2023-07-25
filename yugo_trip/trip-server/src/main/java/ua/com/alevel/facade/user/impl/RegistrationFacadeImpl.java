@@ -1,6 +1,7 @@
 package ua.com.alevel.facade.user.impl;
 
 import org.springframework.stereotype.Service;
+
 import ua.com.alevel.data.dto.auth.LoginDto;
 import ua.com.alevel.facade.user.RegistrationFacade;
 import ua.com.alevel.persistence.sql.entity.user.Personal;

@@ -150,23 +150,3 @@ insert into tour_video values (5, 5);
 insert into tour_video values (6, 6);
 
 
-
---update
---update tours set country = 'Швейцарiя' where id = 1;
---update tours set country = 'Iталiя' where id = 2;
---update tours set country = 'Iспанiя' where id = 3;
---update tours set country = 'Францiя' where id = 4;
---update tours set country = 'Шотландiя' where id = 5;
---update tours set country = 'Норвегiя' where id = 6;
---update tour_variants set duration_second = '14 діб' where id = 1;
---update tour_variants set identity_number = '0006' where id = 6;
---update tour_videos set video_url = 'https://www.youtube.com/embed/F6qYKrTPiVU' where id = 6;
-
-
-
---delete
---delete from tour_video tour_video_id = 1 where tour_id = 1;
---delete from tour_videos vide_url = 'https://www.youtube.com/embed/vlDzYIIOYmM' where id = 1;
-
-
-

@@ -5,7 +5,9 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import lombok.AllArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -61,14 +63,6 @@ public class TourController {
     }
 
     @Operation(summary = "Get a tour by id")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "Found the book",
-//                    content = { @Content(mediaType = "application/json",
-//                            schema = @Schema(implementation = ProductDto.class)) }),
-//            @ApiResponse(responseCode = "400", description = "Invalid id",
-//                    content = @Content),
-//            @ApiResponse(responseCode = "404", description = "ProductDto not found",
-//                    content = @Content) })
     @GetMapping("/{id}")
     @PreAuthorize("hasAuthority('admin:read')")
     public ResponseEntity<DataContainer<TourDto>> findById(@PathVariable Long id) {

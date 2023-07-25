@@ -1,8 +1,10 @@
 package ua.com.alevel.controller.open;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import ua.com.alevel.data.dto.tour.TourPDPDto;
 import ua.com.alevel.data.response.DataContainer;
 import ua.com.alevel.facade.pdp.TourPDPFacade;
@@ -10,7 +12,6 @@ import ua.com.alevel.facade.pdp.TourPDPFacade;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/open/tours/{id}/pdp")
-//@RequestMapping("/tours/{id}/pdp")
 
 public class TourPDPController {
 

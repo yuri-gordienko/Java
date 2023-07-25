@@ -1,10 +1,12 @@
 package ua.com.alevel.persistence.sql.entity.token;
 
 import jakarta.persistence.*;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import ua.com.alevel.persistence.sql.entity.user.User;
 import ua.com.alevel.persistence.sql.type.TokenType;
 

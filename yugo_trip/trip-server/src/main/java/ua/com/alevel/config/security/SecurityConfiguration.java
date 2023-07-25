@@ -1,6 +1,7 @@
 package ua.com.alevel.config.security;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -15,6 +16,7 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 
 import static org.springframework.http.HttpMethod.*;
 import static org.springframework.http.HttpMethod.DELETE;
+
 import static ua.com.alevel.persistence.sql.type.Permission.*;
 import static ua.com.alevel.persistence.sql.type.RoleType.*;
 

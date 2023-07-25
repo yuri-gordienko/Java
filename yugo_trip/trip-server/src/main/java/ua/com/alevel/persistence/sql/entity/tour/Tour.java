@@ -1,6 +1,7 @@
 package ua.com.alevel.persistence.sql.entity.tour;
 
 import jakarta.persistence.*;
+
 import lombok.Getter;
 import lombok.Setter;
 

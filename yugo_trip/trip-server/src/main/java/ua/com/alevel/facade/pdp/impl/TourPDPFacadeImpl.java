@@ -1,6 +1,7 @@
 package ua.com.alevel.facade.pdp.impl;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 import ua.com.alevel.data.dto.tour.TourPDPDto;
@@ -25,9 +26,4 @@ public class TourPDPFacadeImpl implements TourPDPFacade {
         Collection<TourVariant> tourVariants = tourVariantCrudService.findByTour(tour);
         return new TourPDPDto(tour, tourVariants);
     }
-
-//    @Override
-//    public Long findTourIdByVariants(TourSearchDto dto) {
-//        return tourVariantCrudService.findTourtIdByVariants(dto);
-//    }
 }

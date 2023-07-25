@@ -9,6 +9,4 @@ import java.util.Collection;
 public interface TourVariantCrudService extends CrudService<TourVariant> {
 
     Collection<TourVariant> findByTour(Tour tour);
-
-//    Long findTourIdByVariants(TourSearchDto dto);
 }

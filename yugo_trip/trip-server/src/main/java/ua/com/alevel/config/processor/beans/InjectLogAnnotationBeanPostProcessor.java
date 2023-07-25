@@ -1,10 +1,10 @@
 package ua.com.alevel.config.processor.beans;
 
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
 import ua.com.alevel.config.processor.annotations.InjectLog;
 
 import java.lang.reflect.Field;

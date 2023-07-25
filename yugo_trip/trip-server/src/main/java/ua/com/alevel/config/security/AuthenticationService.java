@@ -1,6 +1,7 @@
 package ua.com.alevel.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -67,7 +68,6 @@ public class AuthenticationService {
         if (repository.existsByUsername(request.getUsername())) {
             loggerService.log(LoggerLevel.ERROR, "User " + request.getUsername() + " is already exist: " + new Date());
             return null;
-//            throw new RuntimeException("User " + request.getUsername() + " is already exist: " + new Date());
         } else {
             switch (request.getRoleType()) {
                 case ADMIN -> {

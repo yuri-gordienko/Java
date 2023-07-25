@@ -2,7 +2,9 @@ package ua.com.alevel.service.logger.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import org.springframework.stereotype.Service;
+
 import ua.com.alevel.service.logger.LoggerLevel;
 import ua.com.alevel.service.logger.LoggerService;
 

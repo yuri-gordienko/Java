@@ -1,6 +1,7 @@
 package ua.com.alevel.facade.plp.impl;
 
 import lombok.AllArgsConstructor;
+
 import org.springframework.stereotype.Service;
 
 import ua.com.alevel.data.dto.tour.TourPLPDto;

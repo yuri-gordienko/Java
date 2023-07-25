@@ -24,7 +24,6 @@ public class TourVariantCrudFacadeImpl implements TourVariantCrudFacade {
     public void create(TourVariantDto dto) {
         TourVariant tourVariant = new TourVariant();
         tourVariant.setRout(dto.getRout());
-//        convertTourVariantDtoToTourVariant(dto, tourVariant);
         tourVariantCrudService.create(tourVariant);
     }
 
@@ -32,7 +31,6 @@ public class TourVariantCrudFacadeImpl implements TourVariantCrudFacade {
     public void update(Long id, TourVariantDto dto) {
         TourVariant tourVariant = tourVariantCrudService.findById(id);
         tourVariant.setRout(dto.getRout());
-//        convertTourVariantDtoToTourVariant(dto, tourVariant);
         tourVariantCrudService.create(tourVariant);
     }
 
@@ -54,8 +52,4 @@ public class TourVariantCrudFacadeImpl implements TourVariantCrudFacade {
         dataTableResponse.setItems(list);
         return dataTableResponse;
     }
-
-//    private void convertTourVariantDtoToTourVariant(TourVariantDto dto, TourVariant tourVariant) {
-//        tourVariant.setRout(dto.getRout());
-//    }
 }
