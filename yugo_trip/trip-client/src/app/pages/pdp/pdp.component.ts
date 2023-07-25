@@ -35,4 +35,8 @@ export class PdpComponent implements OnInit {
         this.tour = value as TourPdpModel;
       });
   }
+
+cart(): void {
+        this._router.navigateByUrl('/login');
+    }
 }

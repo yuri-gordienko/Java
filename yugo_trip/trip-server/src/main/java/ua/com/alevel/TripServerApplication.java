@@ -35,15 +35,23 @@ public class TripServerApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void run() {
 
-        String personalName = "personal@mail.com";
+        String personalName1 = "user1@mail.com";
 //        if (!personalRepository.existsByUsername(personalName)) {
-        var personal = RegisterRequest.builder()
-                .username(personalName)
-                .password("12345678")
+        var personal1 = RegisterRequest.builder()
+                .username(personalName1)
+                .password("11111")
                 .roleType(RoleType.PERSONAL)
                 .build();
-        System.out.println("Personal token: " + service.register(personal));
+        System.out.println("Personal token: " + service.register(personal1));
 //        }
+        String personalName2 = "user2@mail.com";
+//        if (!personalRepository.existsByUsername(personalName)) {
+        var personal2 = RegisterRequest.builder()
+                .username(personalName2)
+                .password("22222")
+                .roleType(RoleType.PERSONAL)
+                .build();
+        System.out.println("Personal token: " + service.register(personal2));
 
         String adminName = "admin@mail.com";
         if (!adminRepository.existsByUsername(adminName)) {
