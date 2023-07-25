@@ -12,6 +12,7 @@ import ua.com.alevel.persistence.sql.entity.tour.TourVariant;
 @NoArgsConstructor
 public class TourVariantDto extends BaseDto {
 
+    private String identityNumber;
     private String rout;
     private String durationFirst;
     private String durationSecond;
@@ -21,6 +22,7 @@ public class TourVariantDto extends BaseDto {
 
     public TourVariantDto(TourVariant tourVariant) {
         setId(tourVariant.getId());
+        this.identityNumber = tourVariant.getIdentityNumber();
         this.rout = tourVariant.getRout();
         this.durationFirst = tourVariant.getDurationFist();
         this.durationSecond = tourVariant.getDurationSecond();

@@ -16,6 +16,9 @@ import ua.com.alevel.persistence.sql.entity.BaseEntity;
 @Table(name = "tour_variants")
 public class TourVariant extends BaseEntity {
 
+    @Column(nullable = false)
+    private String identityNumber;
+
     @Column(columnDefinition = "TEXT")
     private String rout;
 
