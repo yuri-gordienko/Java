@@ -1,9 +1,9 @@
 package ua.com.alevel.Jdbc_crud.dao.impl;
 
-import ua.com.alevel.dao.PupilsDao;
-import ua.com.alevel.entity.Pupils;
-import ua.com.alevel.service.JdbcService;
-import ua.com.alevel.util.Color;
+import ua.com.alevel.Jdbc_crud.dao.PupilsDao;
+import ua.com.alevel.Jdbc_crud.entity.Pupils;
+import ua.com.alevel.Jdbc_crud.service.JdbcService;
+import ua.com.alevel.Jdbc_crud.util.Color;
 
 import java.sql.*;
 import java.util.ArrayList;

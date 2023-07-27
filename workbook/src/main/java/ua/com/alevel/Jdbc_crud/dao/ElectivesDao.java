@@ -1,8 +1,7 @@
 package ua.com.alevel.Jdbc_crud.dao;
 
-import ua.com.alevel.dto.ElectivesDto;
-import ua.com.alevel.entity.Electives;
-import ua.com.alevel.entity.Pupils;
+import ua.com.alevel.Jdbc_crud.dto.ElectivesDto;
+import ua.com.alevel.Jdbc_crud.entity.Electives;
 
 import java.util.Collection;
 

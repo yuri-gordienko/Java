@@ -1,13 +1,13 @@
 package ua.com.alevel.Jdbc_crud.controller;
 
-import ua.com.alevel.dao.ElectivesDao;
-import ua.com.alevel.dao.PupilsDao;
-import ua.com.alevel.dao.impl.ElectivesDaoImpl;
-import ua.com.alevel.dao.impl.PupilsDaoImpl;
-import ua.com.alevel.dto.ElectivesDto;
-import ua.com.alevel.entity.Electives;
-import ua.com.alevel.entity.Pupils;
-import ua.com.alevel.util.Color;
+import ua.com.alevel.Jdbc_crud.dao.ElectivesDao;
+import ua.com.alevel.Jdbc_crud.dao.PupilsDao;
+import ua.com.alevel.Jdbc_crud.dao.impl.ElectivesDaoImpl;
+import ua.com.alevel.Jdbc_crud.dao.impl.PupilsDaoImpl;
+import ua.com.alevel.Jdbc_crud.dto.ElectivesDto;
+import ua.com.alevel.Jdbc_crud.entity.Electives;
+import ua.com.alevel.Jdbc_crud.entity.Pupils;
+import ua.com.alevel.Jdbc_crud.util.Color;
 
 import java.io.BufferedReader;
 import java.io.IOException;

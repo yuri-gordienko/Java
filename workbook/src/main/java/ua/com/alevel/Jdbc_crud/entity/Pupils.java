@@ -1,7 +1,5 @@
 package ua.com.alevel.Jdbc_crud.entity;
 
-import ua.com.alevel.Jdbc_crud.entity.BaseEntity;
-
 public class Pupils extends BaseEntity {
 
     private String firstName;

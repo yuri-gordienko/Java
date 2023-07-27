@@ -1,6 +1,6 @@
 package ua.com.alevel.Jdbc_crud.dao;
 
-import ua.com.alevel.entity.BaseEntity;
+import ua.com.alevel.Jdbc_crud.entity.BaseEntity;
 
 import java.util.Collection;
 

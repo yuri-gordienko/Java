@@ -1,6 +1,6 @@
 package ua.com.alevel.Jdbc_crud.dto;
 
-import ua.com.alevel.util.Color;
+import ua.com.alevel.Jdbc_crud.util.Color;
 
 // промежуточный java объект, который не Entity класс!, задача вытащить промежуточную инфо, отдать и удалит гарбаж коллектор
 public class ElectivesDto {

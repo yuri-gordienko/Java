@@ -1,9 +1,9 @@
 package ua.com.alevel.Jdbc_crud.dao.impl;
 
-import ua.com.alevel.dao.ElectivesDao;
-import ua.com.alevel.dto.ElectivesDto;
-import ua.com.alevel.entity.Electives;
-import ua.com.alevel.service.JdbcService;
+import ua.com.alevel.Jdbc_crud.dao.ElectivesDao;
+import ua.com.alevel.Jdbc_crud.dto.ElectivesDto;
+import ua.com.alevel.Jdbc_crud.entity.Electives;
+import ua.com.alevel.Jdbc_crud.service.JdbcService;
 
 import java.sql.*;
 import java.util.ArrayList;
