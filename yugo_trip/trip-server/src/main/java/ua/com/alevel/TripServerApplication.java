@@ -36,18 +36,18 @@ public class TripServerApplication {
     @EventListener(ApplicationReadyEvent.class)
     public void run() {
 
-        String personalName1 = "user1@mail.com";
+        String personalName1 = "client@mail.com";
         var personal1 = RegisterRequest.builder()
                 .username(personalName1)
-                .password("11111")
+                .password("12345")
                 .roleType(RoleType.PERSONAL)
                 .build();
         System.out.println("Personal token: " + service.register(personal1));
 
-        String personalName2 = "user2@mail.com";
+        String personalName2 = "name@mail.com";
         var personal2 = RegisterRequest.builder()
                 .username(personalName2)
-                .password("22222")
+                .password("12345")
                 .roleType(RoleType.PERSONAL)
                 .build();
         System.out.println("Personal token: " + service.register(personal2));
