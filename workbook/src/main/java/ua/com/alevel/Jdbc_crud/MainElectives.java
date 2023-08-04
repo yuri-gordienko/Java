@@ -1,6 +1,6 @@
 package ua.com.alevel.Jdbc_crud;
 
-import ua.com.alevel.controller.ElectivesController;
+import ua.com.alevel.Jdbc_crud.controller.ElectivesController;
 
 import java.io.IOException;
 

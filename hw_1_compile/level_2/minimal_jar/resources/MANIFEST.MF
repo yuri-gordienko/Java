@@ -1,2 +1,4 @@
-Main-Class: ua.com.ua.alevel.GoodDay
+Main-Class: ua.com.alevel.GoodDay
+
+
 
