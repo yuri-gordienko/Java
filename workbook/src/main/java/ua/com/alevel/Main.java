@@ -2,14 +2,39 @@ package ua.com.alevel;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println("Hello");
-        int sum = sumFunc(10, 12);
-    }
-
-    public static int sumFunc(int a, int b) {
-        int result = a + b;
-        System.out.println(result);
-        return result;
-    }
+//    public static void main(String[] args){
+//        int numbers = count(2, 4, 3 );
+//    }
+//
+//    public static int count(int a, int b, int c) {
+//        int result = a + b + c;
+//        System.out.println("sum = " + result);
+//        return result;
+//    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
