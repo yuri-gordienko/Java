@@ -5,6 +5,7 @@ insert into employees values (default, 'Юрій', 'Гордієнко', 40); --
 -- read
 -- find all
 -- select всегда возвращает табличку с мин 1 колоночкой (не объект)
+-- and можно писать сколько угодно
 select * from employees;    -- показать всех
 select id, age from employees;  -- показать колонки с id и возрастом
 select * from employees where id = 1;   -- показать по id
@@ -31,6 +32,7 @@ delete  from dep_emp where emp_id = 10; -- удалили этот элемен�
 select * from departments join dep_emp where dep_emp.dep_id = departments.id
 
 -- additional Selects
+select count(*) as count_of_pupils from pupils where first_name like ? or last_name like ?
 select * from departments as d join dep_emp de where de.dep_id = d.id -- дали название департаменту d и далее так к нему обращаемся
 select * from departments as d join dep_emp as de where de.dep_id = d.id -- дали имена таблицам и дальше их используем, можно без "as" через пробел
 select * from departments d join dep_emp de where de.dep_id = d.id -- (без "as") - вернет полностью табл d и dе, получится дублирование id департамента

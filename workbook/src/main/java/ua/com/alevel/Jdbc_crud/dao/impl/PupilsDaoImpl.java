@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class PupilsDaoImpl implements PupilsDao {
-// реализация интерфейса PupilsDao, наследуется от PupilsDao и реализует его методы
+// реализация интерфейса PupilsDao, наследуется от PupilsDao и реализует его методы, в аргументы сразу попадает конкрет.объект Pupils
 // тут методы, которые с помощью java кода будут обращаться к jdbc драйверу, который подтянулся в <dependensy>
 // а драйвер будет ходить в базу (коннектиться через API и синхронизировать диалекты java кода с языком BD)
     private final Connection connection = JdbcService.getInstance().getConnection(); // подклчение к БД, необходим для работы PreparedStatement
@@ -29,7 +29,8 @@ public class PupilsDaoImpl implements PupilsDao {
     @Override
     public void create(Pupils pupils) {
         // класс PreparedStatement отвечает за Create, Update, Delete - за операции, там где нет Select
-        try(PreparedStatement ps = connection.prepareStatement(CREATE_PUPIL)) { // prepareStatement подготавливаем sql запрос
+        try // используем, потенциально может быть SQLExeption
+                (PreparedStatement ps = connection.prepareStatement(CREATE_PUPIL)) { // prepareStatement подготавливаем sql запрос
             ps.setString(1, pupils.getFirstName()); // подставляем в первый знак вопроса
             ps.setString(2, pupils.getLastName()); // подставляем во второй знак вопроса и т.д.
             ps.setInt(3, pupils.getClas());
@@ -78,7 +79,7 @@ public class PupilsDaoImpl implements PupilsDao {
     @Override
     public Collection<Pupils> findAll() {
         List<Pupils> pupils = new ArrayList<>();
-        try(ResultSet rs = statement.executeQuery(FIND_ALL_PUPILS)) {
+        try(ResultSet rs = statement.executeQuery(FIND_ALL_PUPILS)) { //ResultSet работает с селектами
             while (rs.next()) { // пока есть следующий
                 pupils.add(convertResultSetToPupils(rs)); // в лист объектов добавляем объект
             }

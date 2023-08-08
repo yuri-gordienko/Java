@@ -5,11 +5,11 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JdbcService {      // синглтон
+public class JdbcService {      // синглтон - на протяжении жизненого цикла прилож-я можно сделать new только 1 раз
 // отвечает за соединение с БД
 // прослойка между Dao и Сервером, знает адрес базы и пермишены, централизовано собирает запросы и передает в BD,
 // потом возвращает
-private static final JdbcService instance = new JdbcService();  // создаем экземпляр этого же класса
+private static final JdbcService instance = new JdbcService();  // создаем экземпляр этого же класса, т.к. он должен быть создан
 
     private Connection connection;  // подключает к БД и передает данные
     private Statement statement;    // принимает данные с БД
