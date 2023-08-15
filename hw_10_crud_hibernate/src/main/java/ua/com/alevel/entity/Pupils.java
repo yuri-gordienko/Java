@@ -8,7 +8,7 @@ import jakarta.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity
+@Entity // класс мапится на таблицу
 @Table(name = "pupils")
 public class Pupils extends BaseEntity {
 
@@ -21,10 +21,10 @@ public class Pupils extends BaseEntity {
     @Column(name = "class")
     private Integer mark;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false, unique = true) // колонка неможет быть пустая, уникальнай адрес
     private String email;
 
-    @ManyToMany(mappedBy = "pupil")
+    @ManyToMany(mappedBy = "pupil") // mappedBy - на какую таблицу pupils мы будем ссылаться в Electives (имя учеников в факультативе)
     private Set<Electives> elective = new HashSet<>();
 
     public String getFirstName() {

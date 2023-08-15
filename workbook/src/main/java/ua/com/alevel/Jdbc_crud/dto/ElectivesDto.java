@@ -7,7 +7,7 @@ public class ElectivesDto {
 
     private Long id;
     private String name;
-    private Long pupilsCount; // jdbc конвертирует только тип Long
+    private Long pupilsCount; // jdbc конвертирует только тип Long, если используем оператор count в sql запросе
 
     public Long getId() {
         return id;

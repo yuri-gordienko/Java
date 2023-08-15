@@ -17,18 +17,19 @@ import java.util.Optional;
 
 public class PupilsDaoImpl implements PupilsDao {
 
-    private final SessionFactory sessionFactory = HibernateConfig.getInstance().getSessionFactory();
+    private final SessionFactory sessionFactory = HibernateConfig.getInstance().getSessionFactory(); // вызываем сешнфабрику
 
-    @Override
+    @Override   // аннотация говорит что тут имплементируем абстрактный метод из Парента PupilsDao, а тот из BaseDao
     public void create(Pupils pupils) {
-        Transaction transaction = null;
-        try(Session session = sessionFactory.getCurrentSession()) {
-            transaction = session.beginTransaction();
-            session.save(pupils);
-            transaction.commit();
+        Transaction transaction = null; // указываем, что работаем через транзакцию
+        try // с ресурсами, потому что транзакцию нужно будет закрыватьь
+            (Session session = sessionFactory.getCurrentSession()) { // получаем сессию, Хайбер сам решает какую сессию дать
+            transaction = session.beginTransaction();   // начинаем транзакцию
+            session.save(pupils);   // оперируем на уровне java кода, создаем объект, т.е. в save уже прописан sql запрос
+            transaction.commit();   // после нужно транзакцию комитить
         } catch (Exception e) {
-            System.out.println("e = " + e.getMessage());
-            rollbackTransaction(transaction);
+            System.out.println("e = " + e.getMessage());  // выводим сообщение, если получим ошибку
+            rollbackTransaction(transaction);   // откатываем транзакцию в случае получения ошибки
         }
     }
 
@@ -63,9 +64,9 @@ public class PupilsDaoImpl implements PupilsDao {
         Transaction transaction = null;
         try(Session session = sessionFactory.getCurrentSession()) {
             transaction = session.beginTransaction();
-            Pupils pupils = session.find(Pupils.class, id);
+            Pupils pupils = session.find(Pupils.class, id); // такой вид запроса (есть другой вариант через Query )
             transaction.commit();
-            return Optional.of(pupils);
+            return Optional.of(pupils); // возвращаем только после комита, Optional - может быть, может не быть
         } catch (Exception e) {
             System.out.println("e = " + e.getMessage());
             rollbackTransaction(transaction);
@@ -74,19 +75,19 @@ public class PupilsDaoImpl implements PupilsDao {
     }
 
     @Override
-    public Collection<Pupils> findAll() {
+    public Collection<Pupils> findAll() { // нет стандартного метода, поэтому получаем через Хайбер-т квери ленгвич
         Transaction transaction = null;
         try(Session session = sessionFactory.getCurrentSession()) {
             transaction = session.beginTransaction();
-            Query query = session.createQuery("from Pupils");
-            List<Pupils> pupil = query.getResultList();
-            transaction.commit();
-            return pupil;
+            Query query = session.createQuery("from Pupils");   // пишем кверю hql
+            List<Pupils> pupil = query.getResultList(); // получаем Лист объектов у нашего квери запроса
+            transaction.commit(); // комитим
+            return pupil;   // возвращаем объекты
         } catch (Exception e) {
             System.out.println("e = " + e.getMessage());
             rollbackTransaction(transaction);
         }
-        return Collections.emptyList();
+        return Collections.emptyList(); // по дефолту будет возвращать пустой лист
     }
 
     @Override
@@ -95,7 +96,9 @@ public class PupilsDaoImpl implements PupilsDao {
         return pupil.stream().anyMatch(pupils -> pupils.getEmail().equals(email));
     }
 
-    private void rollbackTransaction(Transaction transaction) {
+    // создаем глобальный метод для отката транзакции, чтоб не было дублирования кода
+    // если хоть один sql запрос зафейлился, то все предыдущие должны быть отменены
+    private void rollbackTransaction(Transaction transaction) { // по принципу ACID, трензакция дожна быть атомарной (откатываться в случае чего)
         if (transaction != null) {
             transaction.rollback();
         }

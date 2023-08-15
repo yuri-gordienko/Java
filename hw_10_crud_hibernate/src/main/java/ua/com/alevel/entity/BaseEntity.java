@@ -5,11 +5,11 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
-@MappedSuperclass
+@MappedSuperclass // чтоб не мапился на таблицу
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // вариант генерации id по инкременту
     private Long id;
 
     @Temporal(TemporalType.TIMESTAMP)

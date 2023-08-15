@@ -16,14 +16,14 @@ public class HibernateConfig {
         sessionFactory = configuration.buildSessionFactory(); // инициализируем Session fabric
     }
 
-    public static HibernateConfig getInstance() {   // метод возвращает наш HibernateConfig
+    public static HibernateConfig getInstance() {   // метод возвращает наш HibernateConfig, чтоб был виден из вне
         if (instance == null) {
             instance = new HibernateConfig();
         }
         return instance;
     }
 
-    public SessionFactory getSessionFactory() {
+    public SessionFactory getSessionFactory() { // делаем геттер на сешнфабрику
 
         return sessionFactory;
     }

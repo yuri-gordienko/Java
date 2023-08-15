@@ -4,9 +4,9 @@ import ua.com.alevel.entity.Pupils;
 
 import java.util.Collection;
 
-public interface PupilsService {
+public interface PupilsService { // конкретный класс, работаем с конкретными объектами
 
-    boolean create(Pupils pupils);
+    boolean create(Pupils pupils);  // как аргументы указываем конкретные объекты
 
     void update(Pupils pupils, Long id);
 

@@ -13,7 +13,7 @@ public interface BaseDao<E extends BaseEntity> {
 
     void create(E e);
     void update(E e);
-    void delete(E e);
+    void delete(E e);   // хайбер удалять по id не умеет
     Optional<E> findById(Long id);
     Collection<E> findAll();
 }
