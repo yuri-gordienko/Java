@@ -70,7 +70,7 @@ select * from relation_el_pup where el_id = 'elective_id' and pup_id = 'pupil_id
 select * from pupils limit 3;
 -- пагинация, от первого до 10
 select * from pupils limit 0, 10;
--- пагинация, второй десяток, т.е. начиная от 10гоэлемента + 10 елементов
+-- пагинация, второй десяток, т.е. начиная от 10го элемента + 10 следующих елементов
 select * from pupils limit 10, 10;
 -- второй десяток с конца по id
 select * from pupils order by id desc limit 10, 10;

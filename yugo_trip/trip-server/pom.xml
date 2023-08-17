@@ -87,6 +87,7 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!-- swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -113,6 +114,8 @@
             <artifactId>logback-core</artifactId>
         </dependency>
     </dependencies>
+
+
 
     <build>
         <plugins>
