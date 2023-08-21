@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>ua.com.alevel</groupId>
-    <artifactId>docker-demo</artifactId>
+    <artifactId>docker_settings</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>docker-demo</name>
     <description>docker-demo</description>
