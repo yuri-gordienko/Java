@@ -5,17 +5,21 @@ import java.util.Collections;
 
 public class ArrayListTheory {
 
+// The ArrayList class is a resizable array, which can be found in the java.util package.
+// The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified
+// (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added
+// and removed from an ArrayList whenever you want. The syntax is also slightly different:
+
     public static void main(String[] args){
-//Methods: add, get, set, remove, clear
-//size
-//size() method to specify how many times the loop should run
-//for-each loop
+//Methods: add, get, set, remove, clear, size,
+// size() method to specify how many times the loop should run,  for-each loop
 //add elements of type Integer
 //sort()
         ArrayList <String>cars = new ArrayList<>();
         cars.add("ford");
         cars.add("mers");
         cars.add("bmw");
+        cars.add("honda");
         cars.add("honda");
         System.out.println(cars);
         System.out.println("cars size - " + cars.size());
