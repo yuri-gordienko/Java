@@ -1,0 +1,160 @@
+Запустить БД:
+
+- скачиваем с Монго БД оболочку MongoDB Shell Download (https://www.mongodb.com/try/download/shell) для работы с консоли
+- в виндовс в Edit enviroment прописываем путь к папке bin, чтоб консоль видела файл запуска
+- в командной строке запускаем команду
+C:\Users\User>mongosh
+- видим:
+Локальный адрес где была развернута Монго БД
+Connecting to:
+mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+1.10.6
+
+Версии Монго ДБ и Монго Шелл
+Using MongoDB:          7.0.0
+Using Mongosh:          1.10.6
+
+Ссылка на документацию с командами для работы в командной строке
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+-----------------------------------------------------------------------------------------------------
+Тестируем:
+какие уже БД есть
+test> show dbs
+admin   40.00 KiB
+config  60.00 KiB
+local   72.00 KiB
+
+создать новую БД
+test> use newdb
+switched to db newdb - подтверждение о создании, но ее не будет видно, т.к. пустая
+
+обращение к БД командой
+db
+
+наполняем БД, users - название коллекции (таблицы), insertOne - создаем запись в виде json объекта, {"user":"Yuri"}
+db.users.insertOne({"user":"Yuri"})
+этот метод позволяет добавить только одну запись в определенную коллекцию
+
+ acknowledged: true,
+  insertedId: ObjectId("64e9f4278726aa2caebd917e")
+подтверждение о создании коллекции и добавлении записи
+
+2й вариант создания коллекции (таблицы)
+newdb> db.createCollection("articles")
+
+смотрим коллекции (таблицы, которые в БД, с корня которого обращаемся)
+newdb> show collections
+users
+
+смотрим все существующие БД, наша в конце
+newdb> show dbs
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+newdb    40.00 KiB
+
+смотрим наш объект внутри коллекции (id присвоился автоматически, далее идет наша запись)
+newdb> db.users.find()
+[ { _id: ObjectId("64e9f4278726aa2caebd917e"), user: 'Yuri' } ]
+
+теперь уже в интерфейсе Компас создаем новый конекшн и указываем порт подключения (mongodb://127.0.0.1:27017),
+127.0.0.1 - тоже самое что и localhost
+--------------------------------------------------------------------------------------------------------------
+удалить табличку
+newdb> db.articles.drop()
+true
+--------------------------------------------------------------------------------------------------------------
+можем делать запись в json в виде строк, цифр, булевых знач., массивов и объектов
+mydb> db.users.insertOne(
+{
+"name":"Yuri",
+"email":"yuri@mail.com",
+"age":37,
+"hasCar":true,
+"favColors":["Red","Yellow","Black"],
+"chield": {"name":"Kira","surname":"Gordienko","age":5}
+}
+)
+
+можкм добавлять абсолютно другие объекты, с другими полями, id можем устанавливать в ручную
+т.е. у одного объекта могут быть не соответствующие колонки с другими, каких-то колонок может не быть вообще
+mydb> db.users.find()
+[
+  {
+    _id:1,
+    name: 'Yuri',
+    email: 'yuri@mail.com',
+    age: 37,
+    hasCar: true,
+    favColors: [ 'Red', 'Yellow', 'Black' ],
+    chield: { name: 'Kira', surname: 'Gordienko', age: 5 }
+  },
+  {
+    _id: ObjectId("64ea06c48726aa2caebd9184"),
+    name: 'Ket',
+    email: 'ket@mail.com',
+    age: 33,
+    hasCar: true,
+    favColors: [ 'Red', 'Yellow', 'Black' ],
+    chield: { name: 'Oleg', surname: 'Gordienko', age: 1 }
+  },
+  {
+    _id: ObjectId("64ea070e8726aa2caebd9185"),
+    name: 'Oleg',
+    age: 1,
+    hasCar: true,
+    favColors: [ 'Red', 'Yellow', 'Black' ],
+    password: 12345
+  }
+]
+
+mydb> db.users.insertOne(
+{
+"name":"Kira",
+"age":1,
+"hasCar":false,
+"birthday": new Date('2017-12-20'),
+"password":234
+}
+)
+
+добавляем много объектов через insertMany и оборачиваем в массив [] после круглых скобок
+db.users.insertMany([
+{
+"name":"Moka",
+"age":15,
+"hasCar":false,
+"birthday": new Date('2017-12-20'),
+"password":234
+},
+{
+"name":"Gooo",
+"age":23,
+"hasCar":false,
+"birthday": new Date('2017-12-20'),
+"password":234
+}
+])
+-------------------------------------------------------------------------------------------------------------
+сортировка
+mydb> db.users.find().limit(2) - вывести из коллекции первых 2
+mydb> db.users.find({},{_id:0}).limit(2) - во вторых фигурных скобках указываем, что не выводить {_id:0}
+mydb> db.users.find({},{_id:0, "email":0}).limit(2)
+mydb> db.users.find({},{_id:0}).sort({age:1}) - сортировка по возрастанию
+mydb> db.users.find({},{_id:0}).sort({age:-1}) - сортировка по убыванию
+mydb> db.users.find({},{_id:0}).sort({age:1, name:-1}) - много можно сортировочных критериев
+
+фильтрация
+mydb> db.users.find({age:37},{_id:0}).sort({age:-1}) - фильтруем по данным в первых фигурных скобках, можно через запятую
+mydb> db.users.find({$or: [{age: 37}, {email: "ket@mail.com"}]}, {_id: 0}) - фильтр со значением "или"
+mydb> db.users.find({$or: [{age: 37}, {email: "ket@mail.com"}]}, {_id: 0}).limit(1).sort({age:1})
+mydb> db.users.find({$or: [{age: {$lt:37}}, {email: "ket@mail.com"}]}, {_id: 0}) - {$lt:37}} меньше 37, gt - больше, gtе - больше или равны
+mydb> db.users.find({name: {$in: ["Yuri", "Kate"]}},{_id:0}) - in по конкретному значению
+mydb> db.users.find({name: {$nin: ["Yuri", "Kate"]}},{_id:0}) - nin не соответтвуют этим параметрам
+можно фильтровать по полю (chield) например.
+
+
+
+
+
+
+
