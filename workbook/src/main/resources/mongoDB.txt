@@ -203,5 +203,3 @@ mydb> db.users.bulkWrite([
 
 
 
-
-
