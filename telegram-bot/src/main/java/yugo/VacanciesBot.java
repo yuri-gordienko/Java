@@ -17,7 +17,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
 
     public VacanciesBot() {    // botToken сформировали в телеграм с помощью канала BotFather
 
-        super("6609052827:AAFkqvDA6VoOoGHHvYEBWfwVa3jQoXIbJKI");
+//        super("6609052827:AAFkqvDA6VoOoGHHvYEBWfwVa3jQoXIbJKI");
     }
 
     @Override
