@@ -28,10 +28,12 @@ public class VacancyService {
 
         // Ручное создание вакансий
 //        VacancyDto juniorAm = new VacancyDto();
-//        juniorAm.setId("1");
+//        juniorAm.setId("15");
 //        juniorAm.setTitle("Junior java dev at Amazon");
-//        juniorAm.setShortDescription("from half year experience");
-//        vacancies.put("1", juniorAm);
+////        juniorAm.setShortDescription("from half year experience");
+//        juniorAm.setShortDescription("https://e1.pxfuel.com/desktop-wallpaper/202/582/desktop-wallpaper-indian-boy-pic-indian-boy.jpg");
+//        sendMessage.disableWebPagePreview(); // деактивация превью вебстраниц
+//        vacancies.put("15", juniorAm);
 //
 //        VacancyDto juniorGoo = new VacancyDto();
 //        juniorGoo.setId("2");

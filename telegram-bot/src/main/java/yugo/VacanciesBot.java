@@ -62,7 +62,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
     private void handleBackToVacCommand(Update update) throws TelegramApiException { // метод возврата назад, важно попасть в то меню, в кот.находильсь
         // делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
-        String level = lastShowWacancyLevel.get(chatId); // вытягиваем из мапы историю
+        String level = lastShowWacancyLevel.get(chatId); // вытягиваем из мапы историю откуда заходили
 
         if ("junior".equals(level)) {
             showJuniorVacancies(update);
@@ -91,7 +91,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
         execute(sendMessage);
     }
 
-    private ReplyKeyboard getBackToVacanciesMenu() {    // метод по создании кнопочки "Назад"
+    private ReplyKeyboard getBackToVacanciesMenu() {    // метод по создании кнопочки "Назад" и "Домой"
         List<InlineKeyboardButton> row = new ArrayList<>();
         InlineKeyboardButton backToVac = new InlineKeyboardButton();
         backToVac.setText("Back");
@@ -102,6 +102,11 @@ public class VacanciesBot extends TelegramLongPollingBot {
         home.setText("Home");
         home.setCallbackData("backToStartMenu");
         row.add(home);
+
+        InlineKeyboardButton chatGpt = new InlineKeyboardButton();
+        chatGpt.setText("Get cover letter");
+        chatGpt.setUrl("https://chat.openai.com/");
+        row.add(chatGpt);
         
         return new InlineKeyboardMarkup(List.of(row));
     }
