@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import yugo.dto.VacancyDto;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +33,24 @@ public class VacancyService {
         midEp.setTitle("Middle java dev at EPAM");
         midEp.setShortDescription("from 2 years experience");
         vacancies.put("3", midEp);
+
+        VacancyDto midSs = new VacancyDto();
+        midSs.setId("4");
+        midSs.setTitle("Middle java dev at Soft Serve");
+        midSs.setShortDescription("from 1 years experience");
+        vacancies.put("4", midSs);
+
+        VacancyDto senPb = new VacancyDto();
+        senPb.setId("5");
+        senPb.setTitle("Senior java dev at Privat bank");
+        senPb.setShortDescription("from 5 years experience");
+        vacancies.put("5", senPb);
+
+        VacancyDto senNix = new VacancyDto();
+        senNix.setId("6");
+        senNix.setTitle("Senior java dev at NIX");
+        senNix.setShortDescription("from 4 years experience");
+        vacancies.put("6", senNix);
     }
 
     public VacancyDto get(String id) { // вытаскиваем вакансии, на вход принимаем идентификатор
@@ -46,5 +63,21 @@ public class VacancyService {
                 .toLowerCase()              // переводим в нижний регистр
                 .contains("junior"))        // проверяем на содержание ключевого слова "junior"
                 .toList();                  // формируем список
+    }
+
+    public List<VacancyDto> getMidVac() {
+        return vacancies.values().stream()
+                .filter(v -> v.getTitle()
+                .toLowerCase()
+                .contains("middle"))
+                .toList();
+    }
+
+    public List<VacancyDto> getSeniorVac() {
+        return vacancies.values().stream()
+                .filter(v -> v.getTitle()
+                .toLowerCase()
+                .contains("senior"))
+                .toList();
     }
 }

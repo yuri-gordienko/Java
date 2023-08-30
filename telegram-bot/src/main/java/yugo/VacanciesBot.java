@@ -166,35 +166,31 @@ public class VacanciesBot extends TelegramLongPollingBot {
 
     private ReplyKeyboard getMiddleMessagesMenu() {
         List<InlineKeyboardButton> row = new ArrayList<>();
-        InlineKeyboardButton epamVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        epamVacancy.setText("Middle Java dev at EPAM");
-        epamVacancy.setCallbackData("vacancyId=3");
-        row.add(epamVacancy);
 
-        InlineKeyboardButton ssVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        ssVacancy.setText("Middle Java dev at Soft Serve");
-        ssVacancy.setCallbackData("vacancyId=4");
-        row.add(ssVacancy);
-
+        List<VacancyDto> vacancies = vacancyService.getMidVac();
+        for (VacancyDto vacancy : vacancies) {
+            InlineKeyboardButton vacancyButton = new InlineKeyboardButton();
+            vacancyButton.setText(vacancy.getTitle());
+            vacancyButton.setCallbackData("vacancyId=" + vacancy.getId());
+            row.add(vacancyButton);
+        }
         InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
-        keybord.setKeyboard(List.of(row));  // возвращаем перечень вакансий
+        keybord.setKeyboard(List.of(row));
         return keybord;
     }
 
     private ReplyKeyboard getSeniorMessagesMenu() {
         List<InlineKeyboardButton> row = new ArrayList<>();
-        InlineKeyboardButton pbVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        pbVacancy.setText("Senior Java dev at Privat Bank");
-        pbVacancy.setCallbackData("vacancyId=5");
-        row.add(pbVacancy);
 
-        InlineKeyboardButton nixVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        nixVacancy.setText("Senior Java dev at NIX");
-        nixVacancy.setCallbackData("vacancyId=6");
-        row.add(nixVacancy);
-
+        List<VacancyDto> vacancies = vacancyService.getSeniorVac();
+        for (VacancyDto vacancy : vacancies) {
+            InlineKeyboardButton vacancyButton = new InlineKeyboardButton();
+            vacancyButton.setText(vacancy.getTitle());
+            vacancyButton.setCallbackData("vacancyId=" + vacancy.getId());
+            row.add(vacancyButton);
+        }
         InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
-        keybord.setKeyboard(List.of(row));  // возвращаем перечень вакансий
+        keybord.setKeyboard(List.of(row));
         return keybord;
     }
 
