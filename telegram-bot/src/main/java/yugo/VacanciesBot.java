@@ -13,13 +13,18 @@ import yugo.dto.VacancyDto;
 import yugo.service.VacancyService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class VacanciesBot extends TelegramLongPollingBot {
 
     @Autowired
     private VacancyService vacancyService;
+
+    // создаем место хранения истории, где пользователь был перед этим (в каком меню)
+    private final Map<Long, String> lastShowWacancyLevel = new HashMap<>();
 
     public VacanciesBot() {    // botToken сформировали в телеграм с помощью канала BotFather
 
@@ -43,11 +48,37 @@ public class VacanciesBot extends TelegramLongPollingBot {
                } else if (callBackdata.startsWith("vacancyId=")) {
                    String id = callBackdata.split("=")[1]; // [1] - берем левую часть (вторую), т.к. отсчет начинается с 0, то 1 это два
                    showVacancyDescription(id, update);
+               } else if ("backToVacancies".equals(callBackdata)) {
+                   handleBackToVacCommand(update);
+               } else if ("backToStartMenu".equals(callBackdata)) {
+                   handleBackToStartCommand(update);
                }
            }
        } catch (Exception e) {
            throw new RuntimeException("Can't send message to user", e);
        }
+    }
+
+    private void handleBackToVacCommand(Update update) throws TelegramApiException { // метод возврата назад, важно попасть в то меню, в кот.находильсь
+        // делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        String level = lastShowWacancyLevel.get(chatId); // вытягиваем из мапы историю
+
+        if ("junior".equals(level)) {
+            showJuniorVacancies(update);
+        } else if ("middle".equals(level)) {
+            showMiddleVacancies(update);
+        } else if ("senior".equals(level)) {
+            showSeniorVacancies(update);
+        }
+    }
+
+    private void handleBackToStartCommand (Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Choose title:");
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        sendMessage.setReplyMarkup(getStartMenu());
+        execute(sendMessage);
     }
 
     private void showVacancyDescription(String id, Update update) throws TelegramApiException {
@@ -56,31 +87,55 @@ public class VacanciesBot extends TelegramLongPollingBot {
         VacancyDto vacancy = vacancyService.get(id);
         String description = vacancy.getShortDescription();
         sendMessage.setText(description);
+        sendMessage.setReplyMarkup(getBackToVacanciesMenu());   // создаем кнопочку "Назад"
         execute(sendMessage);
+    }
+
+    private ReplyKeyboard getBackToVacanciesMenu() {    // метод по создании кнопочки "Назад"
+        List<InlineKeyboardButton> row = new ArrayList<>();
+        InlineKeyboardButton backToVac = new InlineKeyboardButton();
+        backToVac.setText("Back");
+        backToVac.setCallbackData("backToVacancies");
+        row.add(backToVac);
+
+        InlineKeyboardButton home = new InlineKeyboardButton();
+        home.setText("Home");
+        home.setCallbackData("backToStartMenu");
+        row.add(home);
+        
+        return new InlineKeyboardMarkup(List.of(row));
     }
 
     private void showJuniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
         sendMessage.setText("Please, choose vacancy");  // создаем смс
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId()); // отправляем смс конкретному пользователю
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId); // отправляем смс конкретному пользователю
         sendMessage.setReplyMarkup(getJuniorMessagesMenu());    // отправляем меню пользователю
         execute(sendMessage);
+
+        lastShowWacancyLevel.put(chatId, "junior"); // записываем истоию посещений, чтоб потом отдать
     }
 
     private void showMiddleVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
         sendMessage.setText("Please, choose vacancy");  // создаем смс
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId()); // отправляем смс конкретному пользователю
-        sendMessage.setReplyMarkup(getMiddleMessagesMenu());
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);        sendMessage.setReplyMarkup(getMiddleMessagesMenu());
         execute(sendMessage);
+
+        lastShowWacancyLevel.put(chatId, "middle");
     }
 
     private void showSeniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
         sendMessage.setText("Please, choose vacancy");  // создаем смс
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId()); // отправляем смс конкретному пользователю
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getSeniorMessagesMenu());
         execute(sendMessage);
+
+        lastShowWacancyLevel.put(chatId, "senior");
     }
 
     private ReplyKeyboard getJuniorMessagesMenu() { // формируем перечень кнопок в соответствии с нашими вакансиями
