@@ -1,5 +1,6 @@
 package yugo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -8,6 +9,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import yugo.dto.VacancyDto;
+import yugo.service.VacancyService;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,9 +18,12 @@ import java.util.List;
 @Component
 public class VacanciesBot extends TelegramLongPollingBot {
 
+    @Autowired
+    private VacancyService vacancyService;
+
     public VacanciesBot() {    // botToken сформировали в телеграм с помощью канала BotFather
 
-//
+        super("6609052827:AAFkqvDA6VoOoGHHvYEBWfwVa3jQoXIbJKI");
     }
 
     @Override
@@ -30,14 +36,11 @@ public class VacanciesBot extends TelegramLongPollingBot {
                String callBackdata = update.getCallbackQuery().getData();
                if ("showJuniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showJuniorVacancies(update); // возвращаем ответ
-               }
-               if ("showMiddleVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
+               } else if ("showMiddleVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showMiddleVacancies(update);
-               }
-               if ("showSeniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
+               } else if ("showSeniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showSeniorVacancies(update);
-               }
-               else if (callBackdata.startsWith("vacancyId=")) {
+               } else if (callBackdata.startsWith("vacancyId=")) {
                    String id = callBackdata.split("=")[1]; // [1] - берем левую часть (вторую), т.к. отсчет начинается с 0, то 1 это два
                    showVacancyDescription(id, update);
                }
@@ -50,7 +53,9 @@ public class VacanciesBot extends TelegramLongPollingBot {
     private void showVacancyDescription(String id, Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-        sendMessage.setText("Vacancy description for vacancy with id = " + id);
+        VacancyDto vacancy = vacancyService.get(id);
+        String description = vacancy.getShortDescription();
+        sendMessage.setText(description);
         execute(sendMessage);
     }
 
@@ -58,7 +63,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
         sendMessage.setText("Please, choose vacancy");  // создаем смс
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId()); // отправляем смс конкретному пользователю
-        sendMessage.setReplyMarkup(getJuniorMessagesMenu());
+        sendMessage.setReplyMarkup(getJuniorMessagesMenu());    // отправляем меню пользователю
         execute(sendMessage);
     }
 
@@ -78,17 +83,26 @@ public class VacanciesBot extends TelegramLongPollingBot {
         execute(sendMessage);
     }
 
-    private ReplyKeyboard getJuniorMessagesMenu() {
+    private ReplyKeyboard getJuniorMessagesMenu() { // формируем перечень кнопок в соответствии с нашими вакансиями
         List<InlineKeyboardButton> row = new ArrayList<>();
-        InlineKeyboardButton amazonVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        amazonVacancy.setText("Junior Java dev at Amazon");
-        amazonVacancy.setCallbackData("vacancyId=1");
-        row.add(amazonVacancy);
 
-        InlineKeyboardButton googleVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
-        googleVacancy.setText("Junior Java dev at Google");
-        googleVacancy.setCallbackData("vacancyId=2");
-        row.add(googleVacancy);
+        List<VacancyDto> vacancies = vacancyService.getJunVac(); // получаем список джуниор вакансий
+        for (VacancyDto vacancy : vacancies) {  // бежим по массиву и для каждой вакансии
+            InlineKeyboardButton vacancyButton = new InlineKeyboardButton();   // формируем кнопку
+            vacancyButton.setText(vacancy.getTitle());  // на кнопке прописываем название вакансии
+            vacancyButton.setCallbackData("vacancyId=" + vacancy.getId()); // сутаем колбэкдату
+            row.add(vacancyButton);
+        }
+//        Назначаем принудительно
+//        InlineKeyboardButton amazonVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
+//        amazonVacancy.setText("Junior Java dev at Amazon");
+//        amazonVacancy.setCallbackData("vacancyId=1");
+//        row.add(amazonVacancy);
+//
+//        InlineKeyboardButton googleVacancy = new InlineKeyboardButton();   // создали вакансию конкретной фирмы
+//        googleVacancy.setText("Junior Java dev at Google");
+//        googleVacancy.setCallbackData("vacancyId=2");
+//        row.add(googleVacancy);
 
         InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
         keybord.setKeyboard(List.of(row));  // возвращаем перечень вакансий
