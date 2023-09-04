@@ -90,7 +90,33 @@ public class Сycles {
 //     int age = 17;
 //     String message = age >= 18 ? "Adult" : "Chield";
 //        System.out.println(message);
+//_____________________________________________________________________________________________
 
+
+//    public static void main(String[] args) {
+//            System.out.println(getResult(10, -5));
+//        }
+//
+//            public static double getResult(double a, double b) {
+//
+//
+//                double num1 = a + b;
+//                double num2 = a - b;
+//                double num3 = a * b;
+//                double num4 = a / b;
+//
+//                if (num1 > num2 && num1 > num3 && num1 > num4) {
+//                    return num1;
+//                }
+//                if (num2 > num1 && num2 > num3 && num2 > num4) {
+//                    return num2;
+//                }
+//                if (num3 > num1 && num3 > num2 && num3 > num4) {
+//                    return num3;
+//                } else {
+//                    return num4;
+//                }
+//            }
 
 //_____________________________________________________________________________________
 //        for, while
@@ -113,3 +139,4 @@ public class Сycles {
 //        }
     }
 }
+
