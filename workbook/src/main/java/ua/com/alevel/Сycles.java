@@ -2,29 +2,114 @@ package ua.com.alevel;
 
 public class Сycles {
 
+    //    Conditionals
     public static void main(String[] args) {
 
-        int age = 17;
+//        int age = 17;
+//
+//        if (age >= 18) {
+//            System.out.println("you are adult person");
+//        } else {
+//            System.out.println("you are not adult person");
+//        }
 
-        if (age >= 18) {
-            System.out.println("you are adult person");
-        } else {
-            System.out.println("you are not adult person");
-        }
+//_____________________________________________________________________
+//        int money = 60;
+//        int age = 19;
+//
+//
+//        int costProducts = 50;
+//        int ageAllowed = 18;
+//
+//        boolean isEnoughMoney = costProducts <= money;
+//        boolean canBuyByAge = age >= ageAllowed;
+//
+//        boolean canBuyByTwoRules = isEnoughMoney && canBuyByAge;
+//
+//        System.out.println(isEnoughMoney);
+//        System.out.println(canBuyByAge);
+//        System.out.println(canBuyByTwoRules);
 
-        for (int i = 1; i < 10; i++){
-            System.out.println(i);
-        }   // for i
+//________________________________________________________________________________
+//        int cashMoney = 20;
+//        int cardMoney = 90;
+//
+//        int products = 50;
+//
+//        boolean isEnoughCashMoney = products <= cashMoney;
+//        boolean isEnoughCardMoney = products <= cardMoney;
+//
+//        boolean canBuy = isEnoughCashMoney || isEnoughCardMoney;
+//
+//        System.out.println(canBuy);
+//    }
 
-        int [] numbers = {10, 20, 30};
-        for (int i : numbers) {
-            System.out.println(i);
-        }   // for-each
+//    ________________________________________________________________________________
+//        int twoDaysCost = 50; // dys 1-2
+//        int fiveDaysCoct = 40; // days 3-5
+//        int tenDaysCost = 30;  // days
+//
+//        int twoDaysRent = getPriceRent(2); // 2*50
+//        int fiveDaysRent = getPriceRent(5); // 2*50 + 3*40
+//        int tenDaysRent = getPriceRent(10); // 6-10 2*50 + 3*40 + 5*30
+//
+//        System.out.println(twoDaysRent);
+//        System.out.println(fiveDaysRent);
+//        System.out.println(tenDaysRent);
+//
+//    }
 
-        int j = 0;
-        while (j < 5){
-            System.out.println(j);
-            j++;
-        }// while
+//    public static int getPriceRent(int holiday) {
+//        if (holiday <= 2) {
+//            return holiday * 50;
+//        } else {
+//        int daysLeft = holiday - 2;
+//        if (holiday <= 5) {
+//            return daysLeft * 40 + 2 * 50;
+//        } else {
+//            daysLeft = holiday - 5;
+//            return daysLeft * 30 + 2 * 50 + 3 * 40;
+//            }
+//        }
+//    }
+
+//    public static int getPriceRent(int holiday) {
+//        if (holiday <= 2) {
+//            return holiday * 50;
+//        }
+//        int daysLeft = holiday - 2;
+//        if (holiday <= 5) {
+//            return daysLeft * 40 + 2 * 50;
+//        }
+//        daysLeft = holiday - 5;
+//        return daysLeft * 30 + 2 * 50 + 3 * 40;
+//    }
+
+//    _____________________________________________________________________________________________
+//    Ternary operators
+//     int age = 17;
+//     String message = age >= 18 ? "Adult" : "Chield";
+//        System.out.println(message);
+
+
+//_____________________________________________________________________________________
+//        for, while
+//        public static void main (String[]args){
+//
+//            for (int i = 1; i < 10; i++) {
+//                System.out.println(i);
+//            }   // for i
+//
+//            int[] numbers = {10, 20, 30};
+//            for (int i : numbers) {
+//                System.out.println(i);
+//            }   // for-each
+//
+//            int j = 0;
+//            while (j < 5) {
+//                System.out.println(j);
+//                j++;
+//            }// while
+//        }
     }
 }
