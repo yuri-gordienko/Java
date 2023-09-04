@@ -1,6 +1,6 @@
 package ua.com.alevel;
 
-public class Сycles {
+public class ConditionalsIfSwich {
 
     //    Conditionals
     public static void main(String[] args) {
@@ -93,50 +93,30 @@ public class Сycles {
 //_____________________________________________________________________________________________
 
 
-//    public static void main(String[] args) {
+//        public static void main (String[]args){
 //            System.out.println(getResult(10, -5));
 //        }
 //
-//            public static double getResult(double a, double b) {
+//        public static double getResult ( double a, double b){
 //
 //
-//                double num1 = a + b;
-//                double num2 = a - b;
-//                double num3 = a * b;
-//                double num4 = a / b;
+//            double num1 = a + b;
+//            double num2 = a - b;
+//            double num3 = a * b;
+//            double num4 = a / b;
 //
-//                if (num1 > num2 && num1 > num3 && num1 > num4) {
-//                    return num1;
-//                }
-//                if (num2 > num1 && num2 > num3 && num2 > num4) {
-//                    return num2;
-//                }
-//                if (num3 > num1 && num3 > num2 && num3 > num4) {
-//                    return num3;
-//                } else {
-//                    return num4;
-//                }
+//            if (num1 > num2 && num1 > num3 && num1 > num4) {
+//                return num1;
 //            }
-
-//_____________________________________________________________________________________
-//        for, while
-//        public static void main (String[]args){
-//
-//            for (int i = 1; i < 10; i++) {
-//                System.out.println(i);
-//            }   // for i
-//
-//            int[] numbers = {10, 20, 30};
-//            for (int i : numbers) {
-//                System.out.println(i);
-//            }   // for-each
-//
-//            int j = 0;
-//            while (j < 5) {
-//                System.out.println(j);
-//                j++;
-//            }// while
+//            if (num2 > num1 && num2 > num3 && num2 > num4) {
+//                return num2;
+//            }
+//            if (num3 > num1 && num3 > num2 && num3 > num4) {
+//                return num3;
+//            } else {
+//                return num4;
+//            }
 //        }
+//____________________________________________________________________________________________________________
     }
 }
-
