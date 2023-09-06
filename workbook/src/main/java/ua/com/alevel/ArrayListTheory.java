@@ -103,6 +103,43 @@ public class ArrayListTheory {
 //    }
 
 
+//    public static void main(String[] args) {
+//        int[] speeds1 = new int[]{60, 70, 50, 80, 90};
+//        int[] speeds2 = {100};
+//        int[] speeds3 = {};
+//
+//        int[] stats1 = getSpeedStatistic(speeds1);
+//        int[] stats2 = getSpeedStatistic(speeds2);
+//        int[] stats3 = getSpeedStatistic(speeds3);
+//    }
+//
+//    public static int[] getSpeedStatistic(int[] results) {
+//
+//        if (results.length == 0) {
+//            return new int[2];
+//        }
+//
+//        int min = results[0];
+//        int max = results[0];
+//        int[] response = new int[2];
+//
+//        for (int i: results) {
+//            if (i > max) {
+//                max = i;
+//            }
+//            if (i < min) {
+//                min = i;
+//            }
+//        }
+//        response [0] = min;
+//        response[1] = max;
+//        System.out.println("Мін швидкість = " + response[0] + ", Макс швидкість = " + response[1]);
+//
+//        return response;
+//    }
+
+
+
 
 
 
