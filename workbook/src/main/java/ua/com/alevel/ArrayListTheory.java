@@ -15,7 +15,7 @@ public class ArrayListTheory {
 // size() method to specify how many times the loop should run,  for-each loop
 //add elements of type Integer
 //sort()
-        ArrayList <String>cars = new ArrayList<>();
+        ArrayList<String> cars = new ArrayList<>();
         cars.add("ford");
         cars.add("mers");
         cars.add("bmw");
@@ -66,6 +66,41 @@ public class ArrayListTheory {
 //        When To Use
 //        Use an ArrayList for storing and accessing data, and LinkedList to manipulate data.
 
+
+
+//    public static void main(String[] args) {
+//        int[] speeds1 = new int[]{60, 70, 50, 80, 90};
+//        int[] speeds2 = {100};
+//        int[] speeds3 = {};
+//
+//        int[] stats1 = getSpeedStatistic(speeds1);
+//        int[] stats2 = getSpeedStatistic(speeds2);
+//        int[] stats3 = getSpeedStatistic(speeds3);
+//
+//        System.out.println("Мін швидкість = " + stats1[0] + ", Макс швидкість = " + stats1[1]);
+//        System.out.println("Мін швидкість = " + stats2[0] + ", Макс швидкість = " + stats2[1]);
+//        System.out.println("Мін швидкість = " + stats3[0] + ", Макс швидкість = " + stats3[1]);
+//    }
+//
+//    public static int[] getSpeedStatistic(int[] results) {
+//
+//        if (results == null || results.length == 0) {
+//            return new int[]{0, 0};
+//        }
+//
+//        int minSpeed = results[0];
+//        int maxSpeed = results[0];
+//
+//        for (int speed : results) {
+//            if (speed < minSpeed) {
+//                minSpeed = speed;
+//            }
+//            if (speed > maxSpeed) {
+//                maxSpeed = speed;
+//            }
+//        }
+//        return new int[]{minSpeed, maxSpeed};
+//    }
 
 
 

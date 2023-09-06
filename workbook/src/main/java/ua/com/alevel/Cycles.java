@@ -6,7 +6,26 @@ public class Cycles {
 
 //        for, while
 //
-//            for (int i = 1; i < 10; i++) {
+//        Оператор += - это сокращенная форма для сложения значения одной переменной с другой переменной
+//        и присвоения результата выбранной переменной.
+//        int sum = 0;        // складываем каждый шаг итерации согласно его значения со всеми предыдущими
+//        int guests = 5;
+//            for (int i = 1; i <= guests; i++) {
+//                System.out.println("i " + i);
+//                sum += i;
+//                System.out.println("sum " + sum);
+//            }   // for i
+
+//        int sum = 0;        // складываем каждый шаг итерации согласно его значения со всеми предыдущими
+//        int guests = 10;
+//        int step = 3;
+//            for (int i = 1; i <= guests; i = i + step) {
+//                System.out.println("i " + i);
+//                sum += i;
+//                System.out.println("sum " + sum);
+//            }   // for i
+
+//            for (int i = 10; i > 1; i--) {
 //                System.out.println(i);
 //            }   // for i
 
@@ -21,7 +40,7 @@ public class Cycles {
 //
 //        }
 
-//            Парные/ не парные
+//            Четные/ не четные
 //            for (int i=0; i<10; i++) {
 //                if (i % 2 !=0) {
 //                    continue;
@@ -39,18 +58,19 @@ public class Cycles {
 
 
 
-//        int i = 1200;
+//        double i = 1200;
 //        int count = 0;
 //
 //        while (i % 2 == 0) {
-//            i = i / 2;
+//            i = i / 4;
 //            System.out.println(i);
 //            count++;
 //        }
 //        System.out.println(count);
 
+
         // Принудительное выполнение программы, хотябы 1 раз
-//        double i = 133;
+//        double i = 120;
 //        int count = 0;
 //
 //        do {
@@ -59,6 +79,7 @@ public class Cycles {
 //            count++;
 //        } while (i % 2 == 0);
 //        System.out.println(count);
+
 
         // Бесконечный цикл
 //        int i = 0;
