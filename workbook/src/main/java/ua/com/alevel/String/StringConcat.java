@@ -1,8 +1,6 @@
 package ua.com.alevel.String;
 
-import java.lang.*;
-
-public class StringBuilder {
+public class StringConcat {
 
     public static void main(String[] args) {
 
@@ -12,7 +10,7 @@ public class StringBuilder {
         System.out.println(concatenation);
 
         // StringBuilder более долго писать, но занимает меньше места в памяти, добавляя объекты по одному
-        java.lang.StringBuilder sb = new java.lang.StringBuilder();
+        StringBuilder sb = new StringBuilder();
         sb.append("Hello ")
                 .append("world ")
                 .append(15)
