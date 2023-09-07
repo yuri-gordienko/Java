@@ -10,7 +10,7 @@ public class StringCompare {
         int c = 5;
         int d = 10;
 
-        System.out.println(a == b);
+        System.out.println(a == b);     // for compare primitives use ==
         System.out.println(a == d);
         System.out.println(a + c == b);
 
@@ -23,7 +23,24 @@ public class StringCompare {
 
         System.out.println(f == g);
         System.out.println(g == h);
-        System.out.println(f.equals(g));
+        System.out.println(f.equals(g));    // for compare objects use method equals
         System.out.println(g.equals(h));
+
+        System.out.println("_______________________________________________________________");
+
+
+//    public class CompareStrings {
+//        public static boolean compareStrings(String firstString, String secondString) {
+//            // Перевірка на випадок, коли обидва рядки є null
+//            if (firstString == null && secondString == null) {
+//                return true;
+//            }
+//
+//            // Порівнюємо рядки
+//            return (firstString != null) && firstString.equals(secondString);
+//        }
+//    }
     }
+
+
 }

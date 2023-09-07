@@ -36,7 +36,7 @@ public class StringBasic {
         String second = "login=Yura";
 
         String password = first.substring(9);
-        String login = String.valueOf(second.indexOf('='));
+        int login = second.indexOf('=');
         System.out.println(password);
         System.out.println(login);
         //____________________________________________________
