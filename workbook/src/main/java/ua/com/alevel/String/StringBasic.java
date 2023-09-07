@@ -9,7 +9,7 @@ public class StringBasic {
         String name3 = "Hello world";
 
         char[] chars = name.toCharArray();
-        for (char i = 0; i < chars.length; i++){
+        for (char i = 0; i < chars.length; i++) {
             System.out.println(chars[i]);
         }
         chars[0] = 'y';
@@ -39,18 +39,44 @@ public class StringBasic {
         int login = second.indexOf('=');
         System.out.println(password);
         System.out.println(login);
+
+        System.out.println("--------------------------------------------------------------------------");
+
+        String stat = "111001010111011";
+//        int sstatNum = stat.
+        int count1 = 0;
+        int count0 = 0;
+
+        for (int i = 0; i < stat.length(); i++) {
+            if (i == 1) {
+                count1++;
+            }
+            if (i == 0) {
+                count0++;
+            }
+
+        }
+
+
+
+    }
         //____________________________________________________
 
-        String passValue = getValue(first);
-        String logVAlue = getValue(second);
-        System.out.println("passw: " + passValue + ",\n  log: " + logVAlue);
-
-    }
-
-    public static String getValue(String value) {
-        int indexOf = value.indexOf('='); // получаем номер элемента по который хотим обрезать, чтоб не считать вручную
-        String subs = value.substring(indexOf + 1); // т.к обрезает до знака индекса, добавляем еще один знак
-
-        return subs;
-    }
+//        public static void main(String[] args) {
+//
+//        String first = "password=abc123";
+//        String second = "login=Yura";
+//
+//        String passValue = getValue(first);
+//        String logVAlue = getValue(second);
+//        System.out.println("passw: " + passValue + ",\n  log: " + logVAlue);
+//
+//    }
+//
+//    public static String getValue(String value) {
+//        int indexOf = value.indexOf('='); // получаем номер элемента по который хотим обрезать, чтоб не считать вручную
+//        String subs = value.substring(indexOf + 1); // т.к обрезает до знака индекса, добавляем еще один знак
+//
+//        return subs;
+//    }
 }

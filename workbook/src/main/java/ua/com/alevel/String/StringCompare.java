@@ -28,6 +28,26 @@ public class StringCompare {
 
         System.out.println("_______________________________________________________________");
 
+        String stat = "100001";
+        char[] chars = stat.toCharArray();
+
+        double count = 0.0;
+
+        if (stat.equals("")){
+            System.out.println("0.0");
+        }
+        for (char s : chars) {
+            if (s == '1') {
+                count += 1.0;
+            }
+        }
+
+        double statistic = count / chars.length;
+        System.out.println(statistic);
+        System.out.println(chars.length);
+
+        System.out.println("_______________________________________________________________");
+
 
 //    public class CompareStrings {
 //        public static boolean compareStrings(String firstString, String secondString) {
