@@ -67,5 +67,71 @@ public class StringConcat {
 //
 //        }
 
+//        -----------------------------------------------------------------------------------------
+
+//        public class MakeAbbr {
+//            public static String makeAbbr(String fullName) {
+//                String[] words = fullName.split(" ");
+//
+//                StringBuilder abbreviation = new StringBuilder();
+//
+//                // Проходимося по словах та додаємо першу літеру в абревіатуру
+//                for (String word : words) {
+//                    if (!word.isEmpty()) {
+//                        abbreviation.append(word.charAt(0));
+//                    }
+//                }
+//
+//                return abbreviation.toString().toUpperCase(); // Повертаємо абревіатуру у верхньому регістрі
+//            }
+//        }
+
     }
+
+//    public static void main(String[] args) {
+//
+//        String str = "1234";
+//        String str2 = "hello";
+//        String str3 = "Bob";
+//        String str4 = "";
+//
+//        String nS = String.valueOf(str.charAt((str.length()/2-1)) + "" + str.charAt(str.length()/2));
+//        String nS3 = String.valueOf(str3.charAt(str3.length()/2));
+//        String nS2 = String.valueOf(str2.charAt(str2.length()/2));
+//        String nS4 = str4;
+//
+////        System.out.println(nS);
+////        System.out.println(nS2);
+////        System.out.println(nS3);
+////        System.out.println("- " + nS4);
+//
+//        String getMiddleString = getMiddleString(str);
+//        String getMiddleString1 = getMiddleString(str2);
+//        String getMiddleString2 = getMiddleString(str3);
+//        String getMiddleString3 = getMiddleString(str4);
+//
+//
+//    }
+//    public static String getMiddleString(String originalString) {
+//
+//        int middlestringValue = originalString.length()/2;
+//        int stringLen = originalString.length();
+//
+//
+//        if (originalString.equals("") || originalString == null){
+////            System.out.println(originalString);
+//            return "";
+//        }
+//        if (stringLen % 2 == 0 && middlestringValue > 0){
+//            originalString = String.valueOf(originalString.charAt((middlestringValue-1)) + ""
+//                    + originalString.charAt(middlestringValue));
+////            System.out.println(originalString);
+//        }
+//        if (stringLen % 2 != 0 && middlestringValue >= 0){
+//            originalString = String.valueOf(originalString.charAt(middlestringValue));
+////            System.out.println(originalString);
+//        }
+//
+//        return originalString;
+//    }
 }
