@@ -31,7 +31,7 @@ public static int getSum(int[] values, int startValue) {
     String a = "effffffefffff";
     System.out.println(a.substring(5));
 
-//    int[] subs
+
 
     return 0;
 
