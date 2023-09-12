@@ -29,9 +29,6 @@ public class Cycles {
 //                System.out.println(i);
 //            }   // for i
 
-//            for (int i = 10; i > 1; i--) {
-//                System.out.println(i);
-//            }   // for i
 //
 //            int[] numbers = {10, 20, 30};
 //            for (int i : numbers) {
