@@ -43,7 +43,6 @@ public class StringBasic {
         System.out.println("--------------------------------------------------------------------------");
 
         String stat = "111001010111011";
-//        int sstatNum = stat.
         int count1 = 0;
         int count0 = 0;
 
