@@ -14,11 +14,11 @@ public class test_NIX {
 //        System.out.println(a[3] == b[0][2]);
 //        System.out.println(" " + (a[2] == b[2][1]));
 
-//        String s = "Java";
+//        String s = "JaVa";
 //        s.concat(" SE 6");
 //        s.toLowerCase();
 //        System.out.print(s);
-        // How many?
+//         How many?
 
 //        int i = 10;
 //        int n = ++i % 5;
