@@ -2,7 +2,7 @@ package ua.com.alevel;
 
 public class test_NIX {
 
-    public static void main(String[] args){
+//    public static void main(String[] args){
 
 //        String s = "Java";
 //        s.concat(" SE 6");
@@ -16,17 +16,25 @@ public class test_NIX {
 
 //        String s = "JaVa";
 //        s.concat(" SE 6");
-//        s.toLowerCase();
+//        s = s.toLowerCase();
 //        System.out.print(s);
-//         How many?
+//         // How many?
 
 //        int i = 10;
 //        int n = ++i % 5;
 //        System.out.println(i + " " + n);
 
+//    }
 
-
+    class Person(String s, int i){
+        ++ ipd;
+        s = name;
+        i = age ;
     }
+    static int ipd;
+        String name;
+        int age;
+
 }
 
 
