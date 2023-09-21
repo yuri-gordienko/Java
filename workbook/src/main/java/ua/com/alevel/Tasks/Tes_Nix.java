@@ -1,8 +1,8 @@
-package ua.com.alevel;
+package ua.com.alevel.Tasks;
 
-//public class Test_NIX {
+public class Tes_Nix {
 
-//    public static void main(String[] args){
+    //    public static void main(String[] args){
 
 //        String s = "Java";
 //        s.concat(" SE 6");
@@ -29,7 +29,7 @@ package ua.com.alevel;
 
 //------------------------------------------------------------------------------------------------------
 
-class Person {
+    class Person {
         Person (String s, int i){
             ++ pid;
             name = s;
@@ -40,25 +40,4 @@ class Person {
         String name;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
