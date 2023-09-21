@@ -1,13 +1,28 @@
 package ua.com.alevel.Tasks;
 
-import java.util.Arrays;
-
 public class Main {
 
     public static void main(String[] args){
 
-//        SpeedStatistic.getSpeedStatistic(new int[]{10, 10, 11, 9, 12, 8});
+//        String[] res = new String[]{"dough", "cheese", "sauce", "dough"};
+//        CombineStrings.doughIsEnough(res);
 
+
+        String s = CombineStrings.getValue("occupation=DeveLOPeR");
+        System.out.println(s);
+
+
+    }
+
+    public class CombineStrings {
+        public static String getValue(String dataFromDatabase) {
+            System.out.println(dataFromDatabase);
+            int i = dataFromDatabase.indexOf("=");
+            String s1 = dataFromDatabase.substring(i+1).toLowerCase();
+
+            System.out.println(s1);
+            return s1;
+        }
     }
 
 
@@ -89,3 +104,27 @@ public class Main {
 //
 //    }
 //}
+//---------------------------------------------------------------------------------------------------------------
+
+//    Нещодавно ми під'єднали базу даних і отримуємо з неї інформацію в наступному вигляді: data=value.
+//
+//        Але, останнім часом, у значенні value літери стоять то в верхньому, то в нижньому регістрі...
+//        У результаті виходить не значення, а чортзна-що 🤔
+//
+//        Ми створили метод getValue(), який приймає рядок dataFromDatabase у вигляді data=value.
+//
+//        Твоє завдання: прибрати з рядку data та =, а потім повернути value у нижньому регістрі.
+//        Будь уважним, бо value в собі теж може містити символ =.
+
+//public class CombineStrings {
+//    public static String getValue(String dataFromDatabase) {
+//        System.out.println(dataFromDatabase);
+//        int i = dataFromDatabase.indexOf("=");
+//        String s1 = dataFromDatabase.substring(i+1).toLowerCase();
+//
+//        System.out.println(s1);
+//        return s1;
+//    }
+//}
+//-----------------------------------------------------------------------------------------------------------
+
