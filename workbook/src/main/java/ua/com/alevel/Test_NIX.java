@@ -29,25 +29,7 @@ package ua.com.alevel;
 
 //------------------------------------------------------------------------------------------------------
 
-    public class Test_NIX {
-
-       public static void main(String[] args) {
-        Person p1 = new Person("Yuri", 22);
-        Test_NIX testNix = new Test_NIX();
-        Person p2 = testNix.change(p1);
-
-        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
-        System.out.println(p1.pid + " " + p1.name + " " + p1.age);
-    }
-
-        private Person change(Object o) {
-            Person p2 = (Person) o;
-            p2.age = 25;
-            return p2;
-        }
-    }
-
-    class Person {
+class Person {
         Person (String s, int i){
             ++ pid;
             name = s;
