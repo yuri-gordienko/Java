@@ -1,5 +1,7 @@
 package ua.com.alevel.Tasks;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args){
@@ -7,21 +9,21 @@ public class Main {
 //        String[] res = new String[]{"dough", "cheese", "sauce", "dough"};
 //        CombineStrings.doughIsEnough(res);
 
-
-        String s = CombineStrings.getValue("occupation=DeveLOPeR");
+        String s = String.valueOf(CombineStrings.getValue("national aeronautics space administration"));
         System.out.println(s);
-
 
     }
 
     public class CombineStrings {
         public static String getValue(String dataFromDatabase) {
-            System.out.println(dataFromDatabase);
-            int i = dataFromDatabase.indexOf("=");
-            String s1 = dataFromDatabase.substring(i+1).toLowerCase();
+//            System.out.println(dataFromDatabase);
+            String[] s = dataFromDatabase.split(" ");
+            StringBuilder sb = new StringBuilder();
 
-            System.out.println(s1);
-            return s1;
+            for (String i: s) {
+                sb.append(i.toUpperCase().charAt(0));
+            }
+            return sb.toString();
         }
     }
 
@@ -127,4 +129,23 @@ public class Main {
 //    }
 //}
 //-----------------------------------------------------------------------------------------------------------
+
+//    До нас дійшла інформація, що перевертні можуть бути небезпечними для людей.
+//    Ми ще не знаємо чому, але ігнорувати цю інформацію ніяк не можна. Треба якомога швидше шукати перевертнів.
+//
+//        Пропонуємо для початку перевірити слова та речення. Їх можна вважати перевертнями,
+//        якщо їх можна прочитати однаково зліва направо, та навпаки.
+//
+//        Реалізуй метод isWerewolf(), який покаже, чи є рядок target перевертнем.
+
+//public class DetectWerewolf {
+//    public static boolean isWerewolf(String target) {
+//        StringBuilder sb = new StringBuilder(target);
+//        sb.reverse();
+//        String s2 = sb.toString();
+//        System.out.println(s2);
+//        return s2.equals(target);
+//    }
+//}
+//-------------------------------------------------------------------------------------------------------
 
