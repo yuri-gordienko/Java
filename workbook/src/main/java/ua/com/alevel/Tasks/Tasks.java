@@ -280,8 +280,119 @@ public class Tasks {
     //}
     //----------------------------------------------------------------------------------------------------------
 
+//Дано масив чисел values і значення startValue. У цьому завданні знайди та поверни суму всіх чисел, які знаходяться в масиві після значення startValue.
+//Зверни увагу:
+//в результаті, сума не повинна містити значення startValue;
+// getSum(new int[] {10, 2, 50, 3, 4, 0}, 50); // 3 + 4 + 0 = 7
 
 
+    //public static int getSum(int[] values, int startValue) {
+    //
+    ////        System.out.println(Arrays.toString(values));
+    ////        System.out.println(startValue);
+    //
+    //        int sum = 0;
+    //        boolean ef = false;
+    //
+    //        for (int v : values){
+    //            if (v == startValue){
+    //                ef = true;
+    //            } else if (ef) {
+    //                sum += v;
+    //            }
+    //        }
+    //        System.out.println(sum);
+    //        return sum;
+    //    }
+    //------------------------------------------------------------------------------------------
 
+//Дано метод getCombinedArray(), який приймає два масиви чисел. Тобі потрібно повернути новий масив, у якому будуть знаходитися всі елементи з обох масивів.
+//Наприклад:
+//getCombinedArray(new int[] {1, 2}, new int[] {3, 4}); // [1, 2, 3, 4]
+
+    //public class CombineArrays {
+    //  public static int[] getCombinedArray(int[] firstArray, int[] secondArray) {
+    //    int[] result = new int[firstArray.length + secondArray.length];
+    //    int index = 0;
+    //    for (int element : firstArray) {
+    //      result[index] = element;
+    //      index++;
+    //    }
+    //    for (int element : secondArray) {
+    //      result[index] = element;
+    //      index++;
+    //    }
+    //    return result;
+    //  }
+    //}
+
+// or
+    //public static int[] combineArrays(int[] firstArray, int[] secondArray) {
+    //    int[] combinedArray = new int[firstArray.length + secondArray.length];
+    //
+    //    for (int i = 0; i < firstArray.length; i++) {
+    //        combinedArray[i] = firstArray[i];
+    //    }
+    //
+    //    for (int i = 0; i < secondArray.length; i++) {
+    //        combinedArray[firstArray.length + i] = secondArray[i];
+    //    }
+    //
+    //    return combinedArray;
+    //}
+    //---------------------------------------------------------------------------------------------------
+
+    //У цьому завданні тобі потрібно реалізувати цей метод так, щоби він повертав новий масив типу String,
+    // у якому булеві значення true замінені на "Yes", а false - на "No".
+
+    // public static String[] getStringArray(boolean[] values) {
+    //     String[] result = new String[values.length];
+    //        for (int v = 0; v < values.length; v++){
+    //            if (values[v]){
+    //                result[v] = "Yes";
+    //            } else {
+    //                result[v] = "No";
+    //            }
+    //        }
+    //        // System.out.println(Arrays.toString(result));
+    //         return result;
+    //  }
+
+    //or
+    //public class ConvertBooleans {
+    //  public static String[] getStringArray(boolean[] values) {
+    //     String[] result = new String[values.length];
+    //        for (int v = 0; v < values.length; v++){
+    //             result[v] = values[v] ? "Yes" : "No";
+    //            }
+    //        // System.out.println(Arrays.toString(result));
+    //         return result;
+    //  }
+    //}
+    //---------------------------------------------------------------------------------------------
+
+    //Твоє завдання: в методі getCentury() поверни століття, в якому знаходиться цей рік. Перше століття починається з
+    // року 1 і продовжується до року 100 включно, друге - з року 101 і до року 200 включно і так далі.
+    //Наприклад:
+    //getCentury(1705); // 18
+
+    //public class CenturyFromYear {
+    //  public static int getCentury(int year) {
+    //     int century = 0;
+    //        for (int i = 1; i <= year; i = i + 100){
+    //            century++;
+    //        }
+    //        System.out.println(century);
+    //        return century;
+    //  }
+    //}
+
+    //or
+    //public class CenturyFromYear {
+    //  public static int getCentury(int year) {
+    //    return year % 100 == 0 ? (year / 100) : (year / 100 + 1);
+    //  }
+    //}
+    //-----------------------------------------------------------------------------------------------
 
 }
