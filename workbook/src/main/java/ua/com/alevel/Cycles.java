@@ -54,7 +54,6 @@ public class Cycles {
 //        }// while
 
 
-
 //        double i = 1200;
 //        int count = 0;
 //
