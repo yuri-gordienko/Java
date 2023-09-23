@@ -6,11 +6,6 @@ public class Main {
 
     public static void main(String[] args){
 
-//        String s = String.valueOf(CombineStrings.getValue("national aeronautics space administration"));
-//        String[] s = example("examply");
-//        getOccurrenceCount(new String[] {"blue", "blue", "red"}, null);
-//        getAverageSalary(new double[] {100.00, 200.00, 300.00});
-//        System.out.println("-" + s);
         getDivisibleNumbers(new int[] {2, 5, 8, 0, 7, 1, -4}, 2); // [40, 10]
 
     }
