@@ -13,7 +13,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
-public class VacancyRederService {
+public class VacancyReaderService {
 
     public List<VacancyDto> getVacanciesFromFile(String fileName) {
         Resource resource = new ClassPathResource(fileName);

@@ -14,14 +14,14 @@ import java.util.Map;
 public class VacancyService {
 
     @Autowired
-    private VacancyRederService vacancyRederService;
+    private VacancyReaderService vacancyReaderService;
 
     private final Map<String, VacancyDto> vacancies = new HashMap<>(); // создаем коллекцию для сохранения вакансий
 
     @PostConstruct
     private void init() {
 
-        List<VacancyDto> list = vacancyRederService.getVacanciesFromFile("vacancies.csv");
+        List<VacancyDto> list = vacancyReaderService.getVacanciesFromFile("vacancies.csv");
         for (VacancyDto vacancy : list){
             vacancies.put(vacancy.getId(), vacancy);
         }
