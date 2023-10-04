@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class VacanciesBot extends TelegramLongPollingBot {
+public class VacanciesBot extends TelegramLongPollingBot { // основний клас, стагуватиме вакансіі з певних ресурсів
 
     @Autowired
     private VacancyService vacancyService;
@@ -27,6 +27,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
     private final Map<Long, String> lastShowWacancyLevel = new HashMap<>();
 
     public VacanciesBot() {    // botToken сформировали в телеграм с помощью канала BotFather
+        // телеграм буде розуміти хто звертається до нього (що ми адмін) та якими повідомленнями відпвідати
 
         super("6609052827:AAFkqvDA6VoOoGHHvYEBWfwVa3jQoXIbJKI");
     }
@@ -238,6 +239,7 @@ public class VacanciesBot extends TelegramLongPollingBot {
 
     @Override
     public String getBotUsername() {    // возвращаем имя бота
+
         return "yugo vacancies-bot";
     }
 }
