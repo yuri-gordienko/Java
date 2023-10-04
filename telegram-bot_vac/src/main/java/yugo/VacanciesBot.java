@@ -2,6 +2,7 @@ package yugo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -9,6 +10,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import yugo.dto.VacancyDto;
 import yugo.service.VacancyService;
 
@@ -35,11 +37,11 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
     @Override
     public void onUpdateReceived(Update update) { // обработка сообщений от пользователя через входящий объект Update
        try {
-           if (update.getMessage() !=null) {
-               handleStartCommand(update);
+           if (update.getMessage() !=null) {    // якщо прілітає перше повідомлення не пусте, то викликаєм метод
+               handleStartCommand(update);  // щоб не було Налпоінтерєксепшн
            }
-           if (update.getCallbackQuery() != null) {
-               String callBackdata = update.getCallbackQuery().getData();
+           if (update.getCallbackQuery() != null) { // після натискання на кнопку-меню, яку обрав юзер, перевіряємо на налл
+               String callBackdata = update.getCallbackQuery().getData();   // тоді викликаєм метод-відповідь на запит
                if ("showJuniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showJuniorVacancies(update); // возвращаем ответ
                } else if ("showMiddleVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
@@ -207,7 +209,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getMessage().getChatId());  // метод идентификации чата
         sendMessage.setText("Welcome to vacancies-bot! Please, choose your title:"); // метод ввода текста пользователю
-        sendMessage.setReplyMarkup(getStartMenu()); // создаем менюшку
+        sendMessage.setReplyMarkup(getStartMenu()); // // виклик getStartMenu
         try {
             execute(sendMessage);   //отправка смс
         } catch (TelegramApiException e) {
@@ -216,7 +218,8 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
     }
 
     private ReplyKeyboard getStartMenu() {  // отрисовываем кнопки
-        List<InlineKeyboardButton> row = new ArrayList<>();
+        List<InlineKeyboardButton> row = new ArrayList<>(); // створили масив кнопок
+
         InlineKeyboardButton junior = new InlineKeyboardButton();   // создали кнопку
         junior.setText("Junior");   // дали название кнопке
         junior.setCallbackData("showJuniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
@@ -232,9 +235,10 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         senior.setCallbackData("showSeniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
         row.add(senior);
 
-        InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
-        keybord.setKeyboard(List.of(row));  // возвращаем перечень вакансий
-        return keybord;
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup(); // новий обєкт для повкрнення кнопок
+        keyboard.setKeyboard(List.of(row));  // возвращаем перечень вакансий
+
+        return keyboard;
     }
 
     @Override

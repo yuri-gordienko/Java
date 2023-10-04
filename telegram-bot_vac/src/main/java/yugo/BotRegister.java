@@ -16,7 +16,7 @@ public class BotRegister {      // реєстрація на сервері та
 
     @PostConstruct
     public void init() throws TelegramApiException { // метод запуску реєстрації
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class); // створили API з'єднання
+        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class); // створили API з'єднання, та отримали дефолтну сесію
         telegramBotsApi.registerBot(vacanciesBot); // кладемо наш Токен в статичний метод реєстрації
     }
 }
