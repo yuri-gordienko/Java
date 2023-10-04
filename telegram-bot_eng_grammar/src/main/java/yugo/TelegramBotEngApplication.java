@@ -8,7 +8,5 @@ public class TelegramBotEngApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(TelegramBotEngApplication.class, args);
-
-        System.out.println("Hello, bot eng grammar! Activate!");
     }
 }
