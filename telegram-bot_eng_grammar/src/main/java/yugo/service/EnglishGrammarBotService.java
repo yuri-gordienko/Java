@@ -17,9 +17,15 @@ public class EnglishGrammarBotService {
     private void init() {
         EnglishGrammarBotDto eg = new EnglishGrammarBotDto();
         eg.setId("1");
-        eg.setTense("simple");
-        eg.setShortDescription("descrip");
+        eg.setTense("Present 1");
+        eg.setShortDescription("descrip for 1");
         tenses.put("1", eg);
+
+
+        eg.setId("2");
+        eg.setTense("Present 2");
+        eg.setShortDescription("descrip for 2");
+        tenses.put("2", eg);
     }
 
 
