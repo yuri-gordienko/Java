@@ -22,20 +22,57 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-        if (update.getMessage() != null) {
-            runStartMenu(update);
-        }
-        if (update.getCallbackQuery() != null) {
-            String callbackData = update.getCallbackQuery().getData();
-
-            if ("ShowPresentTenses".equals(callbackData)) {
-                showPresentTenses(update);
+        try {
+            if (update.getMessage() != null) {
+                runStartMenu(update);
             }
-        }
+            if (update.getCallbackQuery() != null) {
+                String callbackData = update.getCallbackQuery().getData();
 
+                if ("ShowPresentTenses".equals(callbackData)) {
+                    showPresentTenses(update);
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Can't send message to user!", e);
+        }
     }
 
-    private void showPresentTenses(Update update) {
+    private void showPresentTenses(Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Specifically of tense:");
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        sendMessage.setReplyMarkup(getPresentTensesMenu());
+        execute(sendMessage);
+    }
+
+    private ReplyKeyboard getPresentTensesMenu() {
+        List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
+
+        InlineKeyboardButton simple = new InlineKeyboardButton();
+        simple.setText("Simple");
+        simple.setCallbackData("show_present_simple");
+        subMenuButtons.add(simple);
+
+        InlineKeyboardButton continuous = new InlineKeyboardButton();
+        continuous.setText("Continuous");
+        continuous.setCallbackData("show_present_continuous");
+        subMenuButtons.add(continuous);
+
+        InlineKeyboardButton perfect = new InlineKeyboardButton();
+        perfect.setText("Perfect");
+        perfect.setCallbackData("show_present_perfect");
+        subMenuButtons.add(perfect);
+
+        InlineKeyboardButton pf = new InlineKeyboardButton();
+        pf.setText("Perfect Continuous");
+        pf.setCallbackData("show_present_perf_cont");
+        subMenuButtons.add(pf);
+
+        InlineKeyboardMarkup presentMenu = new InlineKeyboardMarkup();
+        presentMenu.setKeyboard(List.of(subMenuButtons));
+
+        return presentMenu;
     }
 
     private void runStartMenu(Update update) {
