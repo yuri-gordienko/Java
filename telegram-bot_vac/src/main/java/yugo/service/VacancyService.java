@@ -26,7 +26,7 @@ public class VacancyService {
             vacancies.put(vacancy.getId(), vacancy);
         }
 
-        // Ручное создание вакансий
+//         Ручное создание вакансий
 //        VacancyDto juniorAm = new VacancyDto();
 //        juniorAm.setId("15");
 //        juniorAm.setTitle("Junior java dev at Amazon");
