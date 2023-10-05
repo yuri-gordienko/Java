@@ -1,5 +1,6 @@
 package yugo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -9,12 +10,17 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import yugo.dto.EnglishGrammarBotDto;
+import yugo.service.EnglishGrammarBotService;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class EnglishGrammarBot extends TelegramLongPollingBot {
+
+    @Autowired
+    private EnglishGrammarBotService englishGrammarBotService;
 
     public EnglishGrammarBot() {
         super("6563660262:AAGvacUwaZelFqGBaOagMZW7vAAQaj6xOjw");
@@ -31,16 +37,124 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
                 if ("ShowPresentTenses".equals(callbackData)) {
                     showPresentTenses(update);
+                } else if (callbackData.startsWith("vacancyId=")) {
+                    String id = callbackData.split("=")[1];
+                    showPresentTensesDescription(id, update);
                 }
+                if ("ShowPastTenses".equals(callbackData)) {
+                    showPastTenses(update);
+                }
+//                else if (callbackData.startsWith("id")) {
+//                    showPastTensesDescription(id, update);
+//                }
+                if ("ShowFutureTenses".equals(callbackData)) {
+                    showFutureTenses(update);
+                }
+//                else if (callbackData.equals("id")) {
+//                    showFutureTensesDescription(id, update);
+//                }
             }
         } catch (Exception e) {
             throw new RuntimeException("Can't send message to user!", e);
         }
     }
 
+    private void showPresentTensesDescription(String id, Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        EnglishGrammarBotDto tense = englishGrammarBotService.get(id);
+        String description = tense.getShortDescription();
+        sendMessage.setText(description);
+        execute(sendMessage);
+    }
+
+    private void showFutureTenses(Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Specifically by Future tense:");
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        sendMessage.setReplyMarkup(getFutureTensesMenu());
+        execute(sendMessage);
+    }
+
+    private ReplyKeyboard getFutureTensesMenu() {
+        List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
+
+        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getFutureSpecifically();
+
+        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
+            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
+            tenseButton.setText(listDTOTense.getTense());
+            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
+            subMenuButtons.add(tenseButton);
+        }
+
+
+        InlineKeyboardButton simple = new InlineKeyboardButton();
+        simple.setText("Simple");
+        simple.setCallbackData("tenseId=1");
+        subMenuButtons.add(simple);
+
+        InlineKeyboardButton continuous = new InlineKeyboardButton();
+        continuous.setText("Continuous");
+        continuous.setCallbackData("tenseId=2");
+        subMenuButtons.add(continuous);
+
+        InlineKeyboardButton perfect = new InlineKeyboardButton();
+        perfect.setText("Perfect");
+        perfect.setCallbackData("show_future_perfect");
+        subMenuButtons.add(perfect);
+
+        InlineKeyboardButton pf = new InlineKeyboardButton();
+        pf.setText("Perfect Continuous");
+        pf.setCallbackData("show_future_perf_cont");
+        subMenuButtons.add(pf);
+
+        InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
+        pastMenu.setKeyboard(List.of(subMenuButtons));
+
+        return pastMenu;
+    }
+
+    private void showPastTenses(Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Specifically by Past tense:");
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        sendMessage.setReplyMarkup(getPastTensesMenu());
+        execute(sendMessage);
+    }
+
+    private ReplyKeyboard getPastTensesMenu() {
+        List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
+
+        InlineKeyboardButton simple = new InlineKeyboardButton();
+        simple.setText("Simple");
+        simple.setCallbackData("show_past_simple");
+        subMenuButtons.add(simple);
+
+        InlineKeyboardButton continuous = new InlineKeyboardButton();
+        continuous.setText("Continuous");
+        continuous.setCallbackData("show_past_continuous");
+        subMenuButtons.add(continuous);
+
+        InlineKeyboardButton perfect = new InlineKeyboardButton();
+        perfect.setText("Perfect");
+        perfect.setCallbackData("show_past_perfect");
+        subMenuButtons.add(perfect);
+
+        InlineKeyboardButton pf = new InlineKeyboardButton();
+        pf.setText("Perfect Continuous");
+        pf.setCallbackData("show_past_perf_cont");
+        subMenuButtons.add(pf);
+
+        InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
+        pastMenu.setKeyboard(List.of(subMenuButtons));
+
+        return pastMenu;
+    }
+
     private void showPresentTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Specifically of tense:");
+        sendMessage.setText("Specifically by Present tense:");
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         sendMessage.setReplyMarkup(getPresentTensesMenu());
         execute(sendMessage);
