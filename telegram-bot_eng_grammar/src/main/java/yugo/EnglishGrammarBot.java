@@ -10,14 +10,19 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import yugo.dto.EnglishGrammarBotDto;
 import yugo.service.EnglishGrammarBotService;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class EnglishGrammarBot extends TelegramLongPollingBot {
+
+    private final Map<Long, String> chatHistoryForBackMenu = new HashMap<>();
 
     @Autowired
     private EnglishGrammarBotService englishGrammarBotService;
@@ -46,6 +51,10 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
                 } else if (callbackData.startsWith("tenseId=")) {
                     String id = callbackData.split("=")[1];
                     showSpecificallyTensesDescription(id, update);
+                } else if ("back_to_main_menu".equals(callbackData)) {
+                    historyOfPreviousUserAttendance(update);
+                } else if ("back_to_start_menu".equals(callbackData)) {
+
                 }
             }
         } catch (Exception e) {
@@ -53,56 +62,66 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         }
     }
 
-    private void showSpecificallyTensesDescription(String id, Update update) throws TelegramApiException {
+    private void historyOfPreviousUserAttendance(Update update) throws TelegramApiException {
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        String level = chatHistoryForBackMenu.get(chatId);
+
+        if ("present".equals(level)) {
+            showPresentTenses(update);
+        } else if ("past".equals(level)) {
+            showPastTenses(update);
+        } else if ("future".equals(level)) {
+            showFutureTenses(update);
+        }
+    }
+
+        private void showSpecificallyTensesDescription(String id, Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-//        EnglishGrammarBotDto tense = englishGrammarBotService.get(id);
-//        String description = tense.getShortDescription();
-//        sendMessage.setText(description);
-        sendMessage.setText("description for tense id: " + id);
+        EnglishGrammarBotDto tense = englishGrammarBotService.get(id);
+        String description = tense.getShortDescription();
+        sendMessage.setText(description);
+        sendMessage.setReplyMarkup(getBackToMenu());
         execute(sendMessage);
+    }
+
+    private ReplyKeyboard getBackToMenu() {
+        List<InlineKeyboardButton> backButtons = new ArrayList<>();
+
+        InlineKeyboardButton back = new InlineKeyboardButton();
+        back.setText("Back to main menu");
+        back.setCallbackData("back_to_main_menu");
+        backButtons.add(back);
+
+        InlineKeyboardButton backToStart = new InlineKeyboardButton();
+        backToStart.setText("Back to start menu");
+        backToStart.setCallbackData("back_to_start_menu");
+        backButtons.add(backToStart);
+
+        return new InlineKeyboardMarkup(List.of(backButtons));
     }
 
     private void showFutureTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setText("Specifically by Future tense:");
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getFutureTensesMenu());
         execute(sendMessage);
+
+        chatHistoryForBackMenu.put(chatId, "future");
     }
 
     private ReplyKeyboard getFutureTensesMenu() {
         List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
 
-//        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getFutureSpecifically();
-//
-//        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
-//            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
-//            tenseButton.setText(listDTOTense.getTense());
-//            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
-//            subMenuButtons.add(tenseButton);
-//        }
-
-
-        InlineKeyboardButton simple = new InlineKeyboardButton();
-        simple.setText("Simple");
-        simple.setCallbackData("tenseId=31");
-        subMenuButtons.add(simple);
-
-        InlineKeyboardButton continuous = new InlineKeyboardButton();
-        continuous.setText("Continuous");
-        continuous.setCallbackData("tenseId=32");
-        subMenuButtons.add(continuous);
-
-        InlineKeyboardButton perfect = new InlineKeyboardButton();
-        perfect.setText("Perfect");
-        perfect.setCallbackData("tenseId=33");
-        subMenuButtons.add(perfect);
-
-        InlineKeyboardButton pf = new InlineKeyboardButton();
-        pf.setText("Perfect Continuous");
-        pf.setCallbackData("tenseId=34");
-        subMenuButtons.add(pf);
+        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getFutureSpecifically();
+        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
+            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
+            tenseButton.setText(listDTOTense.getTense());
+            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
+            subMenuButtons.add(tenseButton);
+        }
 
         InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
         pastMenu.setKeyboard(List.of(subMenuButtons));
@@ -113,42 +132,24 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
     private void showPastTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setText("Specifically by Past tense:");
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getPastTensesMenu());
         execute(sendMessage);
+
+        chatHistoryForBackMenu.put(chatId, "past");
     }
 
     private ReplyKeyboard getPastTensesMenu() {
         List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
 
-//        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getPastSpecifically();
-//
-//        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
-//            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
-//            tenseButton.setText(listDTOTense.getTense());
-//            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
-//            subMenuButtons.add(tenseButton);
-//        }
-
-        InlineKeyboardButton simple = new InlineKeyboardButton();
-        simple.setText("Simple");
-        simple.setCallbackData("tenseId=21");
-        subMenuButtons.add(simple);
-
-        InlineKeyboardButton continuous = new InlineKeyboardButton();
-        continuous.setText("Continuous");
-        continuous.setCallbackData("tenseId=22");
-        subMenuButtons.add(continuous);
-
-        InlineKeyboardButton perfect = new InlineKeyboardButton();
-        perfect.setText("Perfect");
-        perfect.setCallbackData("tenseId=23");
-        subMenuButtons.add(perfect);
-
-        InlineKeyboardButton pf = new InlineKeyboardButton();
-        pf.setText("Perfect Continuous");
-        pf.setCallbackData("tenseId=24");
-        subMenuButtons.add(pf);
+        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getPastSpecifically();
+        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
+            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
+            tenseButton.setText(listDTOTense.getTense());
+            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
+            subMenuButtons.add(tenseButton);
+        }
 
         InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
         pastMenu.setKeyboard(List.of(subMenuButtons));
@@ -159,42 +160,24 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
     private void showPresentTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setText("Specifically by Present tense:");
-        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getPresentTensesMenu());
         execute(sendMessage);
+
+        chatHistoryForBackMenu.put(chatId, "present");
     }
 
     private ReplyKeyboard getPresentTensesMenu() {
         List<InlineKeyboardButton> subMenuButtons = new ArrayList<>();
 
-//        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getPresentSpecifically();
-//
-//        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
-//            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
-//            tenseButton.setText(listDTOTense.getTense());
-//            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
-//            subMenuButtons.add(tenseButton);
-//        }
-
-        InlineKeyboardButton simple = new InlineKeyboardButton();
-        simple.setText("Simple");
-        simple.setCallbackData("tenseId=1");
-        subMenuButtons.add(simple);
-
-        InlineKeyboardButton continuous = new InlineKeyboardButton();
-        continuous.setText("Continuous");
-        continuous.setCallbackData("tenseId=2");
-        subMenuButtons.add(continuous);
-
-        InlineKeyboardButton perfect = new InlineKeyboardButton();
-        perfect.setText("Perfect");
-        perfect.setCallbackData("tenseId=3");
-        subMenuButtons.add(perfect);
-
-        InlineKeyboardButton pf = new InlineKeyboardButton();
-        pf.setText("Perfect Continuous");
-        pf.setCallbackData("tenseId=4");
-        subMenuButtons.add(pf);
+        List<EnglishGrammarBotDto> listDtoTenses = englishGrammarBotService.getPresentSpecifically();
+        for (EnglishGrammarBotDto listDTOTense : listDtoTenses) {
+            InlineKeyboardButton tenseButton = new InlineKeyboardButton();
+            tenseButton.setText(listDTOTense.getTense());
+            tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
+            subMenuButtons.add(tenseButton);
+        }
 
         InlineKeyboardMarkup presentMenu = new InlineKeyboardMarkup();
         presentMenu.setKeyboard(List.of(subMenuButtons));
@@ -236,10 +219,11 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         future.setCallbackData("ShowFutureTenses");
         startMenuButtons.add(future);
 
-        InlineKeyboardMarkup startButtons = new InlineKeyboardMarkup();
-        startButtons.setKeyboard(List.of(startMenuButtons));
+//        InlineKeyboardMarkup startButtons = new InlineKeyboardMarkup();
+//        startButtons.setKeyboard(List.of(startMenuButtons));
 
-        return startButtons;
+//        return startButtons;
+        return new InlineKeyboardMarkup(List.of(startMenuButtons));
     }
 
     @Override
