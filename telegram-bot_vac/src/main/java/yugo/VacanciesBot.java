@@ -182,9 +182,10 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
             vacancyButton.setCallbackData("vacancyId=" + vacancy.getId());
             row.add(vacancyButton);
         }
-        InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
-        keybord.setKeyboard(List.of(row));
-        return keybord;
+//        InlineKeyboardMarkup keybord = new InlineKeyboardMarkup();
+//        keybord.setKeyboard(List.of(row));
+//        return keybord;
+        return new InlineKeyboardMarkup(List.of(row));      // інший коротший варіант повертати List
     }
 
     private ReplyKeyboard getSeniorMessagesMenu() {
