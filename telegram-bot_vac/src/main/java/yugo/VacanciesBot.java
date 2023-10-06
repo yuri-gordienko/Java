@@ -64,14 +64,14 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void handleBackToVacCommand(Update update) throws TelegramApiException { // метод возврата назад, важно попасть в то меню, в кот.находильсь
         // делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
-        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        Long chatId = update.getCallbackQuery().getMessage().getChatId(); // отримали ключ для мапи (це id юзера)
         String level = lastShowWacancyLevel.get(chatId); // вытягиваем из мапы историю откуда заходили
 
         if ("junior".equals(level)) {
             showJuniorVacancies(update);
-        } else if ("middle".equals(level)) {
+        } else if ("middle".equals(level)) {    // інакше
             showMiddleVacancies(update);
-        } else if ("senior".equals(level)) {
+        } else if ("senior".equals(level)) {    // інакше
             showSeniorVacancies(update);
         }
     }
@@ -138,12 +138,13 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
     private void showSeniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
         sendMessage.setText("Please, choose vacancy");  // создаем смс
-        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();   // зробили змінну для запису в Мапу
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getSeniorMessagesMenu());
         execute(sendMessage);
 
-        lastShowWacancyLevel.put(chatId, "senior");
+        lastShowWacancyLevel.put(chatId, "senior");     // записуємо в Мапу історію звідки зайшов юзер, щоб потім повертатися
+                                                        // назад для кнопки "Назад до попереднього меню"
     }
 
     private ReplyKeyboard getJuniorMessagesMenu() { // формируем перечень кнопок в соответствии с нашими вакансиями
