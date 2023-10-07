@@ -10,8 +10,10 @@ public class VacancyDto {
 
     @CsvBindByName(column = "Id")   // необхідні для того, щоб Спрінг правильно витягував дані з csv файла
     private String id;
+
     @CsvBindByName(column = "Title")    // щоб знав з якої коллонки в csv файлі брати дані для вставки
     private String title;
+
     @CsvBindByName(column = "Short description")    // колонки в csv файлі можуть називатися не як фiлди в DTO
     private String shortDescription;
 }
