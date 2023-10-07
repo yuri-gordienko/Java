@@ -1,13 +1,29 @@
 Id,Tense,Short description
-# 1,Software engineer у Kyivstar,"Tech	Забезпечення швидкого зворотнього зв’язку про проблеми з ПЗ та усуненням проблем, пов’язаних з логікою роботи мобільного додатку/веб версії продукту."
-2,Junior Java at Protectimus,"If you are interested in joining our dynamic team and contributing to our mission, we would love to hear from you."
-# 3,.p Java у Bookmap,"Bookmap is a high-performance market data visualization & trading platform. If you are looking to challenge yourself, always was among the best in class, this job is for you."
-# 4,.p Java Developer у Epam,"Work on challenging projects and getting involved in the entire software development process."
-# 5,Software Developer for Software House,"Seeing Junior Software Developer to join the team and work on multiple projects simultaneously."
-# 6,Java Developer (past) у PrivatBank,"Розробка системи управління персоналом банку. Написання коду для нового функціоналу, а також покращення старого функціоналу."
-# 7,past Java Developer,"Розробка нового функціоналу,допомога в створенні архітектури."
-# 8,past Java Developer,"Take care of Back-End development of Process Engine that uses Event Driven Architecture."
-# 9,past/Senior Java Developer,"Java developer to join the ongoing project - application for creating and pricing promotions for one of the largest European retail company."
-# 10,future Java Developer,"Ізраїльська компанія Gransoft шукає в свою команду Senior Java розробника на постійну роботу для розробки та розвитку міжнародного порталу страхової медицини."
-# 11,future Java Software Engineer у UKEESS,"Software House	Експертиза у створенні високопродуктивних веб-додатків і мікросервісів, знайомим із передовими методами створення масштабованих веб-сайтів."
-# 12,future Node.js Developer у Devox,"Devox Software is an international IT outsourcing company with development facilities in five countries – Poland, Ukraine, Romania, Azerbaijan, Georgia. "
+1,^ Simple,"I write an article - Я пишу статтю.
+* Не прямо зараз, а взагалі. Звичайна повторювана дія."
+2,^ Continuous,"I am writing an article - Я пишу статтю.
+* Конкретно в даний момент людина займається написанням статті. Дія почалася у минулому і триває у даний момент."
+3,^ Perfect,"I have written an article - Я (вже) написав статтю.
+* Підкреслюється завершенність дії. Використовіється, коли хочемо підкреслити значущість виконання дії.
+I have fallen in love with she - Я закохався у неї.
+* Дія, яка відбулася у минулому, але на даний момент ще триває."
+4,^ PresentPC,"I have been writing an article for 2 hours - Я пишу статтю вже 2 години.
+* Дія тривє певний проміжок часу. Наголошуємо, що подія почалася в минулому і досі триває."
+5,< Simple,"I wrote an article - Я написав статтю.
+I was there - Я був там.
+* Дія, яка почалася в минулому, та закінчилася в минулому."
+6,< Continuous,"I was writing an article - Я писав статтю.
+* Дія, яка відбувалася в минулому, протягом певного часу. Дія почалася у минулому та закінчилася у минулому. Людина писала статтю у той момент, коли виникла якась подія."
+7,< Perfect,"I had written an article, when she started cooking - Я (закінчив) написав статтю, до того як вона почала готувати.
+* Дія, завершилася до певного моменту у минулому. Людина закінчила свою справу до того моменту, як відбулася інша подія."
+8,< PastPC,"I had been writing an article for 2 hours when she came home - Я писав статтю (протягом) 2х години, коли вона повернулася додому.
+* Дія тривала певний проміжок часу у минулому. Наголошуємо, що подія почалася у минулому, тривала певний проміжок часу і завершилася до певного моменту у минулому."
+9,> Simple,"I will write an article - Я напишу статтю.
+He will return - Він повернеться.
+* Звичайна дія у майбутньому. Вона просто відбудеться і все."
+10,> Continuous,"I will be writing an article at 11 a.m. tomorrow - Я буду писати статтю завтра о 11 годині.
+* Людина буде писати статтю у певний момент у майбутньому. Тривала дія у майбутньому у проміжок часу про який ми знаємо."
+11,> Perfect,"I will have finished write an article by next Friday - Я (завершу) напишу статтю у наступну п'ятницю.
+* Дія закінчиться (завершиться) у певний час у майбутньому."
+12,> FuturePC,"I will have been writing an article next friday already for 1 mounth - Наступної п'ятниці виповниться вже місяць, як я пишу статтю.
+* Тривала дія, яка почалася у минулому, завершиться  до певного моменту у майбутньому."

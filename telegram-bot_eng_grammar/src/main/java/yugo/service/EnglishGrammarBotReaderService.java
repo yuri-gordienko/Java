@@ -25,7 +25,6 @@ public class EnglishGrammarBotReaderService {
                     .withIgnoreLeadingWhiteSpace(true)
                     .build();
             return csvToBean.parse();
-
         } catch (IOException e) {
             throw new RuntimeException("Can't read data from file: " + filename, e);
         }

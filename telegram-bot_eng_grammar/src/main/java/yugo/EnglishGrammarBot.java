@@ -42,10 +42,8 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
                     showPresentTenses(update);
                 } else if ("ShowPastTenses".equals(callbackData)) {
                     showPastTenses(update);
-
                 } else if ("ShowFutureTenses".equals(callbackData)) {
                     showFutureTenses(update);
-
                 } else if (callbackData.startsWith("tenseId=")) {
                     String id = callbackData.split("=")[1];
                     showSpecificallyTensesDescription(id, update);
@@ -81,7 +79,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         }
     }
 
-        private void showSpecificallyTensesDescription(String id, Update update) throws TelegramApiException {
+    private void showSpecificallyTensesDescription(String id, Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         EnglishGrammarBotDto tense = englishGrammarBotService.get(id);
@@ -128,11 +126,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
             tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
             subMenuButtons.add(tenseButton);
         }
-
-        InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
-        pastMenu.setKeyboard(List.of(subMenuButtons));
-
-        return pastMenu;
+        return new InlineKeyboardMarkup(List.of(subMenuButtons));
     }
 
     private void showPastTenses(Update update) throws TelegramApiException {
@@ -156,11 +150,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
             tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
             subMenuButtons.add(tenseButton);
         }
-
-        InlineKeyboardMarkup pastMenu = new InlineKeyboardMarkup();
-        pastMenu.setKeyboard(List.of(subMenuButtons));
-
-        return pastMenu;
+        return new InlineKeyboardMarkup(List.of(subMenuButtons));
     }
 
     private void showPresentTenses(Update update) throws TelegramApiException {
@@ -184,11 +174,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
             tenseButton.setCallbackData("tenseId=" + listDTOTense.getId());
             subMenuButtons.add(tenseButton);
         }
-
-        InlineKeyboardMarkup presentMenu = new InlineKeyboardMarkup();
-        presentMenu.setKeyboard(List.of(subMenuButtons));
-
-        return presentMenu;
+        return new InlineKeyboardMarkup(List.of(subMenuButtons));
     }
 
     private void runStartMenu(Update update) {
@@ -207,8 +193,6 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }
-
-//        chatHistoryForBackMenu.put(chatId, "start");
     }
 
     private ReplyKeyboard getStartMenu() {
@@ -229,10 +213,6 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         future.setCallbackData("ShowFutureTenses");
         startMenuButtons.add(future);
 
-//        InlineKeyboardMarkup startButtons = new InlineKeyboardMarkup();
-//        startButtons.setKeyboard(List.of(startMenuButtons));
-
-//        return startButtons;
         return new InlineKeyboardMarkup(List.of(startMenuButtons));
     }
 
