@@ -21,7 +21,8 @@ public class VacancyService {
     @PostConstruct
     private void init() {
 
-        List<VacancyDto> list = vacancyReaderService.getVacanciesFromFile("vacancies.csv");
+        List<VacancyDto> list = vacancyReaderService.getVacanciesFromFile("vacancies.csv"); // створюемо список
+        // DTO об'єктів, які витянули з csv файла і перетворили їх на об'єкти
         for (VacancyDto vacancy : list){
             vacancies.put(vacancy.getId(), vacancy);
         }
