@@ -2,7 +2,6 @@ package yugo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -10,7 +9,6 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
 import yugo.dto.EnglishGrammarBotDto;
 import yugo.service.EnglishGrammarBotService;
 
@@ -54,12 +52,20 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
                 } else if ("back_to_main_menu".equals(callbackData)) {
                     historyOfPreviousUserAttendance(update);
                 } else if ("back_to_start_menu".equals(callbackData)) {
-
+                    getBackToStartMenu(update);
                 }
             }
         } catch (Exception e) {
             throw new RuntimeException("Can't send message to user!", e);
         }
+    }
+
+    private void getBackToStartMenu(Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("You can choose any other tense:");
+        sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
+        sendMessage.setReplyMarkup(getStartMenu());
+        execute(sendMessage);
     }
 
     private void historyOfPreviousUserAttendance(Update update) throws TelegramApiException {
@@ -89,12 +95,12 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         List<InlineKeyboardButton> backButtons = new ArrayList<>();
 
         InlineKeyboardButton back = new InlineKeyboardButton();
-        back.setText("Back to main menu");
+        back.setText("Back to Main Menu");
         back.setCallbackData("back_to_main_menu");
         backButtons.add(back);
 
         InlineKeyboardButton backToStart = new InlineKeyboardButton();
-        backToStart.setText("Back to start menu");
+        backToStart.setText("Back to Start Menu");
         backToStart.setCallbackData("back_to_start_menu");
         backButtons.add(backToStart);
 
@@ -190,15 +196,19 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         System.out.println(msgFromUser);
 
         SendMessage smgToUser = new SendMessage();
-        smgToUser.setChatId(update.getMessage().getChatId());
-        smgToUser.setText("Welcome to English grammar study application! \n" +
-                "Here you can read or learn english language's tenses");
+        Long chatId = update.getMessage().getChatId();
+        smgToUser.setChatId(chatId);
+        smgToUser.setText("WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION! \n" +
+                "Here you can read or learn english language's tenses. \n" +
+                "You can choose any tense:");
         smgToUser.setReplyMarkup(getStartMenu());
         try {
             execute(smgToUser);
         } catch (TelegramApiException e) {
             throw new RuntimeException(e);
         }
+
+//        chatHistoryForBackMenu.put(chatId, "start");
     }
 
     private ReplyKeyboard getStartMenu() {
