@@ -9,11 +9,17 @@ import lombok.Setter;
 public class EnglishGrammarBotDto {
 
     @CsvBindByName(column = "Id")
-    String id;
+    private String id;
 
     @CsvBindByName(column = "Tense")
-    String tense;
+    private String tense;
 
     @CsvBindByName(column = "Short description")
-    String shortDescription;
+    private String shortDescription;
+
+    @CsvBindByName(column = "Example")
+    private String example;
+
+    @CsvBindByName(column = "Explanation")
+    private String explanation;
 }

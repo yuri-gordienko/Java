@@ -3,6 +3,7 @@ package yugo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -60,7 +61,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
     private void getBackToStartMenu(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("You can choose any other tense:");
+        sendMessage.setText("Обирай любий час:");
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         sendMessage.setReplyMarkup(getStartMenu());
         execute(sendMessage);
@@ -80,25 +81,55 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
     }
 
     private void showSpecificallyTensesDescription(String id, Update update) throws TelegramApiException {
+        EnglishGrammarBotDto englishGrammarBotDto = englishGrammarBotService.get(id);
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-        EnglishGrammarBotDto tense = englishGrammarBotService.get(id);
-        String description = tense.getShortDescription();
-        sendMessage.setText(description);
+//        String description = englishGrammarBotDto.getShortDescription();
+        String vacancyInfo = """
+            *Час:* %s \n
+            *Приклад:* %s \n
+            *Пояснення:* %s
+            """.formatted(
+//                escapeMarkdownReservedChars(englishGrammarBotDto.getTense()),
+                escapeMarkdownReservedChars(englishGrammarBotDto.getShortDescription()),
+                escapeMarkdownReservedChars(englishGrammarBotDto.getExample()),
+                escapeMarkdownReservedChars(englishGrammarBotDto.getExplanation())
+        );
+//        sendMessage.setText(description);
+        sendMessage.setText(vacancyInfo);
+        sendMessage.setParseMode(ParseMode.MARKDOWNV2);
         sendMessage.setReplyMarkup(getBackToMenu());
         execute(sendMessage);
+    }
+
+    private String escapeMarkdownReservedChars(String text) {
+        return text.replace("-", "\\-")
+                .replace("_", "\\_")
+                .replace("*", "\\*")
+                .replace("[", "\\[")
+                .replace("]", "\\]")
+                .replace("(", "\\(")
+                .replace(")", "\\)")
+                .replace("`", "\\'")
+                .replace(">", "\\>")
+                .replace("#", "\\#")
+                .replace("+", "\\+")
+                .replace(".", "\\.")
+                .replace("!", "\\!")
+                .replace("~", "\\~");
     }
 
     private ReplyKeyboard getBackToMenu() {
         List<InlineKeyboardButton> backButtons = new ArrayList<>();
 
         InlineKeyboardButton back = new InlineKeyboardButton();
-        back.setText("Back to Main Menu");
+        back.setText("Повернутись");
         back.setCallbackData("back_to_main_menu");
         backButtons.add(back);
 
         InlineKeyboardButton backToStart = new InlineKeyboardButton();
-        backToStart.setText("Back to Start Menu");
+        backToStart.setText("Головне меню");
         backToStart.setCallbackData("back_to_start_menu");
         backButtons.add(backToStart);
 
@@ -107,7 +138,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
     private void showFutureTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Specifically by Future tense:");
+        sendMessage.setText("Різновиди часу Future:");
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getFutureTensesMenu());
@@ -131,7 +162,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
     private void showPastTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Specifically by Past tense:");
+        sendMessage.setText("Різновиди часу Past:");
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getPastTensesMenu());
@@ -155,7 +186,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
     private void showPresentTenses(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Specifically by Present tense:");
+        sendMessage.setText("Різновиди часу Present:");
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getPresentTensesMenu());
@@ -186,7 +217,9 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         smgToUser.setChatId(chatId);
         smgToUser.setText("WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION ! \n" +
                 "Here you can read or learn english language's tenses. \n" +
-                "You can choose any tense:");
+                "Let's choose any tense:\n" + "\nВІТАЮ у додатку ВИВЧЕННЯ АНГЛІЙСЬКОЇ ГРАМАТИКИ ! \n" +
+                "Тут ти зможешь почитати або повчити часи в англійській мові. \n" +
+                "Обирай любий час:");
         smgToUser.setReplyMarkup(getStartMenu());
         try {
             execute(smgToUser);
