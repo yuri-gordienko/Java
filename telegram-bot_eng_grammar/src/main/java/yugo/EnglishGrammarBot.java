@@ -184,7 +184,7 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         SendMessage smgToUser = new SendMessage();
         Long chatId = update.getMessage().getChatId();
         smgToUser.setChatId(chatId);
-        smgToUser.setText("WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION! \n" +
+        smgToUser.setText("WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION ! \n" +
                 "Here you can read or learn english language's tenses. \n" +
                 "You can choose any tense:");
         smgToUser.setReplyMarkup(getStartMenu());

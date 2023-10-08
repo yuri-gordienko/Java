@@ -1,29 +1,54 @@
 Id,Tense,Short description
-1,^ Simple,"I write an article - Я пишу статтю.
+1,^ Simple,"Present Simple tense:
+
+I write an article - Я пишу статтю.
 * Не прямо зараз, а взагалі. Звичайна повторювана дія."
-2,^ Continuous,"I am writing an article - Я пишу статтю.
+2,^ Continuous,"Present Continuous tense:
+
+I am writing an article - Я пишу статтю.
 * Конкретно в даний момент людина займається написанням статті. Дія почалася у минулому і триває у даний момент."
-3,^ Perfect,"I have written an article - Я (вже) написав статтю.
+3,^ Perfect,"Present Perfect tense:
+
+I have written an article - Я (вже) написав статтю.
 * Підкреслюється завершенність дії. Використовіється, коли хочемо підкреслити значущість виконання дії.
+
 I have fallen in love with she - Я закохався у неї.
-* Дія, яка відбулася у минулому, але на даний момент ще триває."
-4,^ PresentPC,"I have been writing an article for 2 hours - Я пишу статтю вже 2 години.
-* Дія тривє певний проміжок часу. Наголошуємо, що подія почалася в минулому і досі триває."
-5,< Simple,"I wrote an article - Я написав статтю.
+* Дія, яка відбулася у минулому, але на даний момент не завершена."
+4,^ Perf. Cont.,"Present Perfect Continuous tense:
+
+I have been writing an article for 2 hours - Я пишу статтю вже 2 години.
+* Дія тривє певний проміжок часу. Наголошуємо, що подія почалася в минулому і досі виконується."
+5,< Simple,"Past Simple tense:
+
+I wrote an article - Я написав статтю.
 I was there - Я був там.
 * Дія, яка почалася в минулому, та закінчилася в минулому."
-6,< Continuous,"I was writing an article - Я писав статтю.
+6,< Continuous,"Past Continuous tense:
+
+I was writing an article - Я писав статтю.
 * Дія, яка відбувалася в минулому, протягом певного часу. Дія почалася у минулому та закінчилася у минулому. Людина писала статтю у той момент, коли виникла якась подія."
-7,< Perfect,"I had written an article, when she started cooking - Я (закінчив) написав статтю, до того як вона почала готувати.
+7,< Perfect,"Past Perfect tense:
+
+I had written an article, when she started cooking - Я (закінчив) написав статтю, до того як вона почала готувати.
 * Дія, завершилася до певного моменту у минулому. Людина закінчила свою справу до того моменту, як відбулася інша подія."
-8,< PastPC,"I had been writing an article for 2 hours when she came home - Я писав статтю (протягом) 2х години, коли вона повернулася додому.
+8,< Perf. Cont.,"Past Perfect Continuous tense:
+
+I had been writing an article for 2 hours when she came home - Я писав статтю (протягом) 2х години, коли вона повернулася додому.
 * Дія тривала певний проміжок часу у минулому. Наголошуємо, що подія почалася у минулому, тривала певний проміжок часу і завершилася до певного моменту у минулому."
-9,> Simple,"I will write an article - Я напишу статтю.
+9,> Simple,"Future Simple tense:
+
+I will write an article - Я напишу статтю.
 He will return - Він повернеться.
 * Звичайна дія у майбутньому. Вона просто відбудеться і все."
-10,> Continuous,"I will be writing an article at 11 a.m. tomorrow - Я буду писати статтю завтра о 11 годині.
+10,> Continuous,"Future Continuous tense:
+
+I will be writing an article at 11 a.m. tomorrow - Я буду писати статтю завтра о 11 годині.
 * Людина буде писати статтю у певний момент у майбутньому. Тривала дія у майбутньому у проміжок часу про який ми знаємо."
-11,> Perfect,"I will have finished write an article by next Friday - Я (завершу) напишу статтю у наступну п'ятницю.
+11,> Perfect,"Future Perfect tense:
+
+I will have finished write an article by next Friday - Я (завершу) напишу статтю у наступну п'ятницю.
 * Дія закінчиться (завершиться) у певний час у майбутньому."
-12,> FuturePC,"I will have been writing an article next friday already for 1 mounth - Наступної п'ятниці виповниться вже місяць, як я пишу статтю.
+12,> Perf. Cont.,"Future Perfect Continuous tense:
+
+I will have been writing an article next friday already for 1 mounth - Наступної п'ятниці виповниться вже місяць, як я пишу статтю.
 * Тривала дія, яка почалася у минулому, завершиться  до певного моменту у майбутньому."
