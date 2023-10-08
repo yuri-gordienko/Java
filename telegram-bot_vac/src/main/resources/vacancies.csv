@@ -1,13 +1,265 @@
-Id,Title,Short description
-1,Software engineer у Kyivstar,"Tech	Забезпечення швидкого зворотнього зв’язку про проблеми з ПЗ та усуненням проблем, пов’язаних з логікою роботи мобільного додатку/веб версії продукту."
-2,Junior Java at Protectimus,"If you are interested in joining our dynamic team and contributing to our mission, we would love to hear from you."
-3,Junior Java у Bookmap,"Bookmap is a high-performance market data visualization & trading platform. If you are looking to challenge yourself, always was among the best in class, this job is for you."
-4,Junior Java Developer у Epam,"Work on challenging projects and getting involved in the entire software development process."
-5,Software Developer for Software House,"Seeing Junior Software Developer to join the team and work on multiple projects simultaneously."
-6,Java Developer (middle) у PrivatBank,"Розробка системи управління персоналом банку. Написання коду для нового функціоналу, а також покращення старого функціоналу."
-7,Middle Java Developer,"Розробка нового функціоналу,допомога в створенні архітектури."
-8,Middle Java Developer,"Take care of Back-End development of Process Engine that uses Event Driven Architecture."
-9,Middle/Senior Java Developer,"Java developer to join the ongoing project - application for creating and pricing promotions for one of the largest European retail company."
-10,Senior Java Developer,"Ізраїльська компанія Gransoft шукає в свою команду Senior Java розробника на постійну роботу для розробки та розвитку міжнародного порталу страхової медицини."
-11,Senior Java Software Engineer у UKEESS,"Software House	Експертиза у створенні високопродуктивних веб-додатків і мікросервісів, знайомим із передовими методами створення масштабованих веб-сайтів."
-12,Senior Node.js Developer у Devox,"Devox Software is an international IT outsourcing company with development facilities in five countries – Poland, Ukraine, Romania, Azerbaijan, Georgia. "
+Id,Title,Short description,Long description,Company,Salary,Link
+1,Junior Java Developer (Trainee),"За кордоном, віддалено.
+About project: Virtuace on behalf of our client — American
+insurance company is looking for a Guidewire Developer to join our team. Client is a global specialty provider of
+property and casualty insurance and reinsurance that has more than $110 billion USD in total assets along with $17
+billion USD in net assets.","Required skills:
+— You have completed a programming course (Java is preferred);
+— You have 1 year of commercial IT development experience;
+— Your level of English is intermediate.
+
+Would be a plus:
+— Knowledge of J2EE/server side, Hibernate, Spring, CSS, HTML (at basic level).
+
+We offer:
+— To work with company which is financially stable and reliable, we dont have staff cut or salary cut, on the contrary- our company is growing and developing. As our main customers are American insurance companies, it allows us to feel safe and protected on financial side;
+— English classes (online) and speaking-club with native speakers;
+— Possibility of remote work;
+— Competitive salary;
+— Сollaborative friendly team environment.","Guidewire","$800 - 1200","https://jobs.dou.ua/companies/virtuace-inc/vacancies/207301/"
+2,Java Developer (Strong Junior with 1+ year of experience),"Черкаси.
+UAPP team is looking for a Back-End Developer (Strong Junior with 1+ year of experience) for a full-time position in the office","Необхідні навички:
+ — Back-End development experience for web applications;
+ — experience in Java;
+ — excellent skills in OOP;
+ — Springboot (IOC, MVC, Security);
+ — knowledge of SQL and JPA / Hibernate;
+ — experience in developing REST APIs;
+ — basic knowledge of algorithms;
+ — strong abilities to learn new technologies.
+
+ Is it you?
+ Contact us to discuss the details.
+
+ Буде плюсом
+ Will be a plus:
+ — experience in Kotlin;
+ — experience in integration with third-party services via API, SDK.
+
+ Пропонуємо
+ We offer:
+ — career and professional growth;
+ — decent salary;
+ — interesting projects in a professional team;
+ — trainings, seminars, meetings and conferences at company expense;
+ — pleasant and friendly working atmosphere.","UAPP","$800–1400","https://jobs.dou.ua/companies/uapp/vacancies/93715/"
+3,Backend Junior Java Developer,"Віддалена робота
+Повна зайнятість
+Регулярний перегляд зарплат
+Безкоштовне навчання
+Negeso — Нідерландська IT-компанія, філія I.C.T. Waterproof B.V. в Україні. Ми розробляємо веб-сайти, інтернет-магазини, портали та інтерфейси для європейського ринку, здійснюємо технічну підтримку вже існуючих проектів, розробили свою власну CMS систему. Зараз наша компанія активно набирає обертів, тож у зв’язку з цим ми знаходимось у пошуку нових талановитих розробників, що готові застосувати свої набуті знання у сфері IT розробки, зокрема на Європейському ринку. !Високий рівень письмової та усної англійської є обов'язковим!
+","Також ми охоче розглянемо студента або випускника  ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso","18 000 — 40 000 ₴. Залежить від результатів співбесіди","https://robota.ua/company5077741/vacancy9349725"
+4,Java Developer (middle) у PrivatBank,"Розробка системи управління персоналом банку","Також ми охоче розглянемо студента або випускника  ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso","","https://robota.ua/company5077741/vacancy9349725"
+5,Middle Java Developer,"Розробка нового функціоналу,допомога в створенні архітектури.","Також ми охоче розглянемо студента або випускника  ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso"," ","https://robota.ua/company5077741/vacancy9349725"
+6,Middle Java Developer,"Take care of Back-End development of Process Engine that uses Event Driven Architecture.","Також ми охоче розглянемо студента або випускника  ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso"," ","https://robota.ua/company5077741/vacancy9349725"
+7,Middle/Senior Java Developer,"Java developer to join the ongoing project - application for creating and pricing promotions
+for one of the largest European retail company.","Також ми охоче розглянемо студента або випускника  ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso"," ","https://robota.ua/company5077741/vacancy9349725"
+8,Senior Java Developer,"Ізраїльська компанія Gransoft шукає в свою команду Senior Java розробника на постійну
+роботу для розробки та розвитку міжнародного порталу страхової медицини.","Також ми охоче розглянемо студента або випускника
+ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Negeso"," ","https://robota.ua/company5077741/vacancy9349725"
+9,Senior Java Software Engineer у UKEESS,"Software House-Експертиза у створенні високопродуктивних веб-додатків і мікросервісів,
+знайомим із передовими методами створення масштабованих веб-сайтів.","Також ми охоче розглянемо студента або випускника
+ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","UKEESS"," ","https://robota.ua/company5077741/vacancy9349725"
+10,Senior Node.js Developer у Devox,"Devox Software is an international IT outsourcing company with development
+facilities in five countries - Poland, Ukraine, Romania, Azerbaijan, Georgia.","Також ми охоче розглянемо студента або випускника
+ІТ-спеціальності ВНЗ (буде плюсом).
+
+Наш ідеальний кандидат має володіти знаннями у наступних сферах:
+
+Apache Tomcat
+XML, JSON
+Spring Framework (core, web MVC, data)
+Hibernate, JDBC
+PostgreSQL, SQL
+Fast problem solving
+Compliance with deadlines
+Вesire to study and develop
+TCP, HTTP
+Буде безсумнівним плюсом якщо :
+
+В тебе є досвід роботи з технологіями Java більш, ніж півроку
+В тебе є досвід роботи з системами керування версіями: SVN;
+У твої обов’язки буде входити наступне :
+
+Розробка нових та підтримка вже існуючих проектів, що базуються на Java
+Приймати участь у командних брифах, працювати над покращенням проектів
+На що ти можеш розраховувати :
+
+Товариська атмосфера в команді та взаємодопомога
+Оплачувана відпустка та відгули
+Переглад заробітної платні двічі на рік.","Devox"," ","https://robota.ua/company5077741/vacancy9349725"

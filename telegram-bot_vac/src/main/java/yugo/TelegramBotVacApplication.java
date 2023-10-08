@@ -9,6 +9,6 @@ public class TelegramBotVacApplication {
 	public static void main(String[] args) {
 
 		SpringApplication.run(TelegramBotVacApplication.class, args);
-		System.out.println("Hello, i'm telegram-bot");
+		System.out.println("Hello, i'm vacancies_telegram-bot");
 	}
 }

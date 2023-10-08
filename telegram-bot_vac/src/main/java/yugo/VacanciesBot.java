@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
+import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
@@ -58,7 +59,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
                }
            }
        } catch (Exception e) {
-           throw new RuntimeException("Can't send message to user", e);
+           throw new RuntimeException("Can't send message to user!", e);
        }
     }
 
@@ -78,20 +79,59 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void handleBackToStartCommand (Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Choose title:");
+        sendMessage.setText("You can choose any other title:");
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         sendMessage.setReplyMarkup(getStartMenu());
         execute(sendMessage);
     }
 
     private void showVacancyDescription(String id, Update update) throws TelegramApiException {
+        VacancyDto vacancyDto = vacancyService.get(id);
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-        VacancyDto vacancy = vacancyService.get(id);
-        String description = vacancy.getShortDescription();
-        sendMessage.setText(description);
+//        String description = vacancy.getShortDescription();
+        String vacancyInfo = """        
+            *Title:* %s
+            *Company:* %s \n
+            *Short Description:* %s \n
+            *Description:* %s \n
+            *Salary:* %s \n
+            *Link:* [%s](%s)
+            """.formatted(
+    // це - якби шаблон, для оформлення тексту в боті
+    // підставляємо дані з вакансіі, *Title* буде підзаголовком, а замість %s буде підставлятися інфо з вакансії
+                    escapeMarkdownReservedChars(vacancyDto.getTitle()), // витягуєм дані для заповнення
+                escapeMarkdownReservedChars(vacancyDto.getCompany()),
+                escapeMarkdownReservedChars(vacancyDto.getShortDescription()),
+                escapeMarkdownReservedChars(vacancyDto.getLongDescription()),
+                // перевіряємо поле зарплатні. якщо пусте ? виводимо текст : а якщо Ні, то виводимо дані
+                vacancyDto.getSalary().isBlank() ? "Not specified" : escapeMarkdownReservedChars(vacancyDto.getSalary()),
+                "Click here for more details",
+                escapeMarkdownReservedChars(vacancyDto.getLink()) // лінк вказується у спеціальному форматі:
+                // [%s] це текст, (%s) а це сам лінк
+        );
+        sendMessage.setText(vacancyInfo);
+        sendMessage.setParseMode(ParseMode.MARKDOWNV2); // бібліотека телеграма, що надає такий функціонал
         sendMessage.setReplyMarkup(getBackToVacanciesMenu());   // создаем кнопочку "Назад"
         execute(sendMessage);
+    }
+
+    private String escapeMarkdownReservedChars(String text) { // дозволяє заескейпити чарактери, щоб прикрасити текст
+        return text.replace("-", "\\-") // називається екранування символів
+                .replace("_", "\\_")
+                .replace("*", "\\*")
+                .replace("[", "\\[")
+                .replace("]", "\\]")
+                .replace("(", "\\(")
+                .replace(")", "\\)")
+                .replace("`", "\\'")
+                .replace(">", "\\>")
+                .replace("#", "\\#")
+                .replace("+", "\\+")
+                .replace(".", "\\.")
+                .replace("!", "\\!")
+                .replace("~", "\\~");
     }
 
     private ReplyKeyboard getBackToVacanciesMenu() {    // метод по создании кнопочки "Назад" и "Домой"
@@ -116,7 +156,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showJuniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy");  // создаем смс
+        sendMessage.setText("Please, choose vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId); // отправляем смс конкретному пользователю
         sendMessage.setReplyMarkup(getJuniorMessagesMenu());    // отправляем меню пользователю
@@ -127,7 +167,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showMiddleVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy");  // создаем смс
+        sendMessage.setText("Please, choose vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId);        sendMessage.setReplyMarkup(getMiddleMessagesMenu());
         execute(sendMessage);
@@ -137,7 +177,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showSeniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy");  // создаем смс
+        sendMessage.setText("Please, choose vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();   // зробили змінну для запису в Мапу
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getSeniorMessagesMenu());
@@ -210,7 +250,9 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getMessage().getChatId());  // метод идентификации чата
-        sendMessage.setText("Welcome to vacancies-bot! Please, choose your title:"); // метод ввода текста пользователю
+        sendMessage.setText("WELCOME TO VACANCIES SEARCH APPLICATION ! \n" +
+                "Here you can find vacancies by different work experience. \n" +
+                "You can choose any title:"); // метод ввода текста пользователю
         sendMessage.setReplyMarkup(getStartMenu()); // // виклик getStartMenu
         try {
             execute(sendMessage);   //отправка смс
