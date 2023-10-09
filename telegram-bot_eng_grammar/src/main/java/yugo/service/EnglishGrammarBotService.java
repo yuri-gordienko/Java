@@ -3,6 +3,7 @@ package yugo.service;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import yugo.dto.EnglishGrammarBotDto;
 
 import java.util.HashMap;
@@ -12,10 +13,10 @@ import java.util.Map;
 @Service
 public class EnglishGrammarBotService {
 
+    private final Map<String, EnglishGrammarBotDto> tenses = new HashMap<>();
+
     @Autowired
     private EnglishGrammarBotReaderService englishGrammarBotReaderService;
-
-    private final Map<String, EnglishGrammarBotDto> tenses = new HashMap<>();
 
     @PostConstruct
     private void init() {

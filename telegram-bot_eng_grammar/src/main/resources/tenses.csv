@@ -1,10 +1,11 @@
 Id,Tense,Short description, Example, Explanation
-1,^ Simple,"Present Simple","I write an article - Я пишу статтю.","Не прямо зараз, а взагалі. Звичайна повторювана дія."
+1,^ Simple,"Present Simple","I write an article - Я пишу статтю.","Не прямо зараз, а взагалі.
+Звичайна повторювана дія."
 2,^ Continuous,"Present Continuous","I am writing an article - Я пишу статтю.","Конкретно в даний момент людина займається написанням статті.
 Дія почалася у минулому і триває у даний момент."
 3,^ Perfect,"Present Perfect","I have written an article - Я (вже) написав статтю.
 I have fallen in love with she - Я закохався у неї.","Підкреслюється завершенність дії.
-Використовіється, коли хочемо підкреслити значущість виконання дії.
+Використовується, коли хочемо підкреслити значущість виконання дії.
 Дія, яка відбулася у минулому, але на даний момент не завершена."
 4,^ Perf. Cont.,"Present Perfect Continuous","I have been writing an article for 2 hours - Я пишу статтю вже 2 години.","Дія тривє певний проміжок часу.
 Наголошуємо, що подія почалася в минулому і досі виконується."

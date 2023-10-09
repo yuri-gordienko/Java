@@ -2,6 +2,7 @@ package yugo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.ParseMode;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -10,6 +11,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
 import yugo.dto.EnglishGrammarBotDto;
 import yugo.service.EnglishGrammarBotService;
 
@@ -85,18 +87,15 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
 
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-//        String description = englishGrammarBotDto.getShortDescription();
         String vacancyInfo = """
             *Час:* %s \n
             *Приклад:* %s \n
             *Пояснення:* %s
             """.formatted(
-//                escapeMarkdownReservedChars(englishGrammarBotDto.getTense()),
                 escapeMarkdownReservedChars(englishGrammarBotDto.getShortDescription()),
                 escapeMarkdownReservedChars(englishGrammarBotDto.getExample()),
                 escapeMarkdownReservedChars(englishGrammarBotDto.getExplanation())
         );
-//        sendMessage.setText(description);
         sendMessage.setText(vacancyInfo);
         sendMessage.setParseMode(ParseMode.MARKDOWNV2);
         sendMessage.setReplyMarkup(getBackToMenu());
@@ -132,6 +131,11 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         backToStart.setText("Головне меню");
         backToStart.setCallbackData("back_to_start_menu");
         backButtons.add(backToStart);
+
+        InlineKeyboardButton translator = new InlineKeyboardButton();
+        translator.setText("Translator");
+        translator.setUrl("https://translate.google.com.ua/");
+        backButtons.add(translator);
 
         return new InlineKeyboardMarkup(List.of(backButtons));
     }
@@ -245,6 +249,11 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         future.setText("Future tenses");
         future.setCallbackData("ShowFutureTenses");
         startMenuButtons.add(future);
+
+        InlineKeyboardButton translator = new InlineKeyboardButton();
+        translator.setText("Translator");
+        translator.setUrl("https://translate.google.com.ua/");
+        startMenuButtons.add(translator);
 
         return new InlineKeyboardMarkup(List.of(startMenuButtons));
     }
