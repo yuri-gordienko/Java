@@ -67,7 +67,6 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         // делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
         Long chatId = update.getCallbackQuery().getMessage().getChatId(); // отримали ключ для мапи (це id юзера)
         String level = lastShowWacancyLevel.get(chatId); // вытягиваем из мапы историю откуда заходили
-
         if ("junior".equals(level)) {
             showJuniorVacancies(update);
         } else if ("middle".equals(level)) {    // інакше
@@ -156,7 +155,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showJuniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy:");  // создаем смс
+        sendMessage.setText("Choose any vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId); // отправляем смс конкретному пользователю
         sendMessage.setReplyMarkup(getJuniorMessagesMenu());    // отправляем меню пользователю
@@ -167,7 +166,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showMiddleVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy:");  // создаем смс
+        sendMessage.setText("Choose any vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();
         sendMessage.setChatId(chatId);        sendMessage.setReplyMarkup(getMiddleMessagesMenu());
         execute(sendMessage);
@@ -177,15 +176,15 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void showSeniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
-        sendMessage.setText("Please, choose vacancy:");  // создаем смс
+        sendMessage.setText("Choose any vacancy:");  // создаем смс
         Long chatId = update.getCallbackQuery().getMessage().getChatId();   // зробили змінну для запису в Мапу
         sendMessage.setChatId(chatId);
         sendMessage.setReplyMarkup(getSeniorMessagesMenu());
         execute(sendMessage);
 
         lastShowWacancyLevel.put(chatId, "senior");     // записуємо в Мапу історію звідки зайшов юзер, щоб потім повертатися
-                                                        // назад для кнопки "Назад до попереднього меню"
-    }
+    }                                                    // назад для кнопки "Назад до попереднього меню"
+
 
     private ReplyKeyboard getJuniorMessagesMenu() { // формируем перечень кнопок в соответствии с нашими вакансиями
         List<InlineKeyboardButton> row = new ArrayList<>();
@@ -281,7 +280,6 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
         InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup(); // новий обєкт для повкрнення кнопок
         keyboard.setKeyboard(List.of(row));  // возвращаем перечень вакансий
-
         return keyboard;
     }
 
