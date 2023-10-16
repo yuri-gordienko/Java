@@ -19,7 +19,7 @@ public class VacancyDto {
     private String shortDescription;
 
     @CsvBindByName(column = "Long description")
-    private String longDescription;
+    private String fullDescription;
 
     @CsvBindByName(column = "Company")
     private String company;
@@ -29,4 +29,9 @@ public class VacancyDto {
 
     @CsvBindByName(column = "Link")
     private String link;
+
+//    @CsvBindByName(column = "TitleSite")
+    private String titleSite = "Senior info";
+
+
 }

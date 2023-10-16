@@ -94,4 +94,12 @@ public class VacancyService {
                 .contains("senior"))
                 .toList();
     }
+
+    public List<VacancyDto> getSiteVac() {
+        return vacancies.values().stream()
+                .filter(v -> v.getTitleSite()
+                .toLowerCase()
+                .contains("senior"))
+                .toList();
+    }
 }

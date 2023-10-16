@@ -13,7 +13,9 @@ public class BotRegister {      // реєстрація на сервері та
     private final VacanciesBot vacanciesBot; // екземпляр класу, до якого звертаємось, зберігає Токен
 
     // конструктор, можно без нього через @AllArgsConstructor
-    public BotRegister(VacanciesBot vacanciesBot) { this.vacanciesBot = vacanciesBot; }
+    public BotRegister(VacanciesBot vacanciesBot) {
+
+        this.vacanciesBot = vacanciesBot; }
 
     @PostConstruct
     public void init() throws TelegramApiException { // метод запуску реєстрації
