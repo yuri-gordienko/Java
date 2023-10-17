@@ -219,11 +219,13 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
         SendMessage smgToUser = new SendMessage();
         Long chatId = update.getMessage().getChatId();
         smgToUser.setChatId(chatId);
-        smgToUser.setText("WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION ! \n" +
+        smgToUser.setText("<b>WELCOME TO ENGLISH GRAMMAR STUDY APPLICATION !</b> \n" +
                 "Here you can read or learn english language's tenses. \n" +
-                "Let's choose any tense:\n" + "\nВІТАЮ у додатку ВИВЧЕННЯ АНГЛІЙСЬКОЇ ГРАМАТИКИ ! \n" +
+                "Let's choose any tense:\n\n" +
+                "<b>ВІТАЮ у додатку ВИВЧЕННЯ АНГЛІЙСЬКОЇ ГРАМАТИКИ !</b> \n" +
                 "Тут ти зможешь почитати або повчити часи в англійській мові. \n" +
                 "Обирай любий час:");
+        smgToUser.setParseMode(ParseMode.HTML);
         smgToUser.setReplyMarkup(getStartMenu());
         try {
             execute(smgToUser);
