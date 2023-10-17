@@ -29,9 +29,4 @@ public class VacancyDto {
 
     @CsvBindByName(column = "Link")
     private String link;
-
-//    @CsvBindByName(column = "TitleSite")
-    private String titleSite = "Senior info";
-
-
 }

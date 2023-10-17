@@ -21,6 +21,7 @@ import yugo.dto.VacancyDto;
 import yugo.service.VacancyService;
 
 import javax.swing.*;
+import javax.swing.text.html.HTML;
 import java.io.IOException;
 import java.util.*;
 
@@ -48,22 +49,23 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
                handleStartCommand(update);  // щоб не було Налпоінтерєксепшн
            }
            if (update.getCallbackQuery() != null) { // після натискання на кнопку-меню, яку обрав юзер, перевіряємо на налл
-               String callBackdata = update.getCallbackQuery().getData();   // тоді викликаєм метод-відповідь на запит
-               if ("showJuniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
+               String callBackdata = update.getCallbackQuery().getData();   // тоді викликаємo метод-відповідь на запит
+
+               if ("showYugoVacancies".equals(callBackdata)) {
+                   showYugoVacancies(update);
+               } else if ("showSiteVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
+                   showSiteVacancies(update);
+               } else if ("showJuniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showJuniorVacancies(update); // возвращаем ответ
                } else if ("showMiddleVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showMiddleVacancies(update);
                } else if ("showSeniorVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
                    showSeniorVacancies(update);
-               } else if ("showSiteVacancies".equals(callBackdata)) {    // проверяем соответствует ли нажатая кнопка методу
-                   showSiteVacancies(update);
                } else if (callBackdata.startsWith("vacancyId=")) {
                    String id = callBackdata.split("=")[1]; // [1] - берем левую часть (вторую), т.к. отсчет начинается с 0, то 1 это два
                    showVacancyDescription(id, update);
                } else if (callBackdata.startsWith("siteId=")) {
                    String id = callBackdata.split("=")[1];
-//                   String id = "dou";
-//                   showVacancyDescriptionSite("siteId=1", update);
                    showVacancyDescriptionSite(id, update);
                } else if ("backToVacancies".equals(callBackdata)) {
                    handleHistoryOfVisits(update);
@@ -75,6 +77,114 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
            throw new RuntimeException("Can't send message to user!", e);
        }
     }
+
+    @Override
+    public String getBotUsername() {    // возвращаем имя бота
+
+        return "yugo vacancies-bot";
+    }
+
+    private void handleStartCommand (Update update) {
+        String text = update.getMessage().getText(); // метод принятия смс от пользователей
+        System.out.println("user: " + "'" + text + "'");
+
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setChatId(update.getMessage().getChatId());  // метод идентификации чата
+        sendMessage.setText("<b>WELCOME TO VACANCIES SEARCH APPLICATION !</b> \n" +
+                "Here you can find Java vacancies by different work experience. \n" +
+                "You can choose any vacancy from our site or third-party website:"); // метод ввода текста пользователю
+        sendMessage.setParseMode(ParseMode.HTML);
+        sendMessage.setReplyMarkup(getStartMenu()); // // виклик getStartMenu
+        try {
+            execute(sendMessage);   //отправка смс
+        } catch (TelegramApiException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private ReplyKeyboard getStartMenu() {  // отрисовываем кнопки
+        List<InlineKeyboardButton> row = new ArrayList<>(); // створили масив кнопок
+
+        InlineKeyboardButton vacanciesYugo = new InlineKeyboardButton();   // создали кнопку
+        vacanciesYugo.setText("Vacancies from yugoCo.");   // дали название кнопке
+        vacanciesYugo.setCallbackData("showYugoVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+        row.add(vacanciesYugo);
+
+        InlineKeyboardButton vacanciesFromSites = new InlineKeyboardButton();   // создали кнопку
+        vacanciesFromSites.setText("Vacancies from web.Sites");   // дали название кнопке
+        vacanciesFromSites.setCallbackData("showSiteVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+        row.add(vacanciesFromSites);
+
+        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup(); // новий обєкт для повкрнення кнопок
+        keyboard.setKeyboard(List.of(row));  // возвращаем перечень вакансий
+        return keyboard;
+    }
+
+    private void showYugoVacancies (Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Choose any vacancies from yugoCo. site by any work experience:");
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
+        sendMessage.setReplyMarkup(getYugoMessagesMenu());
+        execute(sendMessage);
+
+        lastShowVacancyLevel.put(chatId, "yugo");
+    }
+
+    private ReplyKeyboard getYugoMessagesMenu() {
+        List<InlineKeyboardButton> row = new ArrayList<>();
+
+        InlineKeyboardButton junior = new InlineKeyboardButton();   // создали кнопку
+        junior.setText("Junior");   // дали название кнопке
+        junior.setCallbackData("showJuniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+        row.add(junior);
+
+        InlineKeyboardButton middle = new InlineKeyboardButton();   // создали кнопку
+        middle.setText("Middle");   // дали название кнопке
+        middle.setCallbackData("showMiddleVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+        row.add(middle);
+
+        InlineKeyboardButton senior = new InlineKeyboardButton();   // создали кнопку
+        senior.setText("Senior");   // дали название кнопке
+        senior.setCallbackData("showSeniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+        row.add(senior);
+
+//        InlineKeyboardButton site = new InlineKeyboardButton();   // создали кнопку
+//        site.setText("Site");   // дали название кнопке
+//        site.setCallbackData("showSiteVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
+//        row.add(site);
+
+
+        return new InlineKeyboardMarkup(List.of(row));
+    }
+
+    private void showSiteVacancies(Update update) throws TelegramApiException {
+        SendMessage sendMessage = new SendMessage();
+        sendMessage.setText("Choose any vacancies site:");
+        Long chatId = update.getCallbackQuery().getMessage().getChatId();
+        sendMessage.setChatId(chatId);
+        sendMessage.setReplyMarkup(getSiteMessagesMenu());
+        execute(sendMessage);
+
+        lastShowVacancyLevel.put(chatId, "site");
+    }
+
+    private ReplyKeyboard getSiteMessagesMenu() throws TelegramApiException {
+        List<InlineKeyboardButton> row = new ArrayList<>();
+//        for (String vac : vacancy) {
+        InlineKeyboardButton dou = new InlineKeyboardButton();
+        dou.setText("DOU vacancies");
+        dou.setCallbackData("siteId=1");
+        row.add(dou);
+
+        InlineKeyboardButton djinni = new InlineKeyboardButton();
+        djinni.setText("Djinni vacancies");
+        djinni.setCallbackData("siteId=2");
+        row.add(djinni);
+
+        return new InlineKeyboardMarkup(List.of(row));
+    }
+
 
     private void showJuniorVacancies(Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();    // создаем ответ пользователю
@@ -165,80 +275,10 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         return keybord;
     }
 
-    private void showSiteVacancies(Update update) throws TelegramApiException {
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("Choose any vacancies site:");
-        Long chatId = update.getCallbackQuery().getMessage().getChatId();
-        sendMessage.setChatId(chatId);
-        sendMessage.setReplyMarkup(getSiteMessagesMenu());
-        execute(sendMessage);
 
-        lastShowVacancyLevel.put(chatId, "site");
-    }
-
-    private ReplyKeyboard getSiteMessagesMenu() throws TelegramApiException {
-        List<InlineKeyboardButton> row = new ArrayList<>();
-//        for (String vac : vacancy) {
-        InlineKeyboardButton dou = new InlineKeyboardButton();
-        dou.setText("DOU vacancies");
-        dou.setCallbackData("siteId=1");
-        row.add(dou);
-
-        InlineKeyboardButton djinni = new InlineKeyboardButton();
-        djinni.setText("Djinni vacancies");
-        djinni.setCallbackData("siteId=2");
-        row.add(djinni);
-
-        return new InlineKeyboardMarkup(List.of(row));
-    }
-
-    private void handleStartCommand (Update update) {
-        String text = update.getMessage().getText(); // метод принятия смс от пользователей
-        System.out.println("user: " + "'" + text + "'");
-
-        SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(update.getMessage().getChatId());  // метод идентификации чата
-        sendMessage.setText("WELCOME TO VACANCIES SEARCH APPLICATION ! \n" +
-                "Here you can find vacancies by different work experience. \n" +
-                "You can choose any title:"); // метод ввода текста пользователю
-        sendMessage.setReplyMarkup(getStartMenu()); // // виклик getStartMenu
-        try {
-            execute(sendMessage);   //отправка смс
-        } catch (TelegramApiException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private ReplyKeyboard getStartMenu() {  // отрисовываем кнопки
-        List<InlineKeyboardButton> row = new ArrayList<>(); // створили масив кнопок
-
-        InlineKeyboardButton junior = new InlineKeyboardButton();   // создали кнопку
-        junior.setText("Junior");   // дали название кнопке
-        junior.setCallbackData("showJuniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
-        row.add(junior);
-
-        InlineKeyboardButton middle = new InlineKeyboardButton();   // создали кнопку
-        middle.setText("Middle");   // дали название кнопке
-        middle.setCallbackData("showMiddleVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
-        row.add(middle);
-
-        InlineKeyboardButton senior = new InlineKeyboardButton();   // создали кнопку
-        senior.setText("Senior");   // дали название кнопке
-        senior.setCallbackData("showSeniorVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
-        row.add(senior);
-
-        InlineKeyboardButton site = new InlineKeyboardButton();   // создали кнопку
-        site.setText("Site");   // дали название кнопке
-        site.setCallbackData("showSiteVacancies"); // смс от телеграм на клик от пользователя, чтоб понять какую именно кнопку выбрал пользователь
-        row.add(site);
-
-        InlineKeyboardMarkup keyboard = new InlineKeyboardMarkup(); // новий обєкт для повкрнення кнопок
-        keyboard.setKeyboard(List.of(row));  // возвращаем перечень вакансий
-        return keyboard;
-    }
-
-    private void handleHistoryOfVisits(Update update) throws TelegramApiException { // метод возврата назад, важно попасть в то меню, в кот.находильсь
-        // делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
+// метод возврата назад, важно попасть в то меню, в кот.находильсь
+// делаем идентификатор пользователя, чтоб запомнить какой пользователь заходил из какого меню, чтоб  возвращать его туда же
+    private void handleHistoryOfVisits(Update update) throws TelegramApiException {
         Long chatId = update.getCallbackQuery().getMessage().getChatId(); // отримали ключ для мапи (це id юзера)
         String level = lastShowVacancyLevel.get(chatId); // вытягиваем из мапы историю откуда заходили
         if ("junior".equals(level)) {
@@ -247,6 +287,8 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
             showMiddleVacancies(update);
         } else if ("senior".equals(level)) {    // інакше
             showSeniorVacancies(update);
+        } else if ("site".equals(level)) {    // інакше
+            showSiteVacancies(update);
         }
     }
 
@@ -272,17 +314,12 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
 
     private void handleBackToStartMenu (Update update) throws TelegramApiException {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setText("You can choose any other title:");
+        sendMessage.setText("You can choose any source:");
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
         sendMessage.setReplyMarkup(getStartMenu());
         execute(sendMessage);
     }
 
-    @Override
-    public String getBotUsername() {    // возвращаем имя бота
-
-        return "yugo vacancies-bot";
-    }
 
     private void showVacancyDescription(String id, Update update) throws TelegramApiException {
         VacancyDto vacancyDto = vacancyService.get(id);
@@ -293,7 +330,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         String vacancyInfo = """        
             *Title:* %s
             *Company:* %s \n
-            *Short Description:* %s \n
+            *Summary:* %s \n
             *Description:* %s \n
             *Salary:* %s \n
             *Link:* [%s](%s)
@@ -326,13 +363,13 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
         try {
             Document document = Jsoup.connect(url).get();   // Отримання вмісту веб-сторінки
 
-        // Вибір елементів, які містять вакансії (припустимо, що вони розміщені в елементах div або li з певним класом)
+            // Вибір елементів, які містять вакансії (припустимо, що вони розміщені в елементах div або li з певним класом)
             Elements vacancyElements = document.select("li.l-vacancy");
             System.out.println("Vacancy elements: " + vacancyElements.size());
 
             // Перегляд і виведення вакансій
             for (Element vacancyElement : vacancyElements) {
-                String titleSite = vacancyElement.select("a.vt").text();
+                String title = vacancyElement.select("a.vt").text();
                 String company = vacancyElement.select("a.company").text();
                 String location = vacancyElement.select("span.cities").text();
                 String shortDescription = vacancyElement.select("div.sh-info").text();
@@ -342,14 +379,17 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
                 Document vacancyPage = Jsoup.connect(vacancyUrl).get();
                 String fullDescription = vacancyPage.select("div.text").text();
 
-                // додаю вакансії у массив List<String> vacancy
-                vacancy.add(titleSite);
-                vacancy.add(company);
-                vacancy.add(location);
-//                vacancy.add(shortDescription);
-//                vacancy.add(fullDescription);
+                // Створюємо окремий рядок для кожної вакансії з виділеною жирним шрифтом для Назв, включив теги <b> та </b>
+                String vacancyInfo =
+                        "<b>Title:</b> " + title + "\n" +
+                        "<b>Company:</b> " + company + "\n" +
+                        "<b>Location:</b> " + location + "\n" +
+                        "<b>Link:</b> " + vacancyUrl + "\n";
 
-//                System.out.println("Назва: " + titleSite);
+                //Додаємо інформацію про вакансію до масиву
+                vacancy.add(vacancyInfo);
+
+//                System.out.println("\nНазва: " + titleSite);
 //                System.out.println("Компанія: " + company);
 //                System.out.println("Місцезнаходження: " + location);
 //                System.out.println("Опис: " + description1);
@@ -360,9 +400,15 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
             e.printStackTrace();
         }
 
+        String result = String.join("\n", vacancy);
+
         SendMessage sendMessage = new SendMessage();
         sendMessage.setChatId(update.getCallbackQuery().getMessage().getChatId());
-        sendMessage.setText(vacancy.toString());
+        sendMessage.setText(result);
+        // Повідомлення встановлюється як HTML-розмітка
+        // Встановив 'sendMessage.setParseMode(ParseMode.HTML)' щоб повідомлення інтерпретувалося як HTML-розмітка.
+        sendMessage.setParseMode(ParseMode.HTML);
+        sendMessage.setReplyMarkup(getBackToVacanciesMenu());
         execute(sendMessage);
     }
 
