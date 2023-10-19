@@ -3,6 +3,7 @@ package ua.com.alevel;
 import java.util.Random;
 
 public class LoveLetterGenerator {
+
     public static void main(String[] args) {
         String[] openingLines = {"Дорога", "Люба", "Моя кохана"};
         String[] adjectives = {"чарівна", "найкраща", "унікальна"};
