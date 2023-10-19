@@ -46,6 +46,14 @@ public class Loops {
 //                System.out.println(i);
 //            }
 
+//        for (int i = 0; i < 10; i++) {
+//            if (i == 4) {
+//                System.out.println("done " + 4);
+//                continue;
+//            }
+//            System.out.println(i);
+//        }
+
 //        ___________________________________________________________________________________________________
 //        int j = 0;
 //        while (j < 5) {
@@ -65,7 +73,16 @@ public class Loops {
 //        System.out.println(count);
 
 
+//        Цикл Do/While
+//        Петля do/whileє різновидом петлі while. Цей цикл виконає блок коду один раз, перш ніж перевірити, чи виконується умова, а потім повторюватиме цикл, доки умова виконується.
+//
+//        Синтаксис
+//        do {
+//            // code block to be executed
+//        }
+//        while (condition);
         // Принудительное выполнение программы, хотябы 1 раз
+
 //        double i = 120;
 //        int count = 0;
 //

@@ -2,7 +2,71 @@ package ua.com.alevel;
 
 public class ConditionalsIfSwich {
 
-    //    Conditionals
+    //    Conditionals Rules
+//    if (condition) {
+//         block of code to be executed if the condition is true
+//    }
+//----------------------------------------------------------------------------------------
+//    if (condition) {
+//         block of code to be executed if the condition is true
+//    } else {
+//         block of code to be executed if the condition is false
+//    }
+//example
+//    int time = 20;
+//    if (time < 18) {
+//        System.out.println("Good day.");
+//    } else {
+//        System.out.println("Good evening.");
+//    }
+
+//    Ternary Operator
+//    It can be used to replace multiple lines of code with a single line, and is most often used to replace simple if else statements:
+//    SyntaxGet your own Java Server
+//            variable = (condition) ? expressionTrue :  expressionFalse;
+//    Example
+//    int time = 20;
+//    String result = (time < 18) ? "Good day." : "Good evening.";
+//    System.out.println(result);
+//----------------------------------------------------------------------------------------------
+//    if (condition1) {
+//         block of code to be executed if condition1 is true
+//    } else if (condition2) {
+//         block of code to be executed if the condition1 is false and condition2 is true
+//    } else {
+//         block of code to be executed if the condition1 is false and condition2 is false
+//    }
+//    example
+//    int time = 22;
+//    if (time < 10) {
+//        System.out.println("Good morning.");
+//    } else if (time < 18) {
+//        System.out.println("Good day.");
+//    } else {
+//        System.out.println("Good evening.");
+//    }
+// Outputs "Good evening."
+//---------------------------------------------------------------------------------------------------------
+//    ConditionalsIfSwich
+//    The 'default' Keyword
+//    The default keyword specifies some code to run if there is no case match:
+//
+//    Example
+//    int day = 4;
+//    switch (day) {
+//        case 6:
+//            System.out.println("Today is Saturday");
+//            break;
+//        case 7:
+//            System.out.println("Today is Sunday");
+//            break;
+//        default:
+//            System.out.println("Looking forward to the Weekend");
+//    }
+// Outputs "Looking forward to the Weekend"
+//---------------------------------------------------------------------------------------------------------
+
+
     public static void main(String[] args) {
 
 //        int age = 17;
