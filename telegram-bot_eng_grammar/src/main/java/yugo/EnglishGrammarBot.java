@@ -41,19 +41,16 @@ public class EnglishGrammarBot extends TelegramLongPollingBot {
             if (update.getCallbackQuery() != null) {
                 String callbackData = update.getCallbackQuery().getData();
 
-                if ("ShowPresentTenses".equals(callbackData)) {
-                    showPresentTenses(update);
-                } else if ("ShowPastTenses".equals(callbackData)) {
-                    showPastTenses(update);
-                } else if ("ShowFutureTenses".equals(callbackData)) {
-                    showFutureTenses(update);
-                } else if (callbackData.startsWith("tenseId=")) {
-                    String id = callbackData.split("=")[1];
-                    showSpecificallyTensesDescription(id, update);
-                } else if ("back_to_main_menu".equals(callbackData)) {
-                    historyOfPreviousUserAttendance(update);
-                } else if ("back_to_start_menu".equals(callbackData)) {
-                    getBackToStartMenu(update);
+                switch (callbackData) {
+                    case "ShowPresentTenses" -> showPresentTenses(update);
+                    case "ShowPastTenses" -> showPastTenses(update);
+                    case "ShowFutureTenses" -> showFutureTenses(update);
+                    case "back_to_main_menu" -> historyOfPreviousUserAttendance(update);
+                    case "back_to_start_menu" -> getBackToStartMenu(update);
+                }
+                if (callbackData.startsWith("tenseId=")) {
+                String id = callbackData.split("=")[1];
+                showSpecificallyTensesDescription(id, update);
                 }
             }
         } catch (Exception e) {
