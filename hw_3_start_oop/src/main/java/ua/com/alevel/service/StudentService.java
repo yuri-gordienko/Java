@@ -11,12 +11,8 @@ public class StudentService {
     public void create(Student student) {
         student.setId(generateId());
         addIndex();                                     // вызываю метод по увеличению массива при заполнении
-        int age = student.getAge();
         for(int i = 0; i < students.length; i++) {
-            if (age < 18 && age > 50) {
-                students[i] = null;                     // не создает студента, если не подходит возраст под требования школы
-            }
-            else if (students[i] == null) {
+           if (students[i] == null) {
                 students[i] = student;
                 break;
             }
