@@ -13,7 +13,7 @@ public class StudentController {
 
     public void start() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("\\nStudents data base:\n");
+        System.out.println("\nStudents data base:\n");
 
         String select;
         menu();

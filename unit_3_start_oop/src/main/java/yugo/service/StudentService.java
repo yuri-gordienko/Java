@@ -8,14 +8,26 @@ public class StudentService {
 
     private Student[] students = new Student[2];
 
+    int arraySize;
     public void create(Student student){
         student.setId(generateId());
+
+        if (arraySize == students.length) {
+            Student[] newStudents = new Student[students.length * 2];
+            for (int i = 0; i < students.length; i++) {
+                newStudents[i] = students[i]; // копіювання елементів
+            }
+            students = newStudents; // посилання старого масива на новий
+        }
+//        students[arraySize] = student; // Додавання студента до масиву
+
         for (int i = 0; i < students.length; i++) {
-            if (students[i] == null) {
+            if (students[i] == null) {  // можно і не перевіряти, все одно записує
                 students[i] = student;
                 break;
             }
         }
+        arraySize++;
     }
 
     public void update(Student student) {
@@ -31,6 +43,7 @@ public class StudentService {
             if (id.equals(students[i].getId())) {
                 students[i] = null;
             }
+            i++;
         }
         return null;
     }
