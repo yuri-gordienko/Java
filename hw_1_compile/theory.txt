@@ -21,6 +21,7 @@ jar cvfm build/jar/good_day2.jar resources/MANIFEST.MF -C build/classes .
 
 java -jar build/jar/good_day.jar - запускаем .jar файл
 
+mvn install - сборка, компиляция и установка проекта в локальний репозиторий
 mvn clean - удаляет папку /target, где лежат скомпилированные файлы
 mvn compile - компилирует программу
 mvn package - собирает .jar
