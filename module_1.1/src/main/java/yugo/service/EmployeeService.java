@@ -11,6 +11,7 @@ public class EmployeeService {
     int arraySize;
     public void create(Employee employee) {
         employee.setId(generateId());
+
         if (arraySize == employees.length) {
             Employee[] employees2 = new Employee[employees.length * 2];
             for (int i = 0; i < employees.length; i++) {
@@ -27,7 +28,7 @@ public class EmployeeService {
         arraySize++;
     }
 
-    public void update (Employee employee) {
+    public void update(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
             if (employee.getId().equals(employees[i].getId())) {
                 employees[i] = employee;

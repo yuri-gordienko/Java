@@ -1,6 +1,8 @@
 package yugo.controller;
 
+import yugo.entity.Department;
 import yugo.entity.Employee;
+import yugo.service.DepartmentService;
 import yugo.service.EmployeeService;
 
 import java.io.BufferedReader;
@@ -9,7 +11,8 @@ import java.io.InputStreamReader;
 
 public class CompanyController {
 
-    EmployeeService employeeService = new EmployeeService();
+    private EmployeeService employeeService = new EmployeeService();
+    private DepartmentService departmentService = new DepartmentService();
 
     public void start() throws IOException {
         System.out.println("\nCompany Database.");
@@ -124,24 +127,44 @@ public class CompanyController {
         }
     }
 
-    private void createDepartment(BufferedReader reader) {
+    private void createDepartment(BufferedReader reader) throws IOException {
+        Department department = new Department();
 
+        System.out.println("Enter Department name:");
+        String nameDep = reader.readLine();
+        department.setName(nameDep);
+        departmentService.createDep(department);
     }
 
-    private void updateDepartment(BufferedReader reader) {
+    private void updateDepartment(BufferedReader reader) throws IOException {
+        System.out.println("Enter ID: ");
+        String id = reader.readLine();
+        Department department = departmentService.readByIdDep(id);
 
+        System.out.println("Enter Department name:");
+        String nameDep = reader.readLine();
+        department.setName(nameDep);
+        departmentService.updateDep(department);
     }
 
-    private void deleteDepartment(BufferedReader reader) {
-
+    private void deleteDepartment(BufferedReader reader) throws IOException {
+        System.out.println("Enter ID: ");
+        String id = reader.readLine();
+        departmentService.deleteDep(id);
     }
 
-    private void readByIdDepartment(BufferedReader reader) {
-
+    private void readByIdDepartment(BufferedReader reader) throws IOException {
+        System.out.println("Enter ID: ");
+        String id = reader.readLine();
+        Department department = departmentService.readByIdDep(id);
+        System.out.println("Dep by id - " + department);
     }
 
     private void readAllDepartments() {
-
+        Department[] department = departmentService.readAllDep();
+        for (Department department1 : department) {
+            System.out.println("new dep - " + department1);
+        }
     }
 
     private void attach(BufferedReader reader) {
