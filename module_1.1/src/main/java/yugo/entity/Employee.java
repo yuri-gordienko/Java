@@ -1,5 +1,7 @@
 package yugo.entity;
 
+import org.springframework.util.StringUtils;
+
 public class Employee extends BaseEntity {
 
     private String name;
@@ -12,7 +14,12 @@ public class Employee extends BaseEntity {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name.isBlank()){
+            System.out.println("You don't enter name!\n");
+        } else {
+            String nameName = StringUtils.capitalize(name);
+            this.name = nameName;
+        }
     }
 
     public String getSurname() {
@@ -20,7 +27,12 @@ public class Employee extends BaseEntity {
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        if (surname.isBlank()){
+            System.out.println("You don't enter surname!\n");
+        } else {
+            String nameSurname = StringUtils.capitalize(surname);
+            this.surname = nameSurname;
+        }
     }
 
     public int getAge() {
@@ -28,7 +40,13 @@ public class Employee extends BaseEntity {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        try {
+            if (age >= 18 && age <= 50) {
+                this.age = age;
+            } else {
+                throw new IllegalArgumentException("Age is not within the valid range (18-50)");
+            }
+        } finally { }
     }
 
     public String getEmail() {
@@ -36,7 +54,12 @@ public class Employee extends BaseEntity {
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        email = email.trim();
+        if (email.matches( "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            this.email = email;
+        } else {
+            System.out.println("Incorrect e-mail!!!");
+        }
     }
 
     @Override
