@@ -48,7 +48,7 @@ public class StudentService {
         return null;
     }
 
-    public Student findById (String id) {
+    public Student findById(String id) {
         for (Student student : students) {
             if (id.equals(student.getId())) {
                 return student;
