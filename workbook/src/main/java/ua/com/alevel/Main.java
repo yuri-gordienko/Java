@@ -1,33 +1,33 @@
 package ua.com.alevel;
 
 
+import org.apache.commons.lang3.StringUtils;
+import org.jsoup.helper.StringUtil;
+
 import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        string("123456", "123456");
-//        String[] ingredients = {"dough", "cheese", "sauce", "dough"};
-//        doughIsEnough(ingredients);
-//        String input = "Hello, world!";
-//        string(input);
-
-
+    makeAbbr("national aeronautics space administration");
+// "NASA"
 
     }
 
-//    public static String string(String input) {
-        public static boolean string(String firstString, String secondString) {
-            if (firstString == null && secondString == null){
-                return true;
-            }
-            if (firstString.equals(secondString)){
-                return true;
-            }
-            return false;
+    public static String makeAbbr(String fullName) {
+//        System.out.println(fullName);
+
+        String[] split = fullName.split(" ");
+        StringBuilder builder = new StringBuilder();
+        for (String string : split) {
+            builder.append(string.toUpperCase().charAt(0));
         }
-//    }
+        System.out.println(builder);
+        return builder.toString();
+
+    }
+
 
 
 
