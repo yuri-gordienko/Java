@@ -83,7 +83,7 @@ public class StorageEntity {
 
     public Car[] seeAllCars() {
 
-        return this.cars;
+        return cars;
     }
 
     public void addOwner(Owner owner) {
@@ -170,6 +170,24 @@ public class StorageEntity {
         }
     }
 
+    public void deleteCarFromOwner(String carId, String ownerId) {
+        for (int i = 0; i < cars.length; i++) {
+            if (cars[i].getId().equals(carId)) {
+                cars[i] = null;
+                for (i = 0; i < owners.length; i++) {
+                    if (owners[i].getId().equals(ownerId)) {
+                        owners[i] = null;
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public IdOwnerAndCar[] seeAllCarsWithOwners() {
+        return this.idOwnerAndCar;
+    }
+
     public Car[] findCarsByOwnerId(String ownerId) {
         String[] carIds = new String[10];
         for (int i = 0; i < idOwnerAndCar.length; i++) {
@@ -226,23 +244,5 @@ public class StorageEntity {
             }
         }
         return owner;
-    }
-
-    public void deleteCarFromOwner(String carId, String ownerId) {
-        for (int i = 0; i < cars.length; i++) {
-            if (cars[i].getId().equals(carId)) {
-                cars[i] = null;
-                for (i = 0; i < owners.length; i++) {
-                    if (owners[i].getId().equals(ownerId)) {
-                        owners[i] = null;
-                        return;
-                    }
-                }
-            }
-        }
-    }
-
-    public IdOwnerAndCar[] seeAllCarsWithOwners() {
-        return this.idOwnerAndCar;
     }
 }
