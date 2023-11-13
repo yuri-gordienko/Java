@@ -185,7 +185,8 @@ public class StorageEntity {
     }
 
     public IdOwnerAndCar[] seeAllCarsWithOwners() {
-        return this.idOwnerAndCar;
+
+        return idOwnerAndCar;
     }
 
     public Car[] findCarsByOwnerId(String ownerId) {
@@ -202,12 +203,12 @@ public class StorageEntity {
             }
         }
         Car[] car = new Car[10];
-        for (int i = 0; i < this.cars.length; i++) {
+        for (int i = 0; i < cars.length; i++) {
             for (int i1 = 0; i1 < carIds.length; i1++) {
-                if (this.cars[i] != null && this.cars[i].getId().equals(carIds[i1])) {
+                if (cars[i] != null && cars[i].getId().equals(carIds[i1])) {
                     for (int i2 = 0; i2 < car.length; i2++) {
                         if (car[i2] == null) {
-                            car[i2] = this.cars[i];
+                            car[i2] = cars[i];
                             break;
                         }
                     }
@@ -231,12 +232,12 @@ public class StorageEntity {
             }
         }
         Owner[] owner = new Owner[10];
-        for (int i = 0; i < this.owners.length; i++) {
+        for (int i = 0; i < owners.length; i++) {
             for (int i1 = 0; i1 < ownerIds.length; i1++) {
-                if (this.owners[i] != null && this.owners[i].getId().equals(ownerIds[i1])) {
+                if (owners[i] != null && owners[i].getId().equals(ownerIds[i1])) {
                     for (int i2 = 0; i2 < owner.length; i2++) {
                         if (owner[i2] == null) {
-                            owner[i2] = this.owners[i];
+                            owner[i2] = owners[i];
                             break;
                         }
                     }

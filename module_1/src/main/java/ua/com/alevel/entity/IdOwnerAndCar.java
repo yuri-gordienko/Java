@@ -23,6 +23,7 @@ public class IdOwnerAndCar {
 
     @Override
     public String toString() {
-        return "Owner ID is: " + this.ownerId + "; Car ID is: " + this.carId + "; ";
+
+        return "Owner ID is: " + ownerId + "; Car ID is: " + carId + "; ";
     }
 }
