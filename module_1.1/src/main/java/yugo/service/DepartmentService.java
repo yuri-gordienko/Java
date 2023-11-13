@@ -6,9 +6,13 @@ import java.util.UUID;
 
 public class DepartmentService {
 
-    private Department[] departments = new Department[2];
+    public Department[] departments = new Department[2];
 
     int arrayDepsize;
+
+    public DepartmentService() {
+    }
+
     public void createDep(Department department) {
 //        department.setName(String.valueOf(PYTHON));
 //        department.setName(String.valueOf(JAVA));

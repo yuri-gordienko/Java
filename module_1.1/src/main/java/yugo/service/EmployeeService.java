@@ -6,9 +6,13 @@ import java.util.UUID;
 
 public class EmployeeService {
 
-    private Employee[] employees = new Employee[2];
+    public Employee[] employees = new Employee[2];
 
     int arraySize;
+
+    public EmployeeService() {
+    }
+
     public void create(Employee employee) {
         employee.setId(generateId());
 

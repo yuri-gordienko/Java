@@ -1,7 +1,9 @@
 package yugo.controller;
 
+import yugo.entity.Dep_Emp;
 import yugo.entity.Department;
 import yugo.entity.Employee;
+import yugo.service.Dep_EmpService;
 import yugo.service.DepartmentService;
 import yugo.service.EmployeeService;
 
@@ -13,6 +15,7 @@ public class CompanyController {
 
     private EmployeeService employeeService = new EmployeeService();
     private DepartmentService departmentService = new DepartmentService();
+    private Dep_EmpService depEmpService = new Dep_EmpService();
 
     public void start() throws IOException {
         System.out.println("\nCompany Database.");
@@ -37,9 +40,10 @@ public class CompanyController {
         System.out.println("Find department by id            ->  9");
         System.out.println("Find all departments             -> 10\n");
         System.out.println("Attach employee to department    -> 11");
-        System.out.println("Detach employee to department    -> 12");
+        System.out.println("Detach employee from department  -> 12");
         System.out.println("Find employee by department      -> 13");
         System.out.println("Find department by employee      -> 14");
+        System.out.println("Find all employees in departments-> 15");
         System.out.println("Exit                             ->  0");
     }
 
@@ -62,6 +66,7 @@ public class CompanyController {
 
             case "13" -> readEmployeesByDepartment(reader);
             case "14" -> readDepartmentByEmployees(reader);
+            case "15" -> readAllDepartmentAndEmployees(reader);
 
             case "0" -> exit();
         }
@@ -99,7 +104,6 @@ public class CompanyController {
         String age = reader.readLine();
         System.out.println("Enter e-mail:");
         String email = reader.readLine();
-        employee.setName(id);
         employee.setName(name);
         employee.setSurname(surname);
         employee.setAge(Integer.parseInt(age));
@@ -128,59 +132,79 @@ public class CompanyController {
     }
 
     private void createDepartment(BufferedReader reader) throws IOException {
-        Department department = new Department();
+        System.out.println("Enter Dep name: ");
+        String name = reader.readLine();
 
-        System.out.println("Enter Department name:");
-        String nameDep = reader.readLine();
-        department.setName(nameDep);
+        Department department = new Department();
+        department.setDepName(name);
         departmentService.createDep(department);
     }
 
     private void updateDepartment(BufferedReader reader) throws IOException {
-        System.out.println("Enter ID: ");
+        System.out.println("Enter Id: ");
         String id = reader.readLine();
         Department department = departmentService.readByIdDep(id);
 
-        System.out.println("Enter Department name:");
-        String nameDep = reader.readLine();
-        department.setName(nameDep);
+        System.out.println("Enter new Dep name: ");
+        String name = reader.readLine();
+        department.setDepName(name);
         departmentService.updateDep(department);
     }
 
     private void deleteDepartment(BufferedReader reader) throws IOException {
-        System.out.println("Enter ID: ");
-        String id = reader.readLine();
-        departmentService.deleteDep(id);
+        System.out.println("Enter Dep Id: ");
+        String id = String.valueOf(departmentService.deleteDep(reader.readLine()));
     }
 
     private void readByIdDepartment(BufferedReader reader) throws IOException {
-        System.out.println("Enter ID: ");
-        String id = reader.readLine();
-        Department department = departmentService.readByIdDep(id);
-        System.out.println("Dep by id - " + department);
+        System.out.println("Enter Dep Id " );
+        String id = String.valueOf(departmentService.readByIdDep(reader.readLine()));
+        System.out.println(id);
     }
 
     private void readAllDepartments() {
-        Department[] department = departmentService.readAllDep();
-        for (Department department1 : department) {
-            System.out.println("new dep - " + department1);
+        Department[] departments = departmentService.readAllDep();
+        for (Department department : departments) {
+            System.out.println("- " + department);
         }
     }
 
-    private void attach(BufferedReader reader) {
-
+    private void attach(BufferedReader reader) throws IOException {
+        System.out.println("Enter employee id: ");
+        String empId = reader.readLine();
+        System.out.println("Enter department id: ");
+        String depId = reader.readLine();
+        depEmpService.attachEmployeeToDepartment(empId, depId);
     }
 
-    private void detach(BufferedReader reader) {
-
+    private void detach(BufferedReader reader) throws IOException {
+        System.out.println("Enter employee id: ");
+        String empId = reader.readLine();
+        System.out.println("Enter department id: ");
+        String depId = reader.readLine();
+        depEmpService.deleteEmpFromDep(empId, depId);
     }
 
-    private void readEmployeesByDepartment(BufferedReader reader) {
-
+    private void readEmployeesByDepartment(BufferedReader reader) throws IOException {
+        System.out.println("Enter department id: ");
+        String id = reader.readLine();
+        Dep_Emp[] depEmp = depEmpService.getEmpByDep(id);
+        for (Dep_Emp dep_emp : depEmp) {
+            if (dep_emp != null) {
+                System.out.println("- " + dep_emp);
+            }
+        }
     }
 
     private void readDepartmentByEmployees(BufferedReader reader) {
 
+    }
+
+    private void readAllDepartmentAndEmployees(BufferedReader reader) {
+        Dep_Emp[] depEmps = depEmpService.readAllDepAndEmp();
+        for (Dep_Emp depEmp : depEmps) {
+            System.out.println("- " + depEmp);
+        }
     }
 
     private void exit() {

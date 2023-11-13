@@ -2,20 +2,20 @@ package yugo.entity;
 
 public class Department extends BaseEntity {
 
-    private String name;
+    private String depName;
 
-    public String getName() {
-        return name;
+    public String getDepName() {
+        return depName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDepName(String depName) {
+        this.depName = depName;
     }
 
     @Override
     public String toString() {
         return "Department{" +
-                "name='" + name + '\'' +
+                "name='" + depName + '\'' +
                 '}' + super.toString();
     }
 }
