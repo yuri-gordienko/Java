@@ -1,36 +1,24 @@
 package ua.com.alevel;
 
-
-import org.apache.commons.lang3.StringUtils;
-import org.jsoup.helper.StringUtil;
-
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 
 public class Main {
 
     public static void main(String[] args) {
 
-    makeAbbr("national aeronautics space administration");
-// "NASA"
+        List list = new ArrayList<>();
+        list.add(00.23);
+        System.out.println(list);
+
+//lmkkk
+//        System.out.println(s);
+//        String s =
+//        Object Object obj = list.get(0);
 
     }
-
-    public static String makeAbbr(String fullName) {
-//        System.out.println(fullName);
-
-        String[] split = fullName.split(" ");
-        StringBuilder builder = new StringBuilder();
-        for (String string : split) {
-            builder.append(string.toUpperCase().charAt(0));
-        }
-        System.out.println(builder);
-        return builder.toString();
-
-
-    }
-
-
-
 
 
 }
