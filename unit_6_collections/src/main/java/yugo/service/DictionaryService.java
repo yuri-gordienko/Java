@@ -2,10 +2,12 @@ package yugo.service;
 
 import yugo.entity.Dictionary;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class DictionaryService {
 
     private Dictionary[] dictionary = new Dictionary[2];
-
 
     public int size() {
 
@@ -13,9 +15,11 @@ public class DictionaryService {
     }
 
     public boolean isEmpty() {
-//        if (dictionary == null) {
-//            return true;
-//        }
+        for (Dictionary dictionary1 : dictionary) {
+            if (dictionary1 == null) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -74,11 +78,7 @@ public class DictionaryService {
         return null;
     }
 
-    public void clear() {
-        dictionary = null;
-    }
-
-    public Dictionary[] putAll() {
+    public Dictionary[] copyArrays() {
         Dictionary[] secondDic = new Dictionary[10 + dictionary.length];
         for (int i = 0; i < secondDic.length; i++) {
             Dictionary d = new Dictionary();
@@ -98,6 +98,26 @@ public class DictionaryService {
                 generalDic[dictionary.length + j] = secondDic[j];
         }
         return generalDic;
+    }
+
+    public void clear() {
+        dictionary = null;
+    }
+
+    public String[] keySet() {
+        List<String> keyList = new ArrayList<>();
+        for (Dictionary dictionary1 : dictionary) {
+            keyList.add(dictionary1.getKey());
+        }
+        return keyList.toArray(new String[]{});
+    }
+
+    public String[] values() {
+        List<String> valuesList= new ArrayList<>();
+        for (Dictionary dictionary1 : dictionary) {
+            valuesList.add(dictionary1.getValue());
+        }
+        return valuesList.toArray(new String[]{});
     }
 
     public Dictionary[] readAll() {

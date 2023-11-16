@@ -14,25 +14,25 @@ public class Controller {
     public void run() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-        Dictionary dic = new Dictionary();
-        dic.setKey("1");
-        dic.setValue("Yuri Gordienko");
-        dictionaryService.put(dic);
-
-        Dictionary dictionary = new Dictionary();
-        dictionary.setKey("2");
-        dictionary.setValue("Kate Berdnikova");
-        dictionaryService.put(dictionary);
-
-        Dictionary dictionary2 = new Dictionary();
-        dictionary2.setKey("2");
-        dictionary2.setValue("Artem Berdnikov");
-        dictionaryService.put(dictionary2);
-
-        Dictionary dictionary3 = new Dictionary();
-        dictionary3.setKey("3");
-        dictionary3.setValue("Artem Berdnikov");
-        dictionaryService.put(dictionary3);
+//        Dictionary dic = new Dictionary();
+//        dic.setKey("1");
+//        dic.setValue("Yuri Gordienko");
+//        dictionaryService.put(dic);
+//
+//        Dictionary dictionary = new Dictionary();
+//        dictionary.setKey("2");
+//        dictionary.setValue("Kate Berdnikova");
+//        dictionaryService.put(dictionary);
+//
+//        Dictionary dictionary2 = new Dictionary();
+//        dictionary2.setKey("2");
+//        dictionary2.setValue("Artem Berdnikov");
+//        dictionaryService.put(dictionary2);
+//
+//        Dictionary dictionary3 = new Dictionary();
+//        dictionary3.setKey("3");
+//        dictionary3.setValue("Artem Berdnikov");
+//        dictionaryService.put(dictionary3);
 
         System.out.println("\nData base Dictionary:\nChoose methods:");
         String select;
@@ -55,6 +55,7 @@ public class Controller {
         System.out.println(".clear()            ->  9");
         System.out.println(".keySet()           -> 10");
         System.out.println(".values()           -> 11");
+        System.out.println("Show all objects    -> 12");
         System.out.println("Exit                ->  0");
     }
 
@@ -71,6 +72,7 @@ public class Controller {
             case "9"  -> dicClear(reader);
             case "10" -> dicKeySet(reader);
             case "11" -> dicValues(reader);
+            case "12" -> allObjects(reader);
             case "0" -> dicExit(reader);
         }
         menu();
@@ -121,7 +123,7 @@ public class Controller {
     }
 
     private void dicPutAll(BufferedReader reader) throws IOException  {
-        Dictionary[] dic = dictionaryService.putAll();
+        Dictionary[] dic = dictionaryService.copyArrays();
         for (Dictionary dictionary : dic) {
             if (dictionary != null) {
                 System.out.println(dictionary);
@@ -134,9 +136,20 @@ public class Controller {
     }
 
     private void dicKeySet(BufferedReader reader) throws IOException  {
+        String[] keys = dictionaryService.keySet();
+        for (String key : keys) {
+            System.out.println("- " + key);
+        }
     }
 
     private void dicValues(BufferedReader reader) throws IOException  {
+        String[] values = dictionaryService.values();
+        for (String value : values) {
+            System.out.println("- " + value);
+        }
+    }
+
+    private void allObjects(BufferedReader reader) throws IOException  {
         Dictionary[] dic = dictionaryService.readAll();
         for (Dictionary dictionary : dic) {
             if (dictionary != null) {
