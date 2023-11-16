@@ -1,5 +1,7 @@
 package yugo;
 
+import yugo.controller.Controller;
+
 import java.io.IOException;
 
 public class DictionaryMain {
