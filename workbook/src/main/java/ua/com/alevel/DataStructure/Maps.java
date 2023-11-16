@@ -39,7 +39,7 @@ public class Maps {
         System.out.println("HashMap after removing by key: " + hashMap);
 
         keys = hashMap.keySet();
-        System.out.println("Keys: " + keys);
+        System.out.println("Keys after remove: " + keys);
 
 
 //        hashMap.clear();                  // вичистили усю мапу
