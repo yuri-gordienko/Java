@@ -14,25 +14,25 @@ public class Controller {
     public void run() throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
-//        Dictionary dic = new Dictionary();
-//        dic.setKey("1");
-//        dic.setValue("Yuri Gordienko");
-//        dictionaryService.put(dic);
-//
-//        Dictionary dictionary = new Dictionary();
-//        dictionary.setKey("2");
-//        dictionary.setValue("Kate Berdnikova");
-//        dictionaryService.put(dictionary);
-//
-//        Dictionary dictionary2 = new Dictionary();
-//        dictionary2.setKey("2");
-//        dictionary2.setValue("Artem Berdnikov");
-//        dictionaryService.put(dictionary2);
-//
-//        Dictionary dictionary3 = new Dictionary();
-//        dictionary3.setKey("3");
-//        dictionary3.setValue("Artem Berdnikov");
-//        dictionaryService.put(dictionary3);
+        Dictionary dic = new Dictionary();
+        dic.setKey("1");
+        dic.setValue("Yuri Gordienko");
+        dictionaryService.put(dic);
+
+        Dictionary dictionary2 = new Dictionary();
+        dictionary2.setKey("2");
+        dictionary2.setValue("Artem Berdnikov");
+        dictionaryService.put(dictionary2);
+
+        Dictionary dictionary = new Dictionary();
+        dictionary.setKey("2");
+        dictionary.setValue("Kate Berdnikova");
+        dictionaryService.put(dictionary);
+
+        Dictionary dictionary3 = new Dictionary();
+        dictionary3.setKey("3");
+        dictionary3.setValue("Artem Berdnikov");
+        dictionaryService.put(dictionary3);
 
         System.out.println("\nData base Dictionary:\nChoose methods:");
         String select;
@@ -79,7 +79,6 @@ public class Controller {
     }
 
     private void dicSize(BufferedReader reader) throws IOException {
-
         System.out.println("Size - " + dictionaryService.size());
     }
 
@@ -119,7 +118,7 @@ public class Controller {
     private void dicRemove(BufferedReader reader) throws IOException  {
         System.out.println("Enter key:");
         String key = reader.readLine();
-        System.out.println(dictionaryService.remove(key));
+        dictionaryService.remove(key);
     }
 
     private void dicPutAll(BufferedReader reader) throws IOException  {

@@ -3,20 +3,23 @@ package yugo.service;
 import yugo.entity.Dictionary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DictionaryService {
 
-    private Dictionary[] dictionary = new Dictionary[2];
+    Dictionary[] dictionaries = new Dictionary[2];
 
     public int size() {
-
-        return dictionary.length;
+        return dictionaries.length;
     }
 
     public boolean isEmpty() {
-        for (Dictionary dictionary1 : dictionary) {
-            if (dictionary1 == null) {
+        if (dictionaries == null) {
+            return true;
+        }
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary == null) {
                 return true;
             }
         }
@@ -24,8 +27,8 @@ public class DictionaryService {
     }
 
     public boolean containsKey (String key) {
-        for (Dictionary dictionary1 : dictionary) {
-            if (key.equals(dictionary1.getKey())) {
+        for (Dictionary dictionary : dictionaries) {
+            if (key.equals(dictionary.getKey())) {
                 return true;
             }
         }
@@ -33,98 +36,96 @@ public class DictionaryService {
     }
 
     public boolean containsValue (String value) {
-        for (Dictionary dictionary1 : dictionary) {
-            if (value.equals(dictionary1.getValue())) {
+        for (Dictionary dictionary : dictionaries) {
+            if (value.equals(dictionary.getValue())) {
                 return true;
             }
         }
         return false;
     }
 
-    public Dictionary getValueByKey(String key) {
-        for (Dictionary dictionary1 : dictionary) {
-            if (key.equals(dictionary1.getKey())) {
-                return dictionary1;
+    public String getValueByKey(String key) {
+        String v = null;
+        for (Dictionary dictionary : dictionaries) {
+            if (key.equals(dictionary.getKey())) {
+                v = dictionary.getValue();
             }
         }
-        return null;
+        return v;
     }
 
-    int arraysize;
-    public void put(Dictionary dic) {       // add to Put method for rewriting, becaise PUT is unic!!!!!!!!!!!!!
-        if (arraysize == dictionary.length) {
-            Dictionary[] dictionaries = new Dictionary[arraysize * 2];
-            for (int i = 0; i < arraysize; i++) {
-                dictionaries[i] = dictionary[i];
+    int arraySize;
+    public void put(Dictionary dictionary) {
+        if (arraySize == dictionaries.length) {
+            Dictionary[] secondDic = new Dictionary[arraySize * 2];
+            for (int i = 0; i < dictionaries.length; i++) {
+                secondDic[i] = dictionaries[i];
             }
-            dictionary = dictionaries;
+            dictionaries = secondDic;
         }
-        for (int i = 0; i < dictionary.length; i++) {
-            if (dictionary[i] == null) {
-                dictionary[i] = dic;
+        for (int i = 0; i < dictionaries.length; i++) {
+            if (dictionaries[i] !=  null && dictionary.getKey().equals(dictionaries[i].getKey())) {
+                dictionaries[i] = dictionary;
+                break;
+            }
+            if (dictionaries[i] == null) {
+                dictionaries[i] = dictionary;
                 break;
             }
         }
-        arraysize++;
+        arraySize++;
     }
 
-    public Dictionary remove(String key) {
-        for (int i = 0; i < dictionary.length; i++) {
-            if (key.equals(dictionary[i].getKey())) {
-                dictionary[i] = null;
+    public void remove(String key) {
+        for (int i = 0; i < dictionaries.length; i++) {
+            if (key.equals(dictionaries[i].getKey())) {
+                dictionaries[i] = null;
             }
-            i++;
         }
-        return null;
     }
 
     public Dictionary[] copyArrays() {
-        Dictionary[] secondDic = new Dictionary[10 + dictionary.length];
+        Dictionary[] secondDic = new Dictionary[10];
         for (int i = 0; i < secondDic.length; i++) {
-            Dictionary d = new Dictionary();
-            d.setKey("4");
-            d.setValue("Kira");
-            secondDic[i] = d;
+            Dictionary dic = new Dictionary();
+            dic.setKey("4");
+            dic.setValue("Kira Gordienko");
+            secondDic[i] = dic;
             break;
         }
 
-        Dictionary[] generalDic = new Dictionary[(dictionary.length + secondDic.length) * 2];
-        for (int i = 0; i < dictionary.length; i++) {
-            if (generalDic[i] == null) {
-                generalDic[i] = dictionary[i];
-            }
-        }
-        for (int j = 0; j < secondDic.length; j++) {
-                generalDic[dictionary.length + j] = secondDic[j];
-        }
-        return generalDic;
+        // копівання масивів в третій спільний масив:
+        // System.arraycopy(від куди, з якого індексу, куди, з якого індексу, по який індекс);
+        Dictionary[] mutualDic = new Dictionary[dictionaries.length + secondDic.length];
+        System.arraycopy(dictionaries, 0, mutualDic, 0, dictionaries.length);
+        System.arraycopy(secondDic, 0, mutualDic, dictionaries.length, secondDic.length);
+
+        return mutualDic;
     }
 
     public void clear() {
-        dictionary = null;
+        for (int i = 0; i < dictionaries.length; i++) {
+            dictionaries[i] = null;
+        }
     }
 
     public String[] keySet() {
         List<String> keyList = new ArrayList<>();
-        for (Dictionary dictionary1 : dictionary) {
-            keyList.add(dictionary1.getKey());
+        for (Dictionary dictionary : dictionaries) {
+            keyList.add(dictionary.getKey());
         }
-        return keyList.toArray(new String[]{});
+        return new String[]{Arrays.toString(new List[]{keyList})};
     }
 
     public String[] values() {
-        List<String> valuesList= new ArrayList<>();
-        for (Dictionary dictionary1 : dictionary) {
-            valuesList.add(dictionary1.getValue());
+        List<String> valueList = new ArrayList<>();
+        for (Dictionary dictionary : dictionaries) {
+            valueList.add(dictionary.getValue());
         }
-        return valuesList.toArray(new String[]{});
+        return valueList.toArray(new String[]{});       // так покрасивее и метод, и распечатка в консоле
     }
 
     public Dictionary[] readAll() {
-        if (dictionary == null) {
-            System.err.println("NullPointerException: Dictionary is null");
-            // Обробка або повернення певного значення за необхідності
-        }
-        return dictionary;
+        return dictionaries;
     }
 }
