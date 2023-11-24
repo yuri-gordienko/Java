@@ -10,61 +10,17 @@ public class DictionaryService {
 
     Dictionary[] dictionaries = new Dictionary[2];
 
-    public int size() {
-        return dictionaries.length;
-    }
-
-    public boolean isEmpty() {
-        if (dictionaries == null) {
-            return true;
-        }
-        for (Dictionary dictionary : dictionaries) {
-            if (dictionary == null) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean containsKey (String key) {
-        for (Dictionary dictionary : dictionaries) {
-            if (key.equals(dictionary.getKey())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public boolean containsValue (String value) {
-        for (Dictionary dictionary : dictionaries) {
-            if (value.equals(dictionary.getValue())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public String getValueByKey(String key) {
-        String v = null;
-        for (Dictionary dictionary : dictionaries) {
-            if (key.equals(dictionary.getKey())) {
-                v = dictionary.getValue();
-            }
-        }
-        return v;
-    }
-
-    int arraySize;
+    int size;
     public void put(Dictionary dictionary) {
-        if (arraySize == dictionaries.length) {
-            Dictionary[] secondDic = new Dictionary[arraySize * 2];
+        if (size == dictionaries.length) {
+            Dictionary[] newDic = new Dictionary[size * 2];
             for (int i = 0; i < dictionaries.length; i++) {
-                secondDic[i] = dictionaries[i];
+                newDic[i] = dictionaries[i];
             }
-            dictionaries = secondDic;
+            dictionaries = newDic;
         }
         for (int i = 0; i < dictionaries.length; i++) {
-            if (dictionaries[i] !=  null && dictionary.getKey().equals(dictionaries[i].getKey())) {
+            if (dictionaries[i] != null && dictionary.getKey().equals(dictionaries[i].getKey())) {
                 dictionaries[i] = dictionary;
                 break;
             }
@@ -73,18 +29,69 @@ public class DictionaryService {
                 break;
             }
         }
-        arraySize++;
+        size++;
     }
 
-    public void remove(String key) {
+    public int size() {
+        int count = 0;
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary != null) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public boolean isEmpty() {
+        if (dictionaries == null) {
+            return true; // масив є нульовим
+        }
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary != null) {
+                return false; // знайдено непорожній елемент
+            }
+        }
+        return true; // всі елементи масиву є нульовими
+    }
+
+    public boolean containsKey(String k) {
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary != null && k.equals(dictionary.getKey())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsValue(String v) {
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary != null && v.equals(dictionary.getValue())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getValueByKey(String k) {
+        String v = null;
+        for (Dictionary dictionary : dictionaries) {
+            if (dictionary != null && dictionary.getKey().equals(k)) {
+                v = dictionary.getValue();
+            }
+        }
+        return v;
+    }
+
+    public void remove(String k) {
         for (int i = 0; i < dictionaries.length; i++) {
-            if (key.equals(dictionaries[i].getKey())) {
+            if (dictionaries[i] != null && k.equals(dictionaries[i].getKey())) {
                 dictionaries[i] = null;
             }
         }
     }
 
-    public Dictionary[] copyArrays() {
+    public Dictionary[] copyArrays () {
+
         Dictionary[] secondDic = new Dictionary[10];
         for (int i = 0; i < secondDic.length; i++) {
             Dictionary dic = new Dictionary();
@@ -93,36 +100,43 @@ public class DictionaryService {
             secondDic[i] = dic;
             break;
         }
-
-        // копівання масивів в третій спільний масив:
-        // System.arraycopy(від куди, з якого індексу, куди, з якого індексу, по який індекс);
+//        // копівання масивів в третій спільний масив:
+//        // System.arraycopy(від куди, з якого індексу, куди, з якого індексу, по який індекс);
         Dictionary[] mutualDic = new Dictionary[dictionaries.length + secondDic.length];
         System.arraycopy(dictionaries, 0, mutualDic, 0, dictionaries.length);
         System.arraycopy(secondDic, 0, mutualDic, dictionaries.length, secondDic.length);
 
-        return mutualDic;
+        dictionaries = mutualDic;
+
+        return dictionaries;
     }
 
-    public void clear() {
+    public String clear() {
         for (int i = 0; i < dictionaries.length; i++) {
             dictionaries[i] = null;
         }
+        return null;
     }
+
 
     public String[] keySet() {
         List<String> keyList = new ArrayList<>();
         for (Dictionary dictionary : dictionaries) {
-            keyList.add(dictionary.getKey());
+            if (dictionary != null) {
+                keyList.add(dictionary.getKey());
+            }
         }
         return new String[]{Arrays.toString(new List[]{keyList})};
     }
 
     public String[] values() {
-        List<String> valueList = new ArrayList<>();
+        List<String> valuesList = new ArrayList<>();
         for (Dictionary dictionary : dictionaries) {
-            valueList.add(dictionary.getValue());
+            if (dictionary != null) {
+                valuesList.add(dictionary.getValue());
+            }
         }
-        return valueList.toArray(new String[]{});       // так покрасивее и метод, и распечатка в консоле
+        return valuesList.toArray(new String[0]);   // так покрасивее и метод, и распечатка в консоле
     }
 
     public Dictionary[] readAll() {

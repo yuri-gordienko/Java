@@ -73,7 +73,7 @@ public class Controller {
             case "10" -> dicKeySet(reader);
             case "11" -> dicValues(reader);
             case "12" -> allObjects(reader);
-            case "0" -> dicExit(reader);
+            case "0" -> dicExit();
         }
         menu();
     }
@@ -157,7 +157,7 @@ public class Controller {
         }
     }
 
-    private void dicExit(BufferedReader reader) {
+    private void dicExit() {
         System.out.println("Good buy!\n");
         System.exit(0);
     }
