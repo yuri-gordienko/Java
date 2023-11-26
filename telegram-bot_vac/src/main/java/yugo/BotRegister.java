@@ -14,7 +14,6 @@ public class BotRegister {      // реєстрація на сервері та
 
     // конструктор, можно без нього через @AllArgsConstructor
     public BotRegister(VacanciesBot vacanciesBot) {
-
         this.vacanciesBot = vacanciesBot; }
 
     @PostConstruct
