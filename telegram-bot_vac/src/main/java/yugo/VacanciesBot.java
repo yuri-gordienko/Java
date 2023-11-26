@@ -77,7 +77,7 @@ public class VacanciesBot extends TelegramLongPollingBot { // основний �
     @Override
     public String getBotUsername() {    // возвращаем имя бота
 
-        return "yugo vacancies-bot";
+        return "yugo_vacancies_bot";
     }
 
     private void handleStartCommand (Update update) {
