@@ -18,8 +18,8 @@ public class Maps {
     private static void test() {
         hashMap.put("1", "v1.1");
         System.out.println("First put - " + hashMap);
-        hashMap.put("1", "v1.2");
-        System.out.println("Second put - " + hashMap);    // перезаписала перше значення
+        hashMap.put("1", "v1.2");                           // перезаписала перше значення
+        System.out.println("Second put - " + hashMap);
         hashMap.put("2", "v2.1");
         System.out.println("Third put - " + hashMap);
         hashMap.put("22", "v2.1");
@@ -68,7 +68,7 @@ public class Maps {
         System.out.println("Third put - " + treehMap);
         treehMap.put("22", "v2.1");
         treehMap.put("17", "v1.1");
-        System.out.println("\treehMap: " + treehMap);
+        System.out.println("\ntreehMap: " + treehMap);
         treehMap.forEach((k, v) -> {                   // Лямбда вираз, без типов значень, т.я вони вказані в Мапі
             System.out.println("k - " + k);
         });
