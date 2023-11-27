@@ -8,15 +8,17 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 @SpringBootApplication
-public class TelegramBotCatHacker {
+public class TelegramBotCatHackerApplication {
 
     public static void main(String[] args) throws TelegramApiException {
 
-        SpringApplication.run(TelegramBotCatHacker.class, args);
+        SpringApplication.run(TelegramBotCatHackerApplication.class, args);
         System.out.println("Hello, I'm telegram-bot cat-hacker!");
 
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-        telegramBotsApi.registerBot(new CatHackerBot());
+//        TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class); // реєстрація на сервері і сесія
+//        telegramBotsApi.registerBot(new CatHackerBot());
+
+        new TelegramBotsApi(DefaultBotSession.class).registerBot(new CatHackerBot());
     }
 }
 
