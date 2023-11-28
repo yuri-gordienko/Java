@@ -79,14 +79,17 @@ public class TelegramBotUtils {
     }
 
     public static int getGlories(Long chatId) {
+
         return gloryStorage.getOrDefault(chatId, 0);
     }
 
     public static void addGlories(Long chatId, int glories) {
+
         gloryStorage.put(chatId, getGlories(chatId) + glories);
     }
 
     public static void clearGlories(Long chatId) {
+
         gloryStorage.remove(chatId);
     }
 }
