@@ -10,8 +10,8 @@ public class IOTest {
     private final String LIST_FILE = "unit_9_ionio/src/main/java/yugo/files";
     private final String DELETE_FILE = "unit_9_ionio/src/main/java/yugo/files/file.txt";
     private final String FIND_FILE = "unit_9_ionio/src/main/java/yugo/files/file.txt";
-//    private final String MOVE_FROM = "unit_9_ionio/src/main/java/yugo/files/file2";
-//    private final String MOVE_TO = "unit_9_ionio/src/main/java/yugo/new_files/file2";
+    private final String MOVE_FROM = "unit_9_ionio/src/main/java/yugo/files/file2";
+    private final String MOVE_TO = "unit_9_ionio/src/main/java/yugo/new_files/file2";
     private final String DELETE_FROM = "unit_9_ionio/src/main/java/yugo/files/file2";
 
 
