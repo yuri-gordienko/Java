@@ -1,4 +1,4 @@
-package yugo;
+package yugo.util;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
@@ -6,11 +6,13 @@ import org.telegram.telegrambots.meta.api.objects.InputFile;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
+import org.telegram.telegrambots.meta.generics.TelegramBot;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -66,16 +68,18 @@ public class TelegramBotUtils {
     }
 
     public static SendPhoto createPhotoMessage(Long chatId, String name) {
-        try {
+//        try {
             SendPhoto photo = new SendPhoto();
             InputFile inputFile = new InputFile();
-            inputFile.setMedia(Files.newInputStream(Path.of("images/" + name + ".jpg")), name);
+//            inputFile.setMedia(Files.newInputStream(Path.of("C:/Users/User/Documents/iT/A-Level/java_5_online/telegram-bot_cat_hacker/images/" + name + ".jpg")), name);
+//            inputFile.setMedia(TelegramBot.class.getClassLoader().getResourceAsStream("images/" + name + ".jpg"), name);
+            inputFile.setMedia(ClassLoader.getSystemClassLoader().getResourceAsStream("images/" + name + ".jpg"), name);
             photo.setPhoto(inputFile);
             photo.setChatId(chatId);
             return photo;
-        } catch (IOException e) {
-            throw new RuntimeException("Can't create photo message!");
-        }
+//        } catch (IOException e) {
+//            throw new RuntimeException("Can't create photo message!");
+//        }
     }
 
     public static int getGlories(Long chatId) {
