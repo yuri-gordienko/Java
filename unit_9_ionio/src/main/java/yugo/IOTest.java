@@ -19,10 +19,10 @@ public class IOTest {
         try {
 //            createDir(DIR_NAME);
 //            createFile(FILE_NAME);
-            listFiles(LIST_FILE);
+//            listFiles(LIST_FILE);
 //            delete(DELETE_FILE);
 //            findFile(FIND_FILE);
-//            removeFile(MOVE_FROM, MOVE_TO);
+            moveFile(MOVE_FROM, MOVE_TO);
         } catch (IOException e) {
             System.out.println("e = " + e.getMessage());
         }
@@ -68,7 +68,7 @@ public class IOTest {
     }
 
     // переміщення файла чи папки із зазначеної директорії в зазначену директорію
-    private File removeFile(String stringFrom, String stringTo) throws IOException {
+    private File moveFile(String stringFrom, String stringTo) throws IOException {
         File file = new File(stringFrom);
         file.renameTo(new File(stringTo));
 
