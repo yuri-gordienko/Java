@@ -10,5 +10,6 @@ public class MainStudent {
 
         StudentController studentController = new StudentController();
         studentController.start();
+
     }
 }
