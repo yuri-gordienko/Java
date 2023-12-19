@@ -8,8 +8,8 @@ public class ExceptionsCheckTest {
 //        handledError(10, 0);
 //        throwNewRuntimeException(10, 0);
 //        throwException(10, 0);
-//        tryCatch(10, 0);
-        tryCatch2(10, 0);
+        tryCatch(10, 0);
+//        tryCatch2(10, 0);
     }
 
     private void unhandledError(int a, int b) {
@@ -28,7 +28,7 @@ public class ExceptionsCheckTest {
 
     private void throwNewRuntimeException(int a, int b) {
         if (b == 0) {
-// умисно перериваю потік і пишу повідомлення, працівати з такими даними не можливо.
+// умисно перериваю потік і пишу повідомлення, працювати з такими даними не можливо.
 // тобто я упередженно прописую умови, планую варіанти розвитку подій, з якими програма не буде працювати
 // я упевнений, що з такими даними програма працювати не буде (ділення на 0, мило без собачки ...)
 // дозволено кидати тільки в многопоточній програмі, щоб не перервати Маін потік
