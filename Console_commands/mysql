@@ -1,0 +1,59 @@
+Full deleting:
+Зупиніть MySQL-сервер:
+sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist
+
+Видаліть файли та папки MySQL:
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /usr/local/var/mysql
+sudo rm -rf /usr/local/etc/my.cnf
+sudo rm -rf /usr/local/mysql*
+
+Видаліть системні файли MySQL:
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/PreferencePanes/My*
+
+Видаліть користувача та групу MySQL:
+sudo dscl . -delete /Users/_mysql
+sudo dscl . -delete /Groups/_mysql
+
+Видаліть залишкові файли в інших місцях:
+sudo rm -rf /var/db/receipts/com.mysql.*
+sudo rm -rf /var/mysql
+
+{ All this commands:
+sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /usr/local/var/mysql
+sudo rm -rf /usr/local/etc/my.cnf
+sudo rm -rf /usr/local/mysql*
+sudo rm -rf /Library/StartupItems/MySQLCOM
+sudo rm -rf /Library/PreferencePanes/My*
+sudo dscl . -delete /Users/_mysql
+sudo dscl . -delete /Groups/_mysql
+sudo rm -rf /var/db/receipts/com.mysql.*
+sudo rm -rf /var/mysql
+}
+
+Щоб перевірити, чи видалено MySQL з вашого комп'ютера, виконайте такі кроки:
+Перевірте, чи немає служб MySQL:
+Відкрийте термінал і виконайте команду:
+ps aux | grep mysql
+Якщо нічого не виводиться або виводяться лише процеси grep mysql, це означає, що служб MySQL не запущено.
+
+Перевірте наявність папок та файлів MySQL:
+Використовуйте команди ls та cd для переходу в директорії та перевірки наявності файлів і папок, пов'язаних із MySQL. Наприклад:
+ls /usr/local/mysql
+ls /usr/local/var/mysql
+ls /usr/local/etc/my.cnf
+Якщо вивід вказує на відсутність файлів або папок, то вони, ймовірно, були видалені.
+
+Перевірте конфігурації системи:
+Перевірте, чи не залишилися жодні служби MySQL у конфігурації системи. Використовуйте команду:
+sudo launchctl list | grep mysql
+Якщо нічого не виводиться, це означає відсутність служб MySQL у конфігурації системи.
+
+Перевірте файли логів:
+Якщо ви використовували MySQL Workbench або запускали MySQL з консолі, перевірте файли логів на наявність помилок або повідомлень.
+Зазвичай логи MySQL розташовані у
+ls /usr/local/var/mysql/
+або в іншій вказаній вами директорії.
