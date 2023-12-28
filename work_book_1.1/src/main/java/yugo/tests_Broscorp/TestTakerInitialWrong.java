@@ -2,7 +2,7 @@ package yugo.tests_Broscorp;
 
 public class TestTakerInitialWrong {
 
-    public static String[] sorted( String[] events ) {
+    public static String[] sorted(String[] events ) {
 
         final java.time.format.DateTimeFormatter formatter =
                 java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy");
@@ -38,12 +38,13 @@ public class TestTakerInitialWrong {
 
 // Умови такі:
 // У нас машина времени и ми потрапили у 1 січня 1900 року.
-// you have a list of events give as an array of strings, as follow:
+// you have a list of events give as an array of strings, as following:
 // <event title><date>,<event title><date>,<event title><date>
 //
 // white spaces separate the event from the date in  dd-mm-yyyy format.
 //
-// мы хотим посетить некоторые события в другом году, но для того чтоб настроить машину времени корректно (указать данные верно) мы должны отправить события на рассмотрение в разных форматах (submit the events in a different format).
+// мы хотим посетить некоторые события в другом году, но для того чтоб настроить машину времени корректно (указать
+// данные верно) мы должны отправить события на рассмотрение в разных форматах (submit the events in a different format).
 //
 // you need a code that will sort your list of events from earliest to latest in the following format:
 // <years to event>years;<months to event>months;<days to event>days-<event title>
@@ -52,4 +53,4 @@ public class TestTakerInitialWrong {
 //
 // if the date format is incorrect, the function should not include the string in output array.
 //
-// The cod has one or more bugs. it your task to find the bugs and resolve the issues.
+// The code has one or more bugs. it your task to find the bugs and resolve the issues.
