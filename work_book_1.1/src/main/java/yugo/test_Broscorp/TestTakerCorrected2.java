@@ -1,4 +1,4 @@
-package yugo.tests_Broscorp;
+package yugo.test_Broscorp;
 
 public class TestTakerCorrected2 {
 
