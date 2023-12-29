@@ -1,4 +1,4 @@
-package yugo.tests_Andersen;
+package yugo.test_Andersen;
 
 public class Test2 extends Thread {
     Test2() {
