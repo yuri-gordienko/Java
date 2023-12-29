@@ -1,8 +1,6 @@
-package yugo.tests_NIX;
+package yugo.test_NIX;
 
-import java.util.Vector;
-
-public class NIX_testsMain {
+public class NIX_testMain {
 
     public static void main(String[] args) {
 
