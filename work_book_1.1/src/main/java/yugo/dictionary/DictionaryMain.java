@@ -1,4 +1,4 @@
-package yugo.collections;
+package yugo.dictionary;
 
 import java.io.IOException;
 
