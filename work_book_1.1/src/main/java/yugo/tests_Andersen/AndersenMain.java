@@ -1,11 +1,11 @@
 package yugo.tests_Andersen;
 
-public class GlobalMain {
+public class AndersenMain {
 
     public static void main(String[] args) {
-//        ChangeInteger method = new ChangeInteger();
+//        ChangeInteger changeInteger = new ChangeInteger();
 //        Integer value = 1;
-//        method.change(value);
+//        changeInteger.change(value);
 //        System.out.println(value);
 
 //        Test t1 = new Test();
@@ -20,8 +20,6 @@ public class GlobalMain {
 //        };
 //        t.start();
 
-//        new Thread(new Test3()).start();
-
-
+        new Thread(new Test3()).start();
     }
 }
