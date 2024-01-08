@@ -1,6 +1,7 @@
 package yugo.CRUD;
 
 public class CRUDMain {
+
     public static void main(String[] args) {
 
         CRUDService crudService = new CRUDService();
@@ -41,13 +42,12 @@ public class CRUDMain {
 //        update
         Object updated = crudService.readById("1");
         updated.setName("1.updated");
-        crudService.update(updated );
+        crudService.update(updated);
 
         Object[] objectsStrings2 = crudService.readAll();
         for (Object s : objectsStrings2) {
             if (s != null) {
                 System.out.println("readALL " + s);
-
             }
         }
 

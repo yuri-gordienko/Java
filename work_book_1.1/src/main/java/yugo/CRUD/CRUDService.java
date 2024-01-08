@@ -22,10 +22,10 @@ public class CRUDService {
                 objects[i] = ob;
                 break;
             }
-            if (objects[i] !=null && ob.getId().equals("1")) {
-                objects[i] = ob;
-                break;
-            }
+//            if (objects[i] !=null && ob.getId().equals(objects[i].getId())) {
+//                objects[i] = ob;
+//                break;
+//            }
         }
     }
 
@@ -33,7 +33,7 @@ public class CRUDService {
         return objects;
     }
 
-    public Object readById (String id) {
+    public Object readById(String id) {
         for (Object object : objects) {
             if (id.equals(object.getId())) {
                 System.out.println("\nreadById " + object);
@@ -62,7 +62,4 @@ public class CRUDService {
         }
         return null;
     }
-
-
-
 }
