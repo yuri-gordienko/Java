@@ -8,10 +8,10 @@ public class AndersenMain {
 //        changeInteger.change(value);
 //        System.out.println(value);
 
-//        Test t1 = new Test();
-//        ThreadsDemo t2 = new ThreadsDemo();
-//        t1.start();
-//        t2.start();
+        Test t1 = new Test();
+        ThreadsDemo t2 = new ThreadsDemo();
+        t1.start();
+        t2.start();
 
 //        Thread t = new Test2() {
 //            public void run() {
@@ -20,6 +20,6 @@ public class AndersenMain {
 //        };
 //        t.start();
 
-        new Thread(new Test3()).start();
+//        new Thread(new Test3()).start();
     }
 }
