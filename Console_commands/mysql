@@ -1,4 +1,5 @@
-Full deleting:
+Full deleting SQL:
+
 Зупиніть MySQL-сервер:
 sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist
 
@@ -57,3 +58,34 @@ sudo launchctl list | grep mysql
 Зазвичай логи MySQL розташовані у
 ls /usr/local/var/mysql/
 або в іншій вказаній вами директорії.
+_____________________________________________________________________________________________________________________________
+
+Reset forgotten root password:
+
+- дізнатися шлях до папки sql
+mysql_config —variable=prefix
+- зупинити сервер
+sudo launchctl unload -F /Library/LaunchDaemons/com.oracle.oss.mysql.mysqld.plist
+
+sudo /usr/local/mysql-8.0.35/support-files/mysql.server start --skip-grant-tables
+
+/usr/local/mysql-8.0.35/bin/mysql
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
