@@ -127,11 +127,11 @@ public class DicService {
 
         Dictionary[] mutualDic = new Dictionary[(secondDic.length + dictionary.length) * 2];
 
-        for (int i = 0; i < dictionary.length; i++) {
-            if (dictionary[i] != null) {
-                mutualDic[i] = dictionary[i];
-            }
-        }
+//        for (int i = 0; i < dictionary.length; i++) {
+//            if (dictionary[i] != null) {
+//                mutualDic[i] = dictionary[i];
+//            }
+//        }
 //        for (int i = 0; i < secondDic.length; i++) {      // peaked
 //            if (secondDic[i] != null) {
 //                mutualDic[dictionary.length + 1] = secondDic[i];
