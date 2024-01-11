@@ -2,8 +2,8 @@ package yugo.dao;
 
 import yugo.entity.BaseEntity;
 
+import java.sql.SQLException;
 import java.util.Collection;
-import java.util.Collections;
 
 // інтерфейс, що реалізує абстрактні методи, безпосередньо контактує з БД. Таким чином в БД не звуртаються сотні класів,
 // кожен зі своєю імплементацією, а працюють через один універсальний інтерфейс.
@@ -16,6 +16,6 @@ public interface BaseDao <E extends BaseEntity> {
     void create (E e);
     void update (E e);
     void delete (Long id);
-    E findById();
-    Collection<E> findAll();
+    E findById(Long id);
+    Collection<E> findAll() throws SQLException;
 }

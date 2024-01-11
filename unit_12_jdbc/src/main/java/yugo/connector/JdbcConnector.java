@@ -17,7 +17,7 @@ public class JdbcConnector {
     private Statement statement;
 
 //  для доступу до бази, необхідно в ClassPath надати наши пермішени
-    private final String driver = "com.mysql.cj.jdbc";
+    private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String url = "jdbc:mysql://localhost:3306/test";
     private final String userName = "root";
     private final String password = "javajava";
@@ -44,6 +44,8 @@ public class JdbcConnector {
     private static final JdbcConnector instance = new JdbcConnector();
 
 //  публічний метод (по суті геттер) буде роздавати сесії, getInstanse говорить, підказує що клас Синглтон
+//  ця змінна необхідна для виклику методів connection і statement з інших класів (наприклад, EmployeeDaoImpl), тому що
+//  ми там не можемо сворити екземпляр класу JdbcConnector, а звертатися до методів необхідно через екземпляри класу
     public static JdbcConnector getInstance() {
         return instance;
     }

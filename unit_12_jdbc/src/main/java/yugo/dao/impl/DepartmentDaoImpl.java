@@ -23,7 +23,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public Department findById() {
+    public Department findById(Long id) {
         return null;
     }
 
