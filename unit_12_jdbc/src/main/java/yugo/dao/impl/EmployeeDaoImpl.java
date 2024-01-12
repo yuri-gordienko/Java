@@ -8,6 +8,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 public class EmployeeDaoImpl implements EmployeeDao {
 
@@ -19,9 +20,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 //    PreparedStatement клас, який відповідає за інсерти в БД, тобто виконує void методи (create, update, delete). Цей клас
 //    перетворює JAVA обʼєкт на SQL обєкт і кладе його в БД. Тобто метод приймає Джава обʼєкт, а клас PreparedStatement
 //    трансформує його в обʼєкт зрозумілий для БД (тобто ми сетаємо новий тип обʼєкту в БД, через гетери з Джавової бази)
+//    connection.prepareStatement - підключись.підготуй запит
 
 //    ResultSet - стан обʼєкта, який хочемо витягнути з БД, ResultSet клас конвертує SQL обʼєкт в JAVA обʼєкт
 
+//    в try() з ресурсами кладемо класи autoclosable, які після виконання повинні бути закритими
     @Override
     public void create(Employee employee) {
         try(PreparedStatement ps = connection.prepareStatement("insert into employees values (default, ?, ?, ?)")) {
@@ -36,7 +39,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public void update(Employee employee) {
-        try (PreparedStatement ps = connection.prepareStatement(UPDATE)) {
+        try(PreparedStatement ps = connection.prepareStatement(UPDATE)) {
             ps.setString(1, employee.getFirstName());
             ps.setString(2, employee.getLastName());
             ps.setInt(3, employee.getAge());
@@ -48,7 +51,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public void delete(Long id) {
-        try (PreparedStatement ps = connection.prepareStatement("delete from employees where id = ?")) {
+        try(PreparedStatement ps = connection.prepareStatement("delete from employees where id = ?")) {
             ps.setLong(1, id);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -56,15 +59,29 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
     }
 
+//    реалізуємо метод через PreparedStatement, але так більше коду
+//    @Override
+//    public Optional<Employee> findById(Long id) {
+//        try(PreparedStatement pr = connection.prepareStatement("select * from employees where id = ?")) {
+//            pr.setLong(1, id);
+//            ResultSet resultSet = pr.executeQuery();
+//            resultSet.next();
+//            return Optional.of(convertResultSetToEmployee(resultSet));
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+//  напряму через ResultSet
     @Override
-    public Employee findById(Long id) {
-        try (ResultSet rs = statement.executeQuery("select * from employees where id = " + id)) {
+    public Optional<Employee> findById(Long id) {
+        try(ResultSet rs = statement.executeQuery("select * from employees where id = " + id)) {
             rs.next();
-            return convertResultSetToEmployee(rs);
+            return Optional.of(convertResultSetToEmployee(rs)); // в Optional вкладуємо конкретний обʼєкт
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return null;
+        return Optional.empty();    // повертаємо не null, про який не хто не здогадається, а пустий обʼєкт
     }
 
 //    на баззі Резалтсет формуємо кверю до БД
@@ -74,14 +91,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public Collection<Employee> findAll() {
         List<Employee> employees = new ArrayList<>();
-        try (ResultSet rs = statement.executeQuery("select * from employees")) {
+        try(ResultSet rs = statement.executeQuery("select * from employees")) {
             while (rs.next()) {
                 employees.add(convertResultSetToEmployee(rs));
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return employees;
+        return employees; //повертаємо колекцію у любому випадку, а якщо вона пуста, то мене як Dao розробника не не турбує
     }
 
 //    формуємо новий обʼєкт employeeJava, ініцуалізуємо змінні - тобто витягуємо елементи з БД для майбутнього обʼєкту,
@@ -100,15 +117,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
         return employeeJava;
     }
 
+//    в цьому методі ми використовуємо певну логіку, для цього потрібно вже використовувати більш складну структуру
+//    PreparedStatement використовуємо, т.к потрібно ставити знаки "?" для обʼєктів, яких ми заздалегіть не знаємо, тобто
+//    сетаємо параметри у базу, потім на основі цих параметров формується кверя, ітеруємося, Long count (як count = 0;) і
+//    положили назву колонки (зробили нову колонку) спеціально для підрахунку, задаємо умову для boolean
     @Override
     public boolean existByFirstNameOrLastName(String firstName, String lastName) {
-        try (PreparedStatement ps = connection.prepareStatement("select count(*) as count_of_employee from employees " +
+        try(PreparedStatement ps = connection.prepareStatement("select count(*) as count_of_employee from employees " +
                 "where first_name like ? or last_name like ?")) {
         ps.setString(1, "%" + firstName + "%");
         ps.setString(2, "%" + lastName + "%");
-        ResultSet rs = ps.executeQuery();
-        rs.next();
-        Long count = rs.getLong("count_of_employee");
+        ResultSet resultSet = ps.executeQuery();
+        resultSet.next();
+        Long count = resultSet.getLong("count_of_employee");
         return count > 0;
         } catch (SQLException e) {
             System.out.println(e);

@@ -1,7 +1,10 @@
 package yugo;
 
+import yugo.dao.DepartmentDao;
 import yugo.dao.EmployeeDao;
+import yugo.dao.impl.DepartmentDaoImpl;
 import yugo.dao.impl.EmployeeDaoImpl;
+import yugo.entity.Department;
 import yugo.entity.Employee;
 
 import java.sql.SQLException;
@@ -12,7 +15,6 @@ public class JdbcMain {
         System.out.println("Hello jdbc!");
 
         EmployeeDao employeeDao = new EmployeeDaoImpl();
-
         Employee employee = new Employee();
         employee.setFirstName("firstName_2");
         employee.setLastName("lName_2");
@@ -26,6 +28,11 @@ public class JdbcMain {
 //        Collection<Employee> employees = employeeDao.findAll();
 //        Employee employee1 = employeeDao.findById(8L);
 
-        employeeDao.existByFirstNameOrLastName("Юрій", "Єфіменко");
+//        employeeDao.existByFirstNameOrLastName("Юрій", "Єфіменко");
+
+        DepartmentDao departmentDao = new DepartmentDaoImpl();
+        Department department = new Department();
+        department.setName("DEV OPS");
+        departmentDao.create(department);
     }
 }

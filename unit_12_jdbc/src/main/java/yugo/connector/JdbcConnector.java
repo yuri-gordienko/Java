@@ -17,6 +17,10 @@ public class JdbcConnector {
     private Statement statement;
 
 //  для доступу до бази, необхідно в ClassPath надати наши пермішени
+//  Driver - це імплементація sql драйвера, що лежить у пакеті com.mysql.cj.jdbc,
+//  public class Driver extends com.mysql.cj.jdbc.Driver, який скачан завдяки залежності (mysql-connector-j) в .pom файлі
+//  (ми пояснили Мавену, що треба скачати драйвер (com.mysql.cj.jdbc)
+//  для роботи з Sql
     private final String driver = "com.mysql.cj.jdbc.Driver";
     private final String url = "jdbc:mysql://localhost:3306/test";
     private final String userName = "root";
@@ -25,7 +29,9 @@ public class JdbcConnector {
 //  приватний конструктор, для того щоб не можливо було зробити New(екземпляр цього класу) із зовнє,
 //  а якщо б конструктор був public, то можна було би створити екземпляр класу
 //  функція даного конструктора, щоб не можна було робити New
-//  в Class.forName кладемо (driver - API для спілкування на одній мові з натівною мовою sql)
+//  в Class.forName кладемо (driver - API для спілкування на одній мові з натівною мовою sql), їх може бути багато для
+//  кожної із БД, то треба пояснити DriverManager з якою самою БД ми будемо працювати, щоб не було конфліктів,
+//  для цього ми прописуємо шлях driver = "com.mysql.cj.jdbc.Driver";
 //  за підʼєднання відповідає DriverManager, куди ми надаємо наши пермішени
 //  потім створюємо statement
     private JdbcConnector() {
