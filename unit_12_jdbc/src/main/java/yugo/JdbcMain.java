@@ -4,11 +4,16 @@ import yugo.dao.DepartmentDao;
 import yugo.dao.EmployeeDao;
 import yugo.dao.impl.DepartmentDaoImpl;
 import yugo.dao.impl.EmployeeDaoImpl;
+import yugo.dto.DepartmentDto;
 import yugo.entity.Department;
 import yugo.entity.Employee;
 
 import java.sql.SQLException;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
+
+import static yugo.util.Enum.*;
 
 public class JdbcMain {
     public static void main(String[] args) throws SQLException {
@@ -33,6 +38,20 @@ public class JdbcMain {
         DepartmentDao departmentDao = new DepartmentDaoImpl();
         Department department = new Department();
         department.setName("DEV OPS");
-        departmentDao.create(department);
+//        departmentDao.create(department);
+
+//        departmentDao.findAll();
+//        departmentDao.findById(8L);
+
+//        Optional<Employee> optionalEmployee = employeeDao.findById(6L);
+//        if (optionalEmployee.isPresent()) {
+//            Employee employee1 = optionalEmployee.get();
+//            departmentDao.attachEmployeeToDepartment(4L, employee1.getId());
+//        }
+
+//        departmentDao.detachEmployeeToDepartment(6L, 18L);
+
+        List<DepartmentDto> dtos = departmentDao.getDepartmentStatistics(ORDER_BY, DESC);
+        dtos.forEach(System.out::println);
     }
 }

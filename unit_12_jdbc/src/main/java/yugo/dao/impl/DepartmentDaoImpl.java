@@ -2,6 +2,7 @@ package yugo.dao.impl;
 
 import yugo.connector.JdbcConnector;
 import yugo.dao.DepartmentDao;
+import yugo.dto.DepartmentDto;
 import yugo.entity.Department;
 
 import java.sql.Connection;
@@ -24,7 +25,8 @@ public class DepartmentDaoImpl implements DepartmentDao {
     private static final String DELETE_DEPARTMENT = "delete from departments where id = ?";
     private static final String FIND_DEPARTMENT_BY_ID = "select * from departments where id = ?";
     private static final String FIND_ALL_DEPARTMENTS = "select * from departments";
-    private static final String FIND_ALL_DEPARTMENTS_STATISTICS = "select d.id, d.name, count(dep_id) as employee_count from departments as d join dep_emp de on d.id = de.dep_id group by d.id order by ";
+    private static final String GET_ALL_DEPARTMENTS_STATISTICS = "select id, name, count(dep_id) as employee_count from " +
+            "departments d join dep_emp de on de.dep_id = d.id group by d.id";
     private static final String ATTACH_EMPLOYEE_TO_DEPARTMENT = "insert into dep_emp values (?, ?)";
     private static final String DETACH_EMPLOYEE_TO_DEPARTMENT = "delete from dep_emp where dep_id = ? and emp_id = ?";
 
@@ -85,42 +87,6 @@ public class DepartmentDaoImpl implements DepartmentDao {
         return departments; //повертаємо колекцію у любому випадку, а якщо вона пуста, то мене як Dao розробника не не турбує
     }
 
-//    @Override
-//    public void attachEmployeeToDepartment(Long departmentId, Long employeeId) {
-//        try(PreparedStatement ps = connection.prepareStatement(ATTACH_EMPLOYEE_TO_DEPARTMENT)) {
-//            ps.setLong(1, departmentId);
-//            ps.setLong(2, employeeId);
-//            ps.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println("e = " + e.getMessage());
-//        }
-//    }
-//
-//    @Override
-//    public void detachEmployeeToDepartment(Long departmentId, Long employeeId) {
-//        try(PreparedStatement ps = connection.prepareStatement(DETACH_EMPLOYEE_TO_DEPARTMENT)) {
-//            ps.setLong(1, departmentId);
-//            ps.setLong(2, employeeId);
-//            ps.executeUpdate();
-//        } catch (SQLException e) {
-//            System.out.println("e = " + e.getMessage());
-//        }
-//    }
-//
-//    @Override
-//    public Collection<DepartmentDto> findDepartmentStatistics(String sortBy, DBOrderUtil orderBy) {
-//        List<DepartmentDto> departments = new ArrayList<>();
-//        try(ResultSet resultSet = statement.executeQuery(FIND_ALL_DEPARTMENTS_STATISTICS + sortBy + " " + orderBy.getType())) {
-//            while (resultSet.next()) {
-//                departments.add(convertResultSetToDepartmentDto(resultSet));
-//            }
-//            return departments;
-//        } catch (SQLException e) {
-//            System.out.println("e = " + e.getMessage());
-//        }
-//        return departments;
-//    }
-//
     private Department convertResultSetToDepartment(ResultSet resultSet) throws SQLException {
         Department department = new Department();
         Long id = resultSet.getLong("id");
@@ -130,14 +96,49 @@ public class DepartmentDaoImpl implements DepartmentDao {
         return department;
     }
 
-//    private DepartmentDto convertResultSetToDepartmentDto(ResultSet resultSet) throws SQLException {
-//        DepartmentDto departmentDto = new DepartmentDto();
-//        Long id = resultSet.getLong("id");
-//        String name = resultSet.getString("name");
-//        Long count = resultSet.getLong("employee_count");
-//        departmentDto.setId(id);
-//        departmentDto.setName(name);
-//        departmentDto.setEmployeeCount(count);
-//        return departmentDto;
-//    }
+    @Override
+    public void attachEmployeeToDepartment(Long departmentId, Long employeeId) {
+        try(PreparedStatement pr = connection.prepareStatement("insert into dep_emp values (?, ?)")) {
+            pr.setLong(1, departmentId);
+            pr.setLong(2, employeeId);
+            pr.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("e = " + e);
+        }
+    }
+
+    @Override
+    public void detachEmployeeToDepartment(Long departmentId, Long employeeId) {
+        try(PreparedStatement pr = connection.prepareStatement("delete from dep_emp where dep_id = ? and emp_id = ?")) {
+            pr.setLong(1, departmentId);
+            pr.setLong(2, employeeId);
+            pr.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("e = " + e);
+        }
+    }
+
+    @Override
+    public List<DepartmentDto> getDepartmentStatistics(String orderBy, String desc) {
+        List<DepartmentDto> dtoList = new ArrayList<>();
+        try(ResultSet resultSet = statement.executeQuery(GET_ALL_DEPARTMENTS_STATISTICS + orderBy + desc)) {
+            while (resultSet.next()) {
+                dtoList.add(convertResultSetToDepartmentDto(resultSet));
+            }
+        } catch (SQLException e) {
+            System.out.println("e = " + e);
+        }
+        return dtoList;
+    }
+
+    private DepartmentDto convertResultSetToDepartmentDto(ResultSet resultSet) throws SQLException {
+        DepartmentDto departmentDto = new DepartmentDto();
+        Long id = resultSet.getLong("id");
+        String name = resultSet.getString("name");
+        Long count = resultSet.getLong("employee_count");
+        departmentDto.setId(id);
+        departmentDto.setName(name);
+        departmentDto.setEmployeeCount(count);
+        return departmentDto;
+    }
 }
