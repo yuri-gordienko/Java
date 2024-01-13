@@ -21,7 +21,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity // даем понять Спрингу тип класса
-@Table(name = "products")
+@Table(name = "products") // даем название таблицу такое, как хотим чтоб она называлась в БД
 public class Product extends BaseEntity {
 
     @Column(nullable = false)   // колонка не может быть пустой
