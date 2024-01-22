@@ -4,11 +4,12 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
 import yugo.config.HibernateConfig;
+
 import yugo.dao.EmployeeDao;
 import yugo.entity.Employee;
 
-import java.sql.SQLException;
 import java.util.*;
 
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -84,7 +85,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         Transaction transaction = null;
         try(Session session = sessionFactory.getCurrentSession()) {
             transaction = session.beginTransaction();
-
             Query query = session.createQuery("from Employee");
             List<Employee> employees = query.getResultList();
             transaction.commit();
