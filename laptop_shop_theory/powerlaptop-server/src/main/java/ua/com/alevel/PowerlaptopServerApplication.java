@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
-@EnableScheduling       // для того, чтоб БД Эластика обновлялась по определенному расписанию и закачивала инфо из SQL БД
+@EnableScheduling      // для того, чтоб БД Эластика обновлялась по определенному расписанию и закачивала инфо из SQL БД
 // если деактивировать аннотацию, по идее должен отключиться эластик
 @SpringBootApplication // автоконфигуратор приложения
 public class PowerlaptopServerApplication {
