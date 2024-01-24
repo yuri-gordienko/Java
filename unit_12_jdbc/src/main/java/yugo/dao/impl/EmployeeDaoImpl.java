@@ -94,11 +94,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
         try(ResultSet rs = statement.executeQuery("select * from employees")) {
             while (rs.next()) {
                 employees.add(convertResultSetToEmployee(rs));
+                return employees; //повертаємо колекцію у любому випадку, а якщо вона пуста, то мене як Dao розробника не не турбує
             }
         } catch (SQLException e) {
             System.out.println(e);
         }
-        return employees; //повертаємо колекцію у любому випадку, а якщо вона пуста, то мене як Dao розробника не не турбує
+        return null;
     }
 
 //    формуємо новий обʼєкт employeeJava, ініцуалізуємо змінні - тобто витягуємо елементи з БД для майбутнього обʼєкту,
@@ -107,7 +108,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     private Employee convertResultSetToEmployee(ResultSet resultSet) throws SQLException {
         Employee employeeJava = new Employee();
         Long id = resultSet.getLong("id");
-        String fn = resultSet.getNString("first_name");
+        String fn = resultSet.getString("first_name");
         String ln = resultSet.getString("last_name");
         int age = resultSet.getInt("age");
         employeeJava.setId(id);

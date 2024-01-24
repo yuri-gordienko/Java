@@ -14,7 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-<!--    драйвер для підключення до БД (в даному випадку my sql), це API яка підключається до ClassPath  -->
+<!--    драйвер для підключення до БД (в даному випадку mySql), це API яка підключається до ClassPath  -->
     <dependencies>
         <dependency>
             <groupId>com.mysql</groupId>
