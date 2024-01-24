@@ -99,7 +99,7 @@ public class StudentDaoCsv implements StudentDao {
             List<String[]> list = new ArrayList<>(); // считали лист массива строк, теперь создаем лист массива строк
             if (CollectionUtils.isNotEmpty(students)) { // если коллекция не пустая
                 for (StudentCsv student : students) {
-                    String [] st = new String[] {       // создаем на каждом этапе массив строки
+                    String[] st = new String[] {       // создаем на каждом этапе массив строки
                             student.getId(),
                             student.getFirstName(),
                             student.getLastName(),

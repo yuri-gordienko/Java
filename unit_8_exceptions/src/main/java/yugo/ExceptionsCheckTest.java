@@ -5,11 +5,11 @@ public class ExceptionsCheckTest {
     public void test() {
 
 //        unhandledError(10, 0);
-//        handledError(10, 0);
+        handledError(10, 0);
 //        throwNewRuntimeException(10, 0);
 //        throwException(10, 2);
 //        tryCatch(10, 0);
-        tryCatch2(10, 0);
+//        tryCatch2(10, 0);
     }
 
     private void unhandledError(int a, int b) {
@@ -64,6 +64,7 @@ public class ExceptionsCheckTest {
         try {
             int result = a / b;
             System.out.println("result - " + result);
+            System.out.println("Program is going on?");
         } catch (ArithmeticException e) {     // ідемо від чаялда до парента, якщо не маю пермішенов його виправляти
             System.out.println(e.getMessage());
         } catch (RuntimeException e) {      // якщо ArithmeticException не відпрацював, перенаправляємо вище і т.д.
