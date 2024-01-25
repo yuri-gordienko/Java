@@ -14,6 +14,6 @@ import lombok.Setter;
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // IDENTITY - генерирует по инкременту
+    @GeneratedValue(strategy = GenerationType.IDENTITY)  // IDENTITY - генерирует по инкременту, т.к i + 1
     private Long id;
 }
