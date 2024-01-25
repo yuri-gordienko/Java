@@ -15,7 +15,7 @@ import java.util.*;
 public class EmployeeDaoImpl implements EmployeeDao {
 
 //    створюємо змінну для створення сесій. в Hibernate всі операціі проходять в рамках транзакції. Виконується
-//    ACID Принцип А - якщо в рамках однієї транзакції хоч один іql запит зафейлился, то транзакція не може бути
+//    ACID Принцип, А - якщо в рамках однієї транзакції хоч один іql запит зафейлился, то транзакція не може бути
 //    виконаною, вона відкатується до дотранзакційного стану, не може бути проміжного стану
     private final SessionFactory sessionFactory = HibernateConfig.getInstance().getSessionFactory();
 
@@ -29,7 +29,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
     @Override
     public void create(Employee employee) {
         Transaction transaction = null;
-        try(Session session = sessionFactory.getCurrentSession()) { // getCurrentSession - Hibernate вірішує яку сесію нам надати
+        try(Session session = sessionFactory.getCurrentSession()) { // getCurrentSession - Hibernate вирішує сам яку сесію нам надати
             transaction = session.beginTransaction();   // транзакцію завжди потрібно починати
             session.save(employee);
             transaction.commit();   // транзакцію потрібно обовʼязково зберігати

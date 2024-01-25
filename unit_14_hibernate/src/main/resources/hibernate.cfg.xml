@@ -16,14 +16,16 @@
 
         <mapping class="yugo.entity.Employee"/>
         <mapping class="yugo.entity.Department"/>
-<!--        <mapping class="yugo.entity.Balance"/>-->
-<!--        <mapping class="yugo.entity.Car"/>-->
+        <mapping class="yugo.entity.Balance"/>
+        <mapping class="yugo.entity.Branch"/>
     </session-factory>
 </hibernate-configuration>
 
 <!--hibernate.hbm2ddl.auto: create - new table; create-drop - drop old table and create new; update - update existing table-->
 <!--hibernate.current_session_context_class: new session its new threat (in our case), might be other settings-->
 <!--hibernate.show_sql: we can see sql queries on hql in console-->
-<!--hibernate.enable_lazy_load_no_trans: -->
+<!--hibernate.enable_lazy_load_no_trans: якщо у нас звʼязок ManyToMany, то якщо Департаменти тянуть Працівниців, то в класі
+працівників також встановлен звʼязок ManyToMany і ті в свою чергу тягнуть Департаменти, потім Деп тягне Працівників і так
+до безмежності, тому ця стратегія обрублює не потрібну підтяжку (повертає null)-->
 <!--yugo.entity.Employee: explain what are classes to mapping (what classes will be created as tables)-->
 

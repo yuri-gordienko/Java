@@ -1,8 +1,9 @@
 package yugo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "employees")
@@ -18,6 +19,23 @@ public class Employee extends BaseEntity {
     private String email;
 
     private int age;
+
+    @ManyToMany(mappedBy = "employees")
+    private Set<Department> departments = new HashSet<>();
+
+//    @ManyToMany - може бути багато працівників, і кожен з них може бути у багатьох департаментах
+//    mappedBy = "employees" - можна не ставити (пояснюємо Hibernate на який філд працівника (Set<Employee> employees)
+//    будемо ссилатися у департамеенті
+
+
+
+//    @OneToMany
+//    private Set<Branch> branches;
+//        Привʼязуємо багато філій до керівника, один курівник - багато філій
+//        потрібно робити Set<Branch>, якщо ми у класі де одна ентіті, до якої привʼзуємо багато ентітей
+//        то краще в класі там де багато ентітей (Branch) зробити звʼязок @ManyToOne, тоді Set не потрібен
+//        в такому випадку обидві таблиці знають одна про одну,
+//        тому буде потрібна 3тя таблиця, тому що у таблицю Employee ми не засунемо список id-шників
 
     public String getFirstName() {
         return firstName;
@@ -49,6 +67,14 @@ public class Employee extends BaseEntity {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Set<Department> getDepartments() {
+        return departments;
+    }
+
+    public void setDepartments(Set<Department> departments) {
+        this.departments = departments;
     }
 
     @Override
