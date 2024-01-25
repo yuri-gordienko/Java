@@ -9,6 +9,6 @@ import java.util.List;
 public interface DepartmentDao extends BaseDao<Department> {
 
     void attachEmployeeToDepartment(Long departmentId, Long employeeId);
-    void detachEmployeeToDepartment(Long departmentId, Long employeeId);
+    void detachEmployeeFromDepartment(Long departmentId, Long employeeId);
     List<DepartmentDto> getDepartmentStatistics(String orderBy, String desc);
 }

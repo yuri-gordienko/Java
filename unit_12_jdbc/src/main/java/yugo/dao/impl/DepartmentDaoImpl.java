@@ -108,7 +108,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public void detachEmployeeToDepartment(Long departmentId, Long employeeId) {
+    public void detachEmployeeFromDepartment(Long departmentId, Long employeeId) {
         try(PreparedStatement pr = connection.prepareStatement("delete from dep_emp where dep_id = ? and emp_id = ?")) {
             pr.setLong(1, departmentId);
             pr.setLong(2, employeeId);

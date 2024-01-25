@@ -24,13 +24,13 @@ public class JdbcMain {
         employee.setFirstName("firstName_2");
         employee.setLastName("lName_2");
         employee.setAge(33);
-//        employeeDao.create(employee);
+        employeeDao.create(employee);
 
 //        employeeDao.delete(16L);
 
 //        employeeDao.update(employee);
 
-//        Collection<Employee> employees = employeeDao.findAll();
+        Collection<Employee> employees = employeeDao.findAll();
 //        Employee employee1 = employeeDao.findById(8L);
 
 //        employeeDao.existByFirstNameOrLastName("Юрій", "Єфіменко");
@@ -49,9 +49,9 @@ public class JdbcMain {
 //            departmentDao.attachEmployeeToDepartment(4L, employee1.getId());
 //        }
 
-//        departmentDao.detachEmployeeToDepartment(6L, 18L);
+        departmentDao.detachEmployeeFromDepartment(6L, 18L);
 
-        List<DepartmentDto> dtos = departmentDao.getDepartmentStatistics(ORDER_BY, DESC);
-        dtos.forEach(System.out::println);
+//        List<DepartmentDto> dtos = departmentDao.getDepartmentStatistics(ORDER_BY, DESC);
+//        dtos.forEach(System.out::println);
     }
 }
