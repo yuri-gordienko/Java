@@ -1,5 +1,9 @@
 package yugo.dao.impl;
 
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -8,6 +12,10 @@ import org.hibernate.query.Query;
 import yugo.config.HibernateConfig;
 
 import yugo.dao.EmployeeDao;
+
+import yugo.datatable.DatatableRequest;
+import yugo.datatable.DatatableResponse;
+
 import yugo.entity.Employee;
 
 import java.util.*;
@@ -94,6 +102,43 @@ public class EmployeeDaoImpl implements EmployeeDao {
             rollbackTransaction(transaction);
         }
         return Collections.emptyList();
+    }
+
+    @Override
+    public DatatableResponse<Employee> findAllItems(DatatableRequest request) {
+        DatatableResponse<Employee> employeeDataTableResponse = new DatatableResponse<>();
+        Transaction transaction = null;
+        try(Session session = sessionFactory.getCurrentSession()) {
+            transaction = session.beginTransaction();
+
+            CriteriaBuilder criteriaBuilder = session.getCriteriaBuilder();
+            CriteriaQuery<Employee> criteriaQuery = criteriaBuilder.createQuery(Employee.class);
+            Root<Employee> from = criteriaQuery.from(Employee.class);
+            if (request.getOrderBy().equals("desc")) {
+                criteriaQuery.orderBy(criteriaBuilder.desc(from.get(request.getSortBy())));
+            } else {
+                criteriaQuery.orderBy(criteriaBuilder.asc(from.get(request.getSortBy())));
+            }
+
+            int page = (request.getPage() - 1) * request.getSize();
+
+            List<Employee> employees = session.createQuery(criteriaQuery)
+                    .setFirstResult(page)
+                    .setMaxResults(request.getSize())
+                    .getResultList();
+
+            employeeDataTableResponse.setItems(employees);
+            employeeDataTableResponse.setPage(request.getPage());
+            employeeDataTableResponse.setSize(request.getSize());
+            employeeDataTableResponse.setOrderBy(request.getOrderBy());
+            employeeDataTableResponse.setSortBy(request.getSortBy());
+
+            transaction.commit();
+        } catch (Exception e) {
+            System.out.println("e = " + e.getMessage());
+            rollbackTransaction(transaction);
+        }
+        return employeeDataTableResponse;
     }
 
     @Override

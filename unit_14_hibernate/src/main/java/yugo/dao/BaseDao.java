@@ -1,8 +1,12 @@
 package yugo.dao;
 
+import yugo.datatable.DatatableRequest;
+import yugo.datatable.DatatableResponse;
+
 import yugo.entity.BaseEntity;
 
 import java.sql.SQLException;
+
 import java.util.Collection;
 import java.util.Optional;
 
@@ -13,4 +17,5 @@ public interface BaseDao <E extends BaseEntity> {
     void delete (E e);
     Optional<E> findById(Long id);
     Collection<E> findAll() throws SQLException;
+    DatatableResponse<E> findAllItems(DatatableRequest request);
 }

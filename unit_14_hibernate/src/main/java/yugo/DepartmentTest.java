@@ -16,7 +16,7 @@ public class DepartmentTest {
 //        createDepartment();
 //        deleteDepartment();
 //        attachEmployeeToDepartment();
-        detachEmployeeFromDepartment();
+//        detachEmployeeFromDepartment();
     }
 
     private void createDepartment() {

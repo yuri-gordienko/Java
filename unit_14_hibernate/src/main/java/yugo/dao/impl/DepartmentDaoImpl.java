@@ -3,10 +3,14 @@ package yugo.dao.impl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
 import org.hibernate.query.Query;
+
 import yugo.config.HibernateConfig;
 import yugo.dao.DepartmentDao;
+
+import yugo.datatable.DatatableRequest;
+import yugo.datatable.DatatableResponse;
+
 import yugo.entity.Department;
 import yugo.entity.Employee;
 
@@ -113,5 +117,10 @@ public class DepartmentDaoImpl implements DepartmentDao {
         Set<Employee> employees = department.getEmployees();
         employees.removeIf(emp -> emp.getId().equals(employee.getId()));
         update(department);
+    }
+
+    @Override
+    public DatatableResponse<Department> findAllItems(DatatableRequest request) {
+        return null;
     }
 }
