@@ -11,7 +11,7 @@ import java.util.Collection;
 
 @Getter
 @Setter
-public class DataTableResponse<DTO extends BaseDto> {
+public class DataTableResponse<DTO extends BaseDto> { // класс, который возвращает сформированый ответ из БД на фронт
 
     private int page;
     private int size;

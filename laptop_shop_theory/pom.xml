@@ -4,6 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- указываем, что наш Помник корневой и будет содержать в себе другие подпроекты -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,7 +16,8 @@
     <artifactId>laptop_shop_theory</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>pom</packaging>  <!-- указываем, что наш Помник корневой и будет содержать в себе другие подпроекты -->
+    <!-- указываем, что это будет Jar проекта-->
+    <packaging>pom</packaging>
 
     <modules>   <!-- в таком теге можем создавать любое кол-во сабмодулей -->
         <module>powerlaptop-server</module>

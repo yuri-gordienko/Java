@@ -27,7 +27,7 @@ public class Product extends BaseEntity {
     @Column(nullable = false)   // колонка не может быть пустой
     private String name;
 
-    @Enumerated(EnumType.STRING)    // говорим что бренд это енам и храним его в БД как Стринг
+    @Enumerated(EnumType.STRING)    // говорим что это это поле - енам и храним его в БД как Стринг
     @Column(name = "product_brand", nullable = false, updatable = false) // не пустой, не изменяемый
     private ProductBrandType productBrand;
 

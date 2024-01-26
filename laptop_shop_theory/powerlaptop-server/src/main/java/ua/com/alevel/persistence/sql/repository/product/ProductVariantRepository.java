@@ -16,7 +16,7 @@ public interface ProductVariantRepository extends BaseEntityRepository<ProductVa
 
     Collection<ProductVariant> findByProduct(Product product);
 
-    //    @Query(value = "select distinct cpu, color, product_id from product_variants", nativeQuery = true)
+    // @Query(value = "select distinct cpu, color, product_id from product_variants", nativeQuery = true)
     // пишем запрос в БД sql какую инфо выдавать в БД эластика для строки серч
     @Query(value = "select distinct new ua.com.alevel.persistence.sql.dto.ProductVariantMinDto(pv.cpu, pv.color, pv.product) from ProductVariant as pv")
     Collection<ProductVariantMinDto> find();
