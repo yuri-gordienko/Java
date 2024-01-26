@@ -44,7 +44,7 @@ select id, name, count(dep_id) as employee_count from departments d join dep_emp
 order by employee_count desc
 select * from employees join dep_emp de on employees.id = de.emp_id where de.dep_id = 1;
 
--- find all emp in java
+-- find all emp in "Java"
 select id, first_name, last_name from employees join dep_emp de on employees.id = de.emp_id where de.dep_id = 1;
 -- find all emp not in java, наприклад звіт для потенційних клієнтів
 select id, first_name, last_name, age from employees where id not in (
@@ -55,3 +55,10 @@ select id, first_name, last_name, age from employees where id not in (
 select id from employees left join dep_emp de on employees.id = de.emp_id where de.dep_id = 1
 -- not in java
 select id, first_name, last_name, age from employees where id not in (5, 6, 8, 9, 11);
+
+--Пагинація (з якого елемента почати, скільки елементів витащити)
+select * from employees limit 5
+select * from employees limit 0, 10
+select * from employees limit 10, 10
+select * from employees order by email asc limit 20, 10
+select * from employees order by id desc limit 20, 10
