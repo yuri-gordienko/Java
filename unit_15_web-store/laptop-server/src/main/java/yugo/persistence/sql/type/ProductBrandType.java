@@ -13,6 +13,7 @@ public enum ProductBrandType {
     private final String brandType;
 
     ProductBrandType(String brandType) {
+
         this.brandType = brandType;
     }
 }

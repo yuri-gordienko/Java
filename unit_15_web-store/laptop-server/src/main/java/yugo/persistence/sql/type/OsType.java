@@ -12,6 +12,7 @@ public enum OsType {
     private final String osType;
 
     OsType(String osType) {
+
         this.osType = osType;
     }
 }

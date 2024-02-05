@@ -25,6 +25,7 @@ public class ProductCrudServiceImpl implements ProductCrudService {
 
     @Override
     public void create(Product product) {
+
         productRepository.save(product);
     }
 
