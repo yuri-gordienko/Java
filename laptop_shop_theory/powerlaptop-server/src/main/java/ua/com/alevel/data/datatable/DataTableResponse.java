@@ -25,7 +25,9 @@ public class DataTableResponse<DTO extends BaseDto> { // класс, котор�
     private String order;
     private Collection<DTO> items;
 
-    // от этого запроса с фронта берем аргументы для запроса в БД, прилетает объект типа Пейдж с Ешками
+    // конструктором назначаем значения для филдов класса DataTableResponse
+    // из DataTableRequest request - принимаем данные с фронта для инициализации полей page, size, sort, order
+    // из Джавового интерфейса Page вытягиваем остальные стандартные методы для этого класса
     public <E extends BaseEntity> DataTableResponse(DataTableRequest request, Page<E> page) {
         this.page = request.getPage();  // это Ешки
         this.size = request.getSize();

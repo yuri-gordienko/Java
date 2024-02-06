@@ -10,5 +10,5 @@ import java.util.Set;
 public class ProductProcessDto {
 
     private Long productVariantId;  // это id варианта, которому присваиваем картинки (в Постмане делали такой запрос)
-    private Set<Long> productImages;    // Maccв картинок принимает в качестве Set (в Постмане указывали их id в массиве [] через запятую)
+    private Set<Long> productImages;    // Maccив картинок принимает в качестве Set (в Постмане указывали их id в массиве [] через запятую)
 }

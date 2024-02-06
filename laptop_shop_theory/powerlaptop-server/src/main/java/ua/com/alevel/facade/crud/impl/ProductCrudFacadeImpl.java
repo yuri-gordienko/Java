@@ -23,7 +23,7 @@ public class ProductCrudFacadeImpl implements ProductCrudFacade {
 
     @Override
     public void create(ProductDto dto) {
-        Product product = new Product();    // продукт создаем
+        Product product = new Product();    // создаем продукт
         product.setName(dto.getName());
         product.setProductBrand(dto.getProductBrand());
         product.setDescription(dto.getDescription());
@@ -32,7 +32,7 @@ public class ProductCrudFacadeImpl implements ProductCrudFacade {
 
     @Override
     public void update(Long id, ProductDto dto) {
-        Product product = productCrudService.findById(id);  // продукт достаем
+        Product product = productCrudService.findById(id);  // создаем продукт
         product.setName(dto.getName());
         product.setProductBrand(dto.getProductBrand());
         product.setDescription(dto.getDescription());
