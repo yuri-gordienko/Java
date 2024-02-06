@@ -18,7 +18,8 @@ public class ProductCrudServiceImpl implements ProductCrudService {
 
     private final ProductRepository productRepository;
 
-    private ProductCrudServiceImpl(ProductRepository productRepository) {
+    public ProductCrudServiceImpl(ProductRepository productRepository) {
+
         this.productRepository = productRepository;
     }
 
