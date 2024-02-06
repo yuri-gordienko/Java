@@ -1,4 +1,4 @@
-package yugo.data;
+package yugo.data.datatable;
 
 import lombok.Getter;
 import lombok.Setter;

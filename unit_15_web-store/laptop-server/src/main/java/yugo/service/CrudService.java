@@ -1,7 +1,7 @@
 package yugo.service;
 
 import org.springframework.data.domain.Page;
-import yugo.data.DataTableRequest;
+import yugo.data.datatable.DataTableRequest;
 import yugo.persistence.sql.entity.BaseEntity;
 
 public interface CrudService<E extends BaseEntity> {
