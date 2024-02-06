@@ -10,7 +10,7 @@ import ua.com.alevel.persistence.sql.type.ProductBrandType;
 
 @Getter
 @Setter
-@NoArgsConstructor // необходим чтоб автоматически генерировать дефолтный конструктор (без агрументов)
+@NoArgsConstructor // необходим Cпрингу, чтоб автоматически згенерировать дефолтный конструктор (без агрументов)
 public class ProductDto extends BaseDto { // клас-шаблон для возвращения запроса клиенту с БД
 
     private String name;    // возвращаем клиенту ограниченную инфо
