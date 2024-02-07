@@ -36,7 +36,7 @@ public class ProductCrudFacadeImpl implements ProductCrudFacade {
         product.setName(dto.getName());
         product.setProductBrand(dto.getProductBrand());
         product.setDescription(dto.getDescription());
-        productCrudService.create(product);
+        productCrudService.update(product);
     }
 
     @Override
