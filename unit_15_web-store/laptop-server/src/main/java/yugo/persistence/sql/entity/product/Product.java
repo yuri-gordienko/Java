@@ -1,12 +1,14 @@
 package yugo.persistence.sql.entity.product;
 
 import jakarta.persistence.*;
-
 import lombok.Getter;
 import lombok.Setter;
 
 import yugo.persistence.sql.entity.BaseEntity;
-import yugo.persistence.sql.type.ProductBrandType;
+import yugo.util.types_of_laptops.ProductBrandType;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,4 +25,12 @@ public class Product extends BaseEntity {
 
     @Column(columnDefinition = "TEXT")
     private String description;
+
+    @ManyToMany
+    @JoinTable(
+            name = "product_image",
+            joinColumns = @JoinColumn(name = "product_id"),
+            inverseJoinColumns = @JoinColumn(name = "product_image_id")
+    )
+    private Set<ProductImage> productImages = new HashSet<>();
 }

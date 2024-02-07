@@ -1,4 +1,4 @@
-package yugo.persistence.sql.type;
+package yugo.util.types_of_laptops;
 
 public enum DisplayType {
 

@@ -1,4 +1,4 @@
-package yugo.service;
+package yugo.service.crud;
 
 import org.springframework.data.domain.Page;
 import yugo.data.datatable.DataTableRequest;

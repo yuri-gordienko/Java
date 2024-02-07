@@ -8,7 +8,7 @@ import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductDto;
 import yugo.facade.ProductCrudFacade;
 import yugo.persistence.sql.entity.product.Product;
-import yugo.service.product.ProductCrudService;
+import yugo.service.crud.product.ProductCrudService;
 
 import java.util.List;
 

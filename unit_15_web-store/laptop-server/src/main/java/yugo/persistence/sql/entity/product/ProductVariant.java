@@ -1,13 +1,12 @@
 package yugo.persistence.sql.entity.product;
 
 import jakarta.persistence.*;
-
 import lombok.Getter;
 import lombok.Setter;
 
 import yugo.persistence.sql.entity.BaseEntity;
-import yugo.persistence.sql.type.DisplayType;
-import yugo.persistence.sql.type.OsType;
+import yugo.util.types_of_laptops.DisplayType;
+import yugo.util.types_of_laptops.OsType;
 
 @Getter
 @Setter
@@ -38,6 +37,12 @@ public class ProductVariant extends BaseEntity {
     @Column(name = "display_type", nullable = false)
     private DisplayType displayType;
 
+    @Column(name = "display_size", nullable = false)
+    private String displaySize;
+
     @ManyToOne
     private Product product;
+
+    @ManyToOne
+    private ProductDisplay productDisplay;
 }

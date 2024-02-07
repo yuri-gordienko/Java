@@ -1,14 +1,13 @@
 package yugo.persistence.sql.entity.product;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
-
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import yugo.persistence.sql.entity.BaseEntity;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -22,10 +21,10 @@ public class ProductImage extends BaseEntity {
     @Column(name = "image_url", nullable = false)
     private String imageUrl;
 
-    @ManyToOne
-    private Product product;
+    @ManyToMany(mappedBy = "productImages")
+    private Set<Product> products = new HashSet<>();
 
-    private ProductImage() {
+    public ProductImage() {
         super();
         this.mainImage = false;
     }

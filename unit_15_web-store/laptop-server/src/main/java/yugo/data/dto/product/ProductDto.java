@@ -3,9 +3,10 @@ package yugo.data.dto.product;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import yugo.data.dto.BaseDto;
 import yugo.persistence.sql.entity.product.Product;
-import yugo.persistence.sql.type.ProductBrandType;
+import yugo.util.types_of_laptops.ProductBrandType;
 
 @Getter
 @Setter
