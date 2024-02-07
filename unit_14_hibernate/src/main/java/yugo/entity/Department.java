@@ -19,7 +19,7 @@ public class Department extends BaseEntity {
     )
     private Set<Employee> employees = new HashSet<>();
 
-//    @JoinTable - потрібно Hibernate пояснити на який клас є базою для 3ї таблиці, описуємо алгоритм генерації 3ї таблиці
+//    @JoinTable - потрібно Hibernate пояснити, який клас є базою для 3ї таблиці, описуємо алгоритм генерації 3ї таблиці
 //    name = "dep_emp" - даємо назву 3ю таблиці
 //    joinColumns - пояснюємо яка колонка головна і як її назвати
 //    inverseJoinColumns - пояснюємо яка колонка другорядна
