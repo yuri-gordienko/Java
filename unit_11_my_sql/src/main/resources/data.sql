@@ -51,9 +51,9 @@ select id, first_name, last_name, age from employees where id not in (
             select id from employees left join dep_emp de on employees.id = de.emp_id where de.dep_id = 1
 )
 
--- just java
+-- just java Department
 select id from employees left join dep_emp de on employees.id = de.emp_id where de.dep_id = 1
--- not in java
+-- not in java Department
 select id, first_name, last_name, age from employees where id not in (5, 6, 8, 9, 11);
 
 --Пагинація (з якого елемента почати, скільки елементів витащити)
