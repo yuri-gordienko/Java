@@ -2,12 +2,15 @@ package yugo.util;
 
 import org.apache.commons.lang3.StringUtils;
 
+import org.springframework.stereotype.Service;
+
 import yugo.exception.FieldEmptyException;
 import yugo.persistence.sql.entity.product.Product;
 
 import static yugo.util.ExceptionUtil.*;
 import static yugo.util.ExceptionUtil.ENTITY_ID_IS_INCORRECT;
 
+@Service
 public class IsValidFields {
 
     public void isValidProduct(Product entity) {   // метод для проверки метода в соответствии с тестами

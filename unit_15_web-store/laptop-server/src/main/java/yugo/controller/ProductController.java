@@ -13,8 +13,8 @@ import yugo.data.response.DataContainer;
 import yugo.facade.ProductCrudFacade;
 
 @RestController
-@RequestMapping("/products")
 @AllArgsConstructor
+@RequestMapping("/products")
 public class ProductController {
 
     private final ProductCrudFacade productCrudFacade;

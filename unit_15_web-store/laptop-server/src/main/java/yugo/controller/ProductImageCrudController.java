@@ -1,5 +1,6 @@
 package yugo.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +14,11 @@ import yugo.facade.ProductImageCrudFacade;
 import yugo.util.WebRequestUtil;
 
 @RestController
-@RequestMapping("/api/admin/product-images")
+@AllArgsConstructor
+@RequestMapping("/product-images")
 public class ProductImageCrudController {
 
     private final ProductImageCrudFacade productImageCrudFacade;
-
-    public ProductImageCrudController(ProductImageCrudFacade productImageCrudFacade) {
-        this.productImageCrudFacade = productImageCrudFacade;
-    }
 
     @PostMapping
     public ResponseEntity<DataContainer<Boolean>> create(@RequestBody ProductImageDto dto) {
@@ -47,10 +45,7 @@ public class ProductImageCrudController {
 
     @GetMapping
     public ResponseEntity<DataContainer<DataTableResponse<ProductImageDto>>> findAll(WebRequest webRequest) {
-        // чтоб не перечислять параметры каждый отдельно как в блоке в ProductCrudController делаем утилитку
-        // используем класс WebRequest, на нем вызываем WebRequestUtil (содержит в себе все те параметры), делаем проверки
-        // проверяет по ключу Стринг и велью Массив стрингов т.к. в запросе если выставляются фильтры то это уже массив
-        DataTableRequest request = WebRequestUtil.generateDataTableRequest(webRequest); // создаем реквест
-        return ResponseEntity.ok(new DataContainer<>(productImageCrudFacade.findAll(request))); // передаем в фасад
+        DataTableRequest request = WebRequestUtil.generateDataTableRequest(webRequest);
+        return ResponseEntity.ok(new DataContainer<>(productImageCrudFacade.findAll(request)));
     }
 }
