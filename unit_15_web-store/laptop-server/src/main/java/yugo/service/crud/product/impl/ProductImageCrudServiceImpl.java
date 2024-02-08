@@ -53,6 +53,7 @@ public class ProductImageCrudServiceImpl implements ProductImageCrudService {
 
     @Override
     public Set<ProductImage> findAllByIdIn(Set<Long> ids) {
+
         return productImageRepository.findAllByIdIn(ids);
     }
 }

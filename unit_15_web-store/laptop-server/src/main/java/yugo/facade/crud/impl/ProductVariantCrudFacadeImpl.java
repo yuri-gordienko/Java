@@ -1,4 +1,4 @@
-package yugo.facade.impl;
+package yugo.facade.crud.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import yugo.data.datatable.DataTableRequest;
 import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductVariantDto;
-import yugo.facade.ProductVariantCrudFacade;
+import yugo.facade.crud.ProductVariantCrudFacade;
 import yugo.persistence.sql.entity.product.ProductVariant;
 import yugo.service.crud.product.ProductVariantCrudService;
 
@@ -22,7 +22,12 @@ public class ProductVariantCrudFacadeImpl implements ProductVariantCrudFacade {
     @Override
     public void create(ProductVariantDto dto) {
         ProductVariant productVariant = new ProductVariant();
-        convertProductVariantDtoToProductVariant(dto, productVariant);
+//        convertProductVariantDtoToProductVariant(dto, productVariant);
+        productVariant.setOs(dto.getOs());
+        productVariant.setCpu(dto.getCpu());
+        productVariant.setRam(dto.getRam());
+        productVariant.setSsd(dto.getSsd());
+        productVariant.setColor(dto.getColor());
         productVariantCrudService.create(productVariant);
     }
 

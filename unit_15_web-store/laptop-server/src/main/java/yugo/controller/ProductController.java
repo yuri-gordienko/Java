@@ -10,7 +10,7 @@ import yugo.data.datatable.DataTableRequest;
 import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductDto;
 import yugo.data.response.DataContainer;
-import yugo.facade.ProductCrudFacade;
+import yugo.facade.crud.ProductCrudFacade;
 
 @RestController
 @AllArgsConstructor

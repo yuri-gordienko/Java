@@ -1,4 +1,4 @@
-package yugo.facade;
+package yugo.facade.crud;
 
 import yugo.data.dto.product.ProductDto;
 

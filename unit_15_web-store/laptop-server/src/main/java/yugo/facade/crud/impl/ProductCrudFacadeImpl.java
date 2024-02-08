@@ -1,4 +1,4 @@
-package yugo.facade.impl;
+package yugo.facade.crud.impl;
 
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import yugo.data.datatable.DataTableRequest;
 import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductDto;
-import yugo.facade.ProductCrudFacade;
+import yugo.facade.crud.ProductCrudFacade;
 import yugo.persistence.sql.entity.product.Product;
 import yugo.service.crud.product.ProductCrudService;
 
@@ -46,6 +46,7 @@ public class ProductCrudFacadeImpl implements ProductCrudFacade {
 
     @Override
     public ProductDto findById(Long id) {
+
         return new ProductDto(productCrudService.findById(id));
     }
 

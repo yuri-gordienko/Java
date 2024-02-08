@@ -1,4 +1,4 @@
-package yugo.facade.impl;
+package yugo.facade.crud.impl;
 
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import yugo.data.datatable.DataTableRequest;
 import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductImageDto;
-import yugo.facade.ProductImageCrudFacade;
+import yugo.facade.crud.ProductImageCrudFacade;
 import yugo.persistence.sql.entity.product.ProductImage;
 import yugo.service.crud.product.ProductImageCrudService;
 

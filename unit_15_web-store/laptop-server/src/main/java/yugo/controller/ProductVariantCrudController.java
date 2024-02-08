@@ -1,6 +1,5 @@
 package yugo.controller;
 
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,10 +7,9 @@ import org.springframework.web.context.request.WebRequest;
 
 import yugo.data.datatable.DataTableRequest;
 import yugo.data.datatable.DataTableResponse;
-import yugo.data.dto.product.ProductDto;
 import yugo.data.dto.product.ProductVariantDto;
 import yugo.data.response.DataContainer;
-import yugo.facade.ProductVariantCrudFacade;
+import yugo.facade.crud.ProductVariantCrudFacade;
 import yugo.util.WebRequestUtil;
 
 @RestController
