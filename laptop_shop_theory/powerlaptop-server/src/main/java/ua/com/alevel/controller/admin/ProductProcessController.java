@@ -23,9 +23,9 @@ public class ProductProcessController {     // Процессмапинга ко
     @PutMapping("/attach")  // используем чтоб приатачить картинки и продукт варианты к продукту
     // а в методах мы этот id перехватываем
     // @PathVariable Long id перехватывает id
-    // @RequestBody ProductProcessDto dto реквест запрос, что именно ходим сделать
+    // @RequestBody ProductProcessDto dto  - это http реквест запрос, что прилетел с фронта в виде Джейсона,
+    // который мы с помощью DataContainer переводим в Джава объект и записываем в ДТО, потом ДТО через фасад летит в БД
     public ResponseEntity<DataContainer<Boolean>> attach(@PathVariable Long id, @RequestBody ProductProcessDto dto) {
-        // ProductProcessDto прописанный класс чтоб приатачивать объекты
         productProcessFacade.attach(id, dto);
         return ResponseEntity.ok(new DataContainer<>(true));
     }

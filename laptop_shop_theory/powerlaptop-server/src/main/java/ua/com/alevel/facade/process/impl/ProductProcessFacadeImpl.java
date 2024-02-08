@@ -30,13 +30,13 @@ public class ProductProcessFacadeImpl implements ProductProcessFacade {
 
     @Override
     public void attach(Long id, ProductProcessDto dto) {
-        Product product = productCrudService.findById(id);  // нашли idшки
+        Product product = productCrudService.findById(id);  // нашли продукт по id
         ProductVariant productVariant = productVariantCrudService.findById(dto.getProductVariantId());
         Set<ProductImage> productImages = productImageCrudService.findAllByIdIn(dto.getProductImages());
-        productVariant.setProduct(product); // продукт вариант засовываем в продукт
-        productVariantCrudService.update(productVariant);   // обновляем продукт
+        productVariant.setProduct(product); // в продуктВариант засовываем в продукт
+        productVariantCrudService.update(productVariant);   // обновляем продуктВариант
         product.setProductImages(productImages); // картинку засовываем в продукт
-        productCrudService.update(product); // обновляем картинку
+        productCrudService.update(product); // обновляем продукт
     }
 
     @Override

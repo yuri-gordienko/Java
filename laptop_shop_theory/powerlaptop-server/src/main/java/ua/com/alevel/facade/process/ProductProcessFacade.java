@@ -7,3 +7,5 @@ public interface ProductProcessFacade { // необходим чтоб приа�
     void attach(Long id, ProductProcessDto dto);
     void detach(Long id, ProductProcessDto dto);
 }
+
+// в методах указываем что нужно обработать ProductProcessDto, а чтоб понять с каким продуктом работать - указываем id
