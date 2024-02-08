@@ -12,13 +12,13 @@
     </parent>
 
     <groupId>ua.com.alevel</groupId>
-    <artifactId>yugo_trip</artifactId>
+    <artifactId>yugo_tour</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>trip-server</module>
+        <module>tour-server</module>
     </modules>
 
     <properties>
