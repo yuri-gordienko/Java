@@ -9,7 +9,7 @@ import yugo.data.response.DataContainer;
 import yugo.facade.process.ProductProcessFacade;
 
 @RestController
-@RequestMapping("products/{id}/process")
+@RequestMapping("/products/{id}/process")
 @AllArgsConstructor
 public class ProductProcessController {
 
