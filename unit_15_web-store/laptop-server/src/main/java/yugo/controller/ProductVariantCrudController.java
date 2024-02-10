@@ -1,5 +1,6 @@
 package yugo.controller;
 
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,16 +14,11 @@ import yugo.facade.crud.ProductVariantCrudFacade;
 import yugo.util.WebRequestUtil;
 
 @RestController
-//@AllArgsConstructor
 @RequestMapping("/product-variants")
+@AllArgsConstructor
 public class ProductVariantCrudController {
 
-
-
     private final ProductVariantCrudFacade productVariantCrudFacade;
-    public ProductVariantCrudController(ProductVariantCrudFacade productVariantCrudFacade) {
-        this.productVariantCrudFacade = productVariantCrudFacade;
-    }
 
     @PostMapping
     public ResponseEntity<DataContainer<Boolean>> create(@RequestBody ProductVariantDto dto) {

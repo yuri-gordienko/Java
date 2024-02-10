@@ -19,7 +19,7 @@ public class ProductPDPController {
     private final ProductPDPFacade productPDPFacade;
 
     @GetMapping
-    public ResponseEntity<DataContainer<ProductPDPDto>> findByProduct(@PathVariable  Long id) {
+    public ResponseEntity<DataContainer<ProductPDPDto>> findByProduct(@PathVariable Long id) {
         return ResponseEntity.ok(new DataContainer<>(productPDPFacade.findById(id)));
     }
 }

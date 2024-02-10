@@ -9,9 +9,8 @@ import yugo.data.datatable.DataTableRequest;
 import yugo.persistence.sql.entity.product.Product;
 import yugo.persistence.sql.entity.product.ProductVariant;
 import yugo.persistence.sql.repository.product.ProductVariantRepository;
+import yugo.service.crud.CrudServiceUtil;
 import yugo.service.crud.product.ProductVariantCrudService;
-import yugo.util.IsValidFields;
-import yugo.util.PersistenceUtil;
 
 import java.util.Collection;
 
@@ -21,35 +20,31 @@ import java.util.Collection;
 public class ProductVariantCrudServiceImpl implements ProductVariantCrudService {
 
     private final ProductVariantRepository productVariantRepository;
-    private final IsValidFields isValidFields;
+    private final CrudServiceUtil<ProductVariant, ProductVariantRepository> crudServiceUtil;
 
     @Override
     public void create(ProductVariant entity) {
-        productVariantRepository.save(entity);
+        crudServiceUtil.create(entity, productVariantRepository);
     }
 
     @Override
     public void update(ProductVariant entity) {
-        isValidFields.isValidId(entity.getId());
-        productVariantRepository.save(entity);
+        crudServiceUtil.update(entity, productVariantRepository);
     }
 
     @Override
     public void delete(Long id) {
-        isValidFields.isValidId(id);
-        productVariantRepository.deleteById(id);
+        crudServiceUtil.delete(id, productVariantRepository);
     }
 
     @Override
     public ProductVariant findById(Long id) {
-        isValidFields.isValidId(id);
-        return productVariantRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return crudServiceUtil.findById(id, productVariantRepository);
     }
 
     @Override
     public Page<ProductVariant> findAll(DataTableRequest request) {
-
-        return productVariantRepository.findAll(PersistenceUtil.generatePageableByDataTableRequest(request));
+        return crudServiceUtil.findAll(request, productVariantRepository);
     }
 
     @Override

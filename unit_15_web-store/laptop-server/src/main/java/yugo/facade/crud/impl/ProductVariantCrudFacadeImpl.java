@@ -22,12 +22,7 @@ public class ProductVariantCrudFacadeImpl implements ProductVariantCrudFacade {
     @Override
     public void create(ProductVariantDto dto) {
         ProductVariant productVariant = new ProductVariant();
-//        convertProductVariantDtoToProductVariant(dto, productVariant);
-        productVariant.setOs(dto.getOs());
-        productVariant.setCpu(dto.getCpu());
-        productVariant.setRam(dto.getRam());
-        productVariant.setSsd(dto.getSsd());
-        productVariant.setColor(dto.getColor());
+        convertProductVariantDtoToProductVariant(dto, productVariant);
         productVariantCrudService.create(productVariant);
     }
 
@@ -45,7 +40,6 @@ public class ProductVariantCrudFacadeImpl implements ProductVariantCrudFacade {
 
     @Override
     public ProductVariantDto findById(Long id) {
-
         return new ProductVariantDto(productVariantCrudService.findById(id));
     }
 

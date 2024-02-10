@@ -43,6 +43,6 @@ public class ProductVariant extends BaseEntity {
     @ManyToOne
     private Product product;
 
-//    @ManyToOne
-//    private ProductDisplay productDisplay;
+    @ManyToOne
+    private ProductDisplay productDisplay;
 }
