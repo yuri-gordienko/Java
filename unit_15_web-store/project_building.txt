@@ -13,5 +13,8 @@ laptop-service
 обновляют, удаляют Продукт в БД.
 А методы на получение инфо из БД (findById, findAll) создают новый временный ДТО класс и отдают его на фронт.
 11. dto/product - створюємо тимчасовий клас для прийняття інфо з фронта і віддачею її на фронт.
-12. controller - приймає http запити з фронта у вишляді JSON, конвертує їх в Джава обʼєкти і productCrudFacade вже виконує ці
-запити (виконує методи), також controller повертає відповіді на ці запити, переконвертувавши їх в JSON формат.
+12. controllers (crud operations) - приймає http запити з фронта у вишляді JSON, конвертує їх в Джава обʼєкти і productCrudFacade
+вже виконує ці запити (виконує методи), також controller повертає відповіді на ці запити, переконвертувавши їх в JSON формат.
+13. ProductProcessController, ProductProcessDto, ProductProcessFacade - звʼязуємо Сутності між собою.
+14. ProductPLPController, ProductPLPDto, ProductPLPFaсade - створюємо список продуктів на головній сторінці.
+15. ProductPDPController, ProductPDPDto, ProductPDPFaсade - створюємо докладний опис продукту.
