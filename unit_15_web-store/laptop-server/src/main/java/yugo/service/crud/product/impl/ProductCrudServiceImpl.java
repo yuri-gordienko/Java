@@ -55,7 +55,7 @@ public class ProductCrudServiceImpl implements ProductCrudService {
     @Override
     public Product findById(Long id) {
         isValidId(id);
-        return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+        return productRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("Product not found"));
     }
 
     @Override

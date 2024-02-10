@@ -24,6 +24,7 @@ public class ProductVariantCrudServiceImpl implements ProductVariantCrudService 
 
     @Override
     public void create(ProductVariant entity) {
+
         crudServiceUtil.create(entity, productVariantRepository);
     }
 

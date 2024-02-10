@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import yugo.data.dto.BaseDto;
-//import yugo.persistence.sql.entity.product.ProductDisplay;
+import yugo.persistence.sql.entity.product.ProductDisplay;
 import yugo.persistence.sql.entity.product.ProductVariant;
 import yugo.util.types_of_laptops.DisplayType;
 import yugo.util.types_of_laptops.OsType;
@@ -31,14 +31,11 @@ public class ProductVariantDto extends BaseDto {
         this.ram = productVariant.getRam();
         this.ssd = productVariant.getSsd();
         this.color = productVariant.getColor();
-//        ProductDisplay productDisplay = productVariant.getProductDisplay();
-//        if (productDisplay != null) {
-//            this.displayResolution = productDisplay.getDisplayResolution();
-//            this.displayType = productDisplay.getDisplayType();
-//            this.displaySize = productDisplay.getDisplaySize();
-//        }
-        this.displayResolution = productVariant.getDisplayResolution();
-        this.displayType = productVariant.getDisplayType();
-        this.displaySize = productVariant.getDisplaySize();
+        ProductDisplay productDisplay = productVariant.getProductDisplay();
+        if (productDisplay != null) {
+            this.displayResolution = productDisplay.getDisplayResolution();
+            this.displayType = productDisplay.getDisplayType();
+            this.displaySize = productDisplay.getDisplaySize();
+        }
     }
 }
