@@ -26,6 +26,7 @@ public class ProductProcessFacadeImpl implements ProductProcessFacade {
         Product product = productCrudService.findById(id);
         ProductVariant productVariant = productVariantCrudService.findById(dto.getProductVariantId());
         Set<ProductImage> productImages = productImageCrudService.findAllByIdIn(dto.getProductImages());
+
         productVariant.setProduct(product);
         productVariantCrudService.update(productVariant);
         product.setProductImages(productImages);
