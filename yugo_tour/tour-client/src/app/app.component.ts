@@ -16,5 +16,5 @@ import { HeaderComponent } from "./layout/header/header.component";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'trip-client';
+  title = 'tour-client';
 }
