@@ -19,3 +19,5 @@ laptop-service
 14. ProductPLPController, ProductPLPDto, ProductPLPFaсade,  - створюємо список продуктів на головній сторінці.
 15. ProductPDPController, ProductPDPDto, ProductPDPFaсade - створюємо докладний опис продукту.
 16. RestExceptionHandler - відловлюємо винятки.
+
+17. laptop-client
