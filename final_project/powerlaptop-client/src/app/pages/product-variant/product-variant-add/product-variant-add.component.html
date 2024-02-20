@@ -1,0 +1,104 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form [formGroup]="formProduct" (ngSubmit)="create()">
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect01">Select OS type</label>
+          <select class="form-select" id="inputGroupSelect01" formControlName="os">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let os of osTypes"
+              [value]="os">
+              {{ os }}
+            </option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect02">Select CPU type</label>
+          <select class="form-select" id="inputGroupSelect02" formControlName="cpu">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let cpu of cpuTypes"
+              [value]="cpu">
+              {{ cpu }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect03">Select ram size</label>
+          <select class="form-select" id="inputGroupSelect03" formControlName="ram">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let ram of ramTypes"
+              [value]="ram">
+              {{ ram }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect04">Select ssd size</label>
+          <select class="form-select" id="inputGroupSelect04" formControlName="ssd">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let ssd of ssdTypes"
+              [value]="ssd">
+              {{ ssd }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect05">Select color type</label>
+          <select class="form-select" id="inputGroupSelect05" formControlName="color">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let color of colorTypes"
+              [value]="color">
+              {{ color }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect06">Select display resolution</label>
+          <select class="form-select" id="inputGroupSelect06" formControlName="displayResolution">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let displayResolution of displayResolutionTypes"
+              [value]="displayResolution">
+              {{ displayResolution }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect07">Select display type</label>
+          <select class="form-select" id="inputGroupSelect07" formControlName="displayType">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let displayType of displayTypes"
+              [value]="displayType">
+              {{ displayType }}
+            </option>
+          </select>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="inputGroupSelect08">Select display type</label>
+          <select class="form-select" id="inputGroupSelect08" formControlName="displaySize">
+            <option selected>Choose...</option>
+            <option
+              *ngFor="let displaySize of displaySizes"
+              [value]="displaySize">
+              {{ displaySize }}
+            </option>
+          </select>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Create</button>
+      </form>
+    </div>
+  </div>
+</div>
