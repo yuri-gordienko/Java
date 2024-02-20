@@ -9,7 +9,7 @@ create table pupils
     email varchar(255) not null
 );
 
-insert into pupils values (1, 'Андрей', '', 5, 'andrey@ukr.net');
+--insert into pupils values (default, 'Андрей', '', 5, 'andrey@ukr.net');
 --insert into pupils values (default, 'Боря', 'Борисов', 9, 'bor@ukr.net');
 --insert into pupils values (default, 'Серёжа', 'Андреев', 3, 'ser@ukr.net');
 --insert into pupils values (default, 'Николай', 'Николаев', 11, 'nik@ukr.net');
