@@ -1,19 +1,16 @@
-package ua.com.alevel.persistence.repository;
+package ua.com.alevel.persistence.repository.bank;
 
 import org.springframework.stereotype.Repository;
-import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.bank.Account;
+import ua.com.alevel.persistence.repository.BaseRepository;
 
 import java.util.Collection;
 import java.util.Optional;
 
-@Repository // указываем что это репозиторий
-// AccountRepository наследник BaseRepository<Account>, уже не нуждается в имплементации, т.к. за него это сделает Спринг,
-// т.е. стандартные методы он делает автоматом, а дополнительные прописываем на Спринг диалекте (под капотом sql запросы)
-// Бин классы Спринг инжектит сам, сам подставляет вместо Е (Entity) конкретный объект <Account>
-public interface AccountRepository extends BaseRepository<Account> { // <Account> указываем с каким объектом работать
+@Repository("uniqueAccountRepository")
+public interface AccountRepository extends BaseRepository<Account> {
 
-// Специфические методы (не стандартный CRUD):
-    Collection<Account> findAccountsByClientId(Long id); // имплементация прописывается в Service классе AccountServiceImpl
+    Collection<Account> findAccountsByClientId(Long id);
 
     Optional<Account> findAccountByAccountNumber(int accountNumber);
 }

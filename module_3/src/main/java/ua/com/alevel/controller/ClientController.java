@@ -6,7 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ua.com.alevel.persistence.entity.Client;
+
+import ua.com.alevel.persistence.entity.bank.Client;
 import ua.com.alevel.service.ClientService;
 
 @Controller

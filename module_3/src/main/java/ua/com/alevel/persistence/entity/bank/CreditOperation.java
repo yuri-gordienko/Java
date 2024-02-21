@@ -1,4 +1,4 @@
-package ua.com.alevel.persistence.entity;
+package ua.com.alevel.persistence.entity.bank;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -7,6 +7,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "CreditAccount")
 @Table(name = "credit_transactions")
 public class CreditOperation extends Operation { }

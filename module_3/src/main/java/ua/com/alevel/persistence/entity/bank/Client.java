@@ -1,4 +1,4 @@
-package ua.com.alevel.persistence.entity;
+package ua.com.alevel.persistence.entity.bank;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -6,12 +6,13 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
+import ua.com.alevel.persistence.entity.BaseEntity;
 
 import java.util.List;
 
 @Getter
 @Setter
-@Entity
+@Entity(name = "ClientAccount")
 @Table(name = "clients")
 public class Client extends BaseEntity {
 

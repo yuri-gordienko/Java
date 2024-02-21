@@ -1,4 +1,4 @@
-package ua.com.alevel.persistence.enums;
+package ua.com.alevel.utils.enums;
 
 public class AccountStatement {
 

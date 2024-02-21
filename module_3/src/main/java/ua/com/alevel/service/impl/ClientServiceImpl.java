@@ -4,8 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import ua.com.alevel.persistence.entity.Client;
-import ua.com.alevel.persistence.repository.ClientRepository;
+
+import ua.com.alevel.persistence.entity.bank.Client;
+import ua.com.alevel.persistence.repository.bank.ClientRepository;
 import ua.com.alevel.service.ClientService;
 
 import java.util.Collection;
