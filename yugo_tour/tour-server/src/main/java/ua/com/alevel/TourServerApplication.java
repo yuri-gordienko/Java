@@ -16,7 +16,7 @@ import ua.com.alevel.persistence.sql.type.RoleType;
 
 @EnableScheduling
 @SpringBootApplication
-public class TripServerApplication {
+public class TourServerApplication {
 
     @Autowired
     private AuthenticationService service;
@@ -29,8 +29,7 @@ public class TripServerApplication {
 
 
     public static void main(String[] args) {
-
-        SpringApplication.run(TripServerApplication.class, args);
+        SpringApplication.run(TourServerApplication.class, args);
     }
 
     @EventListener(ApplicationReadyEvent.class)
