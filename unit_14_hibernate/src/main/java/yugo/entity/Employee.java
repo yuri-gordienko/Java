@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "employees")
+@Table(name = "employees") // а вот без этой аннотации обойтись можно, по дефолту Hibernate будет называть именем джава класса
 public class Employee extends BaseEntity {
 
     @Column(name = "first_name")
