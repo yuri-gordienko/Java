@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ua.com.alevel.persistence.entity.bank.Account;
-import ua.com.alevel.persistence.entity.bank.CreditOperation;
-import ua.com.alevel.persistence.entity.bank.DebitOperation;
+import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.CreditOperation;
+import ua.com.alevel.persistence.entity.DebitOperation;
 import ua.com.alevel.utils.enums.Category;
 import ua.com.alevel.service.AccountService;
 import ua.com.alevel.service.OperationService;

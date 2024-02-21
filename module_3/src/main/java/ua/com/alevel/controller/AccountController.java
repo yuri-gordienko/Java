@@ -7,7 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import ua.com.alevel.persistence.entity.bank.Account;
+import ua.com.alevel.persistence.entity.Account;
 import ua.com.alevel.service.AccountService;
 import ua.com.alevel.service.ClientService;
 

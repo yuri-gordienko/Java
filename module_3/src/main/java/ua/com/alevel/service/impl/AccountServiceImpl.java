@@ -4,11 +4,11 @@ import com.opencsv.CSVWriter;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ua.com.alevel.persistence.entity.bank.Account;
-import ua.com.alevel.persistence.entity.bank.Operation;
-import ua.com.alevel.persistence.repository.bank.AccountRepository;
-import ua.com.alevel.persistence.repository.bank.CreditOperationRepository;
-import ua.com.alevel.persistence.repository.bank.DebitOperationRepository;
+import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.Operation;
+import ua.com.alevel.persistence.repository.AccountRepository;
+import ua.com.alevel.persistence.repository.CreditOperationRepository;
+import ua.com.alevel.persistence.repository.DebitOperationRepository;
 import ua.com.alevel.service.AccountService;
 
 import java.io.FileWriter;

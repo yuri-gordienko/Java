@@ -4,12 +4,12 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import ua.com.alevel.persistence.entity.bank.Account;
-import ua.com.alevel.persistence.entity.bank.Client;
-import ua.com.alevel.persistence.entity.bank.CreditOperation;
-import ua.com.alevel.persistence.entity.bank.DebitOperation;
-import ua.com.alevel.persistence.repository.bank.AccountRepository;
-import ua.com.alevel.persistence.repository.bank.ClientRepository;
+import ua.com.alevel.persistence.entity.Account;
+import ua.com.alevel.persistence.entity.Client;
+import ua.com.alevel.persistence.entity.CreditOperation;
+import ua.com.alevel.persistence.entity.DebitOperation;
+import ua.com.alevel.persistence.repository.AccountRepository;
+import ua.com.alevel.persistence.repository.ClientRepository;
 
 import java.io.File;
 import java.math.BigDecimal;

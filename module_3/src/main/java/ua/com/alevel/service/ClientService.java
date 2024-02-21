@@ -1,6 +1,6 @@
 package ua.com.alevel.service;
 
-import ua.com.alevel.persistence.entity.bank.Client;
+import ua.com.alevel.persistence.entity.Client;
 
 import java.util.Collection;
 
