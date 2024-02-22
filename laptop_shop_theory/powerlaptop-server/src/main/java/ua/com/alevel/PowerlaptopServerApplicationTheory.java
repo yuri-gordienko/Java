@@ -10,20 +10,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import ua.com.alevel.config.security.AuthenticationService;
 import ua.com.alevel.config.security.RegisterRequest;
 import ua.com.alevel.cron.SyncSupplierService;
-import ua.com.alevel.persistence.sql.entity.product.ProductVariant;
-import ua.com.alevel.persistence.sql.repository.product.ProductVariantRepository;
 import ua.com.alevel.persistence.sql.repository.user.AdminRepository;
 import ua.com.alevel.persistence.sql.type.RoleType;
 import ua.com.alevel.service.csv.ExportCSVService;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.UUID;
-
 @EnableScheduling      // для того, чтоб БД Эластика обновлялась по определенному расписанию и закачивала инфо из SQL БД
 // если деактивировать аннотацию, по идее должен отключиться эластик
 @SpringBootApplication // автоконфигуратор приложения
-public class PowerlaptopServerApplication {
+public class PowerlaptopServerApplicationTheory {
 
     @Autowired
     private AuthenticationService service;
@@ -39,7 +33,7 @@ public class PowerlaptopServerApplication {
 
     public static void main(String[] args) {
         // передали мэйн класс для автоматического создания спринг приложения
-        SpringApplication.run(PowerlaptopServerApplication.class, args);
+        SpringApplication.run(PowerlaptopServerApplicationTheory.class, args);
     }
 
 //    @EventListener(ApplicationReadyEvent.class)
