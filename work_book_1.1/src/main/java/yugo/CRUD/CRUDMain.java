@@ -1,5 +1,7 @@
 package yugo.CRUD;
 
+import java.util.List;
+
 public class CRUDMain {
 
     public static void main(String[] args) {
@@ -35,6 +37,11 @@ public class CRUDMain {
                 System.out.println("readALL " + s);
             }
         }
+
+//        generate List<String> listIds
+//        GenerateId generateId = new GenerateId();
+//        generateId.generateId(List.of(objectsStrings));
+
 
 //        readById
         crudService.readById("1");
