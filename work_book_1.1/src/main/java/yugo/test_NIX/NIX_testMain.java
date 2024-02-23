@@ -1,5 +1,9 @@
 package yugo.test_NIX;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
+
 public class NIX_testMain {
 
     public static void main(String[] args) {
@@ -23,15 +27,23 @@ public class NIX_testMain {
 //        for (String element : vector) {
 //            System.out.println(element);
 //        }
+//
+//        ArrayList<Integer> numbers = new ArrayList<>();
+//        numbers.add(5);
+//        numbers.add(2);
+//        numbers.add(8);
+//        numbers.add(1);
+//
+//        Collections.sort(numbers); // Сортировка в порядке возрастания
+//
+//        System.out.println(numbers); // Вывод отсортированного списка
 
 //        int x = 0, y = 10;
 //        try {
 //            y /= x;
 //        }
 //        System.out.println("/ 0");
-//
 //        catch (Exception e) {
-//
 //            System.out.println("error");
 //        }
 
@@ -58,7 +70,7 @@ public class NIX_testMain {
 //        try {
 //            return;
 //        } finally {
-//            System.out.println("Finaly");
+//            System.out.println("Finally");
 //        }
 
 //        try {
@@ -74,7 +86,7 @@ public class NIX_testMain {
 
 // 1----------------------------------------------------------------
 //        Person p1 = new Person("Jon", 22);
-//        NIX_testsMain main = new NIX_testsMain();
+//        NIX_testMain main = new NIX_testMain();
 //        Person p2 = main.change(p1);
 //
 //        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
@@ -83,7 +95,7 @@ public class NIX_testMain {
 // 2--------------------------------------------
 //        try {
 //            System.out.println("hello");
-//            throwit();
+//            throwIt();
 //        } catch (Exception re) {
 //            System.out.println("caught");
 //        } finally {
@@ -127,7 +139,7 @@ public class NIX_testMain {
 //        System.out.println("E");
 //---------------------------------------
 //       5
-//        new NIX_testsMain().print();
+//        new NIX_testMain().print();
 //-----------------------------------------
 
 //        int i = 10;
@@ -145,6 +157,7 @@ public class NIX_testMain {
 //        while (i >0) {
 //            System.out.println(a[i]);
 //            i--;
+//        }
 
 //        int[]a = {1,2,3,4};
 //        System.out.println(a instanceof Object);
@@ -152,10 +165,8 @@ public class NIX_testMain {
 //        -------------------
 //        6
 //        int x = 10;
-//        int y = new NIX_testsMain().change(x);
+//        int y = new NIX_testMain().change(x);
 //        System.out.println(x + y);
-
-
 
     }
 
@@ -181,8 +192,8 @@ public class NIX_testMain {
 //    ---------------------------------------------------------
 
 //    2
-//    public static void throwit() {
-//        System.out.println("throwit");
+//    public static void throwIt() {
+//        System.out.println("throwIt");
 //        throw new RuntimeException();
 //    }
 //    -----------------------------------------
@@ -208,9 +219,8 @@ public class NIX_testMain {
 //    ----------------------
 //     6
 //    int change(int x) {
-//        x =12;
+//        x = 12;
 //        return x;
 //    }
-
 
 }

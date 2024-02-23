@@ -11,14 +11,14 @@ public class SoftServeMain {
 //    private String str;
 //    private int n;
 
-//    4
+//    3/1
 //    private static String str;
 //    private int n;
 
 //    6
-//    static String str = "Team 1";
+//    static String str = "Team1";
 //    static void change(int a) { a = 10; }
-//    static void change(String str) { SoftServeMain.str = "Team 2"; }
+//    static void change(String str) { SoftServeMain.str = "Team2"; }
 
 //    7
 //    static final int number = 10;
@@ -35,7 +35,7 @@ public class SoftServeMain {
 //        System.out.printf("Strings is " + str);
 //        System.out.printf("\nInteger equels " + n);
 
-//        4
+//        3/1
 //        System.out.printf("Strings is " + str);
 //        System.out.printf("\nInteger equels " + n);
 
@@ -48,7 +48,7 @@ public class SoftServeMain {
 //        7
 //        SoftServeMain softServeMain = new SoftServeMain();
 //        int number = 15;
-//        System.out.printf(softServeMain.getNumber(number, SoftServeMain.number)));
+//        System.out.printf(String.valueOf(softServeMain.getNumber(number, SoftServeMain.number)));
 
 //        10
 //        boolean a =    ;
@@ -62,7 +62,7 @@ public class SoftServeMain {
 //        }
 
 //        14
-//        for (short i = 32766; i <= 32766; i = i+1) {
+//        for (short i = 32766; i <= 32766; i = i + 1) {
 //            System.out.println(i);
 //        }
 
@@ -124,9 +124,9 @@ public class SoftServeMain {
 //        System.out.println(max);
 
 //        35
-        List<Integer> list = Arrays.asList(5, 4, 3, 2, 1);
-        list.stream()
-                .filter((n) -> n > 3)
-                .forEach(System.out::print);
+//        List<Integer> list = Arrays.asList(5, 4, 3, 2, 1);
+//        list.stream()
+//                .filter((n) -> n > 3)
+//                .forEach(System.out::print);
     }
 }

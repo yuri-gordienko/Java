@@ -5,9 +5,9 @@ public class Q12 {
 //        System.out.println(Season.SPRING);
     }
 }
-//    enum Season {
+    enum Season {
 //        public static String WINTER,
 //        public static String SPRING,
 //        public static String SUMMER,
 //        public static String FALL
-//        };
+        };

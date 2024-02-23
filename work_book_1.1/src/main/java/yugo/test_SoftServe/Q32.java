@@ -16,7 +16,7 @@ public class Q32 {
     static int sum(List<Integer> list) {
         int sum = 0;
         for (Integer l : list) {
-            sum = l;
+            sum += l;
         }
         return sum;
     }
