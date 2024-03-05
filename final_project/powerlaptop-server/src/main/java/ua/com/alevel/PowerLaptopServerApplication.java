@@ -10,20 +10,14 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 import ua.com.alevel.config.security.AuthenticationService;
 import ua.com.alevel.config.security.RegisterRequest;
 import ua.com.alevel.cron.SyncSupplierService;
-import ua.com.alevel.persistence.sql.entity.product.ProductVariant;
-import ua.com.alevel.persistence.sql.repository.product.ProductVariantRepository;
 import ua.com.alevel.persistence.sql.repository.user.AdminRepository;
 import ua.com.alevel.persistence.sql.repository.user.PersonalRepository;
 import ua.com.alevel.persistence.sql.type.RoleType;
 import ua.com.alevel.service.csv.ExportCSVService;
 
-import java.math.BigDecimal;
-import java.util.List;
-import java.util.UUID;
-
 @EnableScheduling
 @SpringBootApplication
-public class PowerlaptopServerApplication {
+public class PowerLaptopServerApplication {
 
     @Autowired
     private AuthenticationService service;
@@ -42,8 +36,8 @@ public class PowerlaptopServerApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(PowerlaptopServerApplication.class, args);
-        System.out.println("PowerlaptopServerApplication is running");
+        SpringApplication.run(PowerLaptopServerApplication.class, args);
+        System.out.println("PowerLaptopServerApplication is running");
     }
 
     @EventListener(ApplicationReadyEvent.class)
