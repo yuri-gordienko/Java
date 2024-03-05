@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>powerlaptop-server</artifactId>
+    <artifactId>powerlaptop-server-theory</artifactId>
 
     <properties>
         <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>

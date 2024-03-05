@@ -20,8 +20,8 @@
     <packaging>pom</packaging>
 
     <modules>   <!-- в таком теге можем создавать любое кол-во сабмодулей -->
-        <module>powerlaptop-server</module>
-        <module>powerlaptop-supplier</module>
+        <module>powerlaptop-server-theory</module>
+        <module>powerlaptop-supplier-theory</module>
     </modules>
 
     <properties>
