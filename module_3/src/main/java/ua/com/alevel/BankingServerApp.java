@@ -10,7 +10,7 @@ public class BankingServerApp {
 
     public static void main(String[] args) {
         SpringApplication.run(BankingServerApp.class, args);
-        System.out.println("Money transfer");
+        System.out.println("Money transfer is running");
     }
 
     // that converts posted method parameters into HTTP methods
