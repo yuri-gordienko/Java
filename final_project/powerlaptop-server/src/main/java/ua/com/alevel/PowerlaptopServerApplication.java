@@ -41,7 +41,9 @@ public class PowerlaptopServerApplication {
     private SyncSupplierService syncSupplierService;
 
     public static void main(String[] args) {
+
         SpringApplication.run(PowerlaptopServerApplication.class, args);
+        System.out.println("PowerlaptopServerApplication is running");
     }
 
     @EventListener(ApplicationReadyEvent.class)
