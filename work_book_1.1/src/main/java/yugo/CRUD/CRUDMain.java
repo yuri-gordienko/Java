@@ -7,6 +7,8 @@ public class CRUDMain {
     public static void main(String[] args) {
 
         CRUDService crudService = new CRUDService();
+        GenerateId generateId = new GenerateId();
+
 
 //        create
         Object object = new Object();
@@ -31,16 +33,16 @@ public class CRUDMain {
         crudService.create(object1);
 
 //        readALL
-        Object[] objectsStrings = crudService.readAll();
-        for (Object s : objectsStrings) {
+        Object[] objects = crudService.readAll();
+        for (Object s : objects) {
             if (s != null) {
                 System.out.println("readALL " + s);
             }
         }
 
+
 //        generate List<String> listIds
-//        GenerateId generateId = new GenerateId();
-//        generateId.generateId(List.of(objectsStrings));
+        generateId.generateIds(objects);
 
 
 //        readById
@@ -51,8 +53,7 @@ public class CRUDMain {
         updated.setName("1.updated");
         crudService.update(updated);
 
-        Object[] objectsStrings2 = crudService.readAll();
-        for (Object s : objectsStrings2) {
+        for (Object s : objects) {
             if (s != null) {
                 System.out.println("readALL " + s);
             }
