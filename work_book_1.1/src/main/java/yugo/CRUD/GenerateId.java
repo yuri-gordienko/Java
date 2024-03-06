@@ -5,33 +5,26 @@ import java.util.UUID;
 
 public class GenerateId {
 
-    public static String generateId(Object[] objects) {
+    public static String generateIds(Object[] objects) {
         String id = UUID.randomUUID().toString();
 
-//        for (Object object : objectsStrings) {
+//        for (Object object : objects) {
 //            if (object != null && object.getId().equals(id)) {
-//                return generateId(objectsStrings);
+//                return generateIds(objects);
 //            }
 //        }
 //        System.out.println("\nlistIds = " + id);
 //        return id;
-//        ---------------------------------------------------
-//        if (Arrays.stream(objectsStrings).anyMatch(object -> object.getId().equals(id) ?
-//                generateId(objectsStrings) | return id;));
-
-//        return Arrays.stream(objects).anyMatch(object -> object.getId().equals(id))
-//                ? generateId(objects)
-//                : id;
 //        ------------------------------------------
 
-        if (Arrays.stream(objects).anyMatch(object -> object.getId().equals(id))) {
-            return generateId(objects); // Якщо умова виконується, рекурсивно викликаємо метод
-        }
-        System.out.println("\nlistIds = " + id);
-        return id;
-
-//        if (objectsStrings.stream().anyMatch(object -> object.getId().equals(id))) {
-//            return generateId(objectsStrings);
+//        if (Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id))) {
+//            return generateIds(objects);
 //        }
+//        System.out.println("\nlistIds = " + id);
+//        return id;
+//        --------------------------------------------------
+        System.out.println("\nlistIds = " + id);
+        return Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id))
+                ? generateIds(objects) : id;
     }
 }
