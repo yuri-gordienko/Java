@@ -20,4 +20,9 @@ laptop-service
 15. ProductPDPController, ProductPDPDto, ProductPDPFaсade - створюємо докладний опис продукту.
 16. RestExceptionHandler - відловлюємо винятки.
 
-17. laptop-client
+laptop-client
+1. генеруємо Ангулар додаток: ng g p laptop-server
+2. налаштовіємо main.ts, index.html, app.routes.ts, app.component.ts, app.component.html
+3. pages: plp, pdp; паралельно робимо: models і services
+4. layout
+
