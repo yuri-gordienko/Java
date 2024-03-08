@@ -1,6 +1,7 @@
 package yugo.dictionary;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class DicService {
@@ -34,14 +35,22 @@ public class DicService {
     }
 
     public String[] keySet() {
+//        String[] keys = new String[dictionary.length];
+//        for (int i = 0; i < dictionary.length; i++) {
+//            if (dictionary[i] != null) {
+//                for (int i1 = 0; i1 < keys.length; i1++) {
+//                    if (keys[i] == null) {
+//                        keys[i] = dictionary[i].getKey();
+//                    }
+//                }
+//            }
+//        }
+//        return keys;
+
         String[] keys = new String[dictionary.length];
         for (int i = 0; i < dictionary.length; i++) {
             if (dictionary[i] != null) {
-                for (int i1 = 0; i1 < keys.length; i1++) {
-                    if (keys[i] == null) {
-                        keys[i] = dictionary[i].getKey();
-                    }
-                }
+                keys[i] = dictionary[i].getKey();
             }
         }
         return keys;
@@ -73,12 +82,13 @@ public class DicService {
     }
 
     public boolean isEmpty() {
-        for (Dictionary dictionary1 : dictionary) {
-            if (dictionary1 != null) {
-                return false;
-            }
-        }
-        return true;
+//        for (Dictionary dictionary1 : dictionary) {
+//            if (dictionary1 != null) {
+//                return false;
+//            }
+//        }
+//        return true;
+        return Arrays.stream(dictionary).anyMatch(dictionary1 -> dictionary1 != null) ? false : true;
     }
 
     public boolean containsKey(String k) {

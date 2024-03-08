@@ -40,10 +40,8 @@ public class CRUDMain {
             }
         }
 
-
 //        generate List<String> listIds
         generateId.generateIds(objects);
-
 
 //        readById
         crudService.readById("1");
