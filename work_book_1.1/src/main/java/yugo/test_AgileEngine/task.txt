@@ -1,0 +1,50 @@
+Task:
+The system you work with on a daly basis runs multiple microservices. You have been asked to prepare to aggregation
+that represent the number of user visits to all microservices for use by data analysts.
+We have the API which consists of a single class: VisitCounter.
+VisitCounter has a single method - count.
+It returns Map<Long, Long>, this map should contain the number of visits by the user with a given ID.
+This method accepts an array of Map<String, UserStats>. Every map represents the total number of visits per user
+to a given microservices. There some problems. however:
+1. The map key, which is the String, should be representable to Long - but it may not be. You must skip any such
+faulty entires.
+2.  For some keys, UserStats may be Null. You must skip any such faulty entires.
+3. UserStats has a single field - visitCount, of type Optional<Long>. A getter for this field is also implemented.
+This field will never be Null; however, it might be empty. You must skip any such faulty entires.
+
+Remember, that you may receive some valid input: null, empty maps, and so on. Handle it all appropriately and return
+an empty map.
+
+Assumptions.
+The UserStats class is already implemented. You don't have to write the implementation of this class as a part
+of your solution.
+
+Available package and libraries:
+You may use Java 8 Streams API to implement your solution.
+------------------------------------------------------------------------------------
+Завдання:
+Система, з якою ви щоденно працюєте, запускає кілька мікросервісів. Вас попросили підготувати агрегацію,
+яка відображатиме кількість відвідувань користувачів всіма мікросервісами для використання аналітиками даних.
+У нас є API, яке складається з одного класу: VisitCounter.
+У VisitCounter є один метод - count.
+Він повертає Map<Long, Long>, в цьому мапі повинна бути кількість відвідувань користувача з вказаним ідентифікатором.
+Цей метод приймає масив Map<String, UserStats>. Кожен мап представляє собою загальну кількість відвідувань одним
+користувачем до вказаного мікросервісу. Однак є кілька проблем:
+
+Ключ мапи, який є рядком (String), повинен бути представимий у вигляді Long, але це може бути не так. Ви повинні
+пропустити будь-які такі неправильні записи.
+Для деяких ключів UserStats може бути Null. Ви повинні пропустити будь-які такі неправильні записи.
+У UserStats є одне поле - visitCount, типу Optional<Long>. Геттер для цього поля також реалізований.
+Це поле ніколи не буде Null; однак воно може бути порожнім. Ви повинні пропустити будь-які такі неправильні записи.
+Пам'ятайте, що ви можете отримати деякий валідний ввід: null, порожні мапи і так далі. Обробіть його відповідним
+чином і поверніть порожній мап.
+
+Припущення.
+Клас UserStats вже реалізований. Вам не потрібно писати реалізацію цього класу як частину вашого рішення.
+
+Доступні пакети та бібліотеки:
+Ви можете використовувати Java 8 Streams API для реалізації вашого рішення.
+
+
+
+
