@@ -1,0 +1,119 @@
+<div class="container" *ngIf="data$ | async as data">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>id</th>
+          <th>os</th>
+          <th>cpu</th>
+          <th>ram</th>
+          <th>ssd</th>
+          <th>color</th>
+          <th>displayResolution</th>
+          <th>displayType</th>
+          <th>displaySize</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of data.items">
+          <td>{{ item.id }}</td>
+          <td>{{ item.os }}</td>
+          <td>{{ item.cpu }}</td>
+          <td>{{ item.ram }}</td>
+          <td>{{ item.ssd }}</td>
+          <td>{{ item.color }}</td>
+          <td>{{ item.displayResolution }}</td>
+          <td>{{ item.displayType }}</td>
+          <td>{{ item.displaySize }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12">
+
+      <div class="d-flex justify-content-center align-items-center">
+        <div class="p-2">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  role="button"
+                  [class.disabled]="data.page === 0"
+                  (click)="showPage(0)">First</a>
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  role="button"
+                  [class.disabled]="!data.previous"
+                  (click)="showPage(data.page - 1)">Previous</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   role="button"
+                   (click)="showPage(data.page + 1)">
+                  {{ data.page + 1 }}
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   role="button"
+                   (click)="showPage(data.page + 2)">
+                  {{ data.page + 2 }}
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   role="button"
+                   (click)="showPage(data.page + 3)">
+                  {{ data.page + 3 }}
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link"
+                   role="button"
+                   (click)="showPage(data.page + 4)">
+                  {{ data.page + 4 }}
+                </a>
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  role="button"
+                  [class.disabled]="!data.next"
+                  (click)="showPage(data.page + 1)">Next</a>
+              </li>
+              <li class="page-item">
+                <a
+                  class="page-link"
+                  role="button"
+                  [class.disabled]="data.page === (data.totalPages - 1)"
+                  (click)="showPage(data.totalPages - 1)">Last</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="p-2">
+          <form [formGroup]="sizeForm">
+            <select class="form-select" aria-label="Default select example" formControlName="size">
+              <option
+                *ngFor="let size of sizes"
+                [value]="size"
+                [selected]="size === data.size">
+                {{ size }}
+              </option>
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12">
+      <a
+        class="btn btn-primary"
+        role="button" href="/product-variant/new">New Product Variant</a>
+    </div>
+  </div>
+</div>

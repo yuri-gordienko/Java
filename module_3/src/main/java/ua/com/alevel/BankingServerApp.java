@@ -5,17 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 
-@SpringBootApplication  // main класс
+@SpringBootApplication
 public class BankingServerApp {
 
     public static void main(String[] args) {
-
         SpringApplication.run(BankingServerApp.class, args);
+        System.out.println("Money transfer is running");
     }
 
+    // that converts posted method parameters into HTTP methods
     @Bean
     public HiddenHttpMethodFilter hiddenHttpMethodFilter() {
-
         return new HiddenHttpMethodFilter();
     }
 }

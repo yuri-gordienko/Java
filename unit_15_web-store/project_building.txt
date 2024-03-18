@@ -1,0 +1,28 @@
+laptop-service
+1. pom.xml - парент для проєкту.
+2. pom.xml - для laptop-server.
+3. application.properties - підключення до БД.
+4. LaptopServerApplication - перевізяємо запуск проєкту.
+5. persistence/sql/entity - будуємо доменну модель (BaseEntity, Entities of product).
+6. persistence/sql/type - enums для задання значень філдам у Entities of product.
+7. persistence/sql/repository - створюємо інтерфейс для роботи з БД (BaseEntityRepository) і суб інтерфейси-нащадки.
+8. service - інтерфейс з абстрактними методами для роботи з "Е", його нащадки і їх імплементація.
+9. data - DataTableRequest і DataTableResponse для виконання методу "findAll()" - конкретний запит з фронта і відповідь на нього.
+10. facade/CrudFacade - работает с абстрактным объектом ДТО, ProductCrudFacade его имплементирует.  Фасады получают с фронта
+информацию на основании, которой создается временный клас-шаблон ДТО и на основании ДТО, void методы класса Сервис создают,
+обновляют, удаляют Продукт в БД.
+А методы на получение инфо из БД (findById, findAll) создают новый временный ДТО класс и отдают его на фронт.
+11. dto/product - створюємо тимчасовий клас для прийняття інфо з фронта і віддачею її на фронт.
+12. controllers (crud operations) - приймає http запити з фронта у вишляді JSON, конвертує їх в Джава обʼєкти і productCrudFacade
+вже виконує ці запити (виконує методи), також controller повертає відповіді на ці запити, переконвертувавши їх в JSON формат.
+13. ProductProcessController, ProductProcessDto, ProductProcessFacade - звʼязуємо Сутності між собою.
+14. ProductPLPController, ProductPLPDto, ProductPLPFaсade,  - створюємо список продуктів на головній сторінці.
+15. ProductPDPController, ProductPDPDto, ProductPDPFaсade - створюємо докладний опис продукту.
+16. RestExceptionHandler - відловлюємо винятки.
+
+laptop-client
+1. генеруємо Ангулар додаток: ng g p laptop-server
+2. налаштовіємо main.ts, index.html, app.routes.ts, app.component.ts, app.component.html
+3. pages: plp, pdp; паралельно робимо: models і services
+4. layout
+

@@ -1,0 +1,33 @@
+javac HelloWorld.java - компилируем файл файл с расширением .class
+java HelloWorld - запускаем файл  с расширением .class (.class уже писать не нужно, подразумевается)
+
+javac ua/com/alevel/HelloWorld.java - запуск компиляции из конкретной дирректории
+java ua.com.alevel.HelloWorld - запуск файла
+
+javac -sourcepath ./src -d build/classes ./src/ua/com/alevel/GoodDay.java - компилируем в отдельный пакет с новыми директориями
+при этом говорим, что src это корень исходников, через команду sourcepath
+java -cp build/classes ua.com.alevel.GoodDay - запускаем программу
+
+MANIFEST.MF - файл для сбора архива .jar
+jar cvfm build/jar/good_day2.jar resources/MANIFEST.MF -C build/classes .
+сгенерировали .jar, укказали сначала куда сохранить, потом через что сгенерировать, потом откуда взять файл типа .class
+
+java -jar build/jar/good_day.jar - запускаем .jar файл
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

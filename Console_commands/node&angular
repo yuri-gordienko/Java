@@ -1,0 +1,3 @@
+node -v         Node: 20.10.0
+npm -v          Package Manager
+ng version      Angular CLI

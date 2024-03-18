@@ -1,0 +1,32 @@
+.product-info {
+  margin: 0.5em;
+  height: 490px;
+}
+
+.product-info:hover {
+  cursor: pointer;
+}
+
+.product-image {
+  height: 286px;
+  width: 286px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  a {
+    margin-top: auto;
+  }
+}
+
+footer {
+  padding-top: 3rem!important;
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+
+  .py-5 {
+    padding-top: 3rem!important;
+    padding-bottom: 0!important;
+  }
+}

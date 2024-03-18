@@ -15,7 +15,7 @@ import java.io.File;
 import java.math.BigDecimal;
 import java.util.*;
 
-import static ua.com.alevel.persistence.enums.AccountStatement.Enum.HISTORY_FILE;
+import static ua.com.alevel.utils.enums.AccountStatement.Enum.HISTORY_FILE;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)

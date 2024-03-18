@@ -9,11 +9,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@MappedSuperclass   // содержит филды другого класса, но сам при этом не является таблицей
-// нет аннотации @Entity т.к. не создается (не мапиться) таблица
+@MappedSuperclass
 public abstract class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // автогенерация id, с использованием стратегии IDENTITY (путем инкремента)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 }

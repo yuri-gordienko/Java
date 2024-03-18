@@ -4,7 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
-import ua.com.alevel.persistence.enums.Category;
+
+import ua.com.alevel.utils.enums.Category;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -24,7 +25,7 @@ public abstract class Operation extends BaseEntity {
     private Category category;
 
     @Column(name = "amount")
-    private BigDecimal amount; // BigDecimal как Лонг в Джаве
+    private BigDecimal amount;
 
     @ManyToOne
     private Account senderAccount;

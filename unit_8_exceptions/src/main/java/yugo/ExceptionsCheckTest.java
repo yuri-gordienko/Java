@@ -5,11 +5,11 @@ public class ExceptionsCheckTest {
     public void test() {
 
 //        unhandledError(10, 0);
-//        handledError(10, 0);
+        handledError(10, 0);
 //        throwNewRuntimeException(10, 0);
-//        throwException(10, 0);
+//        throwException(10, 2);
 //        tryCatch(10, 0);
-        tryCatch2(10, 0);
+//        tryCatch2(10, 0);
     }
 
     private void unhandledError(int a, int b) {
@@ -28,7 +28,7 @@ public class ExceptionsCheckTest {
 
     private void throwNewRuntimeException(int a, int b) {
         if (b == 0) {
-// умисно перериваю потік і пишу повідомлення, працівати з такими даними не можливо.
+// умисно перериваю потік і пишу повідомлення, працювати з такими даними не можливо.
 // тобто я упередженно прописую умови, планую варіанти розвитку подій, з якими програма не буде працювати
 // я упевнений, що з такими даними програма працювати не буде (ділення на 0, мило без собачки ...)
 // дозволено кидати тільки в многопоточній програмі, щоб не перервати Маін потік
@@ -64,6 +64,7 @@ public class ExceptionsCheckTest {
         try {
             int result = a / b;
             System.out.println("result - " + result);
+            System.out.println("Program is going on?");
         } catch (ArithmeticException e) {     // ідемо від чаялда до парента, якщо не маю пермішенов його виправляти
             System.out.println(e.getMessage());
         } catch (RuntimeException e) {      // якщо ArithmeticException не відпрацював, перенаправляємо вище і т.д.

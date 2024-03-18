@@ -16,7 +16,6 @@ create table pupils
 --insert into pupils values (default, 'Александр', 'Александров', 11, 'alex@ukr.net');
 --insert into pupils values (default, 'Димочка', '', 3, 'dim@ukr.net');
 
-
 create table electives
 (
     id bigint auto_increment primary key,
