@@ -8,6 +8,15 @@ public class GenerateId {
     public static String generateIds(Object[] objects) {
         String id = UUID.randomUUID().toString();
 
+//        for (int i = 0; i < objects.length; i++) {
+//            if (objects[i] != null && id.equals(objects[i].getId())) {
+//                generateIds(objects);
+//            }
+//        }
+//        System.out.println("\nlistIds = " + id);
+//        return id;
+//        -------------------------------------------------------------
+
 //        for (Object object : objects) {
 //            if (object != null && object.getId().equals(id)) {
 //                return generateIds(objects);
