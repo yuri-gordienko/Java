@@ -22,7 +22,7 @@ import static ua.com.alevel.util.ExceptionUtil.*;
 @SpringBootTest // подключаем Спрингбуттест, чтоб тесты работали
 public class ProductCrudServiceTest {
 
-    @InjectMocks    // экземпляр класса, который тестируем
+    @InjectMocks    // создает экземпляр класса, который тестируем. @InjectMocks выполняет функцию как "new"
     private ProductCrudServiceImpl service; // подключаем, т.к. сама имплементация методов находится в этом классе
 
     @Mock   // помечаем класс-зависимость, без которой ProductCrudServiceImpl работать не будет
@@ -32,7 +32,7 @@ public class ProductCrudServiceTest {
     private CrudHelperService<Product, ProductRepository> crudHelperService; // тоже нужен, т.к. у класса
     // ProductCrudServiceImpl есть 2 зависимости
 
-    private Product product = new Product();
+    private Product product = new Product(); // искусственно создаем Продукт, для проверки работы тестов
 
     private static final String PRODUCT_NAME = "TestName";
 

@@ -3,9 +3,9 @@ package ua.com.alevel;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest // создается автоматически при генерации приложения через Springititializer)
+@SpringBootTest // корневой тест-класс, создается автоматически при генерации приложения через Springititializer
 public class PowerlaptopServerApplicationTest {
 
-    @Test
+    @Test   // тест - заглушка, проверка что тесты запускаются, точка входа в систему (як SpringBootApplication.run)
     void contextLoads() { }
 }
