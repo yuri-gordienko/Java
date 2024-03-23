@@ -21,8 +21,7 @@ public class ProductCrudServiceTest {
 
 
     @InjectMocks
-    private ProductCrudServiceImpl service;
-
+    private ProductCrudServiceImpl productCrudService;
     @Mock
     private ProductRepository productRepository;
 
@@ -33,7 +32,7 @@ public class ProductCrudServiceTest {
         product.setProductBrand(ProductBrandType.APPLE);
 
 //        when
-        service.create(product);
+        productCrudService.create(product);
 
 //        then
         verify(productRepository, times(1)).save(product);
