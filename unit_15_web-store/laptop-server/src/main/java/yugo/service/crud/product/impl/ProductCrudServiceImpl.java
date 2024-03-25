@@ -70,7 +70,7 @@ public class ProductCrudServiceImpl implements ProductCrudService {
                 ? Sort.by(request.getOrder()).descending() : Sort.by(request.getOrder()).ascending();
         Pageable pageable = PageRequest.of(request.getPage(), request.getSize(), sort);
         return productRepository.findAll(pageable);
-//      клас PageRequest приймає (int page, int size, Sort sort)
+//      класc PageRequest принимает (int page, int size, Sort sort)
     }
 
     public void isValidProduct(Product entity) {   // метод для проверки метода в соответствии с тестами
