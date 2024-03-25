@@ -1,0 +1,1 @@
+CREATE SCHEMA `powerlaptop` DEFAULT CHARACTER SET utf8 ;

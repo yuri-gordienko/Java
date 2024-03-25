@@ -52,18 +52,6 @@ insert into product_images values (21, 'https://lenovo-shop.s3.eu-central-1.amaz
 insert into product_images values (22, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/c5e/175/641c5e1757c3d645988637.jpg/NxN.jpeg', false);
 insert into product_images values (23, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/c5e/176/641c5e176b902570925951.jpg/NxN.jpeg', false);
 
-insert into product_images values (24, 'https://yellow.ua/media/catalog/product/cache/8/image/508x508/9df78eab33525d08d6e5fb8d27136e95/3/0/304090773_1.jpg', true);
-insert into product_images values (25, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f74/641332f740d7d039561402.jpg/NxN.jpeg', false);
-insert into product_images values (26, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f88/641332f88604f020649791.jpg/NxN.jpeg', false);
-insert into product_images values (27, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f74/641332f7409ee625838373.jpg/NxN.jpeg', false);
-insert into product_images values (28, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f7a/641332f7a219f227093253.jpg/NxN.jpeg', false);
-insert into product_images values (29, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f80/641332f80fab7677024633.jpg/NxN.jpeg', false);
-insert into product_images values (30, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f88/641332f88f0c4942610195.jpg/NxN.jpeg', false);
-insert into product_images values (31, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f8f/641332f8f3c04070169598.jpg/NxN.jpeg', false);
-insert into product_images values (32, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f8f/641332f8f1922061692406.jpg/NxN.jpeg', false);
-insert into product_images values (33, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f95/641332f958053530978117.jpg/NxN.jpeg', false);
-insert into product_images values (34, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f95/641332f956be4474088664.jpg/NxN.jpeg', false);
-
 insert into product_images values (35, 'https://content1.rozetka.com.ua/goods/images/big/325848891.jpg', true);
 insert into product_images values (36, 'https://content.rozetka.com.ua/goods/images/big/325848869.jpg', false);
 insert into product_images values (37, 'https://content1.rozetka.com.ua/goods/images/big/325848881.jpg', false);
@@ -95,6 +83,17 @@ insert into product_images values (59, 'https://content.rozetka.com.ua/goods/ima
 insert into product_images values (60, 'https://content1.rozetka.com.ua/goods/images/big/319231742.jpg', false);
 insert into product_images values (61, 'https://content.rozetka.com.ua/goods/images/big/319218575.jpg', false);
 insert into product_images values (62, 'https://content.rozetka.com.ua/goods/images/big/319218616.jpg', false);
+
+insert into product_images values (24, 'https://img.telemart.ua/468767-605054-product_popup/lenovo-thinkpad-p16-gen-1-21d6001jra-storm-grey.jpg', true);
+insert into product_images values (25, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f74/641332f740d7d039561402.jpg/NxN.jpeg', false);
+insert into product_images values (26, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f88/641332f88604f020649791.jpg/NxN.jpeg', false);
+insert into product_images values (28, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f7a/641332f7a219f227093253.jpg/NxN.jpeg', false);
+insert into product_images values (29, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f80/641332f80fab7677024633.jpg/NxN.jpeg', false);
+insert into product_images values (30, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f88/641332f88f0c4942610195.jpg/NxN.jpeg', false);
+insert into product_images values (31, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f8f/641332f8f3c04070169598.jpg/NxN.jpeg', false);
+insert into product_images values (32, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f8f/641332f8f1922061692406.jpg/NxN.jpeg', false);
+insert into product_images values (33, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f95/641332f958053530978117.jpg/NxN.jpeg', false);
+insert into product_images values (34, 'https://lenovo-shop.s3.eu-central-1.amazonaws.com/storage/app/uploads/public/641/332/f95/641332f956be4474088664.jpg/NxN.jpeg', false);
 
 insert into product_image values (1, 1);
 insert into product_image values (1, 2);
@@ -150,7 +149,6 @@ insert into product_image values (7, 23);
 insert into product_image values (8, 24);
 insert into product_image values (8, 25);
 insert into product_image values (8, 26);
-insert into product_image values (8, 27);
 insert into product_image values (8, 28);
 insert into product_image values (8, 29);
 insert into product_image values (8, 30);
