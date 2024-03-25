@@ -15,7 +15,6 @@
         <apache.commons.lang3.version>3.12.0</apache.commons.lang3.version>
         <commons.commons.collections4.version>4.4</commons.commons.collections4.version>
         <h2database.version>1.4.200</h2database.version>
-        <jsonwebtoken.version>0.11.5</jsonwebtoken.version>
     </properties>
 
     <dependencies>
@@ -34,6 +33,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2database.version}</version>
             <scope>test</scope>
         </dependency>
 
