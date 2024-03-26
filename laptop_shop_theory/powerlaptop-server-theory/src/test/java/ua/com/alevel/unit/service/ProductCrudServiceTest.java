@@ -17,6 +17,7 @@ import ua.com.alevel.service.crud.product.impl.ProductCrudServiceImpl;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
+
 import static ua.com.alevel.util.ExceptionUtil.*;
 
 @SpringBootTest // подключаем Спрингбуттест, чтоб тесты работали
@@ -62,10 +63,16 @@ public class ProductCrudServiceTest {
 
         // when
         Exception thrown = Assertions.assertThrows(FieldEmptyException.class, () -> service.create(product));
+        // Assertions(утверждение status = Status.STABLE).assertThrows(условия утверждения)
+        // -> (public interface Executable { void execute() throws Throwable } (что должно выполниться)
+        // При вызове метода create, если продукт пустой или частично пустой, то должен вылететь "Exception"
 
         // then
         assertThat(thrown).isInstanceOf(FieldEmptyException.class);
         assertThat(thrown.getMessage()).isEqualTo(PRODUCT_BRAND_IS_NOT_PRESENT);
+        // метод assertThat класса @CheckReturnValue - проверяет возвращаемые объекты
+        // isInstanceOf - должен быть именно тот "Exception", который мы указали в "when"
+        // getMessage()).isEqualTo - сообщение должно соответствовать "указанному сообщению"
     }
 
     @Test
@@ -86,8 +93,8 @@ public class ProductCrudServiceTest {
     @Test
     public void shouldBeUpdateProductWhenCrudHelperServiceWasCalled() {
         // given
-        product.setId(1L);
-        product.setName(PRODUCT_NAME);  // принудительно назначили, чтоб проверить как работает тест
+        product.setId(1L);  // принудительно назначили, чтоб проверить как работает тест
+        product.setName(PRODUCT_NAME);
         product.setProductBrand(ProductBrandType.HP);
 
         // when
@@ -158,15 +165,15 @@ public class ProductCrudServiceTest {
     @Test
     public void shouldBeFindByIdProductWhenIdIsCorrect() {
         // given
-        final Long id = 1L;
-        product.setId(id);
-        when(crudHelperService.findById(id, productRepository)).thenReturn(product); // ожидаем что будет вызван этот метод
+        final Long id = 1L; // эмуляция получения на вход id
+        product.setId(1L);  // создаем продукт с неким id
+        when(crudHelperService.findById(id, productRepository)).thenReturn(product); // эмуляция готового продукта с id
 
         // when
-        product = service.findById(id); // ожидаем что будет вызван этот метод
+        product = service.findById(id); // вызываем этот метод
 
         // then
-        assertEquals(product.getId(), id);  // ожидаем что полученный id полученного продукта будет совпадать с id который мы туда передали
+        assertEquals(id, product.getId());  // ожидаем что полученный id, будет совпадать с id продукта в БД
     }
 
     @Test

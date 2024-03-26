@@ -3,11 +3,11 @@ package ua.com.alevel.integration.facade;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
 import ua.com.alevel.data.datatable.DataTableRequest;
 import ua.com.alevel.data.datatable.DataTableResponse;
 import ua.com.alevel.data.dto.product.ProductDto;
 import ua.com.alevel.facade.crud.ProductCrudFacade;
-import ua.com.alevel.persistence.sql.entity.product.Product;
 import ua.com.alevel.persistence.sql.type.ProductBrandType;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,7 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 // пишется на уровне контроллера
 public class ProductCrudFacadeTest {
 
-    @Autowired  // включает интеграционные методы - эмулирует поведение программы
+    @Autowired  // включает интеграционные методы - эмулирует поведение программы (уже не Mock, которые тестируют конкретный метод)
     // фасад вызывает сервис, сервис вызывает репозиторий - вся цепочка вызовов
     private ProductCrudFacade productCrudFacade;    // подключаем тестируемый класс
 
