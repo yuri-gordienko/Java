@@ -21,6 +21,6 @@ public class AndersenMain {
 //        };
 //        t.start();
 
-//        new Thread(new Test3()).start();
+        new Thread(new Test3()).start();
     }
 }

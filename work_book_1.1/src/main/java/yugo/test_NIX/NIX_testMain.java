@@ -27,7 +27,7 @@ public class NIX_testMain {
 //        for (String element : vector) {
 //            System.out.println(element);
 //        }
-//
+
 //        ArrayList<Integer> numbers = new ArrayList<>();
 //        numbers.add(5);
 //        numbers.add(2);
@@ -35,7 +35,6 @@ public class NIX_testMain {
 //        numbers.add(1);
 //
 //        Collections.sort(numbers); // Сортировка в порядке возрастания
-//
 //        System.out.println(numbers); // Вывод отсортированного списка
 
 //        int x = 0, y = 10;
@@ -85,12 +84,15 @@ public class NIX_testMain {
 
 
 // 1----------------------------------------------------------------
-//        Person p1 = new Person("Jon", 22);
-//        NIX_testMain main = new NIX_testMain();
-//        Person p2 = main.change(p1);
-//
-//        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
-//        System.out.println(p1.pid + " " + p1.name + " " + p1.age);
+        Person p1 = new Person("Jon", 22);
+        System.out.println("Person p1 = " + p1);
+        NIX_testMain main = new NIX_testMain();
+        System.out.println("main = " + main);
+        Person p2 = main.change(p1);
+        System.out.println("p2.main.change(p1) = " + p2);
+
+        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
+        System.out.println(p1.pid + " " + p1.name + " " + p1.age);
 
 // 2--------------------------------------------
 //        try {
@@ -120,7 +122,7 @@ public class NIX_testMain {
 //        } catch (Exception ex) {
 //            System.out.println("B");
 //        } finally {
-//            System.out.println("C");
+//            System.out.println("finally block: C");
 //        }
 //        System.out.println("D");
 //        -------------------------------------
@@ -151,7 +153,6 @@ public class NIX_testMain {
 //        System.out.println(i + " " + n);
 
 
-
 //        int[] a = {1,2,3,4,5,6};
 //        int i = a.length -1;
 //        while (i >0) {
@@ -170,25 +171,27 @@ public class NIX_testMain {
 
     }
 
-
+//....................................................................................................
 
 
 //    1
-//    private Person change(Object o) {
-//        Person p2 = (Person) o;
-//        p2.age = 25;
-//        return p2;
-//    }
-//    static class Person{
-//        Person (String s, int i){
-//            ++ pid;
-//            name = s;
-//            age = i;
-//    }
-//    static int pid;
-//    int age;
-//    String name;
-//    }
+    private Person change(Object o) {
+        Person p2 = (Person) o;
+        p2.age = 25;
+        return p2;
+    }
+
+    static class Person{
+        static int pid;
+        int age;
+        String name;
+
+        Person (String s, int i) {
+            ++ pid;
+            name = s;
+            age = i;
+        }
+    }
 //    ---------------------------------------------------------
 
 //    2
@@ -208,6 +211,7 @@ public class NIX_testMain {
 //        public static void bm() {
 //        throw new RuntimeException();
 //        }
+//    ----------------------------------------------
 
 //    5
 //    int a = 10;
@@ -217,6 +221,7 @@ public class NIX_testMain {
 //        System.out.println(a);
 //    }
 //    ----------------------
+
 //     6
 //    int change(int x) {
 //        x = 12;
