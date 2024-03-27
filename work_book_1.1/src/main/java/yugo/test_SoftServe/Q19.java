@@ -1,6 +1,7 @@
 package yugo.test_SoftServe;
 
 public class Q19 {
+
     public static void main(String[] args) {
 
         A a = new B(" success");
