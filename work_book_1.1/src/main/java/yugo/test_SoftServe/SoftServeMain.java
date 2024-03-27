@@ -28,7 +28,6 @@ public class SoftServeMain {
 //    }
 
 
-
     public static void main(String[] args) {
 
 //        3
@@ -62,26 +61,26 @@ public class SoftServeMain {
 //        }
 
 //        14
-//        for (short i = 32766; i <= 32766; i = i + 1) {
+//        for (short i = 32765; i <= 32766; i = (short) (i + 1)) {
 //            System.out.println(i);
 //        }
 
 //        15
 //        int n = -1;
 //        while (++n < 5) {
-//            for (int i = 0; i < n -1; i++) {
+//            for (int i = 0; i < n - 1; i++) {
 //                System.out.println('*');
 //            }
-//            System.out.println();
+//            System.out.println("while is ended");
 //        }
 
 //        16
 //        int i;
-//        int sum = 1;
 //        for (int j = 1; j <=10 ; j++) {
 //            sum +=j;
 //        }
 //        System.out.println("sum " + sum);
+//        int sum = 1;
 
 //        21
 //        String str1 = "IT weekend";
@@ -101,19 +100,20 @@ public class SoftServeMain {
 //        List<Integer> s1 = new ArrayList<Integer>();
 //        s1.add(5);
 //        s1.add(8);
+//        s1.add(10);
 //        s1.add(1, 2);
-//        List<Integer> s2 = new ArrayList<Integer>(s1.subList(1, 2));
+//        List<Integer> s2 = new ArrayList<Integer>(s1.subList(1, 3));
 //        s1.addAll(s2);
 //        System.out.println(s1);
 
 //        31
-//        List<Integer> s1 = new ArrayList<Integer>();
-//        s1.add(5);
-//        s1.add(8);
-//        s1.add(1, 2);
-//        List<Integer> s2 = new ArrayList<Integer>(s1.subList(1, 1));
-//        s1.addAll(s2);
-//        System.out.println(s1);
+//        List<Integer> s3 = new ArrayList<Integer>();
+//        s3.add(5);
+//        s3.add(8);
+//        s3.add(1, 2);
+//        List<Integer> s4 = new ArrayList<Integer>(s3.subList(1, 1));
+//        s3.addAll(s4);
+//        System.out.println(s3);
 
 //        34
 //        List<Integer> list = Arrays.asList(10, 5, 1, 3, 7);
