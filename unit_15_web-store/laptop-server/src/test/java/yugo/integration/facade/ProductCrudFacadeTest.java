@@ -4,6 +4,8 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import yugo.data.datatable.DataTableRequest;
+import yugo.data.datatable.DataTableResponse;
 import yugo.data.dto.product.ProductDto;
 import yugo.facade.crud.ProductCrudFacade;
 import yugo.util.types_of_laptops.ProductBrandType;
@@ -19,13 +21,19 @@ public class ProductCrudFacadeTest {
     private ProductCrudFacade productCrudFacade;
 
     private static ProductDto productDto = new ProductDto();
+    private static DataTableRequest request = new DataTableRequest();
     private static final String PRODUCT_NAME = "MacBook";
+    private static final String PRODUCT_NAME_UPDATED = "MacBook Pro";
     private static final Long ID = 1L;
 
     @BeforeAll
     static void setUp() {
         productDto.setName(PRODUCT_NAME);
         productDto.setProductBrand(ProductBrandType.APPLE);
+        request.setPage(0);
+        request.setSize(10);
+        request.setSort("desc");
+        request.setOrder("id");
     }
 
     @Test
@@ -39,5 +47,34 @@ public class ProductCrudFacadeTest {
 
         // then
         assertThat(productDto.getId()).isEqualTo(ID);
+        assertThat(productDto.getName()).isEqualTo(PRODUCT_NAME);
+        assertThat(productDto.getProductBrand()).isEqualTo(ProductBrandType.APPLE);
+    }
+
+    @Test
+    @Order(2)
+    public void shouldBeUpdateProductWhenFieldsIsCorrect() {
+        // given
+        productDto.setName(PRODUCT_NAME_UPDATED);
+        productCrudFacade.update(ID, productDto);
+
+        // when
+        productDto = productCrudFacade.findById(ID);
+
+        // then
+        assertThat(productDto.getName()).isEqualTo(PRODUCT_NAME_UPDATED);
+    }
+
+    @Test
+    @Order(3)
+    public void shouldBeFindAllProducts() {
+        // given
+        productCrudFacade.create(productDto);
+
+        // when
+        DataTableResponse<ProductDto> response = productCrudFacade.findAll(request);
+        // then
+        assertThat(response.getTotalElements()).isEqualTo(2L);
+        assertThat(response.getTotalPages()).isEqualTo(1);
     }
 }

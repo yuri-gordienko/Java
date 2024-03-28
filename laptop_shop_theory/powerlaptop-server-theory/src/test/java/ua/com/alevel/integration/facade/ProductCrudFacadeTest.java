@@ -18,7 +18,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 // пишется на уровне контроллера
 public class ProductCrudFacadeTest {
 
-    @Autowired  // включает интеграционные методы - эмулирует поведение программы (уже не Mock, которые тестируют конкретный метод)
+    @Autowired  // создает экземпляр класса в Тестах, вместо конструктора
+    // включает интеграционные методы - эмулирует поведение программы (уже не Mock, которые тестируют конкретный метод)
     // фасад вызывает сервис, сервис вызывает репозиторий - вся цепочка вызовов
     private ProductCrudFacade productCrudFacade;    // подключаем тестируемый класс
 
@@ -78,7 +79,7 @@ public class ProductCrudFacadeTest {
         DataTableResponse<ProductDto> response = productCrudFacade.findAll(request);    // запрашиваем все продукты
 
         // then
-        // 2 раза создали продукт (в 2х предыдущих тестах), теперь проверили, что он действительно 2  раза создался)
+        // 2 раза создали продукт (в 2х предыдущих тестах), теперь проверили, что он действительно 2 раза создался)
         assertThat(response.getTotalElements()).isEqualTo(2L);
         assertThat(response.getTotalPages()).isEqualTo(1);  // проверяем что страница 1
     }
