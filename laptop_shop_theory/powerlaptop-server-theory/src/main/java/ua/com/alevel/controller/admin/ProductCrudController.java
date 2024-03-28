@@ -18,7 +18,7 @@ import ua.com.alevel.data.dto.product.ProductDto;
 import ua.com.alevel.data.response.DataContainer;
 import ua.com.alevel.facade.crud.ProductCrudFacade;
 
-@RestController //
+@RestController
 @RequestMapping("/api/admin/products")
 public class ProductCrudController {
 //    @RestController - тип класса (аннотируют классы), которые принимают http запросы, каждый отдельный контроллер

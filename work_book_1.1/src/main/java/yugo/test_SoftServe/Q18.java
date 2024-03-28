@@ -3,9 +3,11 @@ package yugo.test_SoftServe;
 public class Q18 {
 
     public static void main(String[] args) {
-       new Child();
-    }
 
+        new Child();
+//        new Child().show();
+//    }
+//
 //    static class Parent {
 //        void display() {
 //            System.out.println("Parent class");
@@ -16,8 +18,10 @@ public class Q18 {
 //        void show() {
 //            super.display(); // Using 'super' to refer to the parent class method
 //        }
-//    }
+
+    }
 //----------------------------
+
     static class Parent {
         Parent() {
             System.out.println("Parent class constructor");
@@ -30,4 +34,5 @@ public class Q18 {
             System.out.println("Child class constructor");
         }
     }
+
 }

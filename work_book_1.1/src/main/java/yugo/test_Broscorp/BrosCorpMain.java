@@ -1,6 +1,6 @@
 package yugo.test_Broscorp;
 
-public class BroscorpMain {
+public class BrosCorpMain {
 
     public static void main(String[] args) {
 
