@@ -14,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest // класс типа тест
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)   // важная аннотация, говорит что должна быть последовательность вызовов методов
-// в отличик от моков, где каждый метод может вызываться в любом порядке
+// в отличии от моков, где каждый метод может вызываться в любом порядке
 // пишется на уровне контроллера
 public class ProductCrudFacadeTest {
 
@@ -79,7 +79,7 @@ public class ProductCrudFacadeTest {
         DataTableResponse<ProductDto> response = productCrudFacade.findAll(request);    // запрашиваем все продукты
 
         // then
-        // 2 раза создали продукт (в 2х предыдущих тестах), теперь проверили, что он действительно 2 раза создался)
+        // 2 раза создали продукт (в 2х предыдущих тестах) теперь проверили, что он действительно 2 раза создался
         assertThat(response.getTotalElements()).isEqualTo(2L);
         assertThat(response.getTotalPages()).isEqualTo(1);  // проверяем что страница 1
     }
