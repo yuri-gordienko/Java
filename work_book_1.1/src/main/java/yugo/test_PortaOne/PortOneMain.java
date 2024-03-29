@@ -1,8 +1,8 @@
 package yugo.test_PortaOne;
 
-public class PortaOneMain {
+public class PortOneMain {
     public static void main(String[] args) {
-        System.out.println("PortaOneMain is running");
+        System.out.println("PortOneMain is running");
 
         FileReader fileReader = new FileReader();
         fileReader.initFile();
