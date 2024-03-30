@@ -13,10 +13,10 @@ public enum OsType {
     LINUX_RED_HAT("Red Hat Linux"),
     MAC_OS("Mac OS");
 
-    private final String string;
+    private final String stringType;
 
     OsType(String type) {
 
-        this.string = type;
+        this.stringType = type;
     }
 }
