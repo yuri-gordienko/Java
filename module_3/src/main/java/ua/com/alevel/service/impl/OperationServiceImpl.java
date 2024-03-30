@@ -32,9 +32,9 @@ public class OperationServiceImpl implements OperationService {
         }
 
         fromAccount.setBalance(fromAccount.getBalance().subtract(amount));
-        toAccount.setBalance(toAccount.getBalance().add(amount));
-
         accountService.update(fromAccountId, fromAccount);
+
+        toAccount.setBalance(toAccount.getBalance().add(amount));
         accountService.update(toAccountId, toAccount);
 
         DebitOperation debitOperation = new DebitOperation();
@@ -43,6 +43,8 @@ public class OperationServiceImpl implements OperationService {
         debitOperation.setSenderAccount(fromAccount);
         debitOperation.setRecipientAccount(toAccount);
         debitOperation.setCategory(Category.DEBIT);
+        toAccount.getDebitOperations().add(debitOperation);
+        accountService.update(toAccountId, toAccount);
 
         CreditOperation creditOperation = new CreditOperation();
         creditOperation.setOperationDate(new Date());
@@ -50,11 +52,7 @@ public class OperationServiceImpl implements OperationService {
         creditOperation.setSenderAccount(fromAccount);
         creditOperation.setRecipientAccount(toAccount);
         creditOperation.setCategory(Category.CREDIT);
-
         fromAccount.getCreditOperations().add(creditOperation);
-        toAccount.getDebitOperations().add(debitOperation);
-
         accountService.update(fromAccountId, fromAccount);
-        accountService.update(toAccountId, toAccount);
     }
 }

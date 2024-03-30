@@ -49,7 +49,7 @@ public class ProductPDPDto {
                     collect(Collectors.toSet());
         }
         if (CollectionUtils.isNotEmpty(productVariants)) {
-            this.osList = productVariants.stream().map(ProductVariant::getOs).map(OsType::getType).distinct().toList();
+            this.osList = productVariants.stream().map(ProductVariant::getOs).map(OsType::getStringType).distinct().toList();
             this.cpuList = productVariants.stream().map(ProductVariant::getCpu).distinct().toList();
             this.ramList = productVariants.stream().map(ProductVariant::getRam).distinct().toList();
             this.ssdList = productVariants.stream().map(ProductVariant::getSsd).distinct().toList();

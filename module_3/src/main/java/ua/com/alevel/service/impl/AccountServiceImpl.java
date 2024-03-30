@@ -78,11 +78,17 @@ public class AccountServiceImpl implements AccountService {
             CSVWriter csvWriter = new CSVWriter(writer);
             String[] header = {"Категорія", "Сума", "Дата", "Отримувач", "№ рахунку", "Відправник", "№ рахунку",};
             csvWriter.writeNext(header);
+
             List<Operation> operations = new ArrayList<>();
             operations.addAll(debitOperationRepository.findByRecipientAccountAndOperationDateBetween(account, fromDate, toDate));
             operations.addAll(creditOperationRepository.findBySenderAccountAndOperationDateBetween(account, fromDate, toDate));
             for (Operation operation : operations) {
-                String[] data = {operation.getCategory().toString(), operation.getAmount().toString(), operation.getOperationDate().toString(), operation.getRecipientAccount().getAccountName(), String.valueOf(operation.getRecipientAccount().getAccountNumber()), operation.getSenderAccount().getAccountName(), String.valueOf(operation.getSenderAccount().getAccountNumber())};
+                String[] data = {operation.getCategory().toString(),
+                        operation.getAmount().toString(),
+                        operation.getOperationDate().toString(),
+                        operation.getRecipientAccount().getAccountName(),
+                        String.valueOf(operation.getRecipientAccount().getAccountNumber()), operation.getSenderAccount().getAccountName(),
+                        String.valueOf(operation.getSenderAccount().getAccountNumber())};
                 csvWriter.writeNext(data);
             }
             csvWriter.close();
