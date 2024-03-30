@@ -2,12 +2,13 @@ package yugo.CRUD;
 
 import java.util.List;
 
+import static yugo.CRUD.GenerateId.generateIds;
+
 public class CRUDMain {
 
     public static void main(String[] args) {
 
         CRUDService crudService = new CRUDService();
-        GenerateId generateId = new GenerateId();
 
 
 //        create
@@ -41,7 +42,7 @@ public class CRUDMain {
         }
 
 //        generate List<String> listIds
-        generateId.generateIds(objects);
+        generateIds(objects);
 
 //        readById
         crudService.readById("1");
