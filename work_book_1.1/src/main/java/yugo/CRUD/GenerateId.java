@@ -11,9 +11,10 @@ public class GenerateId {
 //        for (int i = 0; i < objects.length; i++) {
 //            if (objects[i] != null && id.equals(objects[i].getId())) {
 //                generateIds(objects);
+//                System.out.println("id = " + i);
 //            }
 //        }
-//        System.out.println("\nlistIds = " + id);
+//        System.out.println("\n listIds = " + id);
 //        return id;
 //        -------------------------------------------------------------
 
@@ -22,18 +23,23 @@ public class GenerateId {
 //                return generateIds(objects);
 //            }
 //        }
-//        System.out.println("\nlistIds = " + id);
+//        System.out.println("\n listIds = " + id);
 //        return id;
 //        ------------------------------------------
 
 //        if (Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id))) {
 //            return generateIds(objects);
 //        }
-//        System.out.println("\nlistIds = " + id);
+//        System.out.println("\n listIds = " + id);
 //        return id;
 //        --------------------------------------------------
-        System.out.println("\nlistIds = " + id);
-        return Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id))
-                ? generateIds(objects) : id;
+//        System.out.println("\n listIds = " + id);
+//        return Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id))
+//                ? generateIds(objects) : id;
+//        ------------------------------------------------------------------------------
+        do {
+        } while (Arrays.stream(objects).anyMatch(object -> object != null && object.getId().equals(id)));
+        System.out.println("\nwhile() id = " + id);
+        return id;
     }
 }
