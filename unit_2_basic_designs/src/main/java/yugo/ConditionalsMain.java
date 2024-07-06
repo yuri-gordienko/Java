@@ -14,7 +14,7 @@ public class ConditionalsMain {
 //            return "You can't get a license";
 //        }
 
-        //    Умовний (тернарний) оператор
+        //    Умовний (ТЕРНАРНИЙ) оператор
         String message = (age >= 16) ? "You can get a license" : "You can't get a license";
         System.out.println(message);
         return message;
