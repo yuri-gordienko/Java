@@ -8,6 +8,17 @@ public class StudentService {
 
     private Student[] students = new Student[2];
 
+    int arrayGrowth;
+    private void addIndex() {                           // метод по увеличению массива при заполнении
+        if (arrayGrowth == students.length) {
+            Student[] addSt = new Student[(students.length + students.length)];
+            for (int i = 0; i < students.length; i++) {
+                addSt[i] = students[i];
+            }
+            students = addSt;
+        }
+    }
+
     public void create(Student student) {
         student.setId(generateId());
         addIndex();                                     // вызываю метод по увеличению массива при заполнении
@@ -18,17 +29,6 @@ public class StudentService {
             }
         }
         arrayGrowth++;
-    }
-
-    int arrayGrowth;
-    private void addIndex() {                           // метод по увеличению массива при заполнении
-        if (arrayGrowth == students.length) {
-            Student[] addSt = new Student[(students.length + students.length)];
-            for (int i = 0; i < students.length; i++) {
-                addSt[i] = students[i];
-            }
-            students = addSt;
-        }
     }
 
     private String generateId() {
