@@ -9,6 +9,7 @@ public class DicController {
     DicService dicService = new DicService();
 
     public void run() throws IOException {
+
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         Dictionary dic = new Dictionary();
