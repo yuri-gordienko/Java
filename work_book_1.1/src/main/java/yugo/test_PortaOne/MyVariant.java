@@ -13,12 +13,12 @@ public class MyVariant {
         double[] numbers3 = new double[]{medianNumberOdd(new int[]{-1, 23, -111, 48, 100, 0, -10, 88, 44})};
         double[] numbers4 = new double[]{medianNumberEven(new int[]{-1, 23, -111, 48, 100, 212, 0, -10, 88, 44})};
         double[] numbers5 = new double[]{averageNumber(new int[]{-1, 23, -111, 48, 100, 212, 0, -10, 88, 44})};
-        int[] numbers6 = findLongestIncreasingSequence(new int[]{-1, 23, -111, 48, 100, 212, 0, -10, 88, 44});
+        int[] numbers6 = findLongestIncreasingSequence(new int[]{-1, 23, -111, 48, 100, 212, 0, 1, 2, 3, 4, 5, 6, -10, 88, 44});
         int[] numbers7 = findLongestDecreasingSequence(new int[]{-1, 23, -111, 48, 100, 212, 0, -10, 88, 44});
     }
 
 
-//    max number
+//    min number
     private static int minNumber(int[] numbers) {
 
         if (numbers == null) {
@@ -149,6 +149,7 @@ public class MyVariant {
                     maxLength = currentLength;
                     startIndex = i - maxLength + 1;
                     System.out.println("i = " + i);
+                    System.out.println("maxLength = " + maxLength);
                 }
             } else {
                 currentLength = 1;
