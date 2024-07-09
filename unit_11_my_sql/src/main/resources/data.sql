@@ -16,7 +16,7 @@ delete from employees where id = 21;
 delete from employees where id in (10, 8);  -- конкретні дані (cases)
 --
 delete from employees where id = 1; -- якщо видаляємо працівника, то
-delete from dep_emp where id = 1; -- треба і видалити з реляційної таблиці
+delete from dep_emp where emp_id = 1; -- треба і видалити з реляційної таблиці
 --
 
 # read
