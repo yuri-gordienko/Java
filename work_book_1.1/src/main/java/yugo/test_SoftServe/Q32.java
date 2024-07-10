@@ -10,6 +10,7 @@ public class Q32 {
         lst.add(15);
         lst.add(7);
         lst.add(1, 3);
+        System.out.println("lst = " + lst);
         System.out.println(sum(lst));
     }
 
