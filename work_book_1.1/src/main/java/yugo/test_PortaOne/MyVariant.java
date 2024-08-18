@@ -41,7 +41,7 @@ public class MyVariant {
     }
 
 
-//    min number
+//    max number
     private static int maxNumber(int[] numbers2) {
 
         if (numbers2 == null) {
