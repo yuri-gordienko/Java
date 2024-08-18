@@ -1,4 +1,4 @@
-package yugo.test_Sha_java;
+package yugo.test_ShaPlusPlus_java;
 
 public class ShaMain {
 
@@ -11,7 +11,7 @@ public class ShaMain {
         System.out.println("sameNumbers = " + sameNumbers);
 
         int divideWhen = getDivideWhen(20, 3, 10);
-        System.out.println("divideWhen = " + divideWhen);
+        System.out.println("divideTill = " + divideWhen);
 
         int numberBetweenZero = getNumberBetweenZero(new int[]{1, 0, 0, 3, 0}, 4);
         System.out.println("numberBetweenZero = " + numberBetweenZero);
@@ -55,7 +55,7 @@ public class ShaMain {
 
     public static int getNumberBetweenZero(int[] array, int a) {
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < a; i++) {
             if (array[i] == 0 && array[i + 2] == 0) {
                 return i + 1;
             }
