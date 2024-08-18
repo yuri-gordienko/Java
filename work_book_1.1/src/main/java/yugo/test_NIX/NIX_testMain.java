@@ -37,7 +37,7 @@ public class NIX_testMain {
 //        Collections.sort(numbers); // Сортировка в порядке возрастания
 //        System.out.println(numbers); // Вывод отсортированного списка
 
-//        int x = 0, y = 10;
+//        int x = 2, y = 10;
 //        try {
 //            y /= x;
 //        }
@@ -60,7 +60,7 @@ public class NIX_testMain {
 //
 //        System.out.println(r1);
 //        System.out.println(r2);
-
+//
 //        String s = "Java";
 //        s.concat(" SE 6");
 //        s.replace('6', '7');
@@ -84,15 +84,15 @@ public class NIX_testMain {
 
 
 // 1----------------------------------------------------------------
-        Person p1 = new Person("Jon", 22);
-        System.out.println("Person p1 = " + p1);
-        NIX_testMain main = new NIX_testMain();
-        System.out.println("main = " + main);
-        Person p2 = main.change(p1);
-        System.out.println("p2.main.change(p1) = " + p2);
-
-        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
-        System.out.println(p1.pid + " " + p1.name + " " + p1.age);
+//        Person p1 = new Person("Jon", 22);
+//        System.out.println("Person p1 = " + p1);
+//        NIX_testMain main = new NIX_testMain();
+//        System.out.println("main = " + main);
+//        Person p2 = main.change(p1);
+//        System.out.println("p2.main.change(p1) = " + p2);
+//
+//        System.out.println(p2.pid + " " + p2.name + " " + p2.age);
+//        System.out.println(p1.pid + " " + p1.name + " " + p1.age);
 
 // 2--------------------------------------------
 //        try {
@@ -101,11 +101,10 @@ public class NIX_testMain {
 //        } catch (Exception re) {
 //            System.out.println("caught");
 //        } finally {
-//            System.out.println("finaly");
+//            System.out.println("finally");
 //        }
 //        System.out.println("after");
 
-//
 //  -----------------------------------------
 
 //        try {
@@ -155,7 +154,7 @@ public class NIX_testMain {
 
 //        int[] a = {1,2,3,4,5,6};
 //        int i = a.length -1;
-//        while (i >0) {
+//        while (i > 0) {
 //            System.out.println(a[i]);
 //            i--;
 //        }
@@ -175,23 +174,23 @@ public class NIX_testMain {
 
 
 //    1
-    private Person change(Object o) {
-        Person p2 = (Person) o;
-        p2.age = 25;
-        return p2;
-    }
-
-    static class Person{
-        static int pid;
-        int age;
-        String name;
-
-        Person (String s, int i) {
-            ++ pid;
-            name = s;
-            age = i;
-        }
-    }
+//    private Person change(Object o) {
+//        Person p2 = (Person) o;
+//        p2.age = 25;
+//        return p2;
+//    }
+//
+//    static class Person{
+//        static int pid;
+//        int age;
+//        String name;
+//
+//        Person (String s, int i) {
+//            ++ pid;
+//            name = s;
+//            age = i;
+//        }
+//    }
 //    ---------------------------------------------------------
 
 //    2
