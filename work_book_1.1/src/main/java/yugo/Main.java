@@ -4,9 +4,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Hello again !!! ");
-        int a = 5, b = 3;
-        System.out.println("a = " + a + b);
+//        int n = 5; // Розмір масиву
+//        int index = 0;
+//
+//        for (int i = 0; i < 10; i++) {
+//            index = i % n;
+//            System.out.println("Index: " + index);
+//        }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
