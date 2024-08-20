@@ -5,11 +5,11 @@ public class ExceptionsCheckTest {
     public void test() {
 
 //        unhandledError(10, 0);
-        handledError(10, 0);
+//        handledError(10, 0);
 //        throwNewRuntimeException(10, 0);
 //        throwException(10, 2);
 //        tryCatch(10, 0);
-//        tryCatch2(10, 0);
+        tryCatch2(10, 0);
     }
 
     private void unhandledError(int a, int b) {
