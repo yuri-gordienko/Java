@@ -61,7 +61,7 @@ public class SoftServeMain {
 //        }
 
 //        14
-//        for (short i = 32765; i <= 32766; i = (short) (i + 1)) {
+//        for (short i = 32766; i <= 32767; ++i) {
 //            System.out.println(i);
 //        }
 
@@ -71,16 +71,18 @@ public class SoftServeMain {
 //            for (int i = 0; i < n - 1; i++) {
 //                System.out.println('*');
 //            }
-//            System.out.println("while is ended");
+//            System.out.println(" ");
 //        }
 
 //        16
 //        int i;
-//        for (int j = 1; j <=10 ; j++) {
-//            sum +=j;
+//        int sum = 1;
+//
+//        for (i = 1; i <=10 ; i++) {
+//            sum += i;
+////            System.out.println("sum = " + sum);
 //        }
 //        System.out.println("sum " + sum);
-//        int sum = 1;
 
 //        21
 //        String str1 = "IT weekend";
@@ -100,9 +102,9 @@ public class SoftServeMain {
 //        List<Integer> s1 = new ArrayList<Integer>();
 //        s1.add(5);
 //        s1.add(8);
-//        s1.add(10);
+////        s1.add(10);
 //        s1.add(1, 2);
-//        List<Integer> s2 = new ArrayList<Integer>(s1.subList(1, 3));
+//        List<Integer> s2 = new ArrayList<Integer>(s1.subList(1, 2));
 //        s1.addAll(s2);
 //        System.out.println(s1);
 

@@ -4,9 +4,9 @@ public class Q18 {
 
     public static void main(String[] args) {
 
-        new Child();
 //        new Child().show();
-//    }
+        new Child();
+    }
 //
 //    static class Parent {
 //        void display() {
@@ -18,8 +18,8 @@ public class Q18 {
 //        void show() {
 //            super.display(); // Using 'super' to refer to the parent class method
 //        }
-
-    }
+//
+//    }
 //----------------------------
 
     static class Parent {

@@ -1,6 +1,7 @@
 package yugo.test_SoftServe;
 
 class Test {
+
     private int field;
 
     static {

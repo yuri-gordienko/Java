@@ -9,7 +9,7 @@ public class Q32 {
         List<Integer> lst = new ArrayList<>();
         lst.add(15);
         lst.add(7);
-        lst.add(1, 3);
+        lst.add (1, 3);
         System.out.println("lst = " + lst);
         System.out.println(sum(lst));
     }
@@ -17,7 +17,7 @@ public class Q32 {
     static int sum(List<Integer> list) {
         int sum = 0;
         for (Integer l : list) {
-            sum += l;
+            sum = l;
         }
         return sum;
     }

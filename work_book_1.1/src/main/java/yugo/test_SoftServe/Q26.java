@@ -6,4 +6,5 @@ class Q26 {
 }
 
 class MyException extends Exception { }
+
 class MyRuntimeException extends RuntimeException { }

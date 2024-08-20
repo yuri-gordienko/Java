@@ -1,7 +1,9 @@
 package yugo.test_SoftServe;
 
 public class Q12 {
+
     public static void main(String[] args) {
+
         System.out.println(Season.SPRING);
     }
 
@@ -10,7 +12,7 @@ public class Q12 {
 //        public static String SPRING,
 //        public static String SUMMER,
 //        public static String FALL
-//    }
+//    };
 
     enum Season {
         WINTER,
