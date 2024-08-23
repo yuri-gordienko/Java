@@ -3,7 +3,7 @@ package yugo.test_Epam;
 public class EPAM_Main {
 
 //    8
-//    static int[] a;
+    static int[] a;
 
 
 
@@ -50,6 +50,8 @@ public class EPAM_Main {
 //        int result = 0;
 //        for (int i = 5; i > 2; ++i, i = i - 2) {
 //            result += i;
+////            System.out.println("i = " + i);
+////            System.out.println("result = " + result);
 //            System.out.print("A");
 //        }
 //        System.out.print(result);

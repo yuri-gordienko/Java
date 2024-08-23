@@ -3,6 +3,7 @@ package yugo.test_Epam;
 public class Q17_A {
 
     protected Number getValue() {
+
         return 1;
     }
 
@@ -14,6 +15,7 @@ public class Q17_A {
 
 class B extends Q17_A {
     public Integer getValue() {
+
         return 2;
     }
 }

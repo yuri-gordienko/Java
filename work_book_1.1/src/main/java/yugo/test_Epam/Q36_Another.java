@@ -12,8 +12,8 @@ public class Q36_Another {
         map.put(Type.FOUR, 1);
         map.put(Type.ZERO, 3);
 
-        for (Type k : map.keySet()) {
-            System.out.print(k.ordinal() + " ");
+        for (Type i : map.keySet()) {
+            System.out.print(i.ordinal() + " ");
         }
         System.out.println(map.values());
     }
