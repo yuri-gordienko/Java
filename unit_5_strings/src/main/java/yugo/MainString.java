@@ -12,19 +12,19 @@ public class MainString {
 
     public static void main(String[] args) throws InterruptedException {
 
-        String string = "word1 word2 word3 word4";
-        System.out.println("s3 = " + string);
-        String[] s1 = string.split(" ");
-        for (String s : s1) {
-            System.out.println("s = " + s);
-        }
-
-        String newS = "";
-        for (String s2 : s1) {
-            newS = newS.concat(" ");
-            newS = newS.concat(s2);
-        }
-        System.out.println("newS = " + newS);
+//        String string = "word1 word2 word3 word4";
+//        System.out.println("s3 = " + string);
+//        String[] s1 = string.split(" ");
+//        for (String s : s1) {
+//            System.out.println("s = " + s);
+//        }
+//
+//        String newS = "";
+//        for (String s2 : s1) {
+//            newS = newS.concat(" ");
+//            newS = newS.concat(s2);
+//        }
+//        System.out.println("newS = " + newS);
 
 //        Student student1 = new Student("Roman", "Romanov");
 //        System.out.println("student1 = " + student1);
