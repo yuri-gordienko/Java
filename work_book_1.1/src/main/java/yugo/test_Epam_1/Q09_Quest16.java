@@ -1,4 +1,4 @@
-package yugo.test_Epam;
+package yugo.test_Epam_1;
 
 public class Q09_Quest16 {      // 9
 
@@ -6,7 +6,7 @@ public class Q09_Quest16 {      // 9
 
     public void Q09_Quest16(int var) {  // line2
         this.var = var;
-//        System.out.println("var Quest16 = " + var);
+        System.out.println("var Quest16 = " + var);
     }
 
     public static void main(String[] args) {

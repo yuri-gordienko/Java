@@ -1,6 +1,6 @@
-package yugo.test_Epam;
+package yugo.test_Epam_1;
 
-public class EPAM_Main {
+public class EPAM_Main_1 {
 
 //    8
     static int[] a;

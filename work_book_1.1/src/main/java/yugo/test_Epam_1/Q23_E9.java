@@ -1,4 +1,4 @@
-package yugo.test_Epam;
+package yugo.test_Epam_1;
 
 public class Q23_E9 {
 
